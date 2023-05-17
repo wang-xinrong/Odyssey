@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Changes the value of certain boolean variable when entering or exiting
+// a animation state/state machine.
 public class SetBoolBehaviour : StateMachineBehaviour
 {
     public string BoolName;

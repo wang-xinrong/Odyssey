@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]//, typeof(Damageable))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Damageable))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rb;
     private Vector2 _moveInput;
     private Vector2 _directionFacing;
+    private Damageable _damageable;
 
     public float CurrentMoveSpeed {  get
         {
@@ -25,16 +26,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool IsHurt
+    {
+        get
+        {
+            return Animator.GetBool(AnimatorStrings.IsHurt);
+        }
+        private set
+        {
+            Animator.SetBool(AnimatorStrings.IsHurt, value);
+        }
+    }
 
     private void Awake()
     {
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
+        _damageable = GetComponent<Damageable>();
     }
 
     private void FixedUpdate()
     {
-        // player can only move if he is not hit
+        // if hurt, movement update by input should be disabled
+        // and only the knockback from the hit should be moving
+        // the character
+        if (!IsHurt)
+        {
+            // player can only move if he is not hit
             Animator.SetBool(AnimatorStrings.IsWalking, _moveInput != Vector2.zero);
 
             // the ChangeAnimationDirection call is temporarily introduced here to
@@ -48,6 +66,7 @@ public class PlayerController : MonoBehaviour
             ChangeAnimationDirection(_moveInput);
 
             Rb.velocity = _moveInput * CurrentMoveSpeed;
+        }
     }
     
     public void OnMove(InputAction.CallbackContext context)
@@ -87,9 +106,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnHit(int damage, Vector2 knockBack)
+    public void OnHurt(int damage, Vector2 knockBack)
     {
-        Rb.velocity = new Vector2(knockBack.x, knockBack.y);
+        Rb.velocity = new Vector2(knockBack.x, Rb.velocity.y + knockBack.y);
     }
 
 }

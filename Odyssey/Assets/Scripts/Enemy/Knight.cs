@@ -3,14 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// controller of a Enemy Knight
 [RequireComponent(typeof(Rigidbody2D),typeof(TouchingDirections))]
 public class Knight : MonoBehaviour
 {
-    public float WalkSpeed = 3f;    
-
-    /*
-    // an alternative way of controlling the knight movement
+    // a way of controlling the knight movement
     public float WalkSpeed
     {
         get
@@ -25,7 +22,7 @@ public class Knight : MonoBehaviour
             }
         }
     }
-    */
+    
 
     Rigidbody2D Rb;
 
@@ -106,15 +103,17 @@ public class Knight : MonoBehaviour
         {
             FlipDirection();
         }
+        /*
+        // used to create a sliding to stop motion
         if (!CanMove)
         {
             Rb.velocity = new Vector2(Mathf.Lerp(WalkSpeed, 0, WalkStopRate) * walkDirectionVector.x
                 , Rb.velocity.y);
         } else
         {
+        */
             Rb.velocity = new Vector2(WalkSpeed* walkDirectionVector.x
                 , Rb.velocity.y);
-        }
     }
 
     private void FlipDirection()

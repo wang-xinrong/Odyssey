@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// determines and records wall collision and its direction
 public class TouchingDirections : MonoBehaviour
 {
     public Rigidbody2D Rb;
@@ -16,7 +17,9 @@ public class TouchingDirections : MonoBehaviour
     private bool _isOnWall;
 
     // check the DirectionFacing, need to be updated to include the up and down directions later
-    public Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+    public Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0
+                                                                           ? Vector2.right
+                                                                           : Vector2.left;
 
     public bool IsOnWall
     {

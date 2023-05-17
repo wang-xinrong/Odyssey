@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Wall
+  - Player
+  - Enemy
+  - PlayerHitBox
+  - EnemyHitBox
   - 
   - 
   - 
@@ -38,9 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Ground
     uniqueID: 3747895285
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Player&Enemies
+    uniqueID: 2847418709
     locked: 0

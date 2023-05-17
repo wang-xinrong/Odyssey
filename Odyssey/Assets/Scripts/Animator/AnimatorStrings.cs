@@ -14,5 +14,6 @@ public class AnimatorStrings : MonoBehaviour
     public static string CanMove = "CanMove";
     public static string IsWalking = "IsWalking";
     public static string AttackTrigger = "AttackTrigger";
+    public static string HasTarget = "HasTarget";
 
 }

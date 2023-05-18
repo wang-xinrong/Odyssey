@@ -19,13 +19,18 @@ public class HealthText : MonoBehaviour
 
     private RectTransform _textTransform;
 
+    public void ResetColour()
+    {
+        Debug.Log(_startColour);
+        _textMeshPro.color = _startColour;
+    }
+
     private void Awake()
     {
         _textTransform = GetComponent<RectTransform>();
         _textMeshPro = GetComponent<TextMeshProUGUI>();
         _startColour = _textMeshPro.color;
     }
-
 
     // Start is called before the first frame update
     void Start()

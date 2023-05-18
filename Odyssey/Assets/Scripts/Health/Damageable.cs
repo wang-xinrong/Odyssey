@@ -91,6 +91,10 @@ public class Damageable : MonoBehaviour
             // as parameters. The question mark here makes sure only
             // a non-null object will be calling the method
             DamageableHit?.Invoke(damage, knockback);
+            // everything subscribing to the CharacterHurt event
+            // will be notified with the information of gameObject
+            // and damage
+            CharacterEvents.CharacterHurt.Invoke(gameObject, damage);
         }
     }
 

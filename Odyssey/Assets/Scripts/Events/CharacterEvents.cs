@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class CharacterEvents : MonoBehaviour
 {
     // character hurt and amount of damage
-    public static UnityEvent<GameObject, int> CharacterHurt;
+    public static UnityAction<GameObject, int> CharacterHurt;
     // character healed and amount healed
-    public static UnityEvent<GameObject, int> CharacterHeal;
+    public static UnityAction<GameObject, int> CharacterHeal;
 
 
 

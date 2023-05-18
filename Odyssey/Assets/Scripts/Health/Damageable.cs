@@ -78,13 +78,14 @@ public class Damageable : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Hurt(int damage, Vector2 knockback)
+    public void OnHurt(int damage, Vector2 knockback)
     {
         if (IsAlive && !_isInvincible)
         {
             Health -= damage;
             _isInvincible = true;
             IsHurt = true;
+            _animator.SetTrigger(AnimatorStrings.HurtTrigger);
             // any function that is subscribed to this Unity event
             // is going to invoke the method with damage and knockback
             // as parameters. The question mark here makes sure only

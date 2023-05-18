@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*
     public bool IsHurt
     {
         get
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
             Animator.SetBool(AnimatorStrings.IsHurt, value);
         }
     }
+    */
 
     private void Awake()
     {
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour
         // if hurt, movement update by input should be disabled
         // and only the knockback from the hit should be moving
         // the character
-        if (!IsHurt)
+        if (!_damageable.IsHurt)
         {
             // player can only move if he is not hit
             Animator.SetBool(AnimatorStrings.IsWalking, _moveInput != Vector2.zero);
@@ -99,16 +101,16 @@ public class PlayerController : MonoBehaviour
             Animator.SetTrigger(AnimatorStrings.AttackTrigger);
         }
     }
-
+    
     public bool CanMove { get
         {
             return Animator.GetBool(AnimatorStrings.CanMove);
         }
     }
 
-    public void OnHurt(int damage, Vector2 knockBack)
+    public void OnHurt(int damage, Vector2 knockback)
     {
-        Rb.velocity = new Vector2(knockBack.x, Rb.velocity.y + knockBack.y);
+        Rb.velocity = new Vector2(knockback.x, knockback.y);
     }
 
 }

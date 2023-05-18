@@ -14,8 +14,15 @@ public class Attack : MonoBehaviour
 
         if (damageable != null)
         {
-            // hit the target
-            damageable.Hurt(AttackDamage, KnockBack);
+            // hit the target, with a knockback in the direction
+            // the damage dealer is facing
+            damageable.OnHurt(AttackDamage
+                           , new Vector2(KnockBack.x * gameObject.transform
+                                                           .parent.transform
+                                                           .localScale.x
+                                 , KnockBack.y * gameObject
+                                     .transform.parent
+                                     .transform.localScale.y));
         }
     }
 }

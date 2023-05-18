@@ -4,26 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // controller of a Enemy Knight
-[RequireComponent(typeof(Rigidbody2D),typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D),typeof(TouchingDirections), typeof(Damageable))]
 public class Knight : MonoBehaviour
 {
-    // a way of controlling the knight movement
-    public float WalkSpeed
-    {
-        get
-        {
-            if (CanMove)
-            {
-                return 3f;
-            }
-            else
-            {
-                return 0f;
-            }
-        }
-    }
-    
-
     Rigidbody2D Rb;
 
     private TouchingDirections _touchingDirections;
@@ -39,6 +22,37 @@ public class Knight : MonoBehaviour
     private Animator _animator;
 
     public float WalkStopRate = 0.05f;
+
+    private Damageable _damageable;
+
+    [SerializeField]
+    public float AttackCooldown
+    {
+        get
+        {
+            return _animator.GetFloat(AnimatorStrings.AttackCooldown);
+        }
+        private set
+        {
+            _animator.SetFloat(AnimatorStrings.AttackCooldown, Mathf.Max(0, value));
+        }
+    }
+
+    // a way of controlling the knight movement
+    public float WalkSpeed
+    {
+        get
+        {
+            if (CanMove)
+            {
+                return 3f;
+            }
+            else
+            {
+                return 0f;
+            }
+        }
+    }
 
     public WalkableDirection WalkDirection
     {
@@ -90,11 +104,16 @@ public class Knight : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         _touchingDirections = GetComponent<TouchingDirections>();
         _animator = GetComponent<Animator>();
+        _damageable = GetComponent<Damageable>();
     }
 
     private void Update()
     {
         HasTarget = AttackZone.DetectedColliders.Count > 0;
+        if (AttackCooldown > 0)
+        {
+            AttackCooldown -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -112,8 +131,14 @@ public class Knight : MonoBehaviour
         } else
         {
         */
-            Rb.velocity = new Vector2(WalkSpeed* walkDirectionVector.x
+
+        // the knight should not move other than the knockback effect
+        // when he is hurt
+        if (!_damageable.IsHurt)
+        {
+            Rb.velocity = new Vector2(WalkSpeed * walkDirectionVector.x
                 , Rb.velocity.y);
+        }
     }
 
     private void FlipDirection()
@@ -128,5 +153,10 @@ public class Knight : MonoBehaviour
         {
             Debug.LogError("The current WalkDirection is not set to legal values defined in WalkableDirections");
         }
+    }
+
+    public void OnHurt(int damage, Vector2 knockback)
+    {
+        Rb.velocity = new Vector2(knockback.x, knockback.y);
     }
 }

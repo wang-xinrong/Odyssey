@@ -160,6 +160,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 4112869042045346580}
   - {fileID: 2657997808497820917}
+  - {fileID: -311537631006047986}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -571,6 +572,23 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 660, y: 130, z: 0}
   m_ParentStateMachinePosition: {x: 370, y: 20, z: 0}
   m_DefaultState: {fileID: -2347482284815153419}
+--- !u!114 &-311537631006047986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3887e0f276f284369a4083f11e1ca71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoolName: IsHurt
+  UpdateOnState: 1
+  UpdateOnStateMachine: 0
+  ValueOnEnter: 0
+  ValueOnExit: 0
 --- !u!1109 &-289468903906033762
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -599,49 +617,49 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MoveYInput
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsWalking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: CanMove
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: AttackTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsAlive
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsHurt
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: HurtTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -973,19 +991,19 @@ AnimatorStateMachine:
   - {fileID: 2631844112176751028}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -8469166755789747289}
-    second:
-    - {fileID: 2678691221009193265}
   - first: {fileID: -6267437345593911281}
     second:
     - {fileID: -2268382351409254228}
   - first: {fileID: -351599617424394189}
     second:
     - {fileID: -289468903906033762}
+  - first: {fileID: -8469166755789747289}
+    second:
+    - {fileID: 2678691221009193265}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: -30, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 770, y: 130, z: 0}
+  m_ExitPosition: {x: 580, y: 140, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -488908579455747695}
 --- !u!114 &7770364071543219646

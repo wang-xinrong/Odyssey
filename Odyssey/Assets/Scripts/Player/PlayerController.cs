@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Animator Animator;
     public Rigidbody2D Rb;
     private Vector2 _moveInput;
-    private Vector2 _directionFacing;
+    public Vector2 _directionFacing;
     private Damageable _damageable;
 
     public float CurrentMoveSpeed {  get
@@ -87,8 +87,10 @@ public class PlayerController : MonoBehaviour
         {
             Animator.SetFloat(AnimatorStrings.MoveXInput, moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, moveInput.y);
-            
-            _directionFacing.y = moveInput.y;
+            _directionFacing.y = moveInput.y > 0 ? 1
+                                                 : moveInput.y < 0
+                                                 ? -1
+                                                 : 0;
             _directionFacing.x = moveInput.y == 0 ? moveInput.x : 0;
         }
     }
@@ -113,4 +115,8 @@ public class PlayerController : MonoBehaviour
         Rb.velocity = new Vector2(knockback.x, knockback.y);
     }
 
+    public Vector2 GetDirectionFacing()
+    {
+        return _directionFacing;
+    }
 }

@@ -98,6 +98,32 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    // return true if the character can be healed,
+    // that is he is not dead or at max health
+    public bool OnHeal(int healingAmount)
+    {
+        if (IsAlive)
+        {
+            int healthLost = MaxHealth - Health;
+            if (healthLost > 0)
+            {
+                // not allowed to heal beyond max health
+                Health = Mathf.Min(MaxHealth, Health + healingAmount);
+
+                // report actual heal amount
+                CharacterEvents.CharacterHeal(gameObject
+                    , Mathf.Min(healingAmount, healthLost));
+                return true;
+            } else
+            {
+                // at max health
+                return false;
+            }
+        }
+        // dead
+        return false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

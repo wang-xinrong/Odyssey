@@ -5,8 +5,17 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject DamageText;
-    public GameObject HealthText;
+    public GameObject DamageTextPrefab;
+    public GameObject HealthTextPrefab;
+
+    public Canvas GameCanvas;
+
+    private void Awake()
+    {
+        // should work as long as there is only one
+        // canvas that is currently active
+        GameCanvas = FindObjectOfType<Canvas>();
+    }
 
     private void OnEnable()
     {
@@ -26,8 +35,13 @@ public class UIManager : MonoBehaviour
     {
         // set the position of the DamageText to be where
         // the character was hit
-        Vector3 _enablePosition = Camera.main.WorldToScreenPoint(character.transform.position);
+        Vector3 _spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
 
+        TMP_Text _tmpText = Instantiate(DamageTextPrefab, _spawnPosition
+                                , Quaternion.identity, GameCanvas.transform)
+                                .GetComponent<TMP_Text>();
+
+        /*
         // object pooling wo uld most likely be needed here,
         // since there can be multiple damage source the
         // player is receiving at a time.
@@ -40,19 +54,19 @@ public class UIManager : MonoBehaviour
             , _healthText.color.b, 1);
         DamageText.SetActive(true);
         Debug.Log("active");
+        */
+        _tmpText.text = damageReceived.ToString();
     }
 
     public void CharacterHealed(GameObject character, int healthRestored)
     {
-        // set the position of the HealthText to be where
-        // the character was hit
-        Vector3 _enablePosition = Camera.main.WorldToScreenPoint(character.transform.position);
-        // object pooling would most likely be needed here,
-        // since there can be multiple damage source the
-        // player is receiving at a time.
-        DamageText.transform.position = _enablePosition;
-        DamageText.GetComponent<TMP_Text>().text = healthRestored.ToString();
-        HealthText.SetActive(true);
+        Vector3 _spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
+
+        TMP_Text _tmpText = Instantiate(HealthTextPrefab, _spawnPosition
+                                , Quaternion.identity, GameCanvas.transform)
+                                .GetComponent<TMP_Text>();
+
+        _tmpText.text = healthRestored.ToString();
     }
 
 

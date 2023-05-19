@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDamage: 10
+  KnockBack: {x: 7, y: 0}
 --- !u!1 &2739642744016314513
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2517358, y: -0.17831242}
+  m_Offset: {x: -0.44643378, y: -0.17831242}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -136,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4615138, y: 0.9370661}
+  m_Size: {x: 1.0721178, y: 0.9370661}
   m_EdgeRadius: 0
 --- !u!114 &5302555678984744948
 MonoBehaviour:
@@ -167,6 +168,7 @@ GameObject:
   - component: {fileID: 4926859984231567719}
   - component: {fileID: 4926859984231567718}
   - component: {fileID: 4926859984231567704}
+  - component: {fileID: 1240174595}
   m_Layer: 9
   m_Name: KnightEnemy
   m_TagString: Untagged
@@ -358,3 +360,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DetectedColliders: []
+--- !u!114 &1240174595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212770254048864312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c1bc38722c1451e947f4092cd295f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageableHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4926859984231567719}
+        m_TargetAssemblyTypeName: Knight, Assembly-CSharp
+        m_MethodName: OnHurt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _isInvincible: 0
+  _maxHealth: 100
+  _health: 80
+  _isAlive: 1
+  InvincibleTime: 0.25

@@ -51,7 +51,10 @@ public class HealthText : MonoBehaviour
                                          , _startColour.b, _fadeAlpha);
         } else
         {
-            gameObject.SetActive(false);
+            // can look into how to change this implementation
+            // into one that uses object pooling
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

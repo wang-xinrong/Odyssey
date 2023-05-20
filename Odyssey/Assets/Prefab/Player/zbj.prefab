@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 1991739702}
   m_Layer: 8
   m_Name: zbj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,9 +457,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  HealthUpdated:
+    m_PersistentCalls:
+      m_Calls: []
   _isInvincible: 0
   _maxHealth: 100
-  _health: 20
+  _health: 100
   _isAlive: 1
   InvincibleTime: 0.25
 --- !u!114 &1991739702
@@ -474,7 +477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f86f8fd9285f453e9df50515a5b2d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 3957113067568804074, guid: fe27306306fcc4310966252e0cd9b543, type: 3}
+  ProjectilePrefabs:
+  - {fileID: 3957113067568804074, guid: fe27306306fcc4310966252e0cd9b543, type: 3}
+  - {fileID: 3957113067568804074, guid: 80b3b2c832af44b198512af3fc8ab3a7, type: 3}
   LaunchPoints:
   - {fileID: 690217375}
   - {fileID: 1746337816}

@@ -9,6 +9,8 @@ public class Damageable : MonoBehaviour
 {
     private Animator _animator;
     public UnityEvent<int, Vector2> DamageableHit;
+    public UnityEvent<int, int> HealthUpdated;
+
     [SerializeField]
     private bool _isInvincible = false;
 
@@ -47,6 +49,7 @@ public class Damageable : MonoBehaviour
         set
         {
             _health = value;
+            HealthUpdated?.Invoke(_health, _maxHealth);
 
             if (_health <= 0)
             {

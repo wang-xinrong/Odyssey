@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    public GameObject ProjectilePrefab;
+    public GameObject[] ProjectilePrefabs = new GameObject[2];
     private Vector2 _directionFacing;
     public static Vector2[] Directions = new Vector2[4] { Vector2.up
         ,Vector2.down, Vector2.left, Vector2.right};
@@ -34,15 +34,25 @@ public class ProjectileLauncher : MonoBehaviour
         //_directionFacing = _playerController.GetDirectionFacing();
     }
 
-    public void FireProjectile()
+    public void FireProjectile0()
+    {
+        FireProjectile(ProjectilePrefabs[0]);
+    }
+
+    public void FireProjectile1()
+    {
+        FireProjectile(ProjectilePrefabs[1]);
+    }
+
+    public void FireProjectile(GameObject projectileToFire)
     {
         _directionFacing = _playerController.GetDirectionFacing();
         SetUpDirectionIndex(_directionFacing);
-        GameObject projectile = Instantiate(ProjectilePrefab
+        GameObject projectile = Instantiate(projectileToFire
             , LaunchPoints[_directionIndex].position
             // a projectile manager can be placed here to be the parent
             // of the projectiles instantiated
-            , ProjectilePrefab.transform.rotation);
+            , projectileToFire.transform.rotation);
 
         // need to get the direction the player is currently facing and set the direction
         // and the direction fo the projectile here

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Directions Direction = new Directions();
     public float Speed = 3f;
 
     public int Damage = 10;
@@ -11,8 +12,8 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody2D _rb;
 
-    // direction the projectile would be moving in, default to be right
-    private Vector2 DirectionFacing = Vector2.right;
+    // direction the projectile would be moving in
+    //private Vector2 _directionVector;
 
     private void Awake()
     {
@@ -22,36 +23,17 @@ public class Projectile : MonoBehaviour
     // function for the projectile launcher to set the direction for the
     // projectile to be move in. The argument provided should be a unit
     // vector
-    public void SetDirection(Vector2 direction)
+    public void SetDirection(Vector2 directionVector)
     {
-        if (direction.magnitude != 1)
-        {
-            Debug.LogError("direction vector provided is not a unit vector");
-        }
-        else
-        {
-            DirectionFacing = direction;
-            // the if-else conditionals set up the direction of the sprite
-            if (DirectionFacing.y == 1)
-            {
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
-            }
-            if (DirectionFacing.y == -1)
-            {
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 270);
-            }
-            if (DirectionFacing.x == -1)
-            {
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            }
-        }
+        Directions.FlipSprite(gameObject, directionVector);
+        Direction.DirectionVector = directionVector;
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _rb.velocity = Speed * DirectionFacing;
+        _rb.velocity = Speed * Direction.DirectionVector;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,18 +45,8 @@ public class Projectile : MonoBehaviour
         {
             // hit the target, with a knockback in the direction
             // the damage dealer is facing
-            damageable.OnHurt(Damage
-                           , new Vector2(KnockBack.x * gameObject.transform
-                           .localScale.x
-                           , KnockBack.y * gameObject
-                           .transform.localScale.y));
+            damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

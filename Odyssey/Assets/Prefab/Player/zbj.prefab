@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75485028}
   m_Layer: 8
-  m_Name: ProjectileRight
+  m_Name: RightLaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690217375}
   m_Layer: 8
-  m_Name: ProjectileUp
+  m_Name: UpLaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746337816}
   m_Layer: 8
-  m_Name: ProjectileDown
+  m_Name: DownLaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865601942}
   m_Layer: 8
-  m_Name: ProjectileLeft
+  m_Name: LeftLaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,9 +480,8 @@ MonoBehaviour:
   ProjectilePrefabs:
   - {fileID: 3957113067568804074, guid: fe27306306fcc4310966252e0cd9b543, type: 3}
   - {fileID: 3957113067568804074, guid: 80b3b2c832af44b198512af3fc8ab3a7, type: 3}
-  LaunchPoints:
-  - {fileID: 690217375}
-  - {fileID: 1746337816}
-  - {fileID: 1865601942}
-  - {fileID: 75485028}
-  _playerController: {fileID: 0}
+  UpLaunchPoint: {fileID: 690217375}
+  DownLaunchPoint: {fileID: 1746337816}
+  LeftLaunchPoint: {fileID: 1865601942}
+  RightLaunchPoint: {fileID: 75485028}
+  _playerController: {fileID: 8609630010380266180}

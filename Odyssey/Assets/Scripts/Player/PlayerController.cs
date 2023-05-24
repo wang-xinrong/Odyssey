@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
             // player can only move if he is not hit
             Animator.SetBool(AnimatorStrings.IsWalking, _moveInput != Vector2.zero);
 
+            /*
             // the ChangeAnimationDirection call is temporarily introduced here to
             // fix a bug where if the player is facing left during the
             // attack, yet the right directional key is pressed during
@@ -66,7 +67,8 @@ public class PlayerController : MonoBehaviour
             // this is because the input system only picks up the movement
             // input once, and the OnMove function would not be called
             // again if the key has been pressed during the attack animation
-            ChangeAnimationDirection(_moveInput);
+            //ChangeAnimationDirection(_moveInput);
+            */
 
             Rb.velocity = _moveInput * CurrentMoveSpeed;
         }
@@ -75,13 +77,15 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
-        if (_moveInput != Vector2.zero && CanMove)
+        if (_moveInput != Vector2.zero)// && CanMove)
         {
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
+            Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
         }
     }
 
+    /*
     public void ChangeAnimationDirection(Vector2 moveInput)
     {
         if (moveInput != Vector2.zero && CanMove)
@@ -91,7 +95,7 @@ public class PlayerController : MonoBehaviour
             Direction.DirectionVector = Directions.StandardiseDirection(moveInput);
         }
     }
-
+    */
 
     public void OnAttack(InputAction.CallbackContext context)
     {

@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
-        DefaultDirectionSetUp();
+        //DefaultDirectionSetUp();
     }
 
     private void DefaultDirectionSetUp()

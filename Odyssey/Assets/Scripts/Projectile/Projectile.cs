@@ -7,6 +7,9 @@ public class Projectile : MonoBehaviour
     public Directions Direction = new Directions();
     public float Speed = 3f;
 
+    // can abstract out the attack as a component
+    // after the knight is updateed with direction class
+    //private Attack _attack;
     public int Damage = 10;
     public Vector2 KnockBack = new Vector2(7, 0);
 
@@ -18,6 +21,7 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        //_attack = GetComponent<Attack>();
     }
 
     // function for the projectile launcher to set the direction for the

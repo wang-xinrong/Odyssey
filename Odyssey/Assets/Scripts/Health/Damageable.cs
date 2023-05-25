@@ -14,13 +14,20 @@ public class Damageable : MonoBehaviour
     [SerializeField]
     private bool _isInvincible = false;
 
+    private bool _isHurt = false;
+
+    private bool _isAlive = true;
+
     public bool IsHurt { get
         {
-            return _animator.GetBool(AnimatorStrings.IsHurt);
+            return _isHurt;
+
+                //_animator.GetBool(AnimatorStrings.IsHurt);
         }
         private set
         {
-            _animator.SetBool(AnimatorStrings.IsHurt, value);
+            _isHurt = value;
+            //_animator.SetBool(AnimatorStrings.IsHurt, value);
         }
     }
 
@@ -49,19 +56,22 @@ public class Damageable : MonoBehaviour
         set
         {
             _health = value;
-            HealthUpdated?.Invoke(_health, _maxHealth);
+            HealthUpdated.Invoke(_health, _maxHealth);
 
             if (_health <= 0)
             {
-                IsAlive = false;
+                _isAlive = false;
+                _animator.SetBool(AnimatorStrings.IsAlive, false);
             }
         }
     }
 
     [SerializeField]
-    private bool _isAlive = true;
+    // the time after a hit, during which the player would not receive
+    // more damage (invincible) but also loses control over its movement
+    public float InvincibleTime = 1.5f;
+
     private float _timeSinceHit = 0;
-    public float InvincibleTime = 2.5f;
 
     public bool IsAlive
     {
@@ -83,17 +93,17 @@ public class Damageable : MonoBehaviour
 
     public void OnHurt(int damage, Vector2 knockback)
     {
-        if (IsAlive && !_isInvincible)
+        //if (_isAlive &&
+            if(!_isInvincible)
         {
-            Health -= damage;
+            _isHurt = true;
             _isInvincible = true;
-            IsHurt = true;
+            Health -= damage;
             _animator.SetTrigger(AnimatorStrings.HurtTrigger);
             // any function that is subscribed to this Unity event
             // is going to invoke the method with damage and knockback
-            // as parameters. The question mark here makes sure only
-            // a non-null object will be calling the method
-            DamageableHit?.Invoke(damage, knockback);
+            // as parameters.
+            DamageableHit.Invoke(damage, knockback);
             // everything subscribing to the CharacterHurt event
             // will be notified with the information of gameObject
             // and damage
@@ -138,9 +148,13 @@ public class Damageable : MonoBehaviour
     {
         if (_isInvincible)
         {
-            if (_timeSinceHit > InvincibleTime)
+            // the character will return to its
+            // vulnerable state only if it is still
+            // alive after taking the damage
+            if (_timeSinceHit > InvincibleTime && _isAlive)
             {
                 _isInvincible = false;
+                _isHurt = false;
                 _timeSinceHit = 0;
             }
 

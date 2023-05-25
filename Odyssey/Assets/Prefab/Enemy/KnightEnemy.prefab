@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDamage: 10
-  KnockBack: {x: 7, y: 0}
+  KnockBack: {x: 3, y: 0}
 --- !u!1 &2739642744016314513
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,8 +387,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  HealthUpdated:
+    m_PersistentCalls:
+      m_Calls: []
   _isInvincible: 0
   _maxHealth: 100
   _health: 80
-  _isAlive: 1
   InvincibleTime: 0.25

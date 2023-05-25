@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoolName: CanMove
   UpdateOnState: 0
-  UpdateOnStateMachine: 1
+  UpdateOnStateMachine: 0
   ValueOnEnter: 0
   ValueOnExit: 1
 --- !u!206 &-2466112768958591741
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoolName: CanMove
   UpdateOnState: 0
-  UpdateOnStateMachine: 1
+  UpdateOnStateMachine: 0
   ValueOnEnter: 0
   ValueOnExit: 1
 --- !u!206 &-2085189872458328090
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoolName: IsHurt
-  UpdateOnState: 1
+  UpdateOnState: 0
   UpdateOnStateMachine: 0
   ValueOnEnter: 0
   ValueOnExit: 0
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoolName: CanMove
-  UpdateOnState: 1
+  UpdateOnState: 0
   UpdateOnStateMachine: 0
   ValueOnEnter: 0
   ValueOnExit: 0
@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoolName: IsHurt
   UpdateOnState: 0
-  UpdateOnStateMachine: 1
+  UpdateOnStateMachine: 0
   ValueOnEnter: 1
   ValueOnExit: 0
 --- !u!1101 &7885439327397100268

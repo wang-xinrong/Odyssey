@@ -11,6 +11,7 @@ public class ProjectileLauncher : MonoBehaviour
     public Transform LeftLaunchPoint;
     public Transform RightLaunchPoint;
     private Transform[] _launchPoints = new Transform[4];
+    public GameObject ProjectileManager;
 
     public PlayerController _playerController;
 
@@ -47,7 +48,8 @@ public class ProjectileLauncher : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectileToFire
             , GetLaunchPoint(_playerController.GetDirectionFacing())
-            , projectileToFire.transform.rotation);
+            , projectileToFire.transform.rotation
+            , ProjectileManager.transform);
 
         projectile.GetComponent<Projectile>().
             SetDirection(_playerController.GetDirectionFacing());

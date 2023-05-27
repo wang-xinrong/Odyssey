@@ -340,7 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 8609630010380266183}
   Rb: {fileID: 8609630010380266178}
-  _directionFacing: {x: 0, y: 0}
 --- !u!95 &8609630010380266183
 Animator:
   serializedVersion: 5
@@ -463,8 +462,7 @@ MonoBehaviour:
   _isInvincible: 0
   _maxHealth: 100
   _health: 100
-  _isAlive: 1
-  InvincibleTime: 0.25
+  InvincibleTime: 0.1
 --- !u!114 &1991739702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,4 +482,5 @@ MonoBehaviour:
   DownLaunchPoint: {fileID: 1746337816}
   LeftLaunchPoint: {fileID: 1865601942}
   RightLaunchPoint: {fileID: 75485028}
+  ProjectileManager: {fileID: 0}
   _playerController: {fileID: 8609630010380266180}

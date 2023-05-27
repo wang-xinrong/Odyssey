@@ -10,12 +10,8 @@ public class PlayerController : MonoBehaviour
     public Animator Animator;
     public Rigidbody2D Rb;
     private Vector2 _moveInput;
-    //public Vector2 _directionFacing;
     private Damageable _damageable;
     public Directions Direction = new Directions();
-
-
-    // new
     private bool _isWalking = false;
     private bool _isIdling = true;
     private bool _canMove = true;
@@ -34,33 +30,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*
-    public bool IsHurt
-    {
-        get
-        {
-            return Animator.GetBool(AnimatorStrings.IsHurt);
-        }
-        private set
-        {
-            Animator.SetBool(AnimatorStrings.IsHurt, value);
-        }
-    }
-    */
-
     private void Awake()
     {
         Rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
-        //DefaultDirectionSetUp();
-    }
-
-    private void DefaultDirectionSetUp()
-    {
-        Animator.SetFloat(AnimatorStrings.MoveXInput, 0);
-        Animator.SetFloat(AnimatorStrings.MoveYInput, -1);
-        Direction.DirectionVector = Vector2.down;
     }
 
     private void FixedUpdate()
@@ -74,23 +48,6 @@ public class PlayerController : MonoBehaviour
             {
                 // player can only move if he is not hit
                 Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
-
-
-
-                //_moveInput != Vector2.zero);
-
-                /*
-                // the ChangeAnimationDirection call is temporarily introduced here to
-                // fix a bug where if the player is facing left during the
-                // attack, yet the right directional key is pressed during
-                // the attack, the player would move towards right without
-                // its animation facing right after the attack animation.
-                // this is because the input system only picks up the movement
-                // input once, and the OnMove function would not be called
-                // again if the key has been pressed during the attack animation
-                //ChangeAnimationDirection(_moveInput);
-                */
-
                 Rb.velocity = _moveInput * CurrentMoveSpeed;
             }
             else
@@ -119,18 +76,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*
-    public void ChangeAnimationDirection(Vector2 moveInput)
-    {
-        if (moveInput != Vector2.zero && CanMove)
-        {
-            Animator.SetFloat(AnimatorStrings.MoveXInput, moveInput.x);
-            Animator.SetFloat(AnimatorStrings.MoveYInput, moveInput.y);
-            Direction.DirectionVector = Directions.StandardiseDirection(moveInput);
-        }
-    }Fis
-    */
-
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -142,7 +87,6 @@ public class PlayerController : MonoBehaviour
     public bool CanMove { get
         {
             return _canMove;
-            //return Animator.GetBool(AnimatorStrings.CanMove);
         }
     }
 

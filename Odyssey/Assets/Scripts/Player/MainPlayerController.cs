@@ -5,17 +5,21 @@ using UnityEngine.InputSystem;
 
 public class MainPlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Animator char1Animator;
-    [SerializeField]
-    private Animator char2Animator;
     private Vector2 _moveInput = Vector2.down;
-    private GameObject char1, char2;
+    // changed to public such that we are able to directly
+    // plug in the character prefab instead of having to
+    // search by name
+    public GameObject char1, char2;
+
+    //[SerializeField]
+    private Animator char1Animator;
+    //[SerializeField]
+    private Animator char2Animator;
+
     private bool isMK = true;
 
 
     // new, for health system bug
-    public GameObject HealthBar;
     private GameObject _healthBar;
 
     // new for direction setup after swapping bug,
@@ -26,8 +30,10 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        char1 = GameObject.Find("mk");
-        char2 = GameObject.Find("zbj");
+        char1Animator = char1.GetComponent<PlayerController>().Animator;
+        char2Animator = char2.GetComponent<PlayerController>().Animator;
+        //char1 = GameObject.Find("mk");
+        //char2 = GameObject.Find("zbj");
         _healthBar = GameObject.Find("HealthBar");
         char1.SetActive(true);
         char2.SetActive(false);
@@ -38,18 +44,32 @@ public class MainPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // new, to fix the bug that after death of one character,
+        // the player can still swap back and forth between the character
+        // that is alive and the character that is dead
+        if (!char1.GetComponent<PlayerController>().IsAlive() &&
+            !char2.GetComponent<PlayerController>().IsAlive())
+        {
+            return;
+        } else
+        {
+            if (isMK && !char1.GetComponent<PlayerController>().IsAlive())
+            {
+                isMK = false;
+            }
+            if (!isMK && !char2.GetComponent<PlayerController>().IsAlive())
+            {
+                isMK = true;
+            }
+
+            SwapCharacters();
+        }
+
+        // original code
         if (isMK) {
-            /*
-            char1.SetActive(true);
-            char2.SetActive(false);
-            */
             char2.transform.position = char1.transform.position;
             char2.transform.rotation = char1.transform.rotation;
         } else {
-            /*
-            char1.SetActive(false);
-            char2.SetActive(true);
-            */
             char1.transform.position = char2.transform.position;
             char1.transform.rotation = char2.transform.rotation;
         }
@@ -57,7 +77,6 @@ public class MainPlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        //if (!_damageable.IsAlive) return;
         _moveInput = context.ReadValue<Vector2>();
         if (_moveInput != Vector2.zero)// && CanMove)
         {
@@ -73,22 +92,42 @@ public class MainPlayerController : MonoBehaviour
         if (context.started) {
             isMK = !isMK;
         }
+        SwapCharacters();
+        /*
         if (isMK)
         {
             char1.SetActive(true);
             char2.SetActive(false);
             Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
-            //char2.transform.position = char1.transform.position;
-            //char2.transform.rotation = char1.transform.rotation;
         }
         else
         {
             char1.SetActive(false);
             char2.SetActive(true);
             Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
-            //char1.transform.position = char2.transform.position;
-            //char1.transform.rotation = char2.transform.rotation;
         }
-        _healthBar.GetComponent<HealthBarScript>().Swap();
+        */
+        
+    }
+
+    private void SwapCharacters()
+    {
+        // the IsAlive condition is added to ensure the player can only
+        // be swapped into if he is alive
+        if (isMK && char1.GetComponent<PlayerController>().IsAlive())
+        {
+            char1.SetActive(true);
+            char2.SetActive(false);
+            Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
+            _healthBar.GetComponent<HealthBarScript>().Swap();
+        }
+        else if (!isMK && char2.GetComponent<PlayerController>().IsAlive())
+        {
+            char1.SetActive(false);
+            char2.SetActive(true);
+            Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
+            _healthBar.GetComponent<HealthBarScript>().Swap();
+        }
+        
     }
 }

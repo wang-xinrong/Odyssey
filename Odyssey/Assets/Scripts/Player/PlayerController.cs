@@ -107,4 +107,9 @@ public class PlayerController : MonoBehaviour
     {
         return Direction.DirectionVector;
     }
+
+    public bool IsAlive()
+    {
+        return _damageable.IsAlive;
+    }
 }

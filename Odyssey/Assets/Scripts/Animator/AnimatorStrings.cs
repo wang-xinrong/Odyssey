@@ -7,7 +7,7 @@ using UnityEngine;
 // animators, which serve a similar purpose, should
 // be named using the same string for ease of
 // referrence
-public class AnimatorStrings : MonoBehaviour
+public class AnimatorStrings
 {
     public static string MoveXInput = "MoveXInput";
     public static string MoveYInput = "MoveYInput";

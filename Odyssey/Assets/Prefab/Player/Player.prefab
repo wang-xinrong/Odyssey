@@ -302,7 +302,7 @@ MonoBehaviour:
       m_Calls: []
   _isInvincible: 0
   _maxHealth: 100
-  _health: 100
+  _health: 80
   InvincibleTime: 0.1
 --- !u!114 &5891670334096589282
 MonoBehaviour:
@@ -323,6 +323,7 @@ MonoBehaviour:
   DownLaunchPoint: {fileID: 5891670334621635354}
   LeftLaunchPoint: {fileID: 5891670334377146268}
   RightLaunchPoint: {fileID: 5891670335046926076}
+  ProjectileManager: {fileID: 0}
   _playerController: {fileID: 5891670334096589289}
 --- !u!1 &5891670334159106266
 GameObject:
@@ -826,7 +827,7 @@ MonoBehaviour:
       m_Calls: []
   _isInvincible: 0
   _maxHealth: 100
-  _health: 100
+  _health: 80
   InvincibleTime: 0.1
 --- !u!1 &5891670335115618963
 GameObject:
@@ -838,9 +839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5891670335115618972}
   - component: {fileID: 5891670335115618973}
-  - component: {fileID: 584625649459822525}
-  - component: {fileID: 8905033369318636213}
-  - component: {fileID: 4850057171813014798}
+  - component: {fileID: 5616900526452707571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -892,8 +891,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4850057171813014798}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 5616900526452707571}
+        m_TargetAssemblyTypeName: MainPlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -911,24 +910,12 @@ MonoBehaviour:
     m_ActionId: 79d6459c-5991-4a58-b020-68bcc0512f1b
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9e367b11-1526-4cd0-9dec-d2711c0dbd36
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5616900526452707571}
         m_TargetAssemblyTypeName: MainPlayerController, Assembly-CSharp
         m_MethodName: OnSwap
         m_Mode: 0
@@ -987,28 +974,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!50 &584625649459822525
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5891670335115618963}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &8905033369318636213
+--- !u!114 &5616900526452707571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1017,45 +983,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5891670335115618963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c1bc38722c1451e947f4092cd295f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 170d9331323cc4b27a61555f9171d8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageableHit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4850057171813014798}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnHurt
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  HealthUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  _isInvincible: 0
-  _maxHealth: 100
-  _health: 100
-  InvincibleTime: 1.5
---- !u!114 &4850057171813014798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5891670335115618963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e322ccd9f1d54cf1a9394caed909e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
-  Rb: {fileID: 0}
+  char1: {fileID: 5891670335105262140}
+  char2: {fileID: 5891670334096589280}
 --- !u!1 &5891670335762487941
 GameObject:
   m_ObjectHideFlags: 0

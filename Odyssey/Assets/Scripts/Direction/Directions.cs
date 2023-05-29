@@ -53,6 +53,14 @@ public class Directions
         }
     }
 
+    public static void SpriteDirectionSetUp(PlayerController playerController
+        , Vector2 v2)
+    {
+        playerController.Animator.SetFloat(AnimatorStrings.MoveXInput, v2.x);
+        playerController.Animator.SetFloat(AnimatorStrings.MoveYInput, v2.y);
+        playerController.Direction.DirectionVector = v2;
+    }
+
     private Vector2 _directionVector;
 
     public Vector2 DirectionVector
@@ -76,13 +84,5 @@ public class Directions
     {
         return new Vector2(original.x * DirectionVector.x
             , original.y * DirectionVector.y); 
-    }
-
-    public static void SpriteDirectionSetUp(PlayerController playerController
-        , Vector2 v2)
-    {
-        playerController.Animator.SetFloat(AnimatorStrings.MoveXInput, v2.x);
-        playerController.Animator.SetFloat(AnimatorStrings.MoveYInput, v2.y);
-        playerController.Direction.DirectionVector = v2;
     }
 }

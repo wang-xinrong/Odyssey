@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9102945451126165654}
   - component: {fileID: 9102945451126165673}
   - component: {fileID: 9102945451126165648}
+  - component: {fileID: 605285228}
   m_Layer: 9
   m_Name: RedHairWomanEnemy
   m_TagString: Untagged
@@ -160,3 +161,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkStopRate: 0.05
   _walkSpeed: 3
+--- !u!114 &605285228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102945451126165672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c1bc38722c1451e947f4092cd295f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+  HealthUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  _isInvincible: 0
+  _maxHealth: 40
+  _health: 40
+  InvincibleTime: 1.5

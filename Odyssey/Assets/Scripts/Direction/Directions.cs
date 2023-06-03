@@ -50,7 +50,28 @@ public class Directions
             {
                 obj.transform.localScale = new Vector3(-1, 1, 1);
             }
+            if (directionVector == Vector2.right)
+            {
+                obj.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
+    }
+
+    // function to flip objects' sprite around to the opposite horizontal direction
+    public static void FlipSpriteHorizontally(GameObject obj)
+    {
+        if (obj.transform.localScale == new Vector3(-1, 1, 1))
+        {
+            obj.transform.localScale = new Vector3(1, 1, 1);
+        } else
+        {
+            obj.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    public void FlipMovementDirection()
+    {
+        DirectionVector = new Vector2(DirectionVector.x * -1, DirectionVector.y * -1);
     }
 
     public static void SpriteDirectionSetUp(PlayerController playerController

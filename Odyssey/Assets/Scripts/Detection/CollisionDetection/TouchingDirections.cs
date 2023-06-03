@@ -17,9 +17,8 @@ public class TouchingDirections : MonoBehaviour
     private bool _isOnWall;
 
     // check the DirectionFacing, need to be updated to include the up and down directions later
-    public Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0
-                                                                           ? Vector2.right
-                                                                           : Vector2.left;
+    // temporary fix
+    public Vector2 wallCheckDirection => gameObject.GetComponent<Knight>().GetDirections();
 
     public bool IsOnWall
     {

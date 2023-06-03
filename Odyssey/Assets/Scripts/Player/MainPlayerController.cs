@@ -32,8 +32,6 @@ public class MainPlayerController : MonoBehaviour
     {
         char1Animator = char1.GetComponent<PlayerController>().Animator;
         char2Animator = char2.GetComponent<PlayerController>().Animator;
-        //char1 = GameObject.Find("mk");
-        //char2 = GameObject.Find("zbj");
         _healthBar = GameObject.Find("HealthBar");
         char1.SetActive(true);
         char2.SetActive(false);
@@ -78,7 +76,7 @@ public class MainPlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
-        if (_moveInput != Vector2.zero)// && CanMove)
+        if (_moveInput != Vector2.zero)
         {
             char1Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             char2Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
@@ -87,27 +85,13 @@ public class MainPlayerController : MonoBehaviour
             _lastMovement = _moveInput;
         }     
     }
+
     public void OnSwap(InputAction.CallbackContext context) 
     {
         if (context.started) {
             isMK = !isMK;
         }
         SwapCharacters();
-        /*
-        if (isMK)
-        {
-            char1.SetActive(true);
-            char2.SetActive(false);
-            Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
-        }
-        else
-        {
-            char1.SetActive(false);
-            char2.SetActive(true);
-            Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
-        }
-        */
-        
     }
 
     private void SwapCharacters()

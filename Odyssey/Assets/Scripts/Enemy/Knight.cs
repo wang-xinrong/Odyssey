@@ -54,6 +54,7 @@ public class Knight : MonoBehaviour
         }
     }
 
+
     public WalkableDirection WalkDirection
     {
         get { return _walkDirection; }
@@ -79,6 +80,7 @@ public class Knight : MonoBehaviour
         }
     }
 
+    
     private bool _hasTarget = false;
 
     public bool HasTarget { get
@@ -90,6 +92,9 @@ public class Knight : MonoBehaviour
             _animator.SetBool(AnimatorStrings.HasTarget, value);
         }
     }
+
+
+
 
     public bool CanMove
     {
@@ -158,5 +163,10 @@ public class Knight : MonoBehaviour
     public void OnHurt(int damage, Vector2 knockback)
     {
         Rb.velocity = new Vector2(knockback.x, knockback.y);
+    }
+
+    public Vector2 GetDirections()
+    {
+        return walkDirectionVector;
     }
 }

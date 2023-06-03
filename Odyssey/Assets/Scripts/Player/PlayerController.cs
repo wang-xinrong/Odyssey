@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     private bool _isWalking = false;
     private bool _isIdling = true;
     private bool _canMove = true;
+    public Weapon weapon;
+    private float lastClickedTime;
+    private float lastComboEnd;
+    private int comboCounter;
 
 
     public float CurrentMoveSpeed {  get
@@ -61,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         //if (!_damageable.IsAlive) return;
         _moveInput = context.ReadValue<Vector2>();
-        if (_moveInput != Vector2.zero)// && CanMove)
+        if (_moveInput != Vector2.zero && CanMove)
         {
             _isWalking = true;
             _isIdling = false;
@@ -80,8 +84,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            Animator.SetTrigger(AnimatorStrings.AttackTrigger);
+            Attack();
         }
+        ExitAttack();
     }
     
     public bool CanMove { get
@@ -111,5 +116,51 @@ public class PlayerController : MonoBehaviour
     public bool IsAlive()
     {
         return _damageable.IsAlive;
+    }
+
+    private void Attack()
+    {
+        _canMove = false;
+        // check if sufficient time has passed since previous combo was executed & that current combo counter is within bounds
+        if (Time.time - lastComboEnd > 0.5f && comboCounter <= weapon.comboCount)
+        {
+            CancelInvoke("allowMovement");
+            CancelInvoke("EndCombo");
+
+            // check if sufficient time has passed since previous click to register next attack
+            if (Time.time - lastClickedTime > 0.5f)
+            {
+                Animator.Play(weapon.combos[comboCounter].animationName, 0, 0);
+                comboCounter++;
+                lastClickedTime = Time.time;
+
+                if (comboCounter >= weapon.comboCount) {
+                    comboCounter = 0;
+                }
+                Invoke("allowMovement", Animator.GetCurrentAnimatorStateInfo(0).length);
+            } else {
+                _canMove = true;
+            }
+        } else {
+            _canMove = true;
+        }
+    }
+
+    private void allowMovement() {
+        _canMove = true;
+    }
+    private void ExitAttack()
+    {
+        if (Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)        
+        {
+            Invoke("EndCombo", 1);
+        }
+    }
+
+    private void EndCombo()
+    {
+        comboCounter = 0;
+        lastComboEnd = Time.time;
+        _canMove = true;
     }
 }

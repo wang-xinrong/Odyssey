@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         //if (!_damageable.IsAlive) return;
         _moveInput = context.ReadValue<Vector2>();
-        if (_moveInput != Vector2.zero)
+        if (_moveInput != Vector2.zero && CanMove)
         {
             _isWalking = true;
             _isIdling = false;

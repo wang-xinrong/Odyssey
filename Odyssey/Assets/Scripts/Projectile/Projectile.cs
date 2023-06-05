@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,6 +30,18 @@ public class Projectile : MonoBehaviour
     public void SetDirection(Vector2 directionVector)
     {
         Directions.FlipSprite(gameObject, directionVector);
+        Direction.DirectionVector = directionVector;
+    }
+
+    public void SetDirectionForEnemyProjectile(Vector2 directionVector)
+    {
+        // some of the projectile sprites might not need to be rotated
+        // such as the heart
+        /*
+        float angle = directionVector.x > 0 ? Mathf.Rad2Deg * Mathf.Atan(directionVector.y / directionVector.x)
+            : Mathf.Rad2Deg * Mathf.Atan(directionVector.y / directionVector.x) + 180;
+        Directions.RotateSprite(gameObject, angle);
+        */
         Direction.DirectionVector = directionVector;
     }
 

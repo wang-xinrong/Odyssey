@@ -8,7 +8,7 @@ public class SwapMovementBehaviour : MonoBehaviour
 {
     private Patrol _patrol;
     private AIDestinationSetter _aIDestinationSetter;
-    private enum CurrentState { Patrol, Chasing }
+    private enum CurrentState { Patrol, Chasing , Idle}
     private CurrentState _currentState = CurrentState.Patrol;
     private float timer = 0f;
 
@@ -49,5 +49,12 @@ public class SwapMovementBehaviour : MonoBehaviour
             _patrol.enabled = true;
             _currentState = CurrentState.Patrol;
         }
+    }
+
+    void StopMovement()
+    {
+        _aIDestinationSetter.enabled = false;
+        _patrol.enabled = false;
+        _currentState = CurrentState.Idle;
     }
 }

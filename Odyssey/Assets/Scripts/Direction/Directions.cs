@@ -57,6 +57,14 @@ public class Directions
         }
     }
 
+    // function to rotate objects' sprite with an angle in [0, 360]
+    public static void RotateSprite(GameObject obj, float eulerAngle)
+    {
+        obj.transform.rotation = Quaternion.Euler(0, 0, eulerAngle);
+    }
+
+
+
     // function to flip objects' sprite around to the opposite horizontal direction
     public static void FlipSpriteHorizontally(GameObject obj)
     {
@@ -105,5 +113,12 @@ public class Directions
     {
         return new Vector2(original.x * DirectionVector.x
             , original.y * DirectionVector.y); 
+    }
+
+    public static Vector2 RelativeDirectionVector(Transform objTransform, Transform targetTransform)
+    {
+        return new Vector2(
+            targetTransform.position.x - objTransform.position.x
+            , targetTransform.position.y - objTransform.position.y);
     }
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5891670334096589292}
   - component: {fileID: 5891670334096589293}
   - component: {fileID: 5891670334096589282}
+  - component: {fileID: 1174388777}
   m_Layer: 8
   m_Name: zbj
   m_TagString: Player
@@ -181,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 5891670334096589294}
   Rb: {fileID: 5891670334096589291}
+  weapon: {fileID: 1174388777}
 --- !u!95 &5891670334096589294
 Animator:
   serializedVersion: 5
@@ -325,6 +327,19 @@ MonoBehaviour:
   RightLaunchPoint: {fileID: 5891670335046926076}
   ProjectileManager: {fileID: 0}
   _playerController: {fileID: 5891670334096589289}
+--- !u!114 &1174388777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670334096589280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8e7694e9ae04d9a82c1d5f07d70549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboCount: 0
 --- !u!1 &5891670334159106266
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +557,7 @@ GameObject:
   - component: {fileID: 5891670335105262137}
   - component: {fileID: 5891670335105262142}
   - component: {fileID: 5891670335105262143}
+  - component: {fileID: 5891670334319995383}
   m_Layer: 8
   m_Name: mk
   m_TagString: Player
@@ -706,6 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 5891670335105262136}
   Rb: {fileID: 5891670335105262117}
+  weapon: {fileID: 5891670334319995383}
 --- !u!95 &5891670335105262136
 Animator:
   serializedVersion: 5
@@ -829,6 +846,19 @@ MonoBehaviour:
   _maxHealth: 100
   _health: 100
   InvincibleTime: 0.1
+--- !u!114 &5891670334319995383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670335105262140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6321819cb8de1417da52ba9f36a48fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboCount: 0
 --- !u!1 &5891670335115618963
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,12 +21,15 @@ public class PlayerController : MonoBehaviour
     private int comboCounter;
 
 
-    public float CurrentMoveSpeed {  get
+    public float CurrentMoveSpeed
+    {
+        get
         {
             if (_canMove)
             {
                 return 5f;
-            } else
+            }
+            else
             {
                 // movement locked
                 return 0f;
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
+
     public void OnMove(InputAction.CallbackContext context)
     {
         //if (!_damageable.IsAlive) return;
@@ -72,7 +75,8 @@ public class PlayerController : MonoBehaviour
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
-        } else
+        }
+        else
         {
             _isWalking = false;
             _isIdling = true;
@@ -88,8 +92,10 @@ public class PlayerController : MonoBehaviour
         }
         ExitAttack();
     }
-    
-    public bool CanMove { get
+
+    public bool CanMove
+    {
+        get
         {
             return _canMove;
         }
@@ -100,7 +106,8 @@ public class PlayerController : MonoBehaviour
         if (_damageable.IsAlive)
         {
             Rb.velocity = new Vector2(knockback.x, knockback.y);
-        } else
+        }
+        else
         {
             // the player would not be able to move the character
             // if it is dead after taking the damage
@@ -134,24 +141,31 @@ public class PlayerController : MonoBehaviour
                 comboCounter++;
                 lastClickedTime = Time.time;
 
-                if (comboCounter >= weapon.comboCount) {
+                if (comboCounter >= weapon.comboCount)
+                {
                     comboCounter = 0;
                 }
                 Invoke("allowMovement", Animator.GetCurrentAnimatorStateInfo(0).length);
-            } else {
+            }
+            else
+            {
                 _canMove = true;
             }
-        } else {
+        }
+        else
+        {
             _canMove = true;
         }
     }
 
-    private void allowMovement() {
+    private void allowMovement()
+    {
         _canMove = true;
     }
+
     private void ExitAttack()
     {
-        if (Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)        
+        if (Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
         {
             Invoke("EndCombo", 1);
         }

@@ -11,13 +11,7 @@ public class MainPlayerController : MonoBehaviour
     // search by name
     public GameObject char1, char2;
 
-    //[SerializeField]
-    private Animator char1Animator;
-    //[SerializeField]
-    private Animator char2Animator;
-
-    private bool isMK = true;
-
+    private bool isChar1 = true;
 
     // new, for health system bug
     private GameObject _healthBar;
@@ -30,8 +24,6 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        char1Animator = char1.GetComponent<PlayerController>().Animator;
-        char2Animator = char2.GetComponent<PlayerController>().Animator;
         _healthBar = GameObject.Find("HealthBar");
         char1.SetActive(true);
         char2.SetActive(false);
@@ -39,7 +31,6 @@ public class MainPlayerController : MonoBehaviour
         Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // new, to fix the bug that after death of one character,
@@ -51,20 +42,20 @@ public class MainPlayerController : MonoBehaviour
             return;
         } else
         {
-            if (isMK && !char1.GetComponent<PlayerController>().IsAlive())
+            if (isChar1 && !char1.GetComponent<PlayerController>().IsAlive())
             {
-                isMK = false;
+                isChar1 = false;
             }
-            if (!isMK && !char2.GetComponent<PlayerController>().IsAlive())
+            if (!isChar1 && !char2.GetComponent<PlayerController>().IsAlive())
             {
-                isMK = true;
+                isChar1 = true;
             }
 
             SwapCharacters();
         }
 
         // original code
-        if (isMK) {
+        if (isChar1) {
             char2.transform.position = char1.transform.position;
             char2.transform.rotation = char1.transform.rotation;
         } else {
@@ -76,12 +67,9 @@ public class MainPlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+
         if (_moveInput != Vector2.zero)
         {
-            char1Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
-            char2Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
-            char1Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
-            char2Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
             _lastMovement = _moveInput;
         }     
     }
@@ -89,7 +77,7 @@ public class MainPlayerController : MonoBehaviour
     public void OnSwap(InputAction.CallbackContext context) 
     {
         if (context.started) {
-            isMK = !isMK;
+            isChar1 = !isChar1;
         }
         SwapCharacters();
     }
@@ -98,14 +86,14 @@ public class MainPlayerController : MonoBehaviour
     {
         // the IsAlive condition is added to ensure the player can only
         // be swapped into if he is alive
-        if (isMK && char1.GetComponent<PlayerController>().IsAlive())
+        if (isChar1 && char1.GetComponent<PlayerController>().IsAlive())
         {
             char1.SetActive(true);
             char2.SetActive(false);
             Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
         }
-        else if (!isMK && char2.GetComponent<PlayerController>().IsAlive())
+        else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
             char1.SetActive(false);
             char2.SetActive(true);

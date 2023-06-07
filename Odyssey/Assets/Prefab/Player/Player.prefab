@@ -88,19 +88,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5891670334096589289}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: cbb2000f-63d0-4855-b595-adac7dc99983
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -181,8 +169,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 5891670334096589294}
-  Rb: {fileID: 5891670334096589291}
+  _currentState: 0
   weapon: {fileID: 1174388777}
+  m_MovementInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Movement Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 34d1ebfa-5c03-47c2-bf28-579e1eb2efc6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -2597586925191240689, guid: 52c73ef8a239e4e2db71eda6c32be8ef, type: 3}
+  _attackDelay: 1.5
+  _inComboBetweenAttackDelay: 0.5
+  _timeBeforeComboCountCleared: 2
 --- !u!95 &5891670334096589294
 Animator:
   serializedVersion: 5
@@ -628,19 +631,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5891670335105262139}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: cbb2000f-63d0-4855-b595-adac7dc99983
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -721,8 +712,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 5891670335105262136}
-  Rb: {fileID: 5891670335105262117}
+  _currentState: 0
   weapon: {fileID: 5891670334319995383}
+  m_MovementInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Movement Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: d7c58e17-5e45-40a0-b8d1-0ced495f2e81
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -7252988679215979253, guid: 29f2bddc25eeb4781b6dbb70075bd094, type: 3}
+  _attackDelay: 1.5
+  _inComboBetweenAttackDelay: 0.5
+  _timeBeforeComboCountCleared: 2
 --- !u!95 &5891670335105262136
 Animator:
   serializedVersion: 5

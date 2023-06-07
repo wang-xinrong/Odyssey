@@ -3,84 +3,147 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(Damageable))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Damageable), typeof(Animator))]
 
+// this version of PlayerController script is the result of
+// an attempt to transform the animator into one that is solely
+// controller by the animator and uses no transition links
+
+// and this copy of PlayerController is meant to be used with
+// the DebuggingCopyAnimator in which the transition links
+// have been removed
+
+// however, there are certain bugs in this script yet to be resolved
+// one of them is the incapability of the character to enter attack
+// state from idle state.
 public class PlayerController : MonoBehaviour
 {
     public Animator Animator;
-    public Rigidbody2D Rb;
+    private Rigidbody2D _rb;
     private Vector2 _moveInput;
     private Damageable _damageable;
     public Directions Direction = new Directions();
-    private bool _isWalking = false;
-    private bool _isIdling = true;
-    private bool _canMove = true;
+
+    // the player should only be able to call move
+    // related functions if he is in the state of
+    // idle or walk
+    public enum State { Idle, Walk, Death, Attack, Hurt }
+    public State _currentState = State.Idle;
+    private string _currAnimation;
+
     public Weapon weapon;
     private float lastClickedTime;
     private float lastComboEnd;
     private int comboCounter;
 
+    public InputActionProperty m_MovementInput;
 
     public float CurrentMoveSpeed
     {
         get
         {
-            if (_canMove)
-            {
-                return 5f;
-            }
-            else
-            {
-                // movement locked
-                return 0f;
-            }
+            return 5f;
         }
     }
 
     private void Awake()
     {
-        Rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        OnMove(m_MovementInput);
+
         // if hurt, movement update by input should be disabled
         // and only the knockback from the hit should be moving
         // the character
-        if (!_damageable.IsHurt)
+        if (_currentState == State.Walk)
         {
-            if (_isWalking)
-            {
-                // player can only move if he is not hit
-                Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
-                Rb.velocity = _moveInput * CurrentMoveSpeed;
-            }
-            else
-            {
-                Rb.velocity = Vector2.zero;
-            }
+            PlayAnimation(AnimationNames.ZbjWalk);
+            // player can only move if he is not hit
+            //Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
+            _rb.velocity = _moveInput * CurrentMoveSpeed;
+        }
+
+        if (_currentState == State.Idle)
+        {
+            PlayAnimation(AnimationNames.ZbjIdle);
+            _rb.velocity = Vector2.zero;
+        }
+
+        if (_currentState == State.Attack)
+        {
+            _rb.velocity = Vector2.zero;
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+
+    /*
+    private void FixedUpdate()
     {
-        //if (!_damageable.IsAlive) return;
-        _moveInput = context.ReadValue<Vector2>();
-        if (_moveInput != Vector2.zero && CanMove)
+        OnMove(m_MovementInput);
+
+        // if hurt, movement update by input should be disabled
+        // and only the knockback from the hit should be moving
+        // the character
+        if (_currentState == State.Walk)
         {
-            _isWalking = true;
-            _isIdling = false;
+            PlayAnimation(AnimationNames.ZbjWalk);
+            // player can only move if he is not hit
+            //Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
+            _rb.velocity = _moveInput * CurrentMoveSpeed;
+        }
+
+        if (_currentState == State.Idle)
+        {
+            PlayAnimation(AnimationNames.ZbjIdle);
+            _rb.velocity = Vector2.zero;
+        }
+
+        if (_currentState == State.Attack)
+        {
+            _rb.velocity = Vector2.zero;
+        }
+    }
+    */
+
+    public void PlayAnimation(string animationName)
+    {
+        if (_currAnimation != animationName)
+        {
+            Animator.Play(animationName);
+            _currAnimation = animationName;
+        }
+    }
+
+    public void OnMove(InputActionProperty input)// InputAction.CallBackContext)
+    {
+        // always pickup the input first
+        _moveInput = input.action.ReadValue<Vector2>();
+        //_moveInput = context.ReadValue<Vector2>();
+        Debug.Log(_moveInput);
+        Debug.Log(_currentState);
+
+        // the player walk or idle animation should only be updated if he is
+        // in the state of idle or walk
+        if (_moveInput != Vector2.zero &&
+            (_currentState == State.Idle || _currentState == State.Walk))
+        {
+            _currentState = State.Walk;
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
+            //PlayAnimation(AnimationNames.ZbjWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
         }
-        else
+
+        if (_moveInput == Vector2.zero &&
+            (_currentState == State.Idle || _currentState == State.Walk))
         {
-            _isWalking = false;
-            _isIdling = true;
-            Animator.SetBool(AnimatorStrings.IsWalking, !_isIdling);
+            _currentState = State.Idle;
+            //PlayAnimation(AnimationNames.ZbjIdle);
         }
     }
 
@@ -90,28 +153,90 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
-        ExitAttack();
     }
 
-    public bool CanMove
+    [SerializeField]
+    private float _attackDelay = 1.5f;
+    [SerializeField]
+    private float _inComboBetweenAttackDelay = 0.5f;
+    [SerializeField]
+    private float _timeBeforeComboCountCleared = 2f;
+
+
+    private void Attack()
     {
-        get
+        // check if sufficient time has passed since previous combo was executed
+        // & that current combo counter is within bounds
+        if (Time.time - lastComboEnd > _attackDelay && comboCounter <= weapon.comboCount)
         {
-            return _canMove;
+            // check if sufficient time has passed since previous click to register next attack
+            if (Time.time - lastClickedTime > _inComboBetweenAttackDelay)
+            {
+                lastClickedTime = Time.time;
+                _currentState = State.Attack;
+                // cancel invocation of all method calls with the indicated names
+                // in this behaviour
+                CancelInvoke("StartIdling");
+                CancelInvoke("InterruptCombo");
+                Debug.Log("Invoke called here");
+
+                PlayAnimation(weapon.combos[comboCounter].animationName);
+
+                Debug.Log("current animation played is " + _currAnimation);
+
+                comboCounter++;
+
+
+                if (comboCounter > weapon.comboCount - 1)
+                {
+                    FinishCombo();
+                    //Invoke("StartIdling", Animator.GetCurrentAnimatorStateInfo(0).length);
+                }
+
+                Debug.Log("length of the animation is " + Animator.GetCurrentAnimatorStateInfo(0).length);
+                Invoke("StartIdling", 1);//Animator.GetCurrentAnimatorStateInfo(0).length);
+                Invoke("InterruptCombo", _timeBeforeComboCountCleared
+                    + Animator.GetCurrentAnimatorStateInfo(0).length);
+            }
         }
+    }
+
+    private void StartIdling()
+    {
+        Debug.Log("Idle is called");
+        _currentState = State.Idle;
+        //PlayAnimation(AnimationNames.ZbjIdle);
+
+    }
+
+    private void FinishCombo()
+    {
+        comboCounter = 0;
+        lastComboEnd = Time.time;
+        //_currentState = State.Idle;
+    }
+
+    private void InterruptCombo()
+    {
+        comboCounter = 0;
+    }
+
+    private void DebugLog()
+    {
+        Debug.Log("12145123413451345462324161332451545");
     }
 
     public void OnHurt(int damage, Vector2 knockback)
     {
         if (_damageable.IsAlive)
         {
-            Rb.velocity = new Vector2(knockback.x, knockback.y);
+            _rb.velocity = new Vector2(knockback.x, knockback.y);
         }
         else
         {
             // the player would not be able to move the character
             // if it is dead after taking the damage
-            Rb.velocity = Vector2.zero;
+            _rb.velocity = Vector2.zero;
         }
     }
 
@@ -123,58 +248,5 @@ public class PlayerController : MonoBehaviour
     public bool IsAlive()
     {
         return _damageable.IsAlive;
-    }
-
-    private void Attack()
-    {
-        _canMove = false;
-        // check if sufficient time has passed since previous combo was executed & that current combo counter is within bounds
-        if (Time.time - lastComboEnd > 0.5f && comboCounter <= weapon.comboCount)
-        {
-            CancelInvoke("allowMovement");
-            CancelInvoke("EndCombo");
-
-            // check if sufficient time has passed since previous click to register next attack
-            if (Time.time - lastClickedTime > 0.5f)
-            {
-                Animator.Play(weapon.combos[comboCounter].animationName, 0, 0);
-                comboCounter++;
-                lastClickedTime = Time.time;
-
-                if (comboCounter >= weapon.comboCount)
-                {
-                    comboCounter = 0;
-                }
-                Invoke("allowMovement", Animator.GetCurrentAnimatorStateInfo(0).length);
-            }
-            else
-            {
-                _canMove = true;
-            }
-        }
-        else
-        {
-            _canMove = true;
-        }
-    }
-
-    private void allowMovement()
-    {
-        _canMove = true;
-    }
-
-    private void ExitAttack()
-    {
-        if (Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
-        {
-            Invoke("EndCombo", 1);
-        }
-    }
-
-    private void EndCombo()
-    {
-        comboCounter = 0;
-        lastComboEnd = Time.time;
-        _canMove = true;
     }
 }

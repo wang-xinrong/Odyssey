@@ -627,6 +627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VillagerGirlEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2392905126770334787, guid: ae8e410302dce417dbaa4e02a1a53fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae8e410302dce417dbaa4e02a1a53fb4, type: 3}
 --- !u!4 &1695208282 stripped
@@ -1068,10 +1072,6 @@ PrefabInstance:
       propertyPath: ProjectileManager
       value: 
       objectReference: {fileID: 237427474}
-    - target: {fileID: 5891670334096589294, guid: 0f165048499e441019f39d3fb8f66aa6, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5a0f3be7d8c444db3b6df17cbba7eeed, type: 2}
     - target: {fileID: 5891670335115618963, guid: 0f165048499e441019f39d3fb8f66aa6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1132,6 +1132,10 @@ PrefabInstance:
     - target: {fileID: 3212770254048864312, guid: 20953a5c6ddb8411e9c8bb608bbda20f, type: 3}
       propertyPath: m_Name
       value: KnightEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212770254048864312, guid: 20953a5c6ddb8411e9c8bb608bbda20f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4899595032107422541, guid: 20953a5c6ddb8411e9c8bb608bbda20f, type: 3}
       propertyPath: m_RootOrder
@@ -1338,6 +1342,10 @@ PrefabInstance:
     - target: {fileID: 9102945451126165672, guid: 08e41c950b54c455da3345f370cfbbb8, type: 3}
       propertyPath: m_Name
       value: RedHairWomanEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102945451126165672, guid: 08e41c950b54c455da3345f370cfbbb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e41c950b54c455da3345f370cfbbb8, type: 3}

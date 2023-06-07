@@ -100,6 +100,5 @@ public class MainPlayerController : MonoBehaviour
             Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
         }
-        
     }
 }

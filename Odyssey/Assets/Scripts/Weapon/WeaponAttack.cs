@@ -5,5 +5,5 @@ using UnityEngine;
 public class WeaponAttack
 {
     public string animationName;
-    public float damage;
+    public int damage;
 }

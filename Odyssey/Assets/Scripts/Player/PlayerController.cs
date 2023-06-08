@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
             //PlayAnimation(AnimationNames.ZbjWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
+            rotatePoleAttackHitBox();
         }
 
         if (_moveInput == Vector2.zero &&
@@ -144,6 +145,28 @@ public class PlayerController : MonoBehaviour
         {
             _currentState = State.Idle;
             //PlayAnimation(AnimationNames.ZbjIdle);
+        }
+    }
+
+    private void rotatePoleAttackHitBox() 
+    {
+        Transform PoleAttack = this.gameObject.transform.Find("PoleAttack");
+        if (PoleAttack == null) 
+        {
+            return;
+        }
+        if (Direction.DirectionVector == Vector2.up)
+        {
+            PoleAttack.rotation = Quaternion.Euler(0, 0, 180);
+        } else if (Direction.DirectionVector == Vector2.left)
+        {
+            PoleAttack.rotation = Quaternion.Euler(0, 0, -90);
+        } else if (Direction.DirectionVector == Vector2.right)
+        {
+            PoleAttack.rotation = Quaternion.Euler(0, 0, 90);
+        } else 
+        {
+            PoleAttack.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -180,6 +203,11 @@ public class PlayerController : MonoBehaviour
                 CancelInvoke("InterruptCombo");
                 Debug.Log("Invoke called here");
 
+                Attack script = this.gameObject.transform.GetChild(0).GetComponent<Attack>();
+                if (script)
+                {
+                    script.AttackDamage = weapon.combos[comboCounter].damage;
+                }
                 PlayAnimation(weapon.combos[comboCounter].animationName);
 
                 Debug.Log("current animation played is " + _currAnimation);
@@ -194,7 +222,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 Debug.Log("length of the animation is " + Animator.GetCurrentAnimatorStateInfo(0).length);
-                Invoke("StartIdling", 1);//Animator.GetCurrentAnimatorStateInfo(0).length);
+                //Invoke("StartIdling", 1);//Animator.GetCurrentAnimatorStateInfo(0).length);
                 Invoke("InterruptCombo", _timeBeforeComboCountCleared
                     + Animator.GetCurrentAnimatorStateInfo(0).length);
             }

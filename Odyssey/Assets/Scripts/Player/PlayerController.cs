@@ -51,6 +51,9 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
+
+        // the default direction setup for the sprite
+        Direction.DirectionVector = Vector2.down;
     }
 
     private void Update()
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
         // the character
         if (_currentState == State.Walk)
         {
-            PlayAnimation(AnimationNames.ZbjWalk);
+            //PlayAnimation(AnimationNames.ZbjWalk);
             // player can only move if he is not hit
             //Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
             _rb.velocity = _moveInput * CurrentMoveSpeed;
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
         if (_currentState == State.Idle)
         {
-            PlayAnimation(AnimationNames.ZbjIdle);
+            //PlayAnimation(AnimationNames.ZbjIdle);
             _rb.velocity = Vector2.zero;
         }
 
@@ -79,36 +82,6 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector2.zero;
         }
     }
-
-
-    /*
-    private void FixedUpdate()
-    {
-        OnMove(m_MovementInput);
-
-        // if hurt, movement update by input should be disabled
-        // and only the knockback from the hit should be moving
-        // the character
-        if (_currentState == State.Walk)
-        {
-            PlayAnimation(AnimationNames.ZbjWalk);
-            // player can only move if he is not hit
-            //Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
-            _rb.velocity = _moveInput * CurrentMoveSpeed;
-        }
-
-        if (_currentState == State.Idle)
-        {
-            PlayAnimation(AnimationNames.ZbjIdle);
-            _rb.velocity = Vector2.zero;
-        }
-
-        if (_currentState == State.Attack)
-        {
-            _rb.velocity = Vector2.zero;
-        }
-    }
-    */
 
     public void PlayAnimation(string animationName)
     {
@@ -124,8 +97,6 @@ public class PlayerController : MonoBehaviour
         // always pickup the input first
         _moveInput = input.action.ReadValue<Vector2>();
         //_moveInput = context.ReadValue<Vector2>();
-        Debug.Log(_moveInput);
-        Debug.Log(_currentState);
 
         // the player walk or idle animation should only be updated if he is
         // in the state of idle or walk
@@ -135,7 +106,7 @@ public class PlayerController : MonoBehaviour
             _currentState = State.Walk;
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
-            //PlayAnimation(AnimationNames.ZbjWalk);
+            PlayAnimation(AnimationNames.ZbjWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
             rotatePoleAttackHitBox();
         }
@@ -144,7 +115,17 @@ public class PlayerController : MonoBehaviour
             (_currentState == State.Idle || _currentState == State.Walk))
         {
             _currentState = State.Idle;
-            //PlayAnimation(AnimationNames.ZbjIdle);
+            PlayAnimation(AnimationNames.ZbjIdle);
+        }
+
+        // this if-else branch of code allows the direction of the character to be updated
+        // even when he is in the attack state
+        if (_moveInput != Vector2.zero &&
+            (_currentState == State.Attack))
+        {
+            Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
+            Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
+            Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
         }
     }
 
@@ -210,38 +191,30 @@ public class PlayerController : MonoBehaviour
                 }
                 PlayAnimation(weapon.combos[comboCounter].animationName);
 
-                Debug.Log("current animation played is " + _currAnimation);
-
                 comboCounter++;
-
 
                 if (comboCounter > weapon.comboCount - 1)
                 {
                     FinishCombo();
-                    //Invoke("StartIdling", Animator.GetCurrentAnimatorStateInfo(0).length);
                 }
 
                 Debug.Log("length of the animation is " + Animator.GetCurrentAnimatorStateInfo(0).length);
-                //Invoke("StartIdling", 1);//Animator.GetCurrentAnimatorStateInfo(0).length);
                 Invoke("InterruptCombo", _timeBeforeComboCountCleared
                     + Animator.GetCurrentAnimatorStateInfo(0).length);
             }
         }
     }
 
+    // called by animation events
     private void StartIdling()
     {
-        Debug.Log("Idle is called");
         _currentState = State.Idle;
-        //PlayAnimation(AnimationNames.ZbjIdle);
-
     }
 
     private void FinishCombo()
     {
         comboCounter = 0;
         lastComboEnd = Time.time;
-        //_currentState = State.Idle;
     }
 
     private void InterruptCombo()
@@ -249,19 +222,18 @@ public class PlayerController : MonoBehaviour
         comboCounter = 0;
     }
 
-    private void DebugLog()
-    {
-        Debug.Log("12145123413451345462324161332451545");
-    }
-
     public void OnHurt(int damage, Vector2 knockback)
     {
         if (_damageable.IsAlive)
         {
+            _currentState = State.Hurt;
+            PlayAnimation(AnimationNames.ZbjHurt);
             _rb.velocity = new Vector2(knockback.x, knockback.y);
         }
         else
         {
+            _currentState = State.Death;
+            PlayAnimation(AnimationNames.ZbjDeath);
             // the player would not be able to move the character
             // if it is dead after taking the damage
             _rb.velocity = Vector2.zero;

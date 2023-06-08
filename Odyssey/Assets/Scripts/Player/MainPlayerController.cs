@@ -50,8 +50,6 @@ public class MainPlayerController : MonoBehaviour
             {
                 isChar1 = true;
             }
-
-            SwapCharacters();
         }
 
         // original code

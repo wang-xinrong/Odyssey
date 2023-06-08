@@ -47,12 +47,12 @@ public class ProjectileLauncher : MonoBehaviour
     public void FireProjectile(GameObject projectileToFire)
     {
         GameObject projectile = Instantiate(projectileToFire
-            , GetLaunchPoint(_playerController.GetDirectionFacing())
+            , GetLaunchPoint(GetDirectionFacing())
             , projectileToFire.transform.rotation
             , ProjectileManager.transform);
 
         projectile.GetComponent<Projectile>().
-            SetDirection(_playerController.GetDirectionFacing());
+            SetDirection(GetDirectionFacing());
     }
 
     public Vector2 GetDirectionFacing()

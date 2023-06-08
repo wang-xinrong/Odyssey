@@ -178,8 +178,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 58283031273379296}
-  Rb: {fileID: 58283031273379301}
-  _directionFacing: {x: 0, y: 0}
+  _currentState: 0
+  weapon: {fileID: 0}
+  m_MovementInput:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Movement Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 99fc4b2e-e52f-40aa-8d2b-61093aff5784
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  _attackDelay: 1.5
+  _inComboBetweenAttackDelay: 0.5
+  _timeBeforeComboCountCleared: 2
 --- !u!95 &58283031273379296
 Animator:
   serializedVersion: 5
@@ -302,5 +317,4 @@ MonoBehaviour:
   _isInvincible: 0
   _maxHealth: 100
   _health: 100
-  _isAlive: 1
   InvincibleTime: 0.25

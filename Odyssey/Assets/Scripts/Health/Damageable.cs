@@ -99,7 +99,13 @@ public class Damageable : MonoBehaviour
             _isHurt = true;
             _isInvincible = true;
             Health -= damage;
+
+            // This HurtTrigger is specifically for the knight enemy who is
+            // still using the old animator setup. And this line of code
+            // should be removed once the knight enemy's animator has been
+            // updated
             _animator.SetTrigger(AnimatorStrings.HurtTrigger);
+
             // any function that is subscribed to this Unity event
             // is going to invoke the method with damage and knockback
             // as parameters.

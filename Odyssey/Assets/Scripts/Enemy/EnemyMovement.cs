@@ -12,60 +12,24 @@ public class EnemyMovement : MonoBehaviour
     protected Collider2D _wallCollider;
 
     public Directions Direction = new Directions();
-    public float WalkStopRate = 0.05f;
-    public float _walkSpeed = 3f;
+    public float WalkSpeed;
 
-    // a way of controlling the knight movement
-    public float WalkSpeed
+    public Vector2 MovementDirection;
+
+    private void Awake()
     {
-        get
-        {
-            if (CanMove)
-            {
-                return 3f;
-            }
-            else
-            {
-                return 0f;
-            }
-        }
-        set
-        {
-            WalkSpeed = value;
-        }
-    }
+        Rb = GetComponent<Rigidbody2D>();
 
-    private bool _canMove = true;
-
-    public bool CanMove
-    {
-        get
-        {
-            return _canMove;
-        }
-        set
-        {
-            _canMove = value;
-        }
+        // a component for wall collision detection
+        //_touchingDirections = GetComponent<TouchingDirections>();
+        _animator = GetComponent<Animator>();
+        _wallCollider = GetComponent<CapsuleCollider2D>();
+        Direction.DirectionVector = MovementDirection.normalized;//new Vector2(1, 1);
     }
 
     private void Update()
     {
-    }
-
-    private int _count = 0;
-
-    public void fun()
-    {
-        if (_count > 100)
-        {
-            _animator.Play("RedHairWomanAttack");
-            _count = 0;
-        }
-        else
-        {
-            _count++;
-        }
+        Move();
     }
 
     protected void Move()

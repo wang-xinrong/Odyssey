@@ -22,6 +22,10 @@ public class DetectionZone : MonoBehaviour
     private void Awake()
     {
         Collider = GetComponent<Collider2D>();
+
+        // initalise the _targetTransform to avoid
+        // null exceptions
+        _targetTransform = gameObject.transform;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

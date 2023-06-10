@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             _currentState = State.Walk;
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
-            PlayAnimation(AnimationNames.ZbjWalk);
+            PlayAnimation(AnimationNames.CharWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
             rotatePoleAttackHitBox();
         }
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             (_currentState == State.Idle || _currentState == State.Walk))
         {
             _currentState = State.Idle;
-            PlayAnimation(AnimationNames.ZbjIdle);
+            PlayAnimation(AnimationNames.CharIdle);
         }
 
         // this if-else branch of code allows the direction of the character to be updated
@@ -227,13 +227,13 @@ public class PlayerController : MonoBehaviour
         if (_damageable.IsAlive)
         {
             _currentState = State.Hurt;
-            PlayAnimation(AnimationNames.ZbjHurt);
+            PlayAnimation(AnimationNames.CharHurt);
             _rb.velocity = new Vector2(knockback.x, knockback.y);
         }
         else
         {
             _currentState = State.Death;
-            PlayAnimation(AnimationNames.ZbjDeath);
+            PlayAnimation(AnimationNames.CharDeath);
             // the player would not be able to move the character
             // if it is dead after taking the damage
             _rb.velocity = Vector2.zero;

@@ -8,7 +8,7 @@ public class EnemyProjectileLauncher : MonoBehaviour
 
     public Transform LaunchPoint;
     public GameObject ProjectileManager;
-    private EnemyGFX _enemyGFX;
+    public EnemyGFX EnemyGFX;
 
     public Vector3 GetLaunchPoint()
     {
@@ -17,7 +17,11 @@ public class EnemyProjectileLauncher : MonoBehaviour
 
     private void Awake()
     {
-        _enemyGFX = GetComponent<EnemyGFX>();
+        //_enemyGFX = GetComponent<EnemyGFX>();
+        if (!EnemyGFX)
+        {
+            Debug.Log("Reference to EnemyGFX is missing");
+        }
     }
 
     public void FireProjectile0()
@@ -32,23 +36,19 @@ public class EnemyProjectileLauncher : MonoBehaviour
 
     public void FireProjectile(GameObject projectileToFire)
     {
-        Debug.Log("here");
         GameObject projectile = Instantiate(projectileToFire
             , GetLaunchPoint()
             , projectileToFire.transform.rotation
             , ProjectileManager.transform);
-        Debug.Log("here1");
         // need to settle the direction issues
         projectile.GetComponent<Projectile>().
             SetDirectionForEnemyProjectile(TargetDirection());
-        Debug.Log("here2");
     }
 
     private Vector2 _targetDirection;
     public Vector2 TargetDirection()
     {
-        Debug.Log("here3");
-        _targetDirection = Directions.RelativeDirectionVector(LaunchPoint, _enemyGFX.TargetTransform);
+        _targetDirection = Directions.RelativeDirectionVector(LaunchPoint, EnemyGFX.TargetTransform);
         return _targetDirection;
     }
     /*

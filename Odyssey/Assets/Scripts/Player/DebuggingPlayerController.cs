@@ -58,7 +58,7 @@ public class DebuggingPlayerController : MonoBehaviour
         // the character
         if (_currentState == State.Walk)
         {
-            PlayAnimation(AnimationNames.ZbjWalk);
+            PlayAnimation(AnimationNames.CharWalk);
             // player can only move if he is not hit
             //Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
             _rb.velocity = _moveInput * CurrentMoveSpeed;
@@ -66,7 +66,7 @@ public class DebuggingPlayerController : MonoBehaviour
 
         if (_currentState == State.Idle)
         {
-            PlayAnimation(AnimationNames.ZbjIdle);
+            PlayAnimation(AnimationNames.CharIdle);
             _rb.velocity = Vector2.zero;
         }
 

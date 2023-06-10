@@ -7,13 +7,22 @@ public class AnimationNames
     // Villager Girl Enemy
     public static string VillagerGirlIdle = "VillagerGirlIdle";
     public static string VillagerGirlWalk = "VillagerGirlWalk";
-    public static string VillagerGirlAttack = "VillagerGirlAttack";
+    public static string VillagerGirlAttack = "VillagerGirlPopUp";
     public static string VillagerGirlHurt = "VillagerGirlHurt";
     public static string VillagerGirlDeath = "VillagerGirlDeath";
 
-    public static string ZbjIdle = "Idle";
-    public static string ZbjWalk = "Walk";
-    public static string ZbjHurt = "Hurt";
-    public static string ZbjDeath = "Death";
+    // Player Characters
+    public static string CharIdle = "Idle";
+    public static string CharWalk = "Walk";
+    public static string CharHurt = "Hurt";
+    public static string CharDeath = "Death";
+
+    // Red Hair Woman Enemy
+    public static string RedHairWomanIdle = "RedHairWomanIdle";
+    public static string RedHairWomanWalk = "RedHairWomanWalk";
+    public static string RedHairWomanAttack = "RedHairWomanAttack";
+    public static string RedHairWomanHurt = "RedHairWomanHurt";
+    public static string RedHairWomanDeath = "RedHairWomanDeath";
+
 
 }

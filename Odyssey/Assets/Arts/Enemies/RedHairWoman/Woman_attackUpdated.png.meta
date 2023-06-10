@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 076ac1507e1b1478aa7308df6f4a0c03
+guid: 8cabf341cf4854c8f9618fa7fbf98eab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,14 +125,14 @@ TextureImporter:
         width: 17
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49a12c306b027476983abdac0a02d32a
-      internalID: 441713415
+      spriteID: 96d973130eb744a4fa88e07584731ada
+      internalID: 1846693966
       vertices: []
       indices: 
       edges: []
@@ -131,17 +143,17 @@ TextureImporter:
         serializedVersion: 2
         x: 54
         y: 0
-        width: 21
+        width: 23
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07f9c886c58c845f98ae4780fb81ef48
-      internalID: -2038566706
+      spriteID: efa3b9d6964c34bababf775f58db4846
+      internalID: -1252610611
       vertices: []
       indices: 
       edges: []
@@ -152,17 +164,17 @@ TextureImporter:
         serializedVersion: 2
         x: 102
         y: 0
-        width: 22
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 33
+        height: 36
+      alignment: 9
+      pivot: {x: 0.28209063, y: 0.45422363}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ef89fdf998b43db92fb652da37ffbe
-      internalID: -1123251765
+      spriteID: 28b61e338d2be48a4addf1f483f93cd8
+      internalID: -1149426210
       vertices: []
       indices: 
       edges: []
@@ -171,19 +183,61 @@ TextureImporter:
       name: Woman_attack_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 14
-        height: 33
+        x: 167
+        y: 36
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c9027d26089049beb4b9b8b07e1a1cd
-      internalID: 1551169253
+      spriteID: 3333759083c9e4f12a948fc37ccd679f
+      internalID: 249440010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_attack_4
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 14
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13281a7b84aef4188af477026aa1b798
+      internalID: -2099629981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woman_attack_5
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 26
+        width: 13
+        height: 22
+      alignment: 9
+      pivot: {x: 0.4423781, y: 0.4046643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6378c89340694ab095cc3f2d54e1558
+      internalID: -1680174054
       vertices: []
       indices: 
       edges: []
@@ -199,10 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Woman_attack_0: 441713415
-      Woman_attack_1: -2038566706
-      Woman_attack_2: -1123251765
-      Woman_attack_3: 1551169253
+      Woman_attack_0: 1846693966
+      Woman_attack_1: -1252610611
+      Woman_attack_2: -1149426210
+      Woman_attack_3: 249440010
+      Woman_attack_4: -2099629981
+      Woman_attack_5: -1680174054
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

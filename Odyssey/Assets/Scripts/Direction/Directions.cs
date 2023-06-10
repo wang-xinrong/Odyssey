@@ -48,7 +48,10 @@ public class Directions
             }
             if (directionVector == Vector2.left)
             {
-                obj.transform.localScale = new Vector3(-1, 1, 1);
+                obj.transform.localScale = new Vector3(
+                    obj.transform.localScale.x * -1
+                    , obj.transform.localScale.y
+                    , obj.transform.localScale.z);
             }
             if (directionVector == Vector2.right)
             {

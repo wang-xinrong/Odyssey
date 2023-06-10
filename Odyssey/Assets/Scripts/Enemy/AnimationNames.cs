@@ -24,5 +24,12 @@ public class AnimationNames
     public static string RedHairWomanHurt = "RedHairWomanHurt";
     public static string RedHairWomanDeath = "RedHairWomanDeath";
 
+    // Old Villager Woman
+    public static string OldVillagerWomanIdle = "OldVillagerWomanIdle";
+    public static string OldVillagerWomanWalk = "OldVillagerWomanWalk";
+    public static string OldVillagerWomanAttack = "OldVillagerWomanAttack";
+    public static string OldVillagerWomanDeath = "OldVillagerWomanDeath";
 
+    // Dancing Girl
+    public static string DancingGirlSliding = "DancingGirlSliding";
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 420d0b71633d64d928d58aa7b45a51a0
+guid: c948f36055046406aa9eaf38bb1bcb9d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Woman_walk_0
+      name: Old_woman_walk_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 4
         y: 0
-        width: 15
-        height: 33
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecc579edfbe4c49c58e27a91a12d0198
-      internalID: 1214044778
+      spriteID: 90d0556eaf2cc45bf930a53064336268
+      internalID: 623533674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Woman_walk_1
+      name: Old_woman_walk_1
       rect:
         serializedVersion: 2
         x: 53
         y: 0
-        width: 13
-        height: 34
+        width: 12
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,40 +152,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47ac3959543034997bc7ef6a77a6c74e
-      internalID: 381443365
+      spriteID: a6ad92a3b220844488c9510f57ba8c2f
+      internalID: 1627042156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Woman_walk_2
+      name: Old_woman_walk_2
       rect:
         serializedVersion: 2
         x: 99
         y: 0
         width: 16
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2df1aa02c53c94b2a9ea211918a30a70
-      internalID: 292491541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Woman_walk_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 22
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c87c2b9f1a0e241e9a0dff0cb0c3e00e
-      internalID: -252540421
+      spriteID: 71ec4a7892fec4c7fb73c110ae574dde
+      internalID: -221897589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Woman_walk_4
+      name: Old_woman_walk_3
       rect:
         serializedVersion: 2
-        x: 194
+        x: 145
         y: 0
-        width: 17
-        height: 34
+        width: 20
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +194,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e084a45efe994c3f9b555d22e89114f
-      internalID: -1877114780
+      spriteID: cc9ae2207a5e54d31b0503dd8691cabe
+      internalID: 30349406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Woman_walk_5
+      name: Old_woman_walk_4
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70423ea884b2c4fdf82d615e24c42032
+      internalID: -250067878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Old_woman_walk_5
       rect:
         serializedVersion: 2
         x: 245
         y: 0
-        width: 13
-        height: 35
+        width: 12
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f1fbe337dca041bc99ce33474534df1
-      internalID: 555423164
+      spriteID: 0c66f2e684b2a4433b42f08846142bac
+      internalID: -457556357
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Woman_walk_0: 1214044778
-      Woman_walk_1: 381443365
-      Woman_walk_2: 292491541
-      Woman_walk_3: -252540421
-      Woman_walk_4: -1877114780
-      Woman_walk_5: 555423164
+      Old_woman_walk_0: 623533674
+      Old_woman_walk_1: 1627042156
+      Old_woman_walk_2: -221897589
+      Old_woman_walk_3: 30349406
+      Old_woman_walk_4: -250067878
+      Old_woman_walk_5: -457556357
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

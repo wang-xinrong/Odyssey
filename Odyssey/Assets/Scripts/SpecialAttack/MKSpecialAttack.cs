@@ -9,6 +9,7 @@ public class MKSpecialAttack : MonoBehaviour
     public IEnumerator InitiateSpecialAttack()
     {
         GameObject Shockwave = this.transform.Find("Shockwave").gameObject;
+        Debug.Log("here" + Shockwave);
         Shockwave.SetActive(true);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerController.transform.position ,5f, AoE);
         yield return new WaitForSeconds(0.5f);

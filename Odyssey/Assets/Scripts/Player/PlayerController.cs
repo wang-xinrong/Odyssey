@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
+        Debug.Log("here");
         if (context.performed)
         {
             CancelInvoke("StartIdling");

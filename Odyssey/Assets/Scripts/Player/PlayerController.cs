@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector2.zero;
         }
 
-        if (_currentState == State.Attack)
+        if (_currentState == State.Attack || _currentState == State.Special)
         {
             _rb.velocity = Vector2.zero;
         }
@@ -137,12 +137,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
+            CancelInvoke("StartIdling");
             _currentState = State.Special;
-            Debug.Log("Played");
+            PlayAnimation(AnimationNames.CharSpecial);
         }
     }
+
 
     [SerializeField]
     private float _attackDelay = 1.5f;
@@ -175,6 +177,7 @@ public class PlayerController : MonoBehaviour
         }
         lastClickedTime = Time.time;
         _currentState = State.Attack;
+        //_currentState = State.Attack;
         // cancel invocation of all method calls with the indicated names
         // in this behaviour
         CancelInvoke("StartIdling");

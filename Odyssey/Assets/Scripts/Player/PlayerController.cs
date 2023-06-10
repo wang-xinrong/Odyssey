@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     // the player should only be able to call move
     // related functions if he is in the state of
     // idle or walk
-    public enum State { Idle, Walk, Death, Attack, Hurt }
+    public enum State { Idle, Walk, Death, Attack, Hurt, Special }
     public State _currentState = State.Idle;
     private string _currAnimation;
 
@@ -132,6 +132,15 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             Attack();
+        }
+    }
+
+    public void OnSpecial(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _currentState = State.Special;
+            Debug.Log("Played");
         }
     }
 

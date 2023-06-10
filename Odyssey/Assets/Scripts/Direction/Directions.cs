@@ -48,10 +48,7 @@ public class Directions
             }
             if (directionVector == Vector2.left)
             {
-                obj.transform.localScale = new Vector3(
-                    obj.transform.localScale.x * -1
-                    , obj.transform.localScale.y
-                    , obj.transform.localScale.z);
+                obj.transform.localScale = new Vector3(-1, 1, 1);
             }
             if (directionVector == Vector2.right)
             {
@@ -71,13 +68,10 @@ public class Directions
     // function to flip objects' sprite around to the opposite horizontal direction
     public static void FlipSpriteHorizontally(GameObject obj)
     {
-        if (obj.transform.localScale == new Vector3(-1, 1, 1))
-        {
-            obj.transform.localScale = new Vector3(1, 1, 1);
-        } else
-        {
-            obj.transform.localScale = new Vector3(-1, 1, 1);
-        }
+        obj.transform.localScale = new Vector3(
+            obj.transform.localScale.x * -1
+            , obj.transform.localScale.y
+            , obj.transform.localScale.z);
     }
 
     public void FlipMovementDirection()

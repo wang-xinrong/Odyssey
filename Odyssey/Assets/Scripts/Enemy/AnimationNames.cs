@@ -32,4 +32,12 @@ public class AnimationNames
 
     // Dancing Girl
     public static string DancingGirlSliding = "DancingGirlSliding";
+
+    // Yurei
+    public static string EnemyIdle = "Idle";
+    public static string EnemyWalk = "Walk";
+    public static string EnemyAttack = "Attack";
+    public static string EnemyHurt = "Hurt";
+    public static string EnemyDeath = "Death";
+
 }

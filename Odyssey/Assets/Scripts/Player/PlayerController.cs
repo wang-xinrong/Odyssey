@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public enum State { Idle, Walk, Death, Attack, Hurt }
     public State _currentState = State.Idle;
     private string _currAnimation;
+    public float MovementSpeed = 5f;
 
     public Weapon weapon;
     private float lastClickedTime;
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return 5f;
+            return MovementSpeed;
         }
     }
 

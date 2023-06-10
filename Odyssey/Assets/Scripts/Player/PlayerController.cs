@@ -92,11 +92,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnMove(InputActionProperty input)// InputAction.CallBackContext)
+    public void OnMove(InputActionProperty input)
     {
         // always pickup the input first
         _moveInput = input.action.ReadValue<Vector2>();
-        //_moveInput = context.ReadValue<Vector2>();
 
         // the player walk or idle animation should only be updated if he is
         // in the state of idle or walk
@@ -108,7 +107,6 @@ public class PlayerController : MonoBehaviour
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
             PlayAnimation(AnimationNames.CharWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
-            rotatePoleAttackHitBox();
         }
 
         if (_moveInput == Vector2.zero &&
@@ -129,28 +127,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void rotatePoleAttackHitBox() 
-    {
-        Transform PoleAttack = this.gameObject.transform.Find("PoleAttack");
-        if (PoleAttack == null) 
-        {
-            return;
-        }
-        if (Direction.DirectionVector == Vector2.up)
-        {
-            PoleAttack.rotation = Quaternion.Euler(0, 0, 180);
-        } else if (Direction.DirectionVector == Vector2.left)
-        {
-            PoleAttack.rotation = Quaternion.Euler(0, 0, -90);
-        } else if (Direction.DirectionVector == Vector2.right)
-        {
-            PoleAttack.rotation = Quaternion.Euler(0, 0, 90);
-        } else 
-        {
-            PoleAttack.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
-
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -167,42 +143,45 @@ public class PlayerController : MonoBehaviour
     private float _timeBeforeComboCountCleared = 2f;
 
 
+    // helper method that takes a reference time and checks if the interval between the current
+    // and reference time exceeds the given interval duration
+    private bool HasSufficientTimePassed(float referenceTime, float intervalDuration)
+    {
+        return Time.time - referenceTime > intervalDuration; 
+    }
+
     private void Attack()
     {
         // check if sufficient time has passed since previous combo was executed
         // & that current combo counter is within bounds
-        if (Time.time - lastComboEnd > _attackDelay && comboCounter <= weapon.comboCount)
+        if (!HasSufficientTimePassed(lastComboEnd, _attackDelay) || comboCounter > weapon.comboCount)
         {
-            // check if sufficient time has passed since previous click to register next attack
-            if (Time.time - lastClickedTime > _inComboBetweenAttackDelay)
-            {
-                lastClickedTime = Time.time;
-                _currentState = State.Attack;
-                // cancel invocation of all method calls with the indicated names
-                // in this behaviour
-                CancelInvoke("StartIdling");
-                CancelInvoke("InterruptCombo");
-                Debug.Log("Invoke called here");
-
-                Attack script = this.gameObject.transform.GetChild(0).GetComponent<Attack>();
-                if (script)
-                {
-                    script.AttackDamage = weapon.combos[comboCounter].damage;
-                }
-                PlayAnimation(weapon.combos[comboCounter].animationName);
-
-                comboCounter++;
-
-                if (comboCounter > weapon.comboCount - 1)
-                {
-                    FinishCombo();
-                }
-
-                Debug.Log("length of the animation is " + Animator.GetCurrentAnimatorStateInfo(0).length);
-                Invoke("InterruptCombo", _timeBeforeComboCountCleared
-                    + Animator.GetCurrentAnimatorStateInfo(0).length);
-            }
+            return;
         }
+
+        // check if sufficient time has passed since previous click to register next attack
+        if (!HasSufficientTimePassed(lastClickedTime, _inComboBetweenAttackDelay))
+        {
+            return;
+        }
+        lastClickedTime = Time.time;
+        _currentState = State.Attack;
+        // cancel invocation of all method calls with the indicated names
+        // in this behaviour
+        CancelInvoke("StartIdling");
+        CancelInvoke("InterruptCombo");
+
+        PlayAnimation(weapon.combos[comboCounter].animationName);
+
+        comboCounter++;
+
+        if (comboCounter > weapon.comboCount - 1)
+        {
+            FinishCombo();
+        }
+
+        Invoke("InterruptCombo", _timeBeforeComboCountCleared
+            + Animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
     // called by animation events

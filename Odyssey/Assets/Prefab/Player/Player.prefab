@@ -597,6 +597,7 @@ GameObject:
   - component: {fileID: 5891670335105262142}
   - component: {fileID: 5891670335105262143}
   - component: {fileID: 5891670334319995383}
+  - component: {fileID: 1818333}
   m_Layer: 8
   m_Name: mk
   m_TagString: Player
@@ -901,6 +902,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount: 0
+--- !u!114 &1818333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670335105262140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f00e4a8298a45748ea44b23ec42b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectilePrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  UpHitBox: {fileID: 5452026569247747121}
+  DownHitBox: {fileID: 5891670334159106245}
+  LeftHitBox: {fileID: 6374021993994167159}
+  RightHitBox: {fileID: 5549330961336441781}
+  _playerController: {fileID: 5891670335105262139}
 --- !u!1 &5891670335115618963
 GameObject:
   m_ObjectHideFlags: 0

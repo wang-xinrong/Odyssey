@@ -7,10 +7,12 @@ public class ZBJSpecialAttack : MonoBehaviour
     public LayerMask AoE;
     public float knockBackMultiplier = 5f;
     public GameObject _playerController;
+    public MainPlayerController _mainPlayerController;
     public IEnumerator InitiateSpecialAttack()
     {
         GameObject Shockwave = this.transform.Find("Shockwave").gameObject;
         Shockwave.SetActive(true);
+        _mainPlayerController.decrementSPBy(50);
         Vector2 charPosition = _playerController.transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(charPosition, 5f, AoE);
         yield return new WaitForSeconds(0.5f);

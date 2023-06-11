@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private float lastComboEnd;
     private int comboCounter;
 
+    public MainPlayerController _mainPlayerController;
+
     public InputActionProperty m_MovementInput;
 
     public float CurrentMoveSpeed
@@ -137,8 +139,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        Debug.Log("here");
-        if (context.performed)
+        if (context.performed && _mainPlayerController.isSPBarFull())
         {
             CancelInvoke("StartIdling");
             _currentState = State.Special;

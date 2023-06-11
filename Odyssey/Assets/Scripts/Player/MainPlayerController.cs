@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class MainPlayerController : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class MainPlayerController : MonoBehaviour
 
     // new, for health system bug
     private GameObject _healthBar;
+
+    // new, for SP bar
+    public int SP = 0;
+    public int MaxSP = 0;
+    public UnityEvent<int, int> SPIncremented;
+    public UnityEvent<int, int> SPDecremented;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -31,8 +38,36 @@ public class MainPlayerController : MonoBehaviour
         Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
     }
 
+    private float lastUpdateTime; 
+    [SerializeField]
+    private float _rechargeSPInterval;
+
+    private void checkIncrementSP()
+    {
+        // check if sufficient time has passed since last SP increment
+        if (Time.time - lastUpdateTime > _rechargeSPInterval && SP < MaxSP)
+        {
+            SP++;
+            lastUpdateTime = Time.time;
+            // everything subscribing to SPIncremented event will be notified
+            SPIncremented.Invoke(SP, MaxSP);
+        }
+    }
+
+    public void decrementSPBy(int amount)
+    {
+        SP -= amount;
+        SPDecremented.Invoke(SP, MaxSP);
+    }
+
+    public bool isSPBarFull()
+    {
+        return SP == MaxSP;
+    }
+
     void Update()
     {
+        checkIncrementSP();
         // new, to fix the bug that after death of one character,
         // the player can still swap back and forth between the character
         // that is alive and the character that is dead
@@ -74,10 +109,11 @@ public class MainPlayerController : MonoBehaviour
 
     public void OnSwap(InputAction.CallbackContext context) 
     {
-        if (context.started) {
+        if (context.started && SP >= 20) {
             isChar1 = !isChar1;
+            SwapCharacters();
+            decrementSPBy(20);
         }
-        SwapCharacters();
     }
 
     private void SwapCharacters()

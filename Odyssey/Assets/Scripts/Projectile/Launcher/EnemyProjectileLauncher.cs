@@ -41,7 +41,7 @@ public class EnemyProjectileLauncher : MonoBehaviour
             , projectileToFire.transform.rotation
             , ProjectileManager.transform);
         // need to settle the direction issues
-        projectile.GetComponent<Projectile>().
+        projectile.GetComponent<ProjectileDirection>().
             SetDirectionForEnemyProjectile(TargetDirection());
     }
 

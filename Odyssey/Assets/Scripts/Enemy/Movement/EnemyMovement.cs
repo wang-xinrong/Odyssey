@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     public float WalkSpeed;
 
     public Vector2 MovementDirection;
+    public EnemyGFX EnemyGFX;
 
     private void Awake()
     {
@@ -46,9 +47,16 @@ public class EnemyMovement : MonoBehaviour
             // the knight should not move other than the knockback effect
             // when he is hurt
         */
-        Rb.velocity = new Vector2(WalkSpeed * Direction.DirectionVector.x
+        if (EnemyGFX.IsAlive)
+        {
+            Rb.velocity = new Vector2(WalkSpeed * Direction.DirectionVector.x
                 , WalkSpeed * Direction.DirectionVector.y);
+        } else
+        {
+            Rb.velocity = Vector2.zero;
+        }
     }
+
 
     public void OnHurt(int damage, Vector2 knockback)
     {

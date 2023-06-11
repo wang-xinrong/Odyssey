@@ -51,7 +51,7 @@ public class ProjectileLauncher : MonoBehaviour
             , projectileToFire.transform.rotation
             , ProjectileManager.transform);
 
-        projectile.GetComponent<Projectile>().
+        projectile.GetComponent<ProjectileDirection>().
             SetDirection(GetDirectionFacing());
     }
 

@@ -16,7 +16,7 @@ using UnityEngine.InputSystem;
 // however, there are certain bugs in this script yet to be resolved
 // one of them is the incapability of the character to enter attack
 // state from idle state.
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, UnderSpecialEffect
 {
     public Animator Animator;
     private Rigidbody2D _rb;
@@ -225,5 +225,30 @@ public class PlayerController : MonoBehaviour
     public bool IsAlive()
     {
         return _damageable.IsAlive;
+    }
+
+    // implementation of methods in UnderSpecialEffect
+    public void Bewitched(float duration)
+    {
+        ReverseMovementSpeed();
+        Invoke("ReverseMovementSpeed", duration);
+    }
+
+    private void ReverseMovementSpeed()
+    {
+        MovementSpeed = -1 * MovementSpeed;
+    }
+
+    public void SlowedDown(float fractionOfOriginalSpeed, float duration)
+    {
+        _originalMovementSpeed = MovementSpeed;
+        MovementSpeed = MovementSpeed * fractionOfOriginalSpeed;
+        Invoke("ResetMovementSpeed", duration);
+    }
+
+    private float _originalMovementSpeed;
+    private void ResetMovementSpeed()
+    {
+        MovementSpeed = _originalMovementSpeed;
     }
 }

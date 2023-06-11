@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7543654591339067652}
   - component: {fileID: 7271049467680518497}
-  - component: {fileID: 8230254440765927893}
   - component: {fileID: 4284085926513751941}
   - component: {fileID: 8624947888051716483}
+  - component: {fileID: 40268653114587178}
+  - component: {fileID: 2373139512945853408}
   m_Layer: 11
   m_Name: EnemyArrowSample
   m_TagString: Untagged
@@ -87,21 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8230254440765927893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3957113067568804074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3299916779a45d3b07a66ba6bea868, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 3
-  Damage: 10
-  KnockBack: {x: 2, y: 2}
 --- !u!61 &4284085926513751941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +135,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &40268653114587178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957113067568804074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6797c8021e549dc95b60ab8b8e0c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileScript: {fileID: 2373139512945853408}
+--- !u!114 &2373139512945853408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957113067568804074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e70e89fda245bdb69b3c3cee956c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 3
+  Damage: 10
+  KnockBack: {x: 7, y: 0}
+  Duration: 3

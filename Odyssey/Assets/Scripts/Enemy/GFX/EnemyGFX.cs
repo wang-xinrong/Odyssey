@@ -102,12 +102,12 @@ public class EnemyGFX : MonoBehaviour
             if (_enemyAIPath.velocity.x > 0.1f && _currDirection == DirectionFacing.Left)
             {
                 _currDirection = DirectionFacing.Right;
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                gameObject.transform.localScale = RightFacingScale(gameObject.transform.localScale);
             }
             else if (_enemyAIPath.velocity.x < -0.1f && _currDirection == DirectionFacing.Right)
             {
                 _currDirection = DirectionFacing.Left;
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                gameObject.transform.localScale = LeftFacingScale(gameObject.transform.localScale);
             }
         }
     }
@@ -122,12 +122,12 @@ public class EnemyGFX : MonoBehaviour
             if (EnemyDirection.x > 0)
             {
                 _currDirection = DirectionFacing.Right;
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                gameObject.transform.localScale = RightFacingScale(gameObject.transform.localScale);
             }
             else if (EnemyDirection.x < 0)
             {
                 _currDirection = DirectionFacing.Left;
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                gameObject.transform.localScale = LeftFacingScale(gameObject.transform.localScale);
             }
         }
     }
@@ -139,12 +139,12 @@ public class EnemyGFX : MonoBehaviour
             if (_rb.velocity.x > 0.1f && _currDirection == DirectionFacing.Left)
             {
                 _currDirection = DirectionFacing.Right;
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                gameObject.transform.localScale = RightFacingScale(gameObject.transform.localScale);
             }
             else if (_rb.velocity.x < -0.1f && _currDirection == DirectionFacing.Right)
             {
                 _currDirection = DirectionFacing.Left;
-                gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                gameObject.transform.localScale = LeftFacingScale(gameObject.transform.localScale);
             }
         }
     }
@@ -156,5 +156,15 @@ public class EnemyGFX : MonoBehaviour
         {
             return _currentState != State.Death;
         }
+    }
+
+    private Vector3 RightFacingScale(Vector3 scale)
+    {
+        return new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
+    }
+
+    private Vector3 LeftFacingScale(Vector3 scale)
+    {
+        return new Vector3(-1 * Mathf.Abs(scale.x), scale.y, scale.z);
     }
 }

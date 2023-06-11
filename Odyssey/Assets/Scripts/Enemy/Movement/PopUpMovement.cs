@@ -51,15 +51,8 @@ public class PopUpMovement : MonoBehaviour
 
     protected void Move()
     {
-        Rb.transform.position = RandomisePosition(TopLeftRoomCorner, BottomRightRoomCorner);
+        Rb.transform.position = Directions.RandomisePosition(TopLeftRoomCorner, BottomRightRoomCorner);
         _enemyGFX.StartAttacking();
-    }
-
-    private Vector3 RandomisePosition(Transform topLeft, Transform bottomRight)
-    {
-        float xPosition = UnityEngine.Random.Range(bottomRight.position.x, topLeft.position.x);
-        float yPosition = UnityEngine.Random.Range(topLeft.position.y, bottomRight.position.y);
-        return new Vector3(xPosition, yPosition, 0);
     }
 
     public void OnHurt(int damage, Vector2 knockback)

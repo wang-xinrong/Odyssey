@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
         //_touchingDirections = GetComponent<TouchingDirections>();
         _animator = GetComponent<Animator>();
         _wallCollider = GetComponent<CapsuleCollider2D>();
-        Direction.DirectionVector = MovementDirection.normalized;//new Vector2(1, 1);
+        Direction.DirectionVector = MovementDirection.normalized;
     }
 
     private void Update()
@@ -64,9 +64,10 @@ public class EnemyMovement : MonoBehaviour
     {
         // when colliding with a wall, the movement vector will
         // be reflected by the normal of collision
+        
         Direction.DirectionVector = Vector2.Reflect(Direction.DirectionVector
             , collision.GetContact(0).normal);
-
+        
         // the sprite will only be flipped vertically if the
         // collision happened to the left or right of the
         // sprite

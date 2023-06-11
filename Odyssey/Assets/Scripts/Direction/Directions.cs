@@ -119,4 +119,11 @@ public class Directions
             targetTransform.position.x - objTransform.position.x
             , targetTransform.position.y - objTransform.position.y);
     }
+
+    public static Vector3 RandomisePosition(Transform topLeft, Transform bottomRight)
+    {
+        float xPosition = UnityEngine.Random.Range(bottomRight.position.x, topLeft.position.x);
+        float yPosition = UnityEngine.Random.Range(topLeft.position.y, bottomRight.position.y);
+        return new Vector3(xPosition, yPosition, 0);
+    }
 }

@@ -38,7 +38,7 @@ public class EnemyGFX : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         _animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
@@ -166,5 +166,10 @@ public class EnemyGFX : MonoBehaviour
     private Vector3 LeftFacingScale(Vector3 scale)
     {
         return new Vector3(-1 * Mathf.Abs(scale.x), scale.y, scale.z);
+    }
+
+    public Vector3 Scaling(Vector3 scale, float factor)
+    {
+        return new Vector3(factor * scale.x, factor * scale.y, scale.z);
     }
 }

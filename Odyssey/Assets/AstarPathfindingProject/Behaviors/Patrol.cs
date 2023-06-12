@@ -16,7 +16,9 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_patrol.php")]
 	public class Patrol : VersionedMonoBehaviour {
 		/// <summary>Target points to move to in order</summary>
+		private Transform[][] targetSets;
 		public Transform[] targets;
+		public Transform[] targets1;
 
 		/// <summary>Time in seconds to wait at each target</summary>
 		public float delay = 0;
@@ -30,7 +32,17 @@ namespace Pathfinding {
 		protected override void Awake () {
 			base.Awake();
 			agent = GetComponent<IAstarAI>();
+			SetUpTargetSets();
 		}
+
+		// Unity UI does not support Array of Arrays, thus had to
+		// set up the Transform[][] this way
+		private void SetUpTargetSets()
+        {
+			targetSets = new Transform[2][];
+			targetSets[0] = targets;
+			targetSets[1] = targets1;
+        }
 
 		/// <summary>Update is called once per frame</summary>
 		void Update () {
@@ -55,5 +67,15 @@ namespace Pathfinding {
 
 			if (search) agent.SearchPath();
 		}
+
+		public void ChangePatrolTargets(int setIndex)
+        {
+			if (setIndex >= targetSets.Length)
+			{
+				Debug.Log("Patrol TargetSet Array Out of Bounds");
+				return;
+			}
+			targets = targetSets[setIndex];
+        }
 	}
 }

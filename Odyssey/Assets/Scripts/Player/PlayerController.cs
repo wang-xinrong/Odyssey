@@ -67,15 +67,12 @@ public class PlayerController : MonoBehaviour
         // the character
         if (_currentState == State.Walk)
         {
-            //PlayAnimation(AnimationNames.ZbjWalk);
             // player can only move if he is not hit
-            //Animator.SetBool(AnimatorStrings.IsWalking, _isWalking);
             _rb.velocity = _moveInput * CurrentMoveSpeed;
         }
 
         if (_currentState == State.Idle)
         {
-            //PlayAnimation(AnimationNames.ZbjIdle);
             _rb.velocity = Vector2.zero;
         }
 

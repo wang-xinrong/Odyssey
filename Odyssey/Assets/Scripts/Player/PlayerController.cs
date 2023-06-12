@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     // the player should only be able to call move
     // related functions if he is in the state of
     // idle or walk
-    public enum State { Idle, Walk, Death, Attack, Hurt }
+    public enum State { Idle, Walk, Death, Attack, Hurt, Special }
     public State _currentState = State.Idle;
     private string _currAnimation;
 
@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     private float lastClickedTime;
     private float lastComboEnd;
     private int comboCounter;
+
+    public MainPlayerController _mainPlayerController;
+    public SpecialAttack _specialAttack;
 
     public InputActionProperty m_MovementInput;
 
@@ -74,7 +77,7 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector2.zero;
         }
 
-        if (_currentState == State.Attack)
+        if (_currentState == State.Attack || _currentState == State.Special)
         {
             _rb.velocity = Vector2.zero;
         }
@@ -132,6 +135,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnSpecial(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+        {
+            return;
+        }
+        if (!_mainPlayerController.hasSufficientSP(_specialAttack.specialAttackCost))
+        {
+            return;
+        }
+        if (!_mainPlayerController.specialAttackOffSwapCD())
+        {
+            Debug.Log("sp attack on CD");
+            return;
+        }
+        CancelInvoke("StartIdling");
+        _currentState = State.Special;
+        PlayAnimation(AnimationNames.CharSpecial);
+        _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost);
+    }
+
+
     [SerializeField]
     private float _attackDelay = 1.5f;
     [SerializeField]
@@ -163,6 +188,7 @@ public class PlayerController : MonoBehaviour
         }
         lastClickedTime = Time.time;
         _currentState = State.Attack;
+        //_currentState = State.Attack;
         // cancel invocation of all method calls with the indicated names
         // in this behaviour
         CancelInvoke("StartIdling");

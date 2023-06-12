@@ -16,6 +16,7 @@ public class AnimationNames
     public static string CharWalk = "Walk";
     public static string CharHurt = "Hurt";
     public static string CharDeath = "Death";
+    public static string CharSpecial = "SpecialAttack";
 
     // Red Hair Woman Enemy
     public static string RedHairWomanIdle = "RedHairWomanIdle";

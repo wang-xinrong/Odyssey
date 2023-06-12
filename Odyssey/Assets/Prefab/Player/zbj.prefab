@@ -321,6 +321,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 108ab45e-1c71-4139-a62e-94509ae89b6f
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ff27f41-0e9f-4e58-b34e-8f4f504ca0a1
+    m_ActionName: Player/Special[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -339,7 +343,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 8609630010380266183}
-  Rb: {fileID: 8609630010380266178}
+  _currentState: 0
+  weapon: {fileID: 0}
+  _mainPlayerController: {fileID: 0}
+  m_MovementInput:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Movement Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: c1cd43c7-456c-49e1-a9a9-6b01a2ff9758
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  _attackDelay: 1.5
+  _inComboBetweenAttackDelay: 0.5
+  _timeBeforeComboCountCleared: 2
 --- !u!95 &8609630010380266183
 Animator:
   serializedVersion: 5

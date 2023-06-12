@@ -9,7 +9,6 @@ public class ZBJSpecialAttack : SpecialAttack
     {
         GameObject Shockwave = this.transform.Find("Shockwave").gameObject;
         Shockwave.SetActive(true);
-        _mainPlayerController.decrementSPBy(specialAttackCost);
         Vector2 charPosition = _playerController.transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(charPosition, 5f, AoE);
         yield return new WaitForSeconds(0.5f);

@@ -137,12 +137,23 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (context.performed && _mainPlayerController.hasSufficientSP(_specialAttack.specialAttackCost))
+        if (!context.performed)
         {
-            CancelInvoke("StartIdling");
-            _currentState = State.Special;
-            PlayAnimation(AnimationNames.CharSpecial);
+            return;
         }
+        if (!_mainPlayerController.hasSufficientSP(_specialAttack.specialAttackCost))
+        {
+            return;
+        }
+        if (!_mainPlayerController.specialAttackOffSwapCD())
+        {
+            Debug.Log("sp attack on CD");
+            return;
+        }
+        CancelInvoke("StartIdling");
+        _currentState = State.Special;
+        PlayAnimation(AnimationNames.CharSpecial);
+        _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost);
     }
 
 

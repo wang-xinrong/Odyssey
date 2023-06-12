@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: _mainPlayerController
       value: 
       objectReference: {fileID: 1167911348}
+    - target: {fileID: 4282267027703015826, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 707150667}
     - target: {fileID: 5046802384482472594, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: Animator
       value: 
@@ -149,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: _rechargeSPInterval
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: _specialAttackCDOnSwap
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5891670334096589289, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: _specialAttack
@@ -593,6 +601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e41c950b54c455da3345f370cfbbb8, type: 3}
+--- !u!95 &707150667 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 17162321693011671, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+  m_PrefabInstance: {fileID: 47823030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &881418918
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +690,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _playerController: {fileID: 1957416539}
-  _mainPlayerController: {fileID: 1167911348}
   specialAttackCost: 50
   knockBackMultiplier: 5
 --- !u!1 &2021893153

@@ -22,6 +22,12 @@ public class MainPlayerController : MonoBehaviour
     public int MaxSP = 0;
     public UnityEvent<int, int> SPIncremented;
     public UnityEvent<int, int> SPDecremented;
+    [SerializeField]
+    private float _rechargeSPInterval;
+    [SerializeField]
+    private float _specialAttackCDOnSwap;
+    private float lastRechargeSPTime; 
+    private float lastSwapTime;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -38,25 +44,39 @@ public class MainPlayerController : MonoBehaviour
         Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
     }
 
-    private float lastUpdateTime; 
-    [SerializeField]
-    private float _rechargeSPInterval;
+    // helper method that takes a reference time and checks if the interval between the current
+    // and reference time exceeds the given interval duration
+    private bool HasSufficientTimePassed(float referenceTime, float intervalDuration)
+    {
+        return Time.time - referenceTime > intervalDuration; 
+    }
+
+    public bool specialAttackOffSwapCD()
+    {
+        return lastSwapTime == 0 || HasSufficientTimePassed(lastSwapTime, _specialAttackCDOnSwap);
+    }
 
     private void checkIncrementSP()
     {
         // check if sufficient time has passed since last SP increment
-        if (Time.time - lastUpdateTime > _rechargeSPInterval && SP < MaxSP)
+        if (!HasSufficientTimePassed(lastRechargeSPTime, _rechargeSPInterval))
         {
-            SP++;
-            lastUpdateTime = Time.time;
-            // everything subscribing to SPIncremented event will be notified
-            SPIncremented.Invoke(SP, MaxSP);
+            return;
         }
+        if (SP >= MaxSP)
+        {
+            return;
+        }
+        SP++;
+        lastRechargeSPTime = Time.time;
+        // everything subscribing to SPIncremented event will be notified
+        SPIncremented.Invoke(SP, MaxSP);
     }
 
     public void decrementSPBy(int amount)
     {
         SP -= amount;
+        // everything subscribing to SPIncremented event will be notified
         SPDecremented.Invoke(SP, MaxSP);
     }
 
@@ -67,6 +87,7 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
+        // see if sufficient time has elapsed since previous SP regen
         checkIncrementSP();
         // new, to fix the bug that after death of one character,
         // the player can still swap back and forth between the character
@@ -113,6 +134,7 @@ public class MainPlayerController : MonoBehaviour
             isChar1 = !isChar1;
             SwapCharacters();
             decrementSPBy(20);
+            lastSwapTime = Time.time;
         }
     }
 

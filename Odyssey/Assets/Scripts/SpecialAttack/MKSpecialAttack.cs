@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MKSpecialAttack : MonoBehaviour
+public class MKSpecialAttack : SpecialAttack
 {
-    public LayerMask AoE;
-    public GameObject _playerController;
-    public MainPlayerController _mainPlayerController;
-    public IEnumerator InitiateSpecialAttack()
+    public override IEnumerator InitiateSpecialAttack()
     {
         GameObject Shockwave = this.transform.Find("Shockwave").gameObject;
         Shockwave.SetActive(true);
-        _mainPlayerController.decrementSPBy(50);
+        _mainPlayerController.decrementSPBy(specialAttackCost);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerController.transform.position ,5f, AoE);
         yield return new WaitForSeconds(0.5f);
         foreach (Collider2D collider in colliders)

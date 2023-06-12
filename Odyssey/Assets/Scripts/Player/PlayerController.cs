@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private int comboCounter;
 
     public MainPlayerController _mainPlayerController;
+    public SpecialAttack _specialAttack;
 
     public InputActionProperty m_MovementInput;
 
@@ -136,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (context.performed && _mainPlayerController.isSPBarFull())
+        if (context.performed && _mainPlayerController.hasSufficientSP(_specialAttack.specialAttackCost))
         {
             CancelInvoke("StartIdling");
             _currentState = State.Special;

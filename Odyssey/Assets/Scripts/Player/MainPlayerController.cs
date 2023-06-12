@@ -60,9 +60,9 @@ public class MainPlayerController : MonoBehaviour
         SPDecremented.Invoke(SP, MaxSP);
     }
 
-    public bool isSPBarFull()
+    public bool hasSufficientSP(int amount)
     {
-        return SP == MaxSP;
+        return SP >= amount;
     }
 
     void Update()

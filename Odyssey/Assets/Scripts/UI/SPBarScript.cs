@@ -60,35 +60,6 @@ public class SPBarScript : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        //_playerDamageable.HealthUpdated.AddListener(OnPlayerHealthUpdated);
-
-        // In the event where a character swap is performed, the initial health of
-        // the character has to be determined again
-        //_playerDamageable.HealthUpdated.Invoke(_playerDamageable.Health, _playerDamageable.MaxHealth);
-    }
-
-    private void OnDisable()
-    {
-        //_playerDamageable.HealthUpdated.RemoveListener(OnPlayerHealthUpdated);
-    }
-
-    // public void Swap()
-    // {
-    //     _player = GameObject.FindGameObjectWithTag("Player");
-    //     if (_player != null)
-    //     {
-    //         // disable the healthBar such that the event system can be set up
-    //         gameObject.SetActive(false);
-    //         _playerDamageable = _player.GetComponent<Damageable>();
-    //         gameObject.SetActive(true);
-    //     } else
-    //     {
-    //         Debug.Log("The other character is dead");
-    //     }
-    // }
-
     // if the percentage is 90%, returns 0.90
     private float CalculateSliderPercentage(int currentHealth, int maxHealth)
     {

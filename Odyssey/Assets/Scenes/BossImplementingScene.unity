@@ -611,6 +611,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 9040393564895896847, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
   m_PrefabInstance: {fileID: 9040393565857230403}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1282576151 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 17162321693011671, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+  m_PrefabInstance: {fileID: 1547744055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1323321953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -748,6 +753,10 @@ PrefabInstance:
       propertyPath: specialAttackCost
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4282267027703015826, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 1282576151}
     - target: {fileID: 5046802384482472594, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: Animator
       value: 

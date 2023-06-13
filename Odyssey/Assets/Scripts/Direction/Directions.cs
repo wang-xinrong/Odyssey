@@ -68,13 +68,10 @@ public class Directions
     // function to flip objects' sprite around to the opposite horizontal direction
     public static void FlipSpriteHorizontally(GameObject obj)
     {
-        if (obj.transform.localScale == new Vector3(-1, 1, 1))
-        {
-            obj.transform.localScale = new Vector3(1, 1, 1);
-        } else
-        {
-            obj.transform.localScale = new Vector3(-1, 1, 1);
-        }
+        obj.transform.localScale = new Vector3(
+            obj.transform.localScale.x * -1
+            , obj.transform.localScale.y
+            , obj.transform.localScale.z);
     }
 
     public void FlipMovementDirection()
@@ -121,5 +118,12 @@ public class Directions
         return new Vector2(
             targetTransform.position.x - objTransform.position.x
             , targetTransform.position.y - objTransform.position.y);
+    }
+
+    public static Vector3 RandomisePosition(Transform topLeft, Transform bottomRight)
+    {
+        float xPosition = UnityEngine.Random.Range(bottomRight.position.x, topLeft.position.x);
+        float yPosition = UnityEngine.Random.Range(topLeft.position.y, bottomRight.position.y);
+        return new Vector3(xPosition, yPosition, 0);
     }
 }

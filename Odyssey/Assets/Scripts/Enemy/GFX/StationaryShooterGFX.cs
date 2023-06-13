@@ -14,17 +14,17 @@ public class StationaryShooterGFX : EnemyGFX
         if (_damageable.IsAlive == false)
         {
             _currentState = State.Death;
-            PlayAnimation(AnimationNames.VillagerGirlDeath);
+            PlayAnimation(AnimationNames.OldVillagerWomanDeath);
         }
         else if (AttackZone.PlayerDetected && _attackTimer > _attackDelay)
         {
             // pass the responsibility to the launcher to decide direction
             TargetTransform = AttackZone.TargetTransform;
-            PlayAnimation(AnimationNames.VillagerGirlAttack);
+            PlayAnimation(AnimationNames.OldVillagerWomanAttack);
         }
         else if (_currentState == State.Idle)
         {
-            PlayAnimation(AnimationNames.VillagerGirlIdle);
+            PlayAnimation(AnimationNames.OldVillagerWomanIdle);
         }
     }
 }

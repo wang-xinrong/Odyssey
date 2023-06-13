@@ -11,17 +11,17 @@ public class PopUpShooterGFX : EnemyGFX
         if (_damageable.IsAlive == false)
         {
             _currentState = State.Death;
-            PlayAnimation(AnimationNames.VillagerGirlDeath);
+            PlayAnimation(AnimationNames.EnemyDeath);
         }
         else if (_currentState == State.Attack)
         {
             // pass the responsibility to the launcher to decide direction
             TargetTransform = AttackZone.TargetTransform;
-            PlayAnimation(AnimationNames.VillagerGirlAttack);
+            PlayAnimation(AnimationNames.EnemyAttack);
         }
         else if (_currentState == State.Idle)
         {
-            PlayAnimation(AnimationNames.VillagerGirlIdle);
+            PlayAnimation(AnimationNames.EnemyIdle);
         }
     }
 }

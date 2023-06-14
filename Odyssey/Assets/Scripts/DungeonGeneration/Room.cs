@@ -121,7 +121,9 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("test");
-        RoomController.instance.OnPlayerEnterRoom(this);
+        if (other.tag == "Player")
+        {
+            RoomController.instance.OnPlayerEnterRoom(this);
+        }
     }
 }

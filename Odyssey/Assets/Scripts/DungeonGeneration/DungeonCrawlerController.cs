@@ -4,11 +4,11 @@ using UnityEngine;
 
 public enum Direction
 {
-    up, left, down, right
+    up, left, down, right, unset
 };
 public class DungeonCrawlerController : MonoBehaviour
 {
-    public static List<Vector2Int> positionsVisited = new List<Vector2Int>();
+    public static List<Vector2Int> endRooms = new List<Vector2Int>();
     private static readonly Dictionary<Direction, Vector2Int> directionMovementMap = new Dictionary<Direction, Vector2Int>
     {
         {Direction.up, Vector2Int.up},
@@ -17,24 +17,29 @@ public class DungeonCrawlerController : MonoBehaviour
         {Direction.right, Vector2Int.right}
     };
 
-    public static List<Vector2Int> GenerateDungeon(DungeonGenerationData dungeonData)
+    public static void GenerateDungeon(DungeonGenerationData dungeonData, int startX, int startY)
     {
         List<DungeonCrawler> dungeonCrawlers = new List<DungeonCrawler>();
 
+        // adds number of dungeon crawlers according to amount specified in dungeonData
         for (int i = 0; i < dungeonData.numCrawlers; i++)
         {
-            dungeonCrawlers.Add(new DungeonCrawler(Vector2Int.zero));
+            dungeonCrawlers.Add(new DungeonCrawler(new Vector2Int(startX, startY)));
         }
 
-        int iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
+        // Create the Start room that all crawlers will start from
+        RoomController.instance.LoadRoom("Start", startX, startY);
+
+        // depth first crawling
         foreach (DungeonCrawler dungeonCrawler in dungeonCrawlers)
         {
+            // get random steps
+            int iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
             for (int i = 0; i < iterations; i++)
             {
-                Vector2Int newPos = dungeonCrawler.Move(directionMovementMap);
-                positionsVisited.Add(newPos);
+                dungeonCrawler.Move(directionMovementMap);
             }
+            endRooms.Add(dungeonCrawler.position);
         }
-        return positionsVisited;
     }
 }

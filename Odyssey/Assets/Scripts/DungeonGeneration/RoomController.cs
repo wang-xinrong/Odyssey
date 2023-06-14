@@ -23,6 +23,8 @@ public class RoomController : MonoBehaviour
 
     public List<Room> loadedRooms = new List<Room>();
 
+    public List<RoomInfo> allRooms = new List<RoomInfo>();
+
     bool isLoadingRoom = false;
     bool hasRemovedWalls = false;
 
@@ -65,7 +67,7 @@ public class RoomController : MonoBehaviour
 
     public void LoadRoom(string roomName, int roomX, int roomY)
     {
-        if (DoesRoomExist(roomX, roomY))
+        if (HasPreviousCrawlerBeenTo(roomX, roomY))
         {
             return;
         }
@@ -74,6 +76,7 @@ public class RoomController : MonoBehaviour
         newRoomData.x = roomX;
         newRoomData.y = roomY;
         loadRoomQueue.Enqueue(newRoomData);
+        allRooms.Add(newRoomData);
     }
 
     // Coroutine for loading room
@@ -112,6 +115,11 @@ public class RoomController : MonoBehaviour
         // finish loading and add room to list of loaded rooms
         isLoadingRoom = false;
 
+    }
+
+    public bool HasPreviousCrawlerBeenTo(int x, int y)
+    {
+        return allRooms.Find(room => room.x == x && room.y == y) != null;
     }
 
     public bool DoesRoomExist(int x, int y)

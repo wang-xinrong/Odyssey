@@ -10,6 +10,7 @@ public class EnemyProjectileLauncher : MonoBehaviour
     public EnemyGFX EnemyGFX;
     private GameObject _projectileManager;
     public Transform[] FiveDirectionLaunchPoints;
+    public Transform[] EightDirectionLaunchPoints;
 
     public Vector3 GetLaunchPoint()
     {
@@ -80,6 +81,20 @@ public class EnemyProjectileLauncher : MonoBehaviour
                 projectile.GetComponent<ProjectileDirection>().
                     SetDirectionForEnemyProjectile(Directions.LeftFiveDirections[i]);
             }
+        }
+    }
+
+    public void FireProjectileInEightDirections(GameObject projectileToFire)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            GameObject projectile = Instantiate(projectileToFire
+            , EightDirectionLaunchPoints[i].position
+            , projectileToFire.transform.rotation
+            , _projectileManager.transform);
+
+            projectile.GetComponent<ProjectileDirection>().
+                          SetDirectionForEnemyProjectile(Directions.EightDirections[i]);
         }
     }
 }

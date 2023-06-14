@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 471960933}
   - component: {fileID: 471960935}
   m_Layer: 0
-  m_Name: RoomController
+  m_Name: Chapter 1 First Half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentChapterName: Chapter1
   loadedRooms: []
+  endRoomPositions: []
 --- !u!4 &471960934
 Transform:
   m_ObjectHideFlags: 0
@@ -347,3 +348,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonGenerationData: {fileID: 11400000, guid: c6373861dadd64a20a26db4c22f621d7, type: 2}
+  startX: 0
+  startY: 0

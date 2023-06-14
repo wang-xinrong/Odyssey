@@ -8,7 +8,6 @@ public enum Direction
 };
 public class DungeonCrawlerController : MonoBehaviour
 {
-    public static List<Vector2Int> endRooms = new List<Vector2Int>();
     private static readonly Dictionary<Direction, Vector2Int> directionMovementMap = new Dictionary<Direction, Vector2Int>
     {
         {Direction.up, Vector2Int.up},
@@ -28,7 +27,7 @@ public class DungeonCrawlerController : MonoBehaviour
         }
 
         // Create the Start room that all crawlers will start from
-        RoomController.instance.LoadRoom("Start", startX, startY);
+        RoomController.instance.LoadRoom("Start", startX, startY, Direction.unset);
 
         // depth first crawling
         foreach (DungeonCrawler dungeonCrawler in dungeonCrawlers)
@@ -39,7 +38,7 @@ public class DungeonCrawlerController : MonoBehaviour
             {
                 dungeonCrawler.Move(directionMovementMap);
             }
-            endRooms.Add(dungeonCrawler.position);
+            RoomController.instance.endRoomPositions.Add(dungeonCrawler.position);
         }
     }
 }

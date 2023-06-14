@@ -8,6 +8,16 @@ public class RoomInfo
     public string name;
     public int x;
     public int y;
+    public Dictionary<Direction, bool> hasDoors = new Dictionary<Direction, bool>{
+        {Direction.up, false},
+        {Direction.down, false},
+        {Direction.left, false},
+        {Direction.right, false}
+    };
+    public void addDoor(Direction dir)
+    {
+        hasDoors[dir] = true;
+    }
 }
 
 public class RoomController : MonoBehaviour
@@ -25,8 +35,11 @@ public class RoomController : MonoBehaviour
 
     public List<RoomInfo> allRooms = new List<RoomInfo>();
 
+    public List<Vector2Int> endRoomPositions = new List<Vector2Int>();
+
     bool isLoadingRoom = false;
-    bool hasRemovedWalls = false;
+    bool spawnedEndRoom = false;
+    bool updatedRooms = false;
 
     void Awake()
     {
@@ -48,13 +61,16 @@ public class RoomController : MonoBehaviour
 
         if (loadRoomQueue.Count == 0)
         {
-            if (!hasRemovedWalls)
+            if (!spawnedEndRoom)
             {
-                foreach (Room room in loadedRooms)
+                StartCoroutine(spawnEndRoom());
+            } else if (!updatedRooms)
+            {
+                foreach(Room room in loadedRooms)
                 {
-                    room.RemoveUnconnectedDoors();
+                    room.ConsiderAddingThirdDoor();
                 }
-                hasRemovedWalls = true;
+                updatedRooms = true;
             }
             return;
         }
@@ -65,7 +81,34 @@ public class RoomController : MonoBehaviour
         StartCoroutine(LoadRoomRoutine(currentLoadedRoomData));
     }
 
-    public void LoadRoom(string roomName, int roomX, int roomY)
+    IEnumerator spawnEndRoom()
+    {
+        spawnedEndRoom = true;
+        yield return new WaitForSeconds(0.5f);
+        if (loadRoomQueue.Count == 0)
+        {
+            Vector2Int chosenPosition = endRoomPositions[Random.Range(0, endRoomPositions.Count)];
+            Room chosenRoom = FindRoom(chosenPosition.x, chosenPosition.y);
+            Direction directionForDoor = Direction.unset;
+            foreach (Direction dir in chosenRoom.hasDoors.Keys)
+            {
+                if (chosenRoom.hasDoors[dir])
+                {
+                    directionForDoor = dir;
+                }
+            }
+            Destroy(chosenRoom.gameObject);
+            loadedRooms.Remove(chosenRoom);
+            RoomInfo roomInfo = allRooms.Find(room => room.x == chosenPosition.x && room.y == chosenPosition.y);
+            if (roomInfo != null)
+            {
+                allRooms.Remove(roomInfo);
+            }
+            LoadRoom("End", chosenPosition.x, chosenPosition.y, directionForDoor);
+        }
+    }
+
+    public void LoadRoom(string roomName, int roomX, int roomY, Direction direction)
     {
         if (HasPreviousCrawlerBeenTo(roomX, roomY))
         {
@@ -75,6 +118,10 @@ public class RoomController : MonoBehaviour
         newRoomData.name = roomName;
         newRoomData.x = roomX;
         newRoomData.y = roomY;
+        if (direction != Direction.unset)
+        {
+            newRoomData.addDoor(direction);
+        }
         loadRoomQueue.Enqueue(newRoomData);
         allRooms.Add(newRoomData);
     }
@@ -104,6 +151,7 @@ public class RoomController : MonoBehaviour
             room.x = currentLoadedRoomData.x;
             room.y = currentLoadedRoomData.y;
             room.name = currentChapterName + "-" + currentLoadedRoomData.name + " " + room.x + ", " + room.y;
+            room.hasDoors = currentLoadedRoomData.hasDoors;
             room.transform.parent = transform;
             if (loadedRooms.Count == 0)
             {
@@ -120,6 +168,11 @@ public class RoomController : MonoBehaviour
     public bool HasPreviousCrawlerBeenTo(int x, int y)
     {
         return allRooms.Find(room => room.x == x && room.y == y) != null;
+    }
+
+    public RoomInfo FindPreviouslyEncounteredRoom(int x, int y)
+    {
+        return allRooms.Find(room => room.x == x && room.y == y);
     }
 
     public bool DoesRoomExist(int x, int y)

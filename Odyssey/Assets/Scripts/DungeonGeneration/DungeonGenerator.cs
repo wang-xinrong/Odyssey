@@ -5,11 +5,12 @@ using UnityEngine;
 public class DungeonGenerator : MonoBehaviour
 {
     public DungeonGenerationData dungeonGenerationData;
+    public int startX;
+    public int startY;
     // Start is called before the first frame update
     void Start()
     {
-        DungeonCrawlerController.GenerateDungeon(dungeonGenerationData, 8, 8);
-        DungeonCrawlerController.GenerateDungeon(dungeonGenerationData, 0, 0);
+        DungeonCrawlerController.GenerateDungeon(dungeonGenerationData, startX, startY);
     }
 
 }

@@ -10,19 +10,16 @@ public class Room : MonoBehaviour
     public int y;
     public Grid grid;
     public GameObject door;
-
-    public Door leftDoor;
-    public Door rightDoor;
-    public Door topDoor;
-    public Door bottomDoor;
+    public Dictionary<Direction, bool> hasDoors; 
 
     public List<Door> doors = new List<Door>();
 
     public void UpdatePosition(Vector3 newPos)
     {
         transform.position = newPos;
-        grid.transform.position = newPos;
-        door.transform.position += newPos;
+        // for tilemap to shift to correct position
+        // grid.transform.position = newPos;
+        // door.transform.position += newPos;
     }
     // Start is called before the first frame update
     void Start()
@@ -36,26 +33,9 @@ public class Room : MonoBehaviour
         foreach(Door d in ds)
         {
             doors.Add(d);
-            switch(d.doorType)
-            {
-                case Door.DoorType.right:
-                rightDoor = d;
-                break;
-
-                case Door.DoorType.left:
-                leftDoor = d;
-                break;
-
-                case Door.DoorType.top:
-                topDoor = d;
-                break;
-
-                case Door.DoorType.bottom:
-                bottomDoor = d;
-                break;
-            }
         }
         RoomController.instance.RegisterRoom(this);
+        RemoveUnconnectedDoors();
     }
 
     public void RemoveUnconnectedDoors()
@@ -65,32 +45,75 @@ public class Room : MonoBehaviour
             switch(door.doorType)
             {
                 case Door.DoorType.right:
-                    if (GetRight() == null)
-                    {
-                        door.gameObject.SetActive(false);
-                    }
-                break;
+                    door.gameObject.SetActive(hasDoors[Direction.right]);
+                    break;
                 case Door.DoorType.left:
-                    if (GetLeft() == null)
-                    {
-                        door.gameObject.SetActive(false);
-                    }
-                break;
+                    door.gameObject.SetActive(hasDoors[Direction.left]);
+                    break;
                 case Door.DoorType.top:
-                    if (GetTop() == null)
-                    {
-                        door.gameObject.SetActive(false);
-                    }
-                break;
+                    door.gameObject.SetActive(hasDoors[Direction.up]);
+                    break;
                 case Door.DoorType.bottom:
-                    if (GetBottom() == null)
-                    {
-                        door.gameObject.SetActive(false);
-                    }
-                break;
+                    door.gameObject.SetActive(hasDoors[Direction.down]);
+                    break;
             }
         }
     }
+
+    private bool HasFourAdjacentRooms()
+    {
+        return GetRight() != null && GetLeft() != null && GetTop() != null && GetBottom() != null;
+    }
+
+    public void ConsiderAddingThirdDoor()
+    {
+        if (!HasFourAdjacentRooms())
+        {
+            return;
+        }
+        System.Random rand = new System.Random();
+        float probability = (float) rand.NextDouble();
+        if (probability < 0.5f)
+        {
+            return;
+        }
+        foreach (Direction direction in hasDoors.Keys)
+        {
+            if (!hasDoors[direction])
+            {
+                hasDoors[direction] = true;
+                Room other = this;
+                Direction dir = Direction.unset;
+                switch(direction)
+                {
+                    case Direction.up:
+                    other = GetTop();
+                    dir = Direction.down;
+                    break;
+
+                    case Direction.down:
+                    other = GetBottom();
+                    dir = Direction.up;
+                    break;
+
+                    case Direction.left:
+                    other = GetLeft();
+                    dir = Direction.right;
+                    break;
+
+                    case Direction.right:
+                    other = GetRight();
+                    dir = Direction.left;
+                    break;
+                }
+                other.hasDoors[dir] = true;
+                other.RemoveUnconnectedDoors();
+                break;
+            }
+        }
+        RemoveUnconnectedDoors();
+    }
+
     public Room GetRight()
     {
         return RoomController.instance.FindRoom(x + 1, y);

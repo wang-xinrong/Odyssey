@@ -9,6 +9,7 @@ public class EnemyProjectileLauncher : MonoBehaviour
     public Transform LaunchPoint;
     public EnemyGFX EnemyGFX;
     private GameObject _projectileManager;
+    public Transform[] FiveDirectionLaunchPoints;
 
     public Vector3 GetLaunchPoint()
     {
@@ -55,16 +56,30 @@ public class EnemyProjectileLauncher : MonoBehaviour
         _targetDirection = Directions.RelativeDirectionVector(LaunchPoint, EnemyGFX.TargetTransform);
         return _targetDirection;
     }
-    /*
+
+
+
+
+    public void FireProjectileInFiveDirections(GameObject projectileToFire)
     {
-        get
+        for (int i = 0; i < 5; i++)
         {
-            return _targetDirection;
-        }
-        set
-        {
-            _targetDirection = value;
+            GameObject projectile = Instantiate(projectileToFire
+            , FiveDirectionLaunchPoints[i].position
+            , projectileToFire.transform.rotation
+            , _projectileManager.transform);
+
+            if (transform.localScale.x > 0)
+            {
+                projectile.GetComponent<ProjectileDirection>().
+                    SetDirectionForEnemyProjectile(Directions.RightFiveDirections[i]);
+            }
+
+            if (transform.localScale.x < 0)
+            {
+                projectile.GetComponent<ProjectileDirection>().
+                    SetDirectionForEnemyProjectile(Directions.LeftFiveDirections[i]);
+            }
         }
     }
-    */
 }

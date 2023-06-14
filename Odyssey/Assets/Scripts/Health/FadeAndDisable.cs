@@ -8,11 +8,11 @@ public class FadeAndDisable : StateMachineBehaviour
 {
     // time before an object is faded off
     public float FadeTime = 0.5f;
-    private float _timeElapsed = 0;
-    private SpriteRenderer _sr;
-    private GameObject _objToDisable;
-    private Color _StartColor;
-    private float _newAlpha;
+    protected float _timeElapsed = 0;
+    protected SpriteRenderer _sr;
+    protected GameObject _objToDisable;
+    protected Color _StartColor;
+    protected float _newAlpha;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

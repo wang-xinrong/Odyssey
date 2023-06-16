@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 658835837}
   - component: {fileID: 658835840}
   - component: {fileID: 1288550561}
+  - component: {fileID: -1189935035929555775}
   m_Layer: 9
   m_Name: VillagerGirlEnemy
   m_TagString: Untagged
@@ -272,7 +273,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1447548587
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37095c3f5fce641ef830e59d6475d122, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -323,6 +324,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  targets1: []
   delay: 1
 --- !u!114 &658835835
 MonoBehaviour:
@@ -350,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e876876a38294d33abea1d622ae5bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentState: 0
 --- !u!114 &658835837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40c74d8778a24f8bbcae5184e0abf35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyAIPath: {fileID: 2392905126770334786}
   AttackZone: {fileID: 494605195}
   _attackDelay: 1
 --- !u!114 &1288550561
@@ -404,3 +406,16 @@ MonoBehaviour:
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   LaunchPoint: {fileID: 1343182875}
   ProjectileManager: {fileID: 0}
+  EnemyGFX: {fileID: 0}
+--- !u!114 &-1189935035929555775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392905126770334787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1368417e1eab641fa98737f1de980b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

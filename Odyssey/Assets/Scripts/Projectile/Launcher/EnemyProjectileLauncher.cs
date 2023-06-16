@@ -23,7 +23,6 @@ public class EnemyProjectileLauncher : MonoBehaviour
         {
             Debug.Log("Reference to EnemyGFX is missing");
         }
-
         _projectileManager = GameObject.Find("ProjectileManager");
 
         if (!_projectileManager) Debug.Log("No GameObject Named ProjectileManager"

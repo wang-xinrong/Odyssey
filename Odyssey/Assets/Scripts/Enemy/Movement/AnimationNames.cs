@@ -42,18 +42,19 @@ public class AnimationNames
     public static string EnemyDeath = "Death";
 
     //Boss
+    public static string StageOneEntry = "StageOneEntry";
     public static string StageOneIdle = "StageOneIdle";
     public static string StageOneAttack = "StageOneAttack";
     public static string StageOneWalk = "StageOneWalk";
     public static string StageOneDeath = "StageOneDeath";
 
-
+    public static string StageTwoEntry = "StageTwoEntry";
     public static string StageTwoIdle = "StageTwoIdle";
     public static string StageTwoAttack = "StageTwoAttack";
     public static string StageTwoWalk = "StageTwoWalk";
     public static string StageTwoDeath = "StageTwoDeath";
 
-
+    public static string StageThreeEntry = "StageThreeEntry";
     public static string StageThreeIdle = "StageThreeIdle";
     public static string StageThreeAttack = "StageThreeAttack";
     public static string StageThreeWalk = "StageThreeWalk";

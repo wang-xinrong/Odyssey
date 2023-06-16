@@ -5,7 +5,7 @@ using UnityEngine;
 
 // controller of a Enemy Knight
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour, EnemyUnderSpecialEffect
 {
     protected Rigidbody2D Rb;
     protected Animator _animator;
@@ -86,6 +86,19 @@ public class EnemyMovement : MonoBehaviour
 
         // return the normal of collision
         return collision.GetContact(0).normal;
+    }
+
+    public void SlowedDown(float fractionOfOriginalSpeed, float duration)
+    {
+        _originalMovementSpeed = WalkSpeed;
+        WalkSpeed = WalkSpeed * fractionOfOriginalSpeed;
+        Invoke("ResetMovementSpeed", duration);
+    }
+
+    private float _originalMovementSpeed;
+    private void ResetMovementSpeed()
+    {
+        WalkSpeed = _originalMovementSpeed;
     }
 }
 

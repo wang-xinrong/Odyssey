@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(ProjectileDirection))]
 public class Projectile : MonoBehaviour
 {
+    public enum TargetType { Player, Enemy };
+    public TargetType ProjectileTargetType;
     public Directions Direction = new Directions();
     public float Speed = 3f;
 

@@ -126,4 +126,35 @@ public class Directions
         float yPosition = UnityEngine.Random.Range(topLeft.position.y, bottomRight.position.y);
         return new Vector3(xPosition, yPosition, 0);
     }
+
+    public static void SetPositionToCentreOfVectorInputs(GameObject gameObject,
+        Transform topLeft, Transform bottomRight)
+    {
+        gameObject.transform.position = new Vector3(
+            (topLeft.position.x + bottomRight.position.x) / 2
+            , (topLeft.position.y + bottomRight.position.y) / 2
+            , (topLeft.position.z + bottomRight.position.z) / 2);
+    }
+
+    public static Vector2[] RightFiveDirections = new Vector2[] { Vector2.up
+        , new Vector2(1, 1).normalized
+        , Vector2.right
+        , new Vector2(1, -1).normalized
+        , Vector2.down};
+
+    public static Vector2[] LeftFiveDirections = new Vector2[] { Vector2.up
+        , new Vector2(-1, 1).normalized
+        , Vector2.left
+        , new Vector2(-1, -1).normalized
+        , Vector2.down};
+
+    public static Vector2[] EightDirections = new Vector2[] {
+        Vector2.left
+        , new Vector2(-1, 1).normalized
+        , Vector2.up
+        , new Vector2(-1, 1).normalized
+        , Vector2.left
+        , new Vector2(-1, -1).normalized
+        , Vector2.down
+        , new Vector2(-1, -1).normalized};
 }

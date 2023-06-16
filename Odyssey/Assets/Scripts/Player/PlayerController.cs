@@ -16,7 +16,7 @@ using UnityEngine.InputSystem;
 // however, there are certain bugs in this script yet to be resolved
 // one of them is the incapability of the character to enter attack
 // state from idle state.
-public class PlayerController : MonoBehaviour, UnderSpecialEffect
+public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 {
     public Animator Animator;
     private Rigidbody2D _rb;

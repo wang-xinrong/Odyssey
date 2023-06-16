@@ -340,7 +340,7 @@ Animator:
   m_GameObject: {fileID: 3865801402687859319}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 499c4cfc6d98a4c3196f2039a9193a44, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74a1dcd3146be49d4ba10a5e32c910de, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -421,6 +421,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackZone: {fileID: 1482629222022964671}
   _attackDelay: 0.4
+  TopLeftRoomCorner: {fileID: 0}
+  BottomRightRoomCorner: {fileID: 0}
+  SummoningInterval: 5
+  StageOneSummonedMinionPrefab: {fileID: 6263413110533278018, guid: 48aeb846dc3a5436b97d678e9026a6b1, type: 3}
+  StageTwoSummonedMinionPrefab: {fileID: 1805828293309906614, guid: 4ddf642be850649bea692123b245f252, type: 3}
 --- !u!114 &6252356012096709572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentBossStage: 0
+  StageOneHealth: 20
+  StageTwoHealth: 30
+  StageThreeHealth: 40
 --- !u!114 &-1610807044380193259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1368417e1eab641fa98737f1de980b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageable: {fileID: 0}
 --- !u!1 &6252356011736050522
 GameObject:
   m_ObjectHideFlags: 0

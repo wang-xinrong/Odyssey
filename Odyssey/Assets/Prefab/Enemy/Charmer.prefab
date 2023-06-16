@@ -169,8 +169,9 @@ MonoBehaviour:
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   LaunchPoint: {fileID: 4081983467752864173}
-  ProjectileManager: {fileID: 0}
   EnemyGFX: {fileID: 458332891}
+  FiveDirectionLaunchPoints: []
+  EightDirectionLaunchPoints: []
 --- !u!50 &4081983468595947990
 Rigidbody2D:
   serializedVersion: 4

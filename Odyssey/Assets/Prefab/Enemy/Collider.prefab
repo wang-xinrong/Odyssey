@@ -211,8 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 7
   MovementDirection: {x: 1, y: 1}
-  EnemyGFX: {fileID: 0}
-  movementResetTime: 3
+  EnemyGFX: {fileID: 2915727209126707140}
+  movementResetTime: 5
   TopLeftRoomCorner: {fileID: 0}
   BottomRightRoomCorner: {fileID: 0}
 --- !u!114 &2915727209126707140
@@ -279,3 +279,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1368417e1eab641fa98737f1de980b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageable: {fileID: 0}

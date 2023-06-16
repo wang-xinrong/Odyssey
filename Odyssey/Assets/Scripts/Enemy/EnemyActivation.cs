@@ -13,4 +13,9 @@ public class EnemyActivation : MonoBehaviour
 
         gameObject.SetActive(value);
     }
+
+    public bool IsAlive()
+    {
+        return _damageable.IsAlive;
+    }
 }

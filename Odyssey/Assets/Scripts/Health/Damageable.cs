@@ -62,6 +62,9 @@ public class Damageable : MonoBehaviour
             {
                 _isAlive = false;
                 _animator.SetBool(AnimatorStrings.IsAlive, false);
+
+                // a temporary implementation update the number of enemies existing
+                if (GetComponentInParent<Room>()) GetComponentInParent<Room>().EnemyKilled();
             }
         }
     }

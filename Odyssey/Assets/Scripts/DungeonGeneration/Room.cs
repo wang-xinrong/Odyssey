@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     public GameObject door;
     public Dictionary<Direction, bool> hasDoors;
     private EnemyActivation[] _enemyActivation;
+    public int NoOfEnemiesAlive;
 
     public List<Door> doors = new List<Door>();
 
@@ -162,6 +163,7 @@ public class Room : MonoBehaviour
     public void RegisterExistingEnemies()
     {
         _enemyActivation = GetComponentsInChildren<EnemyActivation>();
+        NoOfEnemiesAlive = _enemyActivation.Length;
     }
 
     public void ActivateAllEnemies(bool value)
@@ -173,5 +175,10 @@ public class Room : MonoBehaviour
         {
             ea.Activate(value);
         }
+    }
+
+    public void EnemyKilled()
+    {
+        NoOfEnemiesAlive--;
     }
 }

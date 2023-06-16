@@ -40,6 +40,33 @@ public class Room : MonoBehaviour
         RemoveUnconnectedDoors();
     }
 
+    public bool Reached = false;
+    public bool Cleared = false;
+
+    private void Update()
+    {
+        if (!Reached) return;
+        if (Cleared) return;
+
+        if (Reached && NoOfEnemiesAlive > 0)
+        {
+            foreach (Door d in doors)
+            {
+                d.LockDoor(true);
+            }
+        }
+
+        if (Reached && NoOfEnemiesAlive == 0)
+        {
+            foreach (Door d in doors)
+            {
+                d.LockDoor(false);
+            }
+
+            Cleared = true;
+        }
+    }
+
     public void RemoveUnconnectedDoors()
     {
         foreach (Door door in doors)
@@ -47,16 +74,16 @@ public class Room : MonoBehaviour
             switch (door.doorType)
             {
                 case Door.DoorType.right:
-                    door.gameObject.SetActive(hasDoors[Direction.right]);
+                    door.HasDoor(hasDoors[Direction.right]); //door.gameObject.SetActive(hasDoors[Direction.right]);
                     break;
                 case Door.DoorType.left:
-                    door.gameObject.SetActive(hasDoors[Direction.left]);
+                    door.HasDoor(hasDoors[Direction.left]);//door.gameObject.SetActive(hasDoors[Direction.left]);
                     break;
                 case Door.DoorType.top:
-                    door.gameObject.SetActive(hasDoors[Direction.up]);
+                    door.HasDoor(hasDoors[Direction.up]); //door.gameObject.SetActive(hasDoors[Direction.up]);
                     break;
                 case Door.DoorType.bottom:
-                    door.gameObject.SetActive(hasDoors[Direction.down]);
+                    door.HasDoor(hasDoors[Direction.down]);//door.gameObject.SetActive(hasDoors[Direction.down]);
                     break;
             }
         }

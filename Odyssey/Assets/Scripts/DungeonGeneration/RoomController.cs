@@ -202,6 +202,7 @@ public class RoomController : MonoBehaviour
     {
         CameraController.instance.currRoom = room;
         currRoom = room;
+        room.Reached = true;
         room.ActivateAllEnemies(true);
     }
 

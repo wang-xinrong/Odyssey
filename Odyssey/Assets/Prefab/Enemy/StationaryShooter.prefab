@@ -228,8 +228,9 @@ MonoBehaviour:
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   LaunchPoint: {fileID: 1805828293127362038}
-  ProjectileManager: {fileID: 0}
   EnemyGFX: {fileID: 1805828293309906612}
+  FiveDirectionLaunchPoints: []
+  EightDirectionLaunchPoints: []
 --- !u!50 &1805828293309906613
 Rigidbody2D:
   serializedVersion: 4
@@ -306,7 +307,7 @@ MonoBehaviour:
       m_Calls: []
   _isInvincible: 0
   _maxHealth: 100
-  _health: 100
+  _health: 10
   InvincibleTime: 1.5
 --- !u!114 &5157156289334232432
 MonoBehaviour:

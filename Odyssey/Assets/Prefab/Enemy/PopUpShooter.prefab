@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 3288284120177072944}
   - component: {fileID: -7583078852303216938}
   m_Layer: 9
-  m_Name: PopupShooter
+  m_Name: PopUpShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
       m_Calls: []
   _isInvincible: 0
   _maxHealth: 40
-  _health: 40
+  _health: 10
   InvincibleTime: 1.5
 --- !u!114 &1288550561
 MonoBehaviour:
@@ -272,8 +272,9 @@ MonoBehaviour:
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   LaunchPoint: {fileID: 1343182875}
-  ProjectileManager: {fileID: 0}
   EnemyGFX: {fileID: 3288284120177072944}
+  FiveDirectionLaunchPoints: []
+  EightDirectionLaunchPoints: []
 --- !u!50 &1230480946069059951
 Rigidbody2D:
   serializedVersion: 4

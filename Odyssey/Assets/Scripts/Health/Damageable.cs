@@ -61,7 +61,8 @@ public class Damageable : MonoBehaviour
             if (_health <= 0)
             {
                 _isAlive = false;
-                _animator.SetBool(AnimatorStrings.IsAlive, false);
+                // legacy, used for knight enemy
+                //_animator.SetBool(AnimatorStrings.IsAlive, false);
             }
         }
     }

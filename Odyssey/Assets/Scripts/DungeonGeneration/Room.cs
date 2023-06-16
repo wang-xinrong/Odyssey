@@ -10,7 +10,8 @@ public class Room : MonoBehaviour
     public int y;
     public Grid grid;
     public GameObject door;
-    public Dictionary<Direction, bool> hasDoors; 
+    public Dictionary<Direction, bool> hasDoors;
+    private EnemyActivation[] _enemyActivation;
 
     public List<Door> doors = new List<Door>();
 
@@ -30,7 +31,7 @@ public class Room : MonoBehaviour
             return;
         }
         Door[] ds = door.GetComponentsInChildren<Door>();
-        foreach(Door d in ds)
+        foreach (Door d in ds)
         {
             doors.Add(d);
         }
@@ -42,7 +43,7 @@ public class Room : MonoBehaviour
     {
         foreach (Door door in doors)
         {
-            switch(door.doorType)
+            switch (door.doorType)
             {
                 case Door.DoorType.right:
                     door.gameObject.SetActive(hasDoors[Direction.right]);
@@ -72,7 +73,7 @@ public class Room : MonoBehaviour
             return;
         }
         System.Random rand = new System.Random();
-        float probability = (float) rand.NextDouble();
+        float probability = (float)rand.NextDouble();
         if (probability < 0.5f)
         {
             return;
@@ -84,27 +85,27 @@ public class Room : MonoBehaviour
                 hasDoors[direction] = true;
                 Room other = this;
                 Direction dir = Direction.unset;
-                switch(direction)
+                switch (direction)
                 {
                     case Direction.up:
-                    other = GetTop();
-                    dir = Direction.down;
-                    break;
+                        other = GetTop();
+                        dir = Direction.down;
+                        break;
 
                     case Direction.down:
-                    other = GetBottom();
-                    dir = Direction.up;
-                    break;
+                        other = GetBottom();
+                        dir = Direction.up;
+                        break;
 
                     case Direction.left:
-                    other = GetLeft();
-                    dir = Direction.right;
-                    break;
+                        other = GetLeft();
+                        dir = Direction.right;
+                        break;
 
                     case Direction.right:
-                    other = GetRight();
-                    dir = Direction.left;
-                    break;
+                        other = GetRight();
+                        dir = Direction.left;
+                        break;
                 }
                 other.hasDoors[dir] = true;
                 other.RemoveUnconnectedDoors();
@@ -147,6 +148,30 @@ public class Room : MonoBehaviour
         if (other.tag == "Player")
         {
             RoomController.instance.OnPlayerEnterRoom(this);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            RoomController.instance.OnPlayerLeaveRoom(this);
+        }
+    }
+
+    public void RegisterExistingEnemies()
+    {
+        _enemyActivation = GetComponentsInChildren<EnemyActivation>();
+    }
+
+    public void ActivateAllEnemies(bool value)
+    {
+        // no enemies
+        if (_enemyActivation == null) return;
+
+        foreach (EnemyActivation ea in _enemyActivation)
+        {
+            ea.Activate(value);
         }
     }
 }

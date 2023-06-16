@@ -37,6 +37,14 @@ public class RoomController : MonoBehaviour
 
     public List<Vector2Int> endRoomPositions = new List<Vector2Int>();
 
+    public string[] PossibleRooms =
+    {
+        "Intermediate"
+       , "Intermediate2"
+       , "Intermediate3"
+    };
+
+
     bool isLoadingRoom = false;
     bool spawnedEndRoom = false;
     bool updatedRooms = false;
@@ -185,9 +193,20 @@ public class RoomController : MonoBehaviour
         return loadedRooms.Find(room => room.x == x && room.y == y);
     }
 
+    public string GetRandomRoomName()
+    {
+        return PossibleRooms[Random.Range(0, PossibleRooms.Length)];
+    }
+
     public void OnPlayerEnterRoom(Room room)
     {
         CameraController.instance.currRoom = room;
         currRoom = room;
+        room.ActivateAllEnemies(true);
+    }
+
+    public void OnPlayerLeaveRoom(Room room)
+    {
+        room.ActivateAllEnemies(false);
     }
 }

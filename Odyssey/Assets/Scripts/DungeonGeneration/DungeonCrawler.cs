@@ -74,6 +74,9 @@ public class DungeonCrawler
         // create new RoomInfo, with door opposite to direction of movement:
         // if crawler moved from (0, 0) to (1, 0) by moving right, then
         // create a room at (1, 0) with a door on the left
-        RoomController.instance.LoadRoom("Intermediate", position.x, position.y, GetOppositeDirection(toMove));
+        RoomController.instance.LoadRoom(RoomController.instance.GetRandomRoomName()
+            , position.x
+            , position.y
+            , GetOppositeDirection(toMove));
     }
 }

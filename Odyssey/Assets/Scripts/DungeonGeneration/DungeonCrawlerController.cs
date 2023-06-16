@@ -38,7 +38,11 @@ public class DungeonCrawlerController : MonoBehaviour
             {
                 dungeonCrawler.Move(directionMovementMap);
             }
-            RoomController.instance.endRoomPositions.Add(dungeonCrawler.position);
+            Vector2Int endPosition = dungeonCrawler.position;
+            if (endPosition.x != startX || endPosition.y != startY)
+            {
+                RoomController.instance.endRoomPositions.Add(dungeonCrawler.position);
+            }
         }
     }
 }

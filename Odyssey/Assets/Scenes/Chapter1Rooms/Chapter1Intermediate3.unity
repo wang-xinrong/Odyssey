@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 242383490}
   - component: {fileID: 242383489}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 446877963}
   - component: {fileID: 446877965}
   - component: {fileID: 446877964}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 507350209}
   - component: {fileID: 507350208}
   - component: {fileID: 507350210}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 621579972}
   - component: {fileID: 621579973}
   - component: {fileID: 621579974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 926167117}
   - component: {fileID: 926167119}
   - component: {fileID: 926167118}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1065021642}
   - component: {fileID: 1065021644}
   - component: {fileID: 1065021643}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: 1378352144}
   - component: {fileID: 1378352146}
   - component: {fileID: 1378352145}
-  m_Layer: 12
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2638,7 +2638,7 @@ GameObject:
   - component: {fileID: 1391625977}
   - component: {fileID: 1391625978}
   - component: {fileID: 1391625979}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: BottomDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2697,7 +2697,7 @@ GameObject:
   - component: {fileID: 1499757141}
   - component: {fileID: 1499757143}
   - component: {fileID: 1499757142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 1897741045}
   - component: {fileID: 1897741046}
   - component: {fileID: 1897741047}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: TopDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2922,7 +2922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916177214}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2985,6 +2985,7 @@ MonoBehaviour:
   y: 0
   grid: {fileID: 242383489}
   door: {fileID: 1916177213}
+  NoOfEnemiesAlive: 0
   doors: []
 --- !u!4 &2109448030
 Transform:

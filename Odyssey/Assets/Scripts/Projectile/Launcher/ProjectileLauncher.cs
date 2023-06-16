@@ -31,6 +31,7 @@ public class ProjectileLauncher : MonoBehaviour
     private void Awake()
     {
         _playerController = gameObject.GetComponent<PlayerController>();
+        ProjectileManager = GameObject.Find("ProjectileManager");
         SetUpLaunchPoints();
     }
 

@@ -31,6 +31,11 @@ public class GridController : MonoBehaviour
         GenerateGrid();
     }
 
+    public Collider2D[] CollidingTerrain = new Collider2D[0];
+    public ContactFilter2D ContactFilter2D;
+    public Vector2 SizeOfGridDetector = new Vector2(1, 1);
+    private int tempTerrainDetectionResult = 0;
+
     public void GenerateGrid()
     {
         grid.verticalOffset += room.transform.localPosition.y;
@@ -47,7 +52,14 @@ public class GridController : MonoBehaviour
                 go.name = "X: " + n + ", Y " + m;
 
                 // this step ought to be improved to exclude undesirable locations
-                availablePoints.Add(go.transform.position);
+                tempTerrainDetectionResult = Physics2D.OverlapBox(go.transform.position
+                    , SizeOfGridDetector
+                    , 0f
+                    , ContactFilter2D
+                    , CollidingTerrain);
+
+                // the spot would only be available if there is no terrain on it
+                if (tempTerrainDetectionResult == 0) availablePoints.Add(go.transform.position);
             }
         }
 

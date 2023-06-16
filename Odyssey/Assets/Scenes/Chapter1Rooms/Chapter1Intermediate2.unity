@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 171024733}
   - component: {fileID: 171024734}
-  m_Layer: 12
+  m_Layer: 6
   m_Name: EnemyGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,6 +176,22 @@ MonoBehaviour:
   gridTile: {fileID: 1931386081639494510, guid: a352a752fbe1d42ef8118916e4f976e3, type: 3}
   WallThickness: 1
   availablePoints: []
+  CollidingTerrain: []
+  ContactFilter2D:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 8192
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  SizeOfGridDetector: {x: 1, y: 1}
 --- !u!1 &242383488
 GameObject:
   m_ObjectHideFlags: 0

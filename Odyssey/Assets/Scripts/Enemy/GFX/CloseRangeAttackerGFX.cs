@@ -19,7 +19,6 @@ public class CloseRangeAttackerGFX : EnemyGFX
             // pass the responsibility to the launcher to decide direction
             TargetTransform = AttackZone.TargetTransform;
             PlayAnimation(AnimationNames.EnemyAttack);
-            Invoke("StartIdling", _animator.GetCurrentAnimatorStateInfo(0).length);
         }
         else if (_rb.velocity.magnitude > 1f)
         {

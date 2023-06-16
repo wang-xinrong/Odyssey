@@ -5,6 +5,13 @@ using UnityEngine;
 public class BossGFX : EnemyGFX
 {
     private BossStageManager _bossStageManager;
+    public Transform TopLeftRoomCorner;
+    public Transform BottomRightRoomCorner;
+    public float SummoningInterval;
+    private float _summoningTimer = 0f;
+
+    public GameObject StageOneSummonedMinionPrefab;
+    public GameObject StageTwoSummonedMinionPrefab;
 
     private new void Start()
     {
@@ -15,6 +22,11 @@ public class BossGFX : EnemyGFX
     // Update is called once per frame
     void Update()
     {
+        if (_bossStageManager._currentBossStage == BossStageManager.BossStage.Zero)
+        {
+            StageZero();
+        }
+
         if (_bossStageManager._currentBossStage == BossStageManager.BossStage.One)
         {
             StageOne();
@@ -31,10 +43,19 @@ public class BossGFX : EnemyGFX
         }
     }
 
+    void StageZero()
+    {
+        TransitionBetweenStageZeroAndOne();
+    }
+
     void StageOne()
     {
         DetermineDirectionAndFlipSprite();
         _attackTimer += Time.deltaTime;
+        _summoningTimer += Time.deltaTime;
+
+        TimedSummoning(StageOneSummonedMinionPrefab, 1, SummoningInterval);
+
         if (_damageable.IsAlive == false)
         {
             _currentState = State.Death;
@@ -64,6 +85,10 @@ public class BossGFX : EnemyGFX
     {
         DetermineDirectionAndFlipSprite();
         _attackTimer += Time.deltaTime;
+        _summoningTimer += Time.deltaTime;
+
+        TimedSummoning(StageTwoSummonedMinionPrefab, 2, SummoningInterval);
+
         if (_damageable.IsAlive == false)
         {
             _currentState = State.Death;
@@ -94,11 +119,13 @@ public class BossGFX : EnemyGFX
 
     void StageThree()
     {
+        /*
         if (!hasEnlarged)
         {
             transform.localScale = Scaling(transform.localScale, 2);
             hasEnlarged = true;
         }
+        */
 
         DetermineDirectionAndFlipSprite();
         _attackTimer += Time.deltaTime;
@@ -126,4 +153,52 @@ public class BossGFX : EnemyGFX
             PlayAnimation(AnimationNames.StageThreeIdle);
         }
     }
+
+    public void TransitionBetweenStageZeroAndOne()
+    {
+        Directions.SetPositionToCentreOfVectorInputs(gameObject
+            , TopLeftRoomCorner, BottomRightRoomCorner);
+        PlayAnimation(AnimationNames.StageOneEntry);
+    }
+
+    public void TransitionBetweenStageOneAndTwo()
+    {
+        PlayAnimation(AnimationNames.StageTwoEntry);
+        Directions.SetPositionToCentreOfVectorInputs(gameObject
+            , TopLeftRoomCorner, BottomRightRoomCorner);
+    }
+
+    public void TransitionBetweenStageTwoAndThree()
+    {
+        PlayAnimation(AnimationNames.StageThreeEntry);
+        Directions.SetPositionToCentreOfVectorInputs(gameObject
+            , TopLeftRoomCorner, BottomRightRoomCorner);
+
+        if (!hasEnlarged)
+        {
+            transform.localScale = Scaling(transform.localScale, 2);
+            hasEnlarged = true;
+        }
+    }
+
+    public void TimedSummoning(GameObject minion, int numberOfMinionsToSummon, float interval)
+    {
+        if (_summoningTimer < interval) return;
+
+        Summon(minion, numberOfMinionsToSummon);
+        _summoningTimer = 0f;
+    }
+
+    public void Summon(GameObject minion, int numberOfMinionsToSummon)
+    {
+        for (int i = 0; i < numberOfMinionsToSummon; i++)
+        {
+
+            Vector2 targetPosition = Directions
+                .RandomisePosition(TopLeftRoomCorner, BottomRightRoomCorner);
+
+            Instantiate(minion, targetPosition, Quaternion.identity);
+        }
+    }
+
 }

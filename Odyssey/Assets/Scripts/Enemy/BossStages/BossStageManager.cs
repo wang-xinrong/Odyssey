@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class BossStageManager : MonoBehaviour
 {
-    public enum BossStage { One, Two, Three }
-    public BossStage _currentBossStage = BossStage.One;
+    public enum BossStage { Zero, One, Two, Three }
+    public BossStage _currentBossStage = BossStage.Zero;
     protected Damageable _damageable;
+    public int StageOneHealth;
+    public int StageTwoHealth;
+    public int StageThreeHealth;
+
 
     // Start is called before the first frame update
     protected void Start()
@@ -17,6 +21,7 @@ public class BossStageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         Debug.Log("bossStageManager.update");
         if (_damageable.Health >= _damageable.MaxHealth * 2 / 3)
         {
@@ -30,5 +35,30 @@ public class BossStageManager : MonoBehaviour
         {
             _currentBossStage = BossStage.Three;
         }
+        */
+    }
+
+    // functions to be called by animation events
+    public void SetBossStageToOne()
+    {
+        _damageable.Health = StageOneHealth;
+        _damageable.MaxHealth = StageOneHealth;
+        _currentBossStage = BossStage.One;
+    }
+
+    public void SetBossStageToTwo()
+    {
+        _damageable.IsAlive = true;
+        _damageable.Health = StageTwoHealth;
+        _damageable.MaxHealth = StageTwoHealth;
+        _currentBossStage = BossStage.Two;
+    }
+
+    public void SetBossStageToThree()
+    {
+        _damageable.IsAlive = true;
+        _damageable.Health = StageThreeHealth;
+        _damageable.MaxHealth = StageThreeHealth;
+        _currentBossStage = BossStage.Three;
     }
 }

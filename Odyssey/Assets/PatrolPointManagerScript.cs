@@ -15,4 +15,9 @@ public class PatrolPointManagerScript : MonoBehaviour
     {
         PatrolPointSets.Add(set.SetName, set.PatrolPoints);
     }
+
+    private void Update()
+    {
+        Debug.Log(PatrolPointSets.Keys.ToString());
+    }
 }

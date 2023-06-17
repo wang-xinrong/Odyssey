@@ -21,13 +21,6 @@ namespace Pathfinding {
 		public Transform[] targets;
 		public Transform[] targets1;
 
-		/*
-		public void SetUpPatrolPoints()
-        {
-			
-        }
-		*/
-
 		/// <summary>Time in seconds to wait at each target</summary>
 		public float delay = 0;
 
@@ -40,7 +33,9 @@ namespace Pathfinding {
 		protected override void Awake () {
 			base.Awake();
 			agent = GetComponent<IAstarAI>();
-			SetUpTargetSets();
+
+			//SetUpTargetSets();
+			Invoke("SetUpTargetSets", 2f);
 		}
 
 		// Unity UI does not support Array of Arrays, thus had to

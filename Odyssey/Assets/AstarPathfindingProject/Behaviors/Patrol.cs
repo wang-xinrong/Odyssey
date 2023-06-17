@@ -16,9 +16,17 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_patrol.php")]
 	public class Patrol : VersionedMonoBehaviour {
 		/// <summary>Target points to move to in order</summary>
+		public int NoOfPatrolPointSets;
 		private Transform[][] targetSets;
 		public Transform[] targets;
 		public Transform[] targets1;
+
+		/*
+		public void SetUpPatrolPoints()
+        {
+			
+        }
+		*/
 
 		/// <summary>Time in seconds to wait at each target</summary>
 		public float delay = 0;

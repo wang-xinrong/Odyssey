@@ -32,4 +32,12 @@ public class Projectile : MonoBehaviour
     {
         _rb.velocity = Speed * Direction.DirectionVector;
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall" || collision.tag == "Door")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

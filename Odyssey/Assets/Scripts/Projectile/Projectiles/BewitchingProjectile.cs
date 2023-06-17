@@ -6,8 +6,10 @@ public class BewitchingProjectile : Projectile
 {
     public float Duration;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
+
         // see if it can be hit
         PlayerController controller = collision.GetComponent<PlayerController>();
 

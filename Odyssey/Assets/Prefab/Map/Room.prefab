@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2148655094542691071}
   m_Layer: 7
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2060,6 +2060,7 @@ GameObject:
   - component: {fileID: 6439141448415922946}
   - component: {fileID: 6439141448415922944}
   - component: {fileID: 6439141448415923007}
+  - component: {fileID: 1460372964459754197}
   m_Layer: 12
   m_Name: Room
   m_TagString: Untagged
@@ -2151,6 +2152,18 @@ MonoBehaviour:
   SpawnerData:
   - name: PopupShooter
     SpawnerData: {fileID: 11400000, guid: 4824233c22a914ec396d3a1900e7d1af, type: 2}
+--- !u!114 &1460372964459754197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439141448415922947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f30c051c5bcb48ef8491a797fdd5e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6439141448576032610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,7 +2213,7 @@ GameObject:
   - component: {fileID: 4542387931095272058}
   m_Layer: 7
   m_Name: TopDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2454,7 +2467,7 @@ GameObject:
   - component: {fileID: 860067772911979347}
   m_Layer: 7
   m_Name: BottomDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2922,7 +2935,7 @@ GameObject:
   - component: {fileID: 5508384396085867540}
   m_Layer: 7
   m_Name: LeftDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3008,7 +3021,7 @@ GameObject:
   - component: {fileID: 6794050442731597395}
   m_Layer: 7
   m_Name: RightDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

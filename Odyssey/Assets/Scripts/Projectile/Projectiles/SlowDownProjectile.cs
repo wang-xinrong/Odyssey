@@ -8,8 +8,10 @@ public class SlowDownProjectile : Projectile
     public float Duration;
     
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
+
         if (ProjectileTargetType == TargetType.Player)
         {
             AgainstPlayer(collision);

@@ -17,6 +17,8 @@ public class SwapMovementBehaviour : MonoBehaviour
     {
         _patrol = GetComponent<Patrol>();
         _aIDestinationSetter = GetComponent<AIDestinationSetter>();
+        _aIDestinationSetter.target = GameObject
+            .FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

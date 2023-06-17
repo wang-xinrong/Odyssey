@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private void Update()
     {
+        if (PauseMenu.instance.isPaused)
+        {
+            return;
+        }
         OnMove(m_MovementInput);
 
         // if hurt, movement update by input should be disabled

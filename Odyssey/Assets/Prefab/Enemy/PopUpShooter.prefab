@@ -253,6 +253,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 40
   _health: 10
   InvincibleTime: 1.5
@@ -310,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TopLeftRoomCorner: {fileID: 0}
   BottomRightRoomCorner: {fileID: 0}
-  PopUpDelay: 5
+  PopUpDelay: 2
 --- !u!114 &3288284120177072944
 MonoBehaviour:
   m_ObjectHideFlags: 0

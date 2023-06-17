@@ -116,6 +116,8 @@ public class MainPlayerController : MonoBehaviour
             char1.transform.position = char2.transform.position;
             char1.transform.rotation = char2.transform.rotation;
         }
+
+        SwapCharacters();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -138,8 +140,11 @@ public class MainPlayerController : MonoBehaviour
         }
     }
 
+    private bool IsChar1Active = true;
     private void SwapCharacters()
     {
+        if (IsChar1Active == isChar1) return;
+
         // the IsAlive condition is added to ensure the player can only
         // be swapped into if he is alive
         if (isChar1 && char1.GetComponent<PlayerController>().IsAlive())
@@ -148,6 +153,8 @@ public class MainPlayerController : MonoBehaviour
             char2.SetActive(false);
             Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
+
+            IsChar1Active = true;
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
@@ -155,6 +162,8 @@ public class MainPlayerController : MonoBehaviour
             char2.SetActive(true);
             Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
+
+            IsChar1Active = false;
         }
     }
 }

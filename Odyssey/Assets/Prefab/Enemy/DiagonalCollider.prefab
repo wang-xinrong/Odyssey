@@ -320,8 +320,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
-  _maxHealth: 40
-  _health: 40
+  _isAlive: 1
+  _maxHealth: 10
+  _health: 10
   InvincibleTime: 1.5
 --- !u!114 &565898849
 MonoBehaviour:
@@ -351,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 5
   MovementDirection: {x: 1, y: 1}
-  EnemyGFX: {fileID: 0}
+  EnemyGFX: {fileID: 565898849}
 --- !u!114 &-2894963573214514451
 MonoBehaviour:
   m_ObjectHideFlags: 0

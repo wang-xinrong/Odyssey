@@ -16,7 +16,7 @@ public class Damageable : MonoBehaviour
 
     private bool _isHurt = false;
 
-    private bool _isAlive = true;
+    public bool _isAlive = true;
 
     public bool IsHurt { get
         {

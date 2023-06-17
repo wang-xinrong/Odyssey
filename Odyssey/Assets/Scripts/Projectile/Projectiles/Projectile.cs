@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("here");
         _rb.velocity = Speed * Direction.DirectionVector;
     }
 

@@ -57,7 +57,28 @@ public class EnemyProjectileLauncher : MonoBehaviour
         return _targetDirection;
     }
 
+    public void BossFireProjectileInFiveDirections(GameObject projectileToFire)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject projectile = Instantiate(projectileToFire
+            , GetLaunchPoint()
+            , projectileToFire.transform.rotation
+            , _projectileManager.transform);
 
+            if (transform.localScale.x > 0)
+            {
+                projectile.GetComponent<ProjectileDirection>().
+                    SetDirectionForEnemyProjectile(Directions.RightFiveDirections[i]);
+            }
+
+            if (transform.localScale.x < 0)
+            {
+                projectile.GetComponent<ProjectileDirection>().
+                    SetDirectionForEnemyProjectile(Directions.LeftFiveDirections[i]);
+            }
+        }
+    }
 
 
     public void FireProjectileInFiveDirections(GameObject projectileToFire)
@@ -80,6 +101,20 @@ public class EnemyProjectileLauncher : MonoBehaviour
                 projectile.GetComponent<ProjectileDirection>().
                     SetDirectionForEnemyProjectile(Directions.LeftFiveDirections[i]);
             }
+        }
+    }
+
+    public void BossFireProjectileInEightDirections(GameObject projectileToFire)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            GameObject projectile = Instantiate(projectileToFire
+            , GetLaunchPoint()
+            , projectileToFire.transform.rotation
+            , _projectileManager.transform);
+
+            projectile.GetComponent<ProjectileDirection>().
+                          SetDirectionForEnemyProjectile(Directions.EightDirections[i]);
         }
     }
 

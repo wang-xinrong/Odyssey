@@ -248,8 +248,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
-  _maxHealth: 100
-  _health: 100
+  _isAlive: 1
+  _maxHealth: 20
+  _health: 20
   InvincibleTime: 1.5
 --- !u!70 &2915727209126707150
 CapsuleCollider2D:

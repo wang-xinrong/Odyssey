@@ -64,7 +64,18 @@ public class Damageable : MonoBehaviour
                 _animator.SetBool(AnimatorStrings.IsAlive, false);
 
                 // a temporary implementation update the number of enemies existing
-                if (GetComponentInParent<Room>()) GetComponentInParent<Room>().EnemyKilled();
+
+                // if in boss room
+                if (GetComponentInParent<BossRoomEnemyCount>())
+                {
+                    GetComponentInParent<BossRoomEnemyCount>()
+                        .OneEnemyKilled();
+                }
+                else // if in intermediate room
+                {
+                    if (GetComponentInParent<Room>()) GetComponentInParent<Room>()
+                            .EnemyKilled();
+                }
             }
         }
     }

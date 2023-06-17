@@ -36,6 +36,14 @@ public class PopUpMovement : MonoBehaviour
 
     private void Update()
     {
+        // temporary fix
+        if (!TopLeftRoomCorner || !BottomRightRoomCorner)
+        {
+            EnemyActivation temp = GetComponent<EnemyActivation>();
+            TopLeftRoomCorner = temp.BottomLeftCorner;
+            BottomRightRoomCorner = temp.TopRightCorner;
+        }
+
         if (!_enemyGFX.IsAlive) return;
 
         if (_movementTimer > PopUpDelay)

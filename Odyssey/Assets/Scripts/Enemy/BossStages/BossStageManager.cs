@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossStageManager : MonoBehaviour
 {
     public enum BossStage { Zero, One, Two, Three }
+    public int NoOfBossLives;
     public BossStage _currentBossStage = BossStage.Zero;
     protected Damageable _damageable;
     public int StageOneHealth;

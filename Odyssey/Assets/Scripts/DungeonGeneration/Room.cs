@@ -204,6 +204,15 @@ public class Room : MonoBehaviour
         }
     }
 
+    // temporary fix to the corner issue
+    public void SetUpEnemyReferenceToRoomCorners(Transform bottomLeft, Transform topRight)
+    {
+        foreach (EnemyActivation ea in _enemyActivation)
+        {
+            ea.SetUpRoomCorners(bottomLeft, topRight);
+        }
+    }
+
     public void EnemyKilled()
     {
         NoOfEnemiesAlive--;

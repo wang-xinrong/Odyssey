@@ -36,6 +36,10 @@ public class GridController : MonoBehaviour
     public Vector2 SizeOfGridDetector = new Vector2(1, 1);
     private int tempTerrainDetectionResult = 0;
 
+    // temporary fix for corners issue
+    private Transform _bottomLeftCorner;
+    private Transform _topRightCorner;
+
     public void GenerateGrid()
     {
         grid.verticalOffset += room.transform.localPosition.y;
@@ -60,14 +64,21 @@ public class GridController : MonoBehaviour
 
                 // the spot would only be available if there is no terrain on it
                 if (tempTerrainDetectionResult == 0) availablePoints.Add(go.transform.position);
+
+                // temperary fix to corner issue
+                if (m == 0 && n == 0) _bottomLeftCorner = go.transform;
+                if (m == grid.rows - 1 && n == grid.columns - 1) _topRightCorner = go.transform;
             }
         }
+
+     
 
         // and spawn objects here after the grid generation is completed;
         GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawning();
 
         // register all enemies spawned and deactivate them
         room.RegisterExistingEnemies();
+        room.SetUpEnemyReferenceToRoomCorners(_bottomLeftCorner, _topRightCorner);
         room.ActivateAllEnemies(false);
 
         // after the object spawning is completed, the grid can now be disabled

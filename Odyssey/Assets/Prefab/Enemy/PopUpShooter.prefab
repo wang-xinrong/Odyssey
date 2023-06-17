@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TopLeftRoomCorner: {fileID: 0}
   BottomRightRoomCorner: {fileID: 0}
-  PopUpDelay: 0
+  PopUpDelay: 5
 --- !u!114 &3288284120177072944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,3 +338,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: {fileID: 658835837}
+  BottomLeftCorner: {fileID: 0}
+  TopRightCorner: {fileID: 0}

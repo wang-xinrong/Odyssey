@@ -11,6 +11,14 @@ public class ReflectiveMovement : EnemyMovement
 
     private void Update()
     {
+        // temporary fix
+        if (!TopLeftRoomCorner || !BottomRightRoomCorner)
+        {
+            EnemyActivation temp = GetComponent<EnemyActivation>();
+            TopLeftRoomCorner = temp.BottomLeftCorner;
+            BottomRightRoomCorner = temp.TopRightCorner;
+        }
+
         Move();
         if (timer > movementResetTime && gameObject.transform.position == _lastPosition)
         {

@@ -8,11 +8,11 @@ public class MKSpecialAttack : SpecialAttack
     {
         GameObject Shockwave = this.transform.Find("Shockwave").gameObject;
         Shockwave.SetActive(true);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerController.transform.position ,5f, AoE);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_playerController.transform.position, 8f, AoE);
         yield return new WaitForSeconds(0.5f);
         foreach (Collider2D collider in colliders)
         {
-            collider.GetComponent<Damageable>().OnHurt(30, Vector2.zero);
+            collider.GetComponent<Damageable>().OnHurt(70, Vector2.zero);
         }
         yield return new WaitForSeconds(1.0f);
         Shockwave.SetActive(false);

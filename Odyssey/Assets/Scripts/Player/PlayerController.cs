@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         _rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
+        _specialAttack = GetComponent<SpecialAttack>();
 
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
@@ -62,6 +63,10 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private void Update()
     {
+        if (PauseMenu.instance.isPaused)
+        {
+            return;
+        }
         OnMove(m_MovementInput);
 
         // if hurt, movement update by input should be disabled

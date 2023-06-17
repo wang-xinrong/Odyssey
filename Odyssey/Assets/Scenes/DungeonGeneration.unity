@@ -357,6 +357,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4282267027703015826, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603410495152257718, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: MaxSP
       value: 100
@@ -585,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 930988711}
+  isPaused: 0
 --- !u!114 &984133958
 MonoBehaviour:
   m_ObjectHideFlags: 0

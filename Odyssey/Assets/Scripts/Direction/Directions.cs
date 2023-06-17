@@ -152,9 +152,9 @@ public class Directions
         Vector2.left
         , new Vector2(-1, 1).normalized
         , Vector2.up
-        , new Vector2(-1, 1).normalized
-        , Vector2.left
-        , new Vector2(-1, -1).normalized
+        , new Vector2(1, 1).normalized
+        , Vector2.right
+        , new Vector2(1, -1).normalized
         , Vector2.down
         , new Vector2(-1, -1).normalized};
 }

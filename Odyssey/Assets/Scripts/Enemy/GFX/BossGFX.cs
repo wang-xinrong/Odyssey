@@ -22,6 +22,16 @@ public class BossGFX : EnemyGFX
     // Update is called once per frame
     void Update()
     {
+        // temporary fix to corner issues
+        if (!TopLeftRoomCorner || !BottomRightRoomCorner)
+        {
+            EnemyActivation temp = GetComponent<EnemyActivation>();
+            TopLeftRoomCorner = temp.BottomLeftCorner;
+            BottomRightRoomCorner = temp.TopRightCorner;
+        }
+
+
+
         if (_bossStageManager._currentBossStage == BossStageManager.BossStage.Zero)
         {
             StageZero();
@@ -193,11 +203,14 @@ public class BossGFX : EnemyGFX
     {
         for (int i = 0; i < numberOfMinionsToSummon; i++)
         {
-
             Vector2 targetPosition = Directions
                 .RandomisePosition(TopLeftRoomCorner, BottomRightRoomCorner);
 
-            Instantiate(minion, targetPosition, Quaternion.identity);
+            Instantiate(minion, targetPosition, Quaternion.identity, transform.parent);
+
+            // used to keep track of number of enemies summoned
+            if (GetComponentInParent<BossRoomEnemyCount>()) GetComponentInParent<BossRoomEnemyCount>()
+                    .OneEnemySummoned();
         }
     }
 

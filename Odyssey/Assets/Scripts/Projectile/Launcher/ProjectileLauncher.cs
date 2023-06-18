@@ -60,4 +60,19 @@ public class ProjectileLauncher : MonoBehaviour
     {
         return _playerController.GetDirectionFacing();
     }
+
+    public void ZbjSpecialAttack(GameObject projectileToFire)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            Debug.Log(i);
+            GameObject projectile = Instantiate(projectileToFire
+            , GetLaunchPoint(GetDirectionFacing())
+            , projectileToFire.transform.rotation
+            , ProjectileManager.transform);
+
+            projectile.GetComponent<ProjectileDirection>().
+                SetDirection(Directions.EightDirections[i]);
+        }
+    }
 }

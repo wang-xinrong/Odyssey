@@ -42,6 +42,11 @@ public class RoomController : MonoBehaviour
         "Intermediate"
        , "Intermediate2"
        , "Intermediate3"
+       , "Intermediate3"
+       , "Intermediate4"
+       , "Intermediate5"
+       , "Intermediate6"
+       , "HPPickup"
     };
 
 

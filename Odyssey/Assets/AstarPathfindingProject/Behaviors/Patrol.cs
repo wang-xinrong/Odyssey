@@ -16,6 +16,7 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_patrol.php")]
 	public class Patrol : VersionedMonoBehaviour {
 		/// <summary>Target points to move to in order</summary>
+		public int NoOfPatrolPointSets;
 		private Transform[][] targetSets;
 		public Transform[] targets;
 		public Transform[] targets1;
@@ -32,7 +33,9 @@ namespace Pathfinding {
 		protected override void Awake () {
 			base.Awake();
 			agent = GetComponent<IAstarAI>();
-			SetUpTargetSets();
+
+			//SetUpTargetSets();
+			Invoke("SetUpTargetSets", 2f);
 		}
 
 		// Unity UI does not support Array of Arrays, thus had to

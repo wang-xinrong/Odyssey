@@ -7,6 +7,10 @@ public class EnemyActivation : MonoBehaviour
 {
     public Damageable _damageable;
 
+    public Transform BottomLeftCorner;
+    public Transform TopRightCorner;
+
+
     public void Activate(bool value)
     {
         if (!_damageable.IsAlive) return;
@@ -17,5 +21,11 @@ public class EnemyActivation : MonoBehaviour
     public bool IsAlive()
     {
         return _damageable.IsAlive;
+    }
+
+    public void SetUpRoomCorners(Transform bottomLeft, Transform topRight)
+    {
+        BottomLeftCorner = bottomLeft;
+        TopRightCorner = topRight;
     }
 }

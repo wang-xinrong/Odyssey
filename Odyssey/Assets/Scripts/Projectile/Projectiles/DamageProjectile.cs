@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DamageProjectile : Projectile
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
+
         // see if it can be hit
         Damageable damageable = collision.GetComponent<Damageable>();
 

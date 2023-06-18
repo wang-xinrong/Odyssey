@@ -33,6 +33,7 @@ public class AnimationNames
 
     // Dancing Girl
     public static string DancingGirlSliding = "DancingGirlSliding";
+    public static string DancingGirlDeath = "DancingGirlDeath";
 
     // Yurei
     public static string EnemyIdle = "Idle";

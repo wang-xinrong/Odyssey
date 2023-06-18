@@ -13,11 +13,27 @@ public class SwapMovementBehaviour : MonoBehaviour
 
 
     // Start is called before the first frame update
-    protected void Start()
+    protected void Awake()
     {
         _patrol = GetComponent<Patrol>();
         _aIDestinationSetter = GetComponent<AIDestinationSetter>();
+        _aIDestinationSetter.target = GameObject
+            .FindGameObjectWithTag("Player").transform;
+        ////////////////////////////////////////////////
+        // new, these three lines ought to be added into Patrol instead
+        PPM = GetComponentInParent<PatrolPointManagerScript>();
+        Invoke("temp", 1f);
+        ////////////////////////////////////////////////
     }
+
+    PatrolPointManagerScript PPM;
+    private void temp()
+    {
+        Debug.Log(PPM.GetPatrolPointSet("First"));
+        _patrol.targets = PPM.GetPatrolPointSet("First");
+        _patrol.targets1 = PPM.GetPatrolPointSet("Second");
+    }
+
 
     // Update is called once per frame
 

@@ -10,7 +10,7 @@ public class ColliderGFX : EnemyGFX
         if (_damageable.IsAlive == false)
         {
             _currentState = State.Death;
-            PlayAnimation(AnimationNames.RedHairWomanDeath);
+            PlayAnimation(AnimationNames.DancingGirlDeath);
         } else if (_rb.velocity.magnitude > 1f)
         {
             _currentState = State.Walk;

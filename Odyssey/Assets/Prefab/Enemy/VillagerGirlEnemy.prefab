@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
+  NoOfPatrolPointSets: 0
   targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -372,8 +373,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 40
-  _health: 40
+  _health: 10
   InvincibleTime: 1.5
 --- !u!114 &658835840
 MonoBehaviour:
@@ -405,8 +407,9 @@ MonoBehaviour:
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
   LaunchPoint: {fileID: 1343182875}
-  ProjectileManager: {fileID: 0}
   EnemyGFX: {fileID: 0}
+  FiveDirectionLaunchPoints: []
+  EightDirectionLaunchPoints: []
 --- !u!114 &-1189935035929555775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,3 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1368417e1eab641fa98737f1de980b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageable: {fileID: 658835837}
+  BottomLeftCorner: {fileID: 0}
+  TopRightCorner: {fileID: 0}

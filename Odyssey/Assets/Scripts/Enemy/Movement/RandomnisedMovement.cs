@@ -11,6 +11,14 @@ public class RandomnisedMovement : EnemyMovement
 
     private void Update()
     {
+        // temporary fix
+        if (!TopLeftRoomCorner || !BottomRightRoomCorner)
+        {
+            EnemyActivation temp = GetComponent<EnemyActivation>();
+            TopLeftRoomCorner = temp.BottomLeftCorner;
+            BottomRightRoomCorner = temp.TopRightCorner;
+        }
+
         Move();
 
         if (timer > movementResetTime)

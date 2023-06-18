@@ -320,8 +320,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
-  _maxHealth: 40
-  _health: 40
+  _isAlive: 1
+  _maxHealth: 10
+  _health: 10
   InvincibleTime: 1.5
 --- !u!114 &565898849
 MonoBehaviour:
@@ -351,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 5
   MovementDirection: {x: 1, y: 1}
-  EnemyGFX: {fileID: 0}
+  EnemyGFX: {fileID: 565898849}
 --- !u!114 &-2894963573214514451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,4 +365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1368417e1eab641fa98737f1de980b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageable: {fileID: 0}
+  _damageable: {fileID: 605285228}
+  BottomLeftCorner: {fileID: 0}
+  TopRightCorner: {fileID: 0}

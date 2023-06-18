@@ -7,9 +7,9 @@ public class OnDetectionSwapMovement : SwapMovementBehaviour
     public Collider2D DetectionZoneCollider;
     private DetectionZone _detectionZone;
 
-    private new void Start()
+    private new void Awake()
     {
-        base.Start();
+        base.Awake();
         _detectionZone = DetectionZoneCollider.GetComponent<DetectionZone>();
         // the default state should be patrolling
         Swap(CurrentState.Patrol);

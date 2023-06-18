@@ -31,7 +31,7 @@ public class GridController : MonoBehaviour
         GenerateGrid();
     }
 
-    public Collider2D[] CollidingTerrain = new Collider2D[0];
+    public Collider2D[] CollidingTerrain = new Collider2D[1];
     public ContactFilter2D ContactFilter2D;
     public Vector2 SizeOfGridDetector = new Vector2(1, 1);
     private int tempTerrainDetectionResult = 0;

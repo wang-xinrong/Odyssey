@@ -602,6 +602,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 100
   _health: 100
   InvincibleTime: 0.1
@@ -1062,6 +1063,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 100
   _health: 100
   InvincibleTime: 0.1
@@ -1255,6 +1257,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d21fc7ff-0aa3-49d8-89ec-5de63e8e816d
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7e61df10-8fa3-4840-b3da-4df249c76327
+    m_ActionName: Player/Pause[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1282,7 +1300,7 @@ MonoBehaviour:
   SPDecremented:
     m_PersistentCalls:
       m_Calls: []
-  _rechargeSPInterval: 1
+  _rechargeSPInterval: 0.2
   _specialAttackCDOnSwap: 5
 --- !u!1 &6828225844228353470
 GameObject:

@@ -21,5 +21,9 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        // newly added to fix the appearance of the pause
+        // menu when the game is started
+        pauseMenu.SetActive(isPaused);
     }
 }

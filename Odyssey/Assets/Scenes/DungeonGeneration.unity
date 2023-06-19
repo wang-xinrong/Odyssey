@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 256149908}
   - component: {fileID: 256149910}
   - component: {fileID: 256149909}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,11 +291,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 24
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: ad7c19f9cd22445f096b84e822e6084f, type: 2}
   m_TargetDisplay: 0

@@ -12,6 +12,7 @@ public class MKSpecialAttack : SpecialAttack
         yield return new WaitForSeconds(0.5f);
         foreach (Collider2D collider in colliders)
         {
+            Debug.Log(collider);
             collider.GetComponent<Damageable>().OnHurt(70, Vector2.zero);
         }
         yield return new WaitForSeconds(1.0f);

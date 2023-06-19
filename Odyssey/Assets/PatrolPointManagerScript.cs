@@ -18,6 +18,6 @@ public class PatrolPointManagerScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(PatrolPointSets.Keys.ToString());
+        //Debug.Log(PatrolPointSets.Keys.ToString());
     }
 }

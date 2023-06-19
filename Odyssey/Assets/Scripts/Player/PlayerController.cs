@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private void Update()
     {
-        Debug.Log(PauseMenu.instance);
+        //Debug.Log(PauseMenu.instance);
         if (PauseMenu.instance.isPaused)
         {
             return;

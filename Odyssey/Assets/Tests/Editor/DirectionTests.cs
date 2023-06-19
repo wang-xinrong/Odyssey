@@ -11,6 +11,7 @@ public class DirectionTests
     public void DirectionTestsSimplePasses()
     {
 
+
         Assert.AreEqual(Vector2.up, Directions.RightFiveDirections[0]);
         // Use the Assert class to test conditions
     }

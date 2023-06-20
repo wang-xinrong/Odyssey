@@ -56,6 +56,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        projectPath:
+          - Odyssey
         targetPlatform:
           # cannot find a allowed value for Apple Silicon, but since this
           # script is just for CI, it shouldnt matter too much
@@ -70,7 +72,7 @@ jobs:
           lfs: true
       - uses: actions/cache@v3
         with:
-          path: Library
+          path: ${{ matrix.projectPath }}/Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
       - uses: game-ci/unity-builder@v2
@@ -79,6 +81,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
+          projectPath: ${{ matrix.projectPath }}
           targetPlatform: ${{ matrix.targetPlatform }}
       - uses: actions/upload-artifact@v3
         with:

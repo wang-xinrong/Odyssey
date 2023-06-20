@@ -52,9 +52,8 @@ MonoBehaviour:
     horizontalOffset: 7
   gridTile: {fileID: 1931386081639494510, guid: a352a752fbe1d42ef8118916e4f976e3, type: 3}
   WallThickness: 1
-  availablePoints: []
-  CollidingTerrain:
-  - {fileID: 0}
+  availableSpawningPoints: []
+  availableMovementPoints: []
   ContactFilter2D:
     useTriggers: 1
     useLayerMask: 1
@@ -64,7 +63,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 8192
+      m_Bits: 8336
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0

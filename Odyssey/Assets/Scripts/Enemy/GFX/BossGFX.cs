@@ -167,7 +167,8 @@ public class BossGFX : EnemyGFX
 
     public void TransitionBetweenStageZeroAndOne()
     {
-        Directions.SetPositionToCentre(gameObject);
+        Directions.SetPositionToCentre(gameObject
+            , transform.parent.transform.position);
         //Directions.SetPositionToCentreOfVectorInputs(gameObject
         //    , TopLeftRoomCorner, BottomRightRoomCorner);
         PlayAnimation(AnimationNames.StageOneEntry);
@@ -178,7 +179,8 @@ public class BossGFX : EnemyGFX
         PlayAnimation(AnimationNames.StageTwoEntry);
         //Directions.SetPositionToCentreOfVectorInputs(gameObject
         //    , TopLeftRoomCorner, BottomRightRoomCorner);
-        Directions.SetPositionToCentre(gameObject);
+        Directions.SetPositionToCentre(gameObject
+            , transform.parent.transform.position);
     }
 
     public void TransitionBetweenStageTwoAndThree()
@@ -186,7 +188,8 @@ public class BossGFX : EnemyGFX
         PlayAnimation(AnimationNames.StageThreeEntry);
         //Directions.SetPositionToCentreOfVectorInputs(gameObject
         //    , TopLeftRoomCorner, BottomRightRoomCorner);
-        Directions.SetPositionToCentre(gameObject);
+        Directions.SetPositionToCentre(gameObject
+            , transform.parent.transform.position);
 
         if (!hasEnlarged)
         {

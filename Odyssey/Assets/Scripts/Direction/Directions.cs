@@ -136,9 +136,9 @@ public class Directions
             , (topLeft.position.z + bottomRight.position.z) / 2);
     }
 
-    public static void SetPositionToCentre(GameObject go)
+    public static void SetPositionToCentre(GameObject go, Vector3 parentPosition)
     {
-        go.transform.position = Vector3.zero;
+        go.transform.position = parentPosition;
     }
 
     public static Vector2[] RightFiveDirections = new Vector2[] { Vector2.up

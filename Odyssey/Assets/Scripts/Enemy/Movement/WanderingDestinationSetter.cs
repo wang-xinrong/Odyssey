@@ -7,6 +7,7 @@ using Pathfinding;
 public class WanderingDestinationSetter : MonoBehaviour
 {
     public float radius = 20;
+    public float PauseTimeAfterReaching = 1f;
 
     IAstarAI ai;
     EnemyActivation ea;
@@ -41,8 +42,15 @@ public class WanderingDestinationSetter : MonoBehaviour
         // the ai has reached the end of the path or it has no path at all
         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
-            ai.destination = PickRandomPoint();
-            ai.SearchPath();
+            Invoke("SetDestinationToRandomAndSearchPath", PauseTimeAfterReaching);
+            //ai.destination = PickRandomPoint();
+            //ai.SearchPath();
         }
+    }
+
+    private void SetDestinationToRandomAndSearchPath()
+    {
+        ai.destination = PickRandomPoint();
+        ai.SearchPath();
     }
 }

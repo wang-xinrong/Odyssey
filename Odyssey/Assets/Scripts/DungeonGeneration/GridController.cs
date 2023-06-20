@@ -21,7 +21,9 @@ public class GridController : MonoBehaviour
 
     public int WallThickness;
 
-    public List<Vector2> availablePoints = new List<Vector2>();
+    public List<Vector2> availableSpawningPoints = new List<Vector2>();
+
+    public List<Vector2> availableMovementPoints = new List<Vector2>();
 
     private void Awake()
     {
@@ -55,7 +57,6 @@ public class GridController : MonoBehaviour
                     , 0);
                 go.name = "X: " + n + ", Y " + m;
 
-                // this step ought to be improved to exclude undesirable locations
                 tempTerrainDetectionResult = Physics2D.OverlapBox(go.transform.position
                     , SizeOfGridDetector
                     , 0f
@@ -63,7 +64,11 @@ public class GridController : MonoBehaviour
                     , CollidingTerrain);
 
                 // the spot would only be available if there is no terrain on it
-                if (tempTerrainDetectionResult == 0) availablePoints.Add(go.transform.position);
+                if (tempTerrainDetectionResult == 0)
+                {
+                    availableSpawningPoints.Add(go.transform.position);
+                    availableMovementPoints.Add(go.transform.position);
+                }
 
                 // temperary fix to corner issue
                 if (m == 0 && n == 0) _bottomLeftCorner = go.transform;
@@ -78,7 +83,7 @@ public class GridController : MonoBehaviour
 
         // register all enemies spawned and deactivate them
         room.RegisterExistingEnemies();
-        room.SetUpEnemyReferenceToRoomCorners(_bottomLeftCorner, _topRightCorner);
+        room.SetUpEnemyReferenceToMovementPoints(availableMovementPoints);
         room.ActivateAllEnemies(false);
 
         // after the object spawning is completed, the grid can now be disabled

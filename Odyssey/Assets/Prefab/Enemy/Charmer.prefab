@@ -151,6 +151,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 40
   _health: 10
   InvincibleTime: 1.5
@@ -244,6 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: {fileID: 4081983468469709003}
+  BottomLeftCorner: {fileID: 0}
+  TopRightCorner: {fileID: 0}
 --- !u!1 &4081983467752864172
 GameObject:
   m_ObjectHideFlags: 0

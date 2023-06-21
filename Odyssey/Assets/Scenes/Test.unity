@@ -160,7 +160,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -357,6 +357,22 @@ PrefabInstance:
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1533650931}
+    - target: {fileID: 5891670334096589292, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589292, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335105262142, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335105262142, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5891670335115618963, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -445,7 +461,7 @@ MonoBehaviour:
   loadedRooms: []
   endRoomPositions: []
   PossibleRooms:
-  - Intermediate7
+  - Pub
 --- !u!4 &471960934
 Transform:
   m_ObjectHideFlags: 0
@@ -473,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d8d7f5c2adb4fcd8425c239c1d266c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonGenerationData: {fileID: 11400000, guid: c6373861dadd64a20a26db4c22f621d7, type: 2}
+  dungeonGenerationData: {fileID: 11400000, guid: cc2350c19b0924f3d83276415813ead2, type: 2}
   startX: 0
   startY: 0
 --- !u!1 &1492934842

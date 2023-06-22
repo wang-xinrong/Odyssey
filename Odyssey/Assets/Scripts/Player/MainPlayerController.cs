@@ -29,6 +29,8 @@ public class MainPlayerController : MonoBehaviour
     private float lastRechargeSPTime; 
     private float lastSwapTime;
 
+    public UnityEvent<Weapon> DisplayCurrentWeapon;
+
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
     // vector (in up-down-left-right directions)
@@ -42,6 +44,7 @@ public class MainPlayerController : MonoBehaviour
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
         Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
+        DisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
     }
 
     // helper method that takes a reference time and checks if the interval between the current
@@ -155,6 +158,7 @@ public class MainPlayerController : MonoBehaviour
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = true;
+            DisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
@@ -164,6 +168,7 @@ public class MainPlayerController : MonoBehaviour
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = false;
+            DisplayCurrentWeapon.Invoke(char2.GetComponent<PlayerController>().weapon);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Damageable), typeof(Animator))]
 
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
         _specialAttack = GetComponent<SpecialAttack>();
-
+        weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
     }
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             _currentState = State.Walk;
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
-            PlayAnimation(AnimationNames.CharWalk);
+            PlayAnimation(weapon.CharWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
         }
 
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             (_currentState == State.Idle || _currentState == State.Walk))
         {
             _currentState = State.Idle;
-            PlayAnimation(AnimationNames.CharIdle);
+            PlayAnimation(weapon.CharIdle);
         }
 
         // this if-else branch of code allows the direction of the character to be updated
@@ -159,7 +160,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         }
         CancelInvoke("StartIdling");
         _currentState = State.Special;
-        PlayAnimation(AnimationNames.CharSpecial);
+        PlayAnimation(weapon.CharSpecial);
         _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost);
     }
 
@@ -236,13 +237,13 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         if (_damageable.IsAlive)
         {
             _currentState = State.Hurt;
-            PlayAnimation(AnimationNames.CharHurt);
+            PlayAnimation(weapon.CharHurt);
             _rb.velocity = new Vector2(knockback.x, knockback.y);
         }
         else
         {
             _currentState = State.Death;
-            PlayAnimation(AnimationNames.CharDeath);
+            PlayAnimation(weapon.CharDeath);
             // the player would not be able to move the character
             // if it is dead after taking the damage
             _rb.velocity = Vector2.zero;

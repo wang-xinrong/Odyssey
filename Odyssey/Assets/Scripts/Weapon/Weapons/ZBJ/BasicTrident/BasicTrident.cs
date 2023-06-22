@@ -8,5 +8,11 @@ public class BasicTrident : Weapon
     {
         comboCount = 3;
         combos = new WeaponAttack[] {new BasicTridentAttack0(), new BasicTridentAttack1(), new BasicTridentAttack2()};
+        CharIdle = "BasicIdle";
+        CharHurt = "BasicHurt";
+        CharDeath = "BasicDeath";
+        CharWalk = "BasicWalk";
+        CharSpecial = "BasicSpecial";
+        SpritePath = "ZBJ/zbjBasicTrident";
     }
 }

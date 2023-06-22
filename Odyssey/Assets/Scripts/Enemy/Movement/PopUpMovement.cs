@@ -10,7 +10,6 @@ public class PopUpMovement : MonoBehaviour
 {
     protected Rigidbody2D Rb;
     protected Animator _animator;
-    protected Collider2D _wallCollider;
 
     public Directions Direction = new Directions();
 
@@ -21,28 +20,27 @@ public class PopUpMovement : MonoBehaviour
     private float _movementTimer = 0f;
     public float PopUpDelay;
     private PopUpShooterGFX _enemyGFX;
+    private EnemyActivation _ea;
 
 
     private void Awake()
     {
         Rb = GetComponent<Rigidbody2D>();
 
-        // a component for wall collision detection
-        //_touchingDirections = GetComponent<TouchingDirections>();
         _animator = GetComponent<Animator>();
-        _wallCollider = GetComponent<CapsuleCollider2D>();
         _enemyGFX = GetComponent<PopUpShooterGFX>();
+        _ea = GetComponent<EnemyActivation>();
     }
 
     private void Update()
     {
         // temporary fix
-        if (!TopLeftRoomCorner || !BottomRightRoomCorner)
-        {
-            EnemyActivation temp = GetComponent<EnemyActivation>();
-            TopLeftRoomCorner = temp.BottomLeftCorner;
-            BottomRightRoomCorner = temp.TopRightCorner;
-        }
+        //if (!TopLeftRoomCorner || !BottomRightRoomCorner)
+        //{
+        //    EnemyActivation temp = GetComponent<EnemyActivation>();
+        //    TopLeftRoomCorner = temp.BottomLeftCorner;
+        //    BottomRightRoomCorner = temp.TopRightCorner;
+        //}
 
         if (!_enemyGFX.IsAlive) return;
 
@@ -59,7 +57,9 @@ public class PopUpMovement : MonoBehaviour
 
     protected void Move()
     {
-        Rb.transform.position = Directions.RandomisePosition(TopLeftRoomCorner, BottomRightRoomCorner);
+        Rb.transform.position = Directions
+            .GetRandomAvaiableMovementPoint(
+            _ea.AvailableMovementPoints, transform.parent.transform.position);
         _enemyGFX.StartAttacking();
     }
 

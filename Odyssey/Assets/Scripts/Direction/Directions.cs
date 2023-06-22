@@ -136,6 +136,11 @@ public class Directions
             , (topLeft.position.z + bottomRight.position.z) / 2);
     }
 
+    public static void SetPositionToCentre(GameObject go, Vector3 parentPosition)
+    {
+        go.transform.position = parentPosition;
+    }
+
     public static Vector2[] RightFiveDirections = new Vector2[] { Vector2.up
         , new Vector2(1, 1).normalized
         , Vector2.right
@@ -157,4 +162,16 @@ public class Directions
         , new Vector2(1, -1).normalized
         , Vector2.down
         , new Vector2(-1, -1).normalized};
+
+    // this is used for generation of movement points, thus the point
+    // needs not to be removed from the list
+    public static Vector3 GetRandomAvaiableMovementPoint(
+        List<Vector2> listOfPoints, Vector3 parentPosition)
+    {
+        int _randomPos = Random.Range(0, listOfPoints.Count - 1);
+        return new Vector3(
+            listOfPoints[_randomPos].x + parentPosition.x
+            , listOfPoints[_randomPos].y + parentPosition.y
+            , parentPosition.z);
+    }
 }

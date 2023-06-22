@@ -30,13 +30,14 @@ public class ObjectRoomSpawner : MonoBehaviour
 
         for (int i = 0; i < _randomIteration; i ++)
         {
-            int _randomPos = Random.Range(0, Grid.availablePoints.Count - 1);
+            int _randomPos = Random.Range(0, Grid.availableSpawningPoints.Count - 1);
             GameObject go = Instantiate(data.SpawnerData.ItemToSpawn
-                , Grid.availablePoints[_randomPos]
+                , Grid.availableSpawningPoints[_randomPos]
                 , Quaternion.identity
                 , transform) as GameObject;
 
-            Grid.availablePoints.RemoveAt(_randomPos);
+            // make sure no two enemies are spawned at the same spot
+            Grid.availableSpawningPoints.RemoveAt(_randomPos);
             Debug.Log("Spawned Object Named " + data.name);
         }
     }

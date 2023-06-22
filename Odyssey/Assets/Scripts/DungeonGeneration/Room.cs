@@ -204,6 +204,15 @@ public class Room : MonoBehaviour
         }
     }
 
+    public void SetUpEnemyReferenceToMovementPoints(List<Vector2> list)
+    {
+        foreach (EnemyActivation ea in _enemyActivation)
+        {
+            ea.SetUpMovementPoints(list);
+        }
+    }
+
+
     // temporary fix to the corner issue
     public void SetUpEnemyReferenceToRoomCorners(Transform bottomLeft, Transform topRight)
     {

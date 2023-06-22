@@ -5,10 +5,10 @@ using UnityEngine;
 public class BossGFX : EnemyGFX
 {
     private BossStageManager _bossStageManager;
-    public Transform TopLeftRoomCorner;
-    public Transform BottomRightRoomCorner;
+    private List<Vector2> _availablePoints;
     public float SummoningInterval;
     private float _summoningTimer = 0f;
+
 
     public GameObject StageOneSummonedMinionPrefab;
     public GameObject StageTwoSummonedMinionPrefab;
@@ -17,18 +17,19 @@ public class BossGFX : EnemyGFX
     {
         base.Start();
         _bossStageManager = GetComponent<BossStageManager>();
+        _availablePoints = GetComponent<EnemyActivation>().AvailableMovementPoints;
     }
 
     // Update is called once per frame
     void Update()
     {
         // temporary fix to corner issues
-        if (!TopLeftRoomCorner || !BottomRightRoomCorner)
-        {
-            EnemyActivation temp = GetComponent<EnemyActivation>();
-            TopLeftRoomCorner = temp.BottomLeftCorner;
-            BottomRightRoomCorner = temp.TopRightCorner;
-        }
+        //if (!TopLeftRoomCorner || !BottomRightRoomCorner)
+        //{
+        //    EnemyActivation temp = GetComponent<EnemyActivation>();
+        //    TopLeftRoomCorner = temp.BottomLeftCorner;
+        //    BottomRightRoomCorner = temp.TopRightCorner;
+        //}
 
 
 
@@ -166,23 +167,29 @@ public class BossGFX : EnemyGFX
 
     public void TransitionBetweenStageZeroAndOne()
     {
-        Directions.SetPositionToCentreOfVectorInputs(gameObject
-            , TopLeftRoomCorner, BottomRightRoomCorner);
+        Directions.SetPositionToCentre(gameObject
+            , transform.parent.transform.position);
+        //Directions.SetPositionToCentreOfVectorInputs(gameObject
+        //    , TopLeftRoomCorner, BottomRightRoomCorner);
         PlayAnimation(AnimationNames.StageOneEntry);
     }
 
     public void TransitionBetweenStageOneAndTwo()
     {
         PlayAnimation(AnimationNames.StageTwoEntry);
-        Directions.SetPositionToCentreOfVectorInputs(gameObject
-            , TopLeftRoomCorner, BottomRightRoomCorner);
+        //Directions.SetPositionToCentreOfVectorInputs(gameObject
+        //    , TopLeftRoomCorner, BottomRightRoomCorner);
+        Directions.SetPositionToCentre(gameObject
+            , transform.parent.transform.position);
     }
 
     public void TransitionBetweenStageTwoAndThree()
     {
         PlayAnimation(AnimationNames.StageThreeEntry);
-        Directions.SetPositionToCentreOfVectorInputs(gameObject
-            , TopLeftRoomCorner, BottomRightRoomCorner);
+        //Directions.SetPositionToCentreOfVectorInputs(gameObject
+        //    , TopLeftRoomCorner, BottomRightRoomCorner);
+        Directions.SetPositionToCentre(gameObject
+            , transform.parent.transform.position);
 
         if (!hasEnlarged)
         {
@@ -204,9 +211,16 @@ public class BossGFX : EnemyGFX
         for (int i = 0; i < numberOfMinionsToSummon; i++)
         {
             Vector2 targetPosition = Directions
-                .RandomisePosition(TopLeftRoomCorner, BottomRightRoomCorner);
+                .GetRandomAvaiableMovementPoint(
+                _availablePoints, transform.parent.transform.position);
 
-            Instantiate(minion, targetPosition, Quaternion.identity, transform.parent);
+            GameObject go = Instantiate(minion, targetPosition
+                , Quaternion.identity, transform.parent);
+
+            // the summoned enemies' EnemyActivation component is not
+            // registered by the RoomController. Thus we need to
+            // set up its movement available points here.
+            go.GetComponent<EnemyActivation>().SetUpMovementPoints(_availablePoints);
 
             // used to keep track of number of enemies summoned
             if (GetComponentInParent<BossRoomEnemyCount>()) GetComponentInParent<BossRoomEnemyCount>()

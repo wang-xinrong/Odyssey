@@ -11,7 +11,7 @@ public class ColliderGFX : EnemyGFX
         {
             _currentState = State.Death;
             PlayAnimation(AnimationNames.DancingGirlDeath);
-        } else if (_rb.velocity.magnitude > 1f)
+        } else if (_enemyAIPath.velocity.magnitude > 0)
         {
             _currentState = State.Walk;
             PlayAnimation(AnimationNames.DancingGirlSliding);

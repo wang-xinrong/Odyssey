@@ -5,19 +5,33 @@ using UnityEngine.UI;
 
 public class CurrentWeaponDisplay : MonoBehaviour
 {
-    public Image icon;
+    public Image currentWeaponIcon;
+    public GameObject SwapInterface;
+    public Image newWeaponIcon;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameObject player = GameObject.Find("Player");
         MainPlayerController script = player.GetComponent<MainPlayerController>();
-        icon = GetComponent<Image>();
-        script.DisplayCurrentWeapon.AddListener(UpdateIcon);
+        currentWeaponIcon = GetComponent<Image>();
+        script.DisplayCurrentWeapon.AddListener(UpdateCurrentWeapon);
+        WeaponPickup.OnDisplay += DisplayDroppedWeapon;
+        WeaponPickup.OnRemoveDisplay += StopDisplayingDroppedWeapon;
     }
 
-    void UpdateIcon(Weapon weapon)
+    void StopDisplayingDroppedWeapon()
     {
-        Debug.Log("here");
-        icon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
+        SwapInterface.SetActive(false);
+    }
+
+    void DisplayDroppedWeapon(Weapon weapon)
+    {
+        SwapInterface.SetActive(true);
+        newWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
+    }
+    void UpdateCurrentWeapon(Weapon weapon)
+    {
+        Debug.Log("updating");
+        currentWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
     }
 }

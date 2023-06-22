@@ -30,6 +30,7 @@ public class MainPlayerController : MonoBehaviour
     private float lastSwapTime;
 
     public UnityEvent<Weapon> DisplayCurrentWeapon;
+    private bool hasDisplayed = false;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -44,7 +45,6 @@ public class MainPlayerController : MonoBehaviour
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
         Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
-        DisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
     }
 
     // helper method that takes a reference time and checks if the interval between the current
@@ -92,6 +92,12 @@ public class MainPlayerController : MonoBehaviour
     {
         // see if sufficient time has elapsed since previous SP regen
         checkIncrementSP();
+
+        if (lastSwapTime == 0 && !hasDisplayed)
+        {
+            DisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
+            hasDisplayed = true;
+        }
         // new, to fix the bug that after death of one character,
         // the player can still swap back and forth between the character
         // that is alive and the character that is dead

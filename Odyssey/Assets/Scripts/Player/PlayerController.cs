@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public InputActionProperty m_MovementInput;
 
+    public string charName;
+
     public float CurrentMoveSpeed
     {
         get

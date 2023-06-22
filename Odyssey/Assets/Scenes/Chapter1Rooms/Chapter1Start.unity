@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2148655094542691071, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6439141448415922945, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -177,6 +181,26 @@ PrefabInstance:
     - target: {fileID: 6439141448415922947, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
       propertyPath: m_Name
       value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439141448415923007, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: SpawnerData.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439141449690184201, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849749230875853837, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: CollidingTerrain.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849749230875853837, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: ContactFilter2D.useTriggers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849749230875853837, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: ContactFilter2D.layerMask.m_Bits
+      value: 8192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}

@@ -469,7 +469,14 @@ MonoBehaviour:
   loadedRooms: []
   endRoomPositions: []
   PossibleRooms:
-  - Pub
+  - DancingGirl
+  - ChasingMelee
+  - ChasingShooter
+  - PopupShooter
+  - StationaryShooter
+  - Charmer
+  - ChickenLeg
+  - RedHairWoman
 --- !u!4 &471960934
 Transform:
   m_ObjectHideFlags: 0
@@ -500,6 +507,7 @@ MonoBehaviour:
   dungeonGenerationData: {fileID: 11400000, guid: cc2350c19b0924f3d83276415813ead2, type: 2}
   startX: 0
   startY: 0
+  delayBeforeAstarScan: 0.8
 --- !u!1 &1492934842
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABAIezFIeryWgIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF9VMty2jAU/RVG69LBJEDornUI6YLAhHSy8UZY11iDLHn04Dn8e69kGzt0pivEOedenfuQL4RLU0JqlZ5rzhaKAfnRI/5MvvVa8hWOdKvkmp+h0XxyZnMvokHzTi1XiEc+zKgCrObpT7kVXjxA0EmeKV3M2BZiZaxBOKPCAFJaWR8tEbr0yBF/+lMfcsLTcOJPZzxNB70rHlOQFnQrbYSNrD8KMidTQYsSmPfcqqNRo6/TSSynlnjrqRKCm9oLsacy1BrT0jisBAWMU6wtGPD6HPg2t95nN3iZZQZsbUrT0zPX2KIqK/mlqr4V1OwqY3sqXDAwHQZPVdLFP3w/CnSmVfHa3BsN/B025+nunZ5SamynsV34+atxJw9U7OhGwGcO8k3NtXKSIWm186HOwPC5/XsrLc4h3bV4ZfUOdOV/xoM1XEP1x1jwYuOp748VsBYq9DsMHzRO5jcaDqth6hSIehd/DHzQbXeHauKFa2ORqquU3t5GOe2lZBZ65qtxNlZaQoBr0yVIKuxphWns/QjvuM61d8wL9a+lvrzmmkdwFxLgVj8Y3FErdbgNy+TqsACTL50VXEJr2hNv2KdYSVltWLcnTdja6YymnbCt4+zrapHxZJKNhuPN6Amix8kw6rMJG2cPg+no6REm7CEiYfe4xDqpWFVG6/bg1GSbXOKeNR+R3lzTMmw70/Qw5+dCdVrOZabWqQaQyyrDzThovARfJZsxjg1ag7VchnmTS0KESnfAkluiJFQ6O1pNkzZLQkq+V9YjCYnDVyMhHr7t8krDnsPBX94ku5LrX1BLAwQUAAAICAAAQCHsBMq7U20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kpm5eZqpkVmSqUWqoYm5kaFuinmKWZqxgaWphUmqeYqxoVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAQCHsxSHq8loCAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAQCHsBMq7U20AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
+    dataString: UEsDBBQAAAgIAABAIeyHqOLSXAIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF9VMty2jAU/RVG69LBhEfornUI6SKBCelk442wrrEGWfLowXP4917JNnboTFeIc869OvchXwiXpoTUKr3QnL0qBuRHj/gz+dZryRc40q2Sa36GRvPJmc29iAbNO7VcIR75MKMKsJqnP+VWePEAQSd5pnQxZ1uIlbEG4YwKA0hpZX20ROjSI0f86c98yAlPw6k/nfE0G/SueExBWtCttBE2sv44yJxMBS1KYN5zq47Gjb5OJ7GcWuKtp0oIbmovxJ7KUGtMS+OwEhQwTrG2YMDrc+Db3Hqf3eBllhmwtSlNT09cY4uqrOSXqvpWULOrjO2pcMHAcDSbBFdV2td/FP0o0JlWxUtzczTwt9icp7t3ekqpsZ3WduGnr9adPFCxoxsBnznIN7XQykmGpNXOhzoDw6f27624OId01+KV1TvQlf8ZENZwDfUfY8GLjae+jypgLVToeBg/aJzNbzQclsPUKRD1Lv4Y+KDb7hbVxDPXxiJVVym9vY1y2kvJPPTMV+NsrLSEANemS5BU2NMK09j7Id5xnWvvmGfq30t9ec01z+AuJMCtfjC4o1bqcBuWydXhFUy+dFZwCa1pT7xhn2IlZbVj3Z40YWunM5p2wraOs6+rRSbTaTYeTjbjR4hG02HUZ1M2yR4Gs/HjCKbsISJh97jEOqlYVUbr9uDUZJtc4p41n5HeQtMy7DvT9LDg50J1Ws5lptapBpDLKsPNOGi8BN8lmzOODVqDtVyGeZNLQoRKd8CSW6IkVDo/Wk2TNktCSr5X1iMJicN3IyEevu3ySsOew8Ff3iS7kutfUEsDBBQAAAgIAABAIewEyrtTbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSmbl5mqmRWZKpRaqhibmRoW6KeYpZmrGBpamFSap5irGhUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAABAIeyHqOLSXAIAABYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABAIewEyrtTbQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -695,7 +703,7 @@ MonoBehaviour:
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
-  scanOnStartup: 1
+  scanOnStartup: 0
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
@@ -712,7 +720,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:

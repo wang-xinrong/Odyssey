@@ -860,7 +860,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -2623,9 +2623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grid: {fileID: 7849749230875853837}
-  SpawnerData:
-  - name: PopupShooter
-    SpawnerData: {fileID: 11400000, guid: 4824233c22a914ec396d3a1900e7d1af, type: 2}
+  SpawnerData: []
 --- !u!114 &1460372964459754197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3806,6 +3804,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6439141448415922945}
     m_Modifications:
+    - target: {fileID: 405103982831152073, guid: 82cfe0d81b9b84d898e4296b26e49c36, type: 3}
+      propertyPath: SizeOfGridDetector.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 405103982831152073, guid: 82cfe0d81b9b84d898e4296b26e49c36, type: 3}
+      propertyPath: SizeOfGridDetector.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 405103982831152073, guid: 82cfe0d81b9b84d898e4296b26e49c36, type: 3}
+      propertyPath: ContactFilter2D.layerMask.m_Bits
+      value: 8400
+      objectReference: {fileID: 0}
     - target: {fileID: 405103982831152074, guid: 82cfe0d81b9b84d898e4296b26e49c36, type: 3}
       propertyPath: m_RootOrder
       value: 2

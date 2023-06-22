@@ -12,6 +12,7 @@ public class BossRoomEnemyCount : MonoBehaviour
     void Start()
     {
         _noOfEnemiesAlive = Boss.GetComponent<BossStageManager>().NoOfBossLives;
+        Room = GetComponent<Room>();
     }
 
     // Update is called once per frame

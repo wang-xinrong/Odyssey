@@ -790,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1971437029
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1447548587
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 25e6771da4c9b47e2a52e97f545837b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1226,7 +1226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1159010259040325043, guid: f8cb7b3e315734069a87935c2f6a659d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8cb7b3e315734069a87935c2f6a659d, type: 3}
@@ -1259,11 +1259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7161498900189661618, guid: d3b9bde094b6b42a2b8e2c95934caff5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.25
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 7161498900189661618, guid: d3b9bde094b6b42a2b8e2c95934caff5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7161498900189661618, guid: d3b9bde094b6b42a2b8e2c95934caff5, type: 3}
       propertyPath: m_LocalPosition.z

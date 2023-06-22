@@ -214,7 +214,13 @@ public class BossGFX : EnemyGFX
                 .GetRandomAvaiableMovementPoint(
                 _availablePoints, transform.parent.transform.position);
 
-            Instantiate(minion, targetPosition, Quaternion.identity, transform.parent);
+            GameObject go = Instantiate(minion, targetPosition
+                , Quaternion.identity, transform.parent);
+
+            // the summoned enemies' EnemyActivation component is not
+            // registered by the RoomController. Thus we need to
+            // set up its movement available points here.
+            go.GetComponent<EnemyActivation>().SetUpMovementPoints(_availablePoints);
 
             // used to keep track of number of enemies summoned
             if (GetComponentInParent<BossRoomEnemyCount>()) GetComponentInParent<BossRoomEnemyCount>()

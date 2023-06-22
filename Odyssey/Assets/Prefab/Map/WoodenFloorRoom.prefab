@@ -750,7 +750,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -2412,8 +2412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grid: {fileID: 7849749230875853837}
   SpawnerData:
-  - name: PopupShooter
-    SpawnerData: {fileID: 11400000, guid: 4824233c22a914ec396d3a1900e7d1af, type: 2}
+  - name: ChickenLeg
+    SpawnerData: {fileID: 11400000, guid: b9b68720f92924d2eb5d04dd6ace9b25, type: 2}
 --- !u!114 &1460372964459754197
 MonoBehaviour:
   m_ObjectHideFlags: 0

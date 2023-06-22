@@ -47,15 +47,18 @@ public class GridController : MonoBehaviour
         grid.verticalOffset += room.transform.localPosition.y;
         grid.horizontalOffset += room.transform.localPosition.x;
 
-        for (int m = 0; m < grid.rows; m++)
+        for (int m = 0; m <= grid.rows; m++)
         {
-            for (int n = 0; n < grid.columns; n++)
+            for (int n = 0; n <= grid.columns; n++)
             {
+                float x = n - (grid.columns - grid.horizontalOffset + 0.5f);
+                float y = m - (grid.rows - grid.verticalOffset + 0.5f);
+
                 GameObject go = Instantiate(gridTile, transform);
-                go.transform.position = new Vector3(n - (grid.columns - grid.horizontalOffset)
-                    , m - (grid.rows - grid.verticalOffset)
+                go.transform.position = new Vector3(x
+                    , y
                     , 0);
-                go.name = "X: " + n + ", Y " + m;
+                go.name = "X: " + x + ", Y " + y;
 
                 tempTerrainDetectionResult = Physics2D.OverlapBox(go.transform.position
                     , SizeOfGridDetector
@@ -68,6 +71,9 @@ public class GridController : MonoBehaviour
                 {
                     availableSpawningPoints.Add(go.transform.position);
                     availableMovementPoints.Add(go.transform.position);
+                } else
+                {
+                    Debug.Log(CollidingTerrain[0].gameObject);
                 }
 
                 // temperary fix to corner issue

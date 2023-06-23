@@ -31,7 +31,7 @@ public class MainPlayerController : MonoBehaviour
 
     // new, for weapon pickup
     public UnityEvent<Weapon> OnDisplayCurrentWeapon;
-    private bool hasInitialDisplay = false;
+    public UnityEvent<string> OnDisplayCurrentCharacter;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -45,8 +45,14 @@ public class MainPlayerController : MonoBehaviour
         char1.SetActive(true);
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
-        Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
-        OnDisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
+        PlayerController script = char1.GetComponent<PlayerController>();
+        if (!script)
+        {
+            return;
+        }
+        Directions.SpriteDirectionSetUp(script, _lastMovement);
+        OnDisplayCurrentWeapon.Invoke(script.weapon);
+        OnDisplayCurrentCharacter.Invoke(script.charName);
     }
 
     // helper method that takes a reference time and checks if the interval between the current
@@ -162,21 +168,25 @@ public class MainPlayerController : MonoBehaviour
         {
             char1.SetActive(true);
             char2.SetActive(false);
-            Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
+            PlayerController script = char1.GetComponent<PlayerController>();
+            Directions.SpriteDirectionSetUp(script, _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = true;
-            OnDisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
+            OnDisplayCurrentWeapon.Invoke(script.weapon);
+            OnDisplayCurrentCharacter.Invoke(script.charName);
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
             char1.SetActive(false);
             char2.SetActive(true);
-            Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
+            PlayerController script = char2.GetComponent<PlayerController>();
+            Directions.SpriteDirectionSetUp(script, _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = false;
-            OnDisplayCurrentWeapon.Invoke(char2.GetComponent<PlayerController>().weapon);
+            OnDisplayCurrentWeapon.Invoke(script.weapon);
+            OnDisplayCurrentCharacter.Invoke(script.charName);
         }
     }
 }

@@ -47,8 +47,6 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public string charName;
     public bool canPickUp { get; set; }
     public WeaponPickup weaponOnFloor;
-    public delegate void DisplayCurrentWeapon(Weapon weapon);
-    public static event DisplayCurrentWeapon OnDisplayCurrentWeapon;
 
     public float CurrentMoveSpeed
     {
@@ -67,7 +65,6 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
-        OnDisplayCurrentWeapon?.Invoke(weapon);
     }
 
 

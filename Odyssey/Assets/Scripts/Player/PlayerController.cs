@@ -43,7 +43,12 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public InputActionProperty m_MovementInput;
 
+    // new, for weapon pickup
     public string charName;
+    public bool canPickUp { get; set; }
+    public WeaponPickup weaponOnFloor;
+    public delegate void DisplayCurrentWeapon(Weapon weapon);
+    public static event DisplayCurrentWeapon OnDisplayCurrentWeapon;
 
     public float CurrentMoveSpeed
     {
@@ -59,10 +64,12 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
         _specialAttack = GetComponent<SpecialAttack>();
-        weapon = GetComponent<Weapon>();
+        //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
+        OnDisplayCurrentWeapon?.Invoke(weapon);
     }
+
 
     private void Update()
     {
@@ -147,7 +154,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.started)
         {
             return;
         }
@@ -157,13 +164,28 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         }
         if (!_mainPlayerController.specialAttackOffSwapCD())
         {
-            Debug.Log("sp attack on CD");
             return;
         }
         CancelInvoke("StartIdling");
         _currentState = State.Special;
         PlayAnimation(weapon.CharSpecial);
         _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost);
+    }
+
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+        if (!canPickUp)
+        {
+            return;
+        }
+        Weapon tmp = weaponOnFloor.droppedWeapon;
+        weaponOnFloor.UpdateSprite(weapon);
+        weapon = tmp;
+        _mainPlayerController.displaySwappedWeapon(weapon);
     }
 
 

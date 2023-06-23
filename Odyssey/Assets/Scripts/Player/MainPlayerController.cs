@@ -29,8 +29,9 @@ public class MainPlayerController : MonoBehaviour
     private float lastRechargeSPTime; 
     private float lastSwapTime;
 
-    public UnityEvent<Weapon> DisplayCurrentWeapon;
-    private bool hasDisplayed = false;
+    // new, for weapon pickup
+    public UnityEvent<Weapon> OnDisplayCurrentWeapon;
+    private bool hasInitialDisplay = false;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -45,6 +46,7 @@ public class MainPlayerController : MonoBehaviour
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
         Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
+        OnDisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
     }
 
     // helper method that takes a reference time and checks if the interval between the current
@@ -83,6 +85,11 @@ public class MainPlayerController : MonoBehaviour
         SPDecremented.Invoke(SP, MaxSP);
     }
 
+    public void displaySwappedWeapon(Weapon weapon)
+    {
+        OnDisplayCurrentWeapon.Invoke(weapon);
+    }
+
     public bool hasSufficientSP(int amount)
     {
         return SP >= amount;
@@ -93,11 +100,6 @@ public class MainPlayerController : MonoBehaviour
         // see if sufficient time has elapsed since previous SP regen
         checkIncrementSP();
 
-        if (lastSwapTime == 0 && !hasDisplayed)
-        {
-            DisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
-            hasDisplayed = true;
-        }
         // new, to fix the bug that after death of one character,
         // the player can still swap back and forth between the character
         // that is alive and the character that is dead
@@ -164,7 +166,7 @@ public class MainPlayerController : MonoBehaviour
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = true;
-            DisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
+            OnDisplayCurrentWeapon.Invoke(char1.GetComponent<PlayerController>().weapon);
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
@@ -174,7 +176,7 @@ public class MainPlayerController : MonoBehaviour
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = false;
-            DisplayCurrentWeapon.Invoke(char2.GetComponent<PlayerController>().weapon);
+            OnDisplayCurrentWeapon.Invoke(char2.GetComponent<PlayerController>().weapon);
         }
     }
 }

@@ -14,5 +14,6 @@ public class BasicTrident : Weapon
         CharWalk = "BasicWalk";
         CharSpecial = "BasicSpecial";
         SpritePath = "ZBJ/zbjBasicTrident";
+        character = "zbj";
     }
 }

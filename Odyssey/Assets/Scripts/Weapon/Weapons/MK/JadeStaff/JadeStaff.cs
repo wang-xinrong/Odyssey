@@ -5,7 +5,7 @@ using UnityEngine;
 public class JadeStaff : Weapon
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         comboCount = 3;
         combos = new WeaponAttack[] {new JadeStaffAttack0(), new JadeStaffAttack1(), new JadeStaffAttack2()};
@@ -15,5 +15,6 @@ public class JadeStaff : Weapon
         CharWalk = "JadeWalk";
         CharSpecial = "JadeSpecial";
         SpritePath = "MK/mkJadeStaff";
+        character = "mk";
     }
 }

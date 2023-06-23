@@ -134,6 +134,22 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4555953921776055027, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: droppedWeapon
+      value: 
+      objectReference: {fileID: 795543630}
+    - target: {fileID: 6018311874473995832, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018311874473995832, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018311874473995832, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6439141448415922945, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -209,6 +225,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6439141448415922945, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
   m_PrefabInstance: {fileID: 795543627}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &795543629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6018311874473995835, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+  m_PrefabInstance: {fileID: 795543627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &795543630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795543629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dac57ad0ea54ae1b439a72fa67fe7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboCount: 0
+  character: 
+  CharIdle: 
+  CharWalk: 
+  CharHurt: 
+  CharDeath: 
+  CharSpecial: 
+  SpritePath: MK/mkJadeStaff
 --- !u!1001 &1901929740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913507894978669036, guid: 3bc908a4a98fc4963a5a2f2e4b7803b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.22
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 2913507894978669036, guid: 3bc908a4a98fc4963a5a2f2e4b7803b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -272,6 +313,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669037, guid: 3bc908a4a98fc4963a5a2f2e4b7803b9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2afc7dc5b304544fd8739bef7b5f03ba, type: 3}
     - target: {fileID: 2913507894978669039, guid: 3bc908a4a98fc4963a5a2f2e4b7803b9, type: 3}
       propertyPath: m_Name
       value: Staff (MK Pickup)
@@ -292,13 +337,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1901929741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46dac57ad0ea54ae1b439a72fa67fe7a, type: 3}
+  m_Script: {fileID: 11500000, guid: e9c5bc6a62ed14842b6a4093f4326776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount: 0
+  character: 
   CharIdle: 
   CharWalk: 
   CharHurt: 
   CharDeath: 
   CharSpecial: 
-  SpritePath: MK/mkJadeStaff
+  SpritePath: ZBJ/zbjGoldTrident

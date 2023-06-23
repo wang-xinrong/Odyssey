@@ -326,6 +326,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2095218334, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095218334, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1447548587
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589283, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00010765344
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589283, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00000333786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589283, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589283, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000010158168
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589283, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 5891670334096589288, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 15
@@ -366,6 +394,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5891670334096589289, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 448102007}
     - target: {fileID: 5891670334096589289, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: charName
       value: zbj
@@ -493,6 +525,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e322ccd9f1d54cf1a9394caed909e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &448102007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1174388777, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+  m_PrefabInstance: {fileID: 421929770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8e7694e9ae04d9a82c1d5f07d70549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &471960932
@@ -965,8 +1008,16 @@ PrefabInstance:
       value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4675250847317705738, guid: 937a1b473011e4715a74d6fd95082577, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 16375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675250847317705738, guid: 937a1b473011e4715a74d6fd95082577, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100925992520896641, guid: 937a1b473011e4715a74d6fd95082577, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 937a1b473011e4715a74d6fd95082577, type: 3}

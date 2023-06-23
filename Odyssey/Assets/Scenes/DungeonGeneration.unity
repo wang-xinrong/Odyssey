@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4853458332790023280, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4853458332790023280, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -959,6 +959,14 @@ PrefabInstance:
     - target: {fileID: 1047096214081550621, guid: 937a1b473011e4715a74d6fd95082577, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675250847317705738, guid: 937a1b473011e4715a74d6fd95082577, type: 3}
+      propertyPath: orthographic size
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675250847317705738, guid: 937a1b473011e4715a74d6fd95082577, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 937a1b473011e4715a74d6fd95082577, type: 3}

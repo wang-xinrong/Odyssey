@@ -284,7 +284,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.3, y: 0.9}
+  m_Size: {x: 0.3, y: 0.8}
   m_Direction: 0
 --- !u!95 &9102945451126165673
 Animator:
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.2
+  radius: 0.5
   height: 1
   canMove: 1
   maxSpeed: 3
@@ -429,7 +429,7 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 0
   autoRepath:
-    mode: 1
+    mode: 2
     interval: 4
     sensitivity: 10
     maximumInterval: 2

@@ -15,12 +15,19 @@ public class WeaponPickup : MonoBehaviour
 
     public Weapon droppedWeapon;
 
+    void Awake()
+    {
+        droppedWeapon = GetComponent<Weapon>();
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(droppedWeapon.SpritePath);
+    }
+
     public void UpdateSprite(Weapon weapon)
     {
         this.droppedWeapon = weapon;
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(weapon.SpritePath);
         OnDisplayDroppedWeapon?.Invoke(weapon);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController script = collision.GetComponent<PlayerController>();

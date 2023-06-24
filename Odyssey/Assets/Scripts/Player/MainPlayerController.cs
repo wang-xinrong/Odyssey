@@ -149,6 +149,9 @@ public class MainPlayerController : MonoBehaviour
 
     public void OnSwap(InputAction.CallbackContext context) 
     {
+        if (!char1.GetComponent<PlayerController>().IsAlive()) return;
+        if (!char2.GetComponent<PlayerController>().IsAlive()) return;
+
         if (context.started && SP >= 20) {
             isChar1 = !isChar1;
             SwapCharacters();

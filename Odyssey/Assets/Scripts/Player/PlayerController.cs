@@ -143,10 +143,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (_currentState == State.Death)
-        {
-            return;
-        }
+        if (_currentState == State.Death) return;
+
         if (context.started)
         {
             Attack();

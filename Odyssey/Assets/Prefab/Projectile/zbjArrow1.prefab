@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8624947888051716483}
   - component: {fileID: 895873030804520606}
   - component: {fileID: 4403430882151410497}
+  - component: {fileID: 3946919205185167562}
   m_Layer: 10
   m_Name: zbjArrow1
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1447548587
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8103fe3b371eb40a094cc26128883efa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,8 +148,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6797c8021e549dc95b60ab8b8e0c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileScript: {fileID: 4403430882151410497}
+  ProjectileScript: {fileID: 3946919205185167562}
 --- !u!114 &4403430882151410497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957113067568804074}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60afb3b10bf6f426197c77a43fdf2483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileTargetType: 0
+  Speed: 30
+  Damage: 10
+  KnockBack: {x: 7, y: 0}
+--- !u!114 &3946919205185167562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,9 +174,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3957113067568804074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60afb3b10bf6f426197c77a43fdf2483, type: 3}
+  m_Script: {fileID: 11500000, guid: a3d696b4f41c6442f9d337f8b9598b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileTargetType: 0
   Speed: 30
   Damage: 10
   KnockBack: {x: 7, y: 0}
+  SlowingFraction: 0.1
+  Duration: 0

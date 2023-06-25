@@ -284,7 +284,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.3, y: 0.8}
+  m_Size: {x: 0.3, y: 0.6}
   m_Direction: 0
 --- !u!95 &9102945451126165673
 Animator:
@@ -437,9 +437,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.5
+  slowdownDistance: 1
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0

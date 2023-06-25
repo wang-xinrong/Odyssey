@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public bool canPickUp { get; set; }
     public WeaponPickup weaponOnFloor;
 
+    private float _originalMovementSpeed;
+
     public float CurrentMoveSpeed
     {
         get
@@ -65,6 +67,11 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
+
+        // once set the original movement speed should not be changed
+        // to keep a record of the original movement speed in preparation
+        // for the need to reset movement speed
+        _originalMovementSpeed = MovementSpeed;
     }
 
 
@@ -292,17 +299,26 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private void ReverseMovementSpeed()
     {
-        MovementSpeed = -1 * MovementSpeed;
+        // applying a absolute value function over the movement speed
+        // makes sure that the charm effect does not dwell upon each
+        // other and lead to confusing cases
+        MovementSpeed = -1 * Mathf.Abs(MovementSpeed);
     }
+
+    // to prevent exponential dwelling of slowdown effects,
+    // the _originalMovementSpeed variable should only be updated once.
+
+    // the current implementation of slowDown function would then allow
+    // adding up of slowdown effect durations. since once a slowdown effect
+    // is inflicted upon the enemy, the effect counter will be renewed, as
+    // intn
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)
     {
-        _originalMovementSpeed = MovementSpeed;
-        MovementSpeed = MovementSpeed * fractionOfOriginalSpeed;
+        MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
     }
-
-    private float _originalMovementSpeed;
+    
     private void ResetMovementSpeed()
     {
         MovementSpeed = _originalMovementSpeed;

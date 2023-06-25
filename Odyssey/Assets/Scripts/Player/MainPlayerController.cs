@@ -25,9 +25,10 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float _rechargeSPInterval;
     [SerializeField]
-    private float _specialAttackCDOnSwap;
+    private float[] charSpecialAttackCD;
+    [SerializeField]
+    private float[] charLastSpAttack;
     private float lastRechargeSPTime; 
-    private float lastSwapTime;
 
     // new, for weapon pickup
     public UnityEvent<Weapon> OnDisplayCurrentWeapon;
@@ -62,9 +63,10 @@ public class MainPlayerController : MonoBehaviour
         return Time.time - referenceTime > intervalDuration; 
     }
 
-    public bool specialAttackOffSwapCD()
+    public bool specialAttackOffCD(int charNumber)
     {
-        return lastSwapTime == 0 || HasSufficientTimePassed(lastSwapTime, _specialAttackCDOnSwap);
+        float prevAttackTime = charLastSpAttack[charNumber];
+        return prevAttackTime == 0 || HasSufficientTimePassed(prevAttackTime, charSpecialAttackCD[charNumber]);
     }
 
     private void checkIncrementSP()
@@ -84,8 +86,12 @@ public class MainPlayerController : MonoBehaviour
         SPIncremented.Invoke(SP, MaxSP);
     }
 
-    public void decrementSPBy(int amount)
+    public void decrementSPBy(int amount, int charNumber)
     {
+        if (charNumber >= 0)
+        {
+            charLastSpAttack[charNumber] = Time.time;
+        }
         SP -= amount;
         // everything subscribing to SPIncremented event will be notified
         SPDecremented.Invoke(SP, MaxSP);
@@ -157,8 +163,7 @@ public class MainPlayerController : MonoBehaviour
         if (context.started && SP >= 20) {
             isChar1 = !isChar1;
             SwapCharacters();
-            decrementSPBy(20);
-            lastSwapTime = Time.time;
+            decrementSPBy(20, -1);
         }
     }
 

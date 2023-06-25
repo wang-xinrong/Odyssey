@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public MainPlayerController _mainPlayerController;
     public SpecialAttack _specialAttack;
+    public int charNumber;
 
     public InputActionProperty m_MovementInput;
 
@@ -168,14 +169,15 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         {
             return;
         }
-        if (!_mainPlayerController.specialAttackOffSwapCD())
+        if (!_mainPlayerController.specialAttackOffCD(charNumber))
         {
+            Debug.Log("on cd");
             return;
         }
         CancelInvoke("StartIdling");
         _currentState = State.Special;
         PlayAnimation(weapon.CharSpecial);
-        _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost);
+        _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost, charNumber);
     }
 
     public void OnPickUp(InputAction.CallbackContext context)

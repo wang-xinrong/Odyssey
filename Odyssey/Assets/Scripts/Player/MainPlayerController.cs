@@ -149,6 +149,8 @@ public class MainPlayerController : MonoBehaviour
 
     public void OnSwap(InputAction.CallbackContext context) 
     {
+        if (!CanSwap) return;
+
         if (!char1.GetComponent<PlayerController>().IsAlive()) return;
         if (!char2.GetComponent<PlayerController>().IsAlive()) return;
 
@@ -161,6 +163,21 @@ public class MainPlayerController : MonoBehaviour
     }
 
     private bool IsChar1Active = true;
+    private bool _canSwap = true;
+    public bool CanSwap
+    {
+        set
+        {
+            _canSwap = value;
+        }
+
+        get
+        {
+            return _canSwap;
+        }
+    }
+
+
     private void SwapCharacters()
     {
         if (IsChar1Active == isChar1) return;

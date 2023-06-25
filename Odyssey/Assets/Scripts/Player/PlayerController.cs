@@ -294,7 +294,9 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public void Bewitched(float duration)
     {
         ReverseMovementSpeed();
-        Invoke("ReverseMovementSpeed", duration);
+        _mainPlayerController.CanSwap = false;
+        Invoke("ResetMovementSpeed", duration);
+        Invoke("SetCanSwapTrue", duration);
     }
 
     private void ReverseMovementSpeed()
@@ -322,5 +324,10 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     private void ResetMovementSpeed()
     {
         MovementSpeed = _originalMovementSpeed;
+    }
+
+    private void SetCanSwapTrue()
+    {
+        _mainPlayerController.CanSwap = true;
     }
 }

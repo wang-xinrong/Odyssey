@@ -218,7 +218,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SPBar
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8657136860706929324, guid: 054d2821dad4748d2bcc5373c0bd94f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 054d2821dad4748d2bcc5373c0bd94f8, type: 3}
 --- !u!224 &3492404055804154902 stripped
 RectTransform:
@@ -470,7 +471,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterIcon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7983580927212492641, guid: 79ff42e3a6a8546fa8e7c4a6fe64ec3c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79ff42e3a6a8546fa8e7c4a6fe64ec3c, type: 3}
 --- !u!224 &2311164111544253212 stripped
 RectTransform:
@@ -656,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5883434279482136122, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5883434279482136122, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -691,14 +693,6 @@ PrefabInstance:
     - target: {fileID: 1863744050809420023, guid: 239d87ee22c1b423082d9f35dbef5718, type: 3}
       propertyPath: m_Name
       value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863744050809420023, guid: 239d87ee22c1b423082d9f35dbef5718, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863744050809420023, guid: 239d87ee22c1b423082d9f35dbef5718, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7650260039892191806, guid: 239d87ee22c1b423082d9f35dbef5718, type: 3}
       propertyPath: m_Pivot.x

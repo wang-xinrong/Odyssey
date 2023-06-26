@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
+    public Image currentWeaponIcon;
+    public Image newWeaponIcon;
+    public Image characterIcon;
+    public GameObject SwapInterface;
+    public GameObject SwapCharacterPrompt;
     public GameObject DamageTextPrefab;
     public GameObject HealthTextPrefab;
 
@@ -15,21 +22,68 @@ public class UIManager : MonoBehaviour
         // should work as long as there is only one
         // canvas that is currently active
         GameCanvas = FindObjectOfType<Canvas>();
+
+        // new, for weapon display
+        // GameObject player = GameObject.Find("Player");
+        // MainPlayerController script = player.GetComponent<MainPlayerController>();
+        //currentWeaponIcon = GetComponent<Image>();
+        // if (!script)
+        // {
+        //     return;
+        // }
+        // script.OnDisplayCurrentWeapon.AddListener(DisplayCurrentWeapon);
+        // script.OnDisplayCurrentCharacter.AddListener(DisplayCharacterIcon);
     }
+
 
     private void OnEnable()
     {
         CharacterEvents.CharacterHurt += CharacterHurt;
         CharacterEvents.CharacterHeal += CharacterHealed;
+
+        // new, for weapon display
+        WeaponPickup.OnDisplayDroppedWeapon += DisplayDroppedWeapon;
+        WeaponPickup.OnRemoveDisplay += StopDisplayingDroppedWeapon;
+        WeaponPickup.OnDisplaySwapCharacterPrompt += DisplaySwapCharacterPrompt;
     }
 
     private void OnDisable()
     {
         CharacterEvents.CharacterHurt -= CharacterHurt;
         CharacterEvents.CharacterHeal -= CharacterHealed;
+
+        // new, for weapon display
+        WeaponPickup.OnDisplayDroppedWeapon -= DisplayDroppedWeapon;
+        WeaponPickup.OnRemoveDisplay -= StopDisplayingDroppedWeapon;
+        WeaponPickup.OnDisplaySwapCharacterPrompt -= DisplaySwapCharacterPrompt;
     }
 
+    public void DisplayCharacterIcon(string charName)
+    {
+        characterIcon.sprite = Resources.Load<Sprite>(charName);
+    }
 
+    public void DisplaySwapCharacterPrompt()
+    {
+        SwapCharacterPrompt.SetActive(true);
+    }
+
+    public void StopDisplayingDroppedWeapon()
+    {
+        SwapCharacterPrompt.SetActive(false);
+        SwapInterface.SetActive(false);
+    }
+
+    public void DisplayDroppedWeapon(Weapon weapon)
+    {
+        SwapCharacterPrompt.SetActive(false);
+        SwapInterface.SetActive(true);
+        newWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
+    }
+    public void DisplayCurrentWeapon(Weapon weapon)
+    {
+        currentWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
+    }
 
     public void CharacterHurt(GameObject character, int damageReceived)
     {
@@ -67,18 +121,5 @@ public class UIManager : MonoBehaviour
                                 .GetComponent<TMP_Text>();
 
         _tmpText.text = healthRestored.ToString();
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3070719762117146158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -11}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 24, y: 24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5891670334096589283}
@@ -441,8 +441,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5891670334096589280}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.000010158168, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00010765344, z: 0.00000333786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -451,7 +451,7 @@ Transform:
   - {fileID: 3083788303755446975}
   m_Father: {fileID: 5891670335115618972}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.001, y: 0, z: 0}
 --- !u!50 &5891670334096589291
 Rigidbody2D:
   serializedVersion: 4
@@ -578,6 +578,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8ff27f41-0e9f-4e58-b34e-8f4f504ca0a1
     m_ActionName: Player/Special[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5891670334096589289}
+        m_TargetAssemblyTypeName: PlayerController, MyScripts
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9175b391-2d29-4932-8949-117a09d566c1
+    m_ActionName: Player/PickUp[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -613,6 +629,8 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -2597586925191240689, guid: 52c73ef8a239e4e2db71eda6c32be8ef, type: 3}
+  charName: zbj
+  weaponOnFloor: {fileID: 0}
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -774,6 +792,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount: 0
+  character: 
+  CharIdle: 
+  CharWalk: 
+  CharHurt: 
+  CharDeath: 
+  CharSpecial: 
+  SpritePath: 
 --- !u!114 &6056839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +815,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _playerController: {fileID: 5891670334096589280}
-  specialAttackCost: 50
+  specialAttackCost: 30
   knockBackMultiplier: 5
 --- !u!1 &5891670335105262140
 GameObject:
@@ -962,6 +987,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a6c2a7b2-6d6f-4ea0-ab13-487e2e546bf5
     m_ActionName: Player/Special[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5891670335105262139}
+        m_TargetAssemblyTypeName: PlayerController, MyScripts
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 504a3f9c-a0d0-4e92-bfb8-5532f116f100
+    m_ActionName: Player/PickUp[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -984,7 +1025,7 @@ MonoBehaviour:
   MovementSpeed: 5
   weapon: {fileID: 5891670334319995383}
   _mainPlayerController: {fileID: 5616900526452707571}
-  _specialAttack: {fileID: 340815044}
+  _specialAttack: {fileID: 0}
   m_MovementInput:
     m_UseReference: 1
     m_Action:
@@ -997,6 +1038,8 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -2597586925191240689, guid: f6d50192fa0e84ee5ae63e0c1d5402d4, type: 3}
+  charName: mk
+  weaponOnFloor: {fileID: 0}
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -1131,12 +1174,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5891670335105262140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6321819cb8de1417da52ba9f36a48fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount: 0
+  character: 
+  CharIdle: 
+  CharWalk: 
+  CharHurt: 
+  CharDeath: 
+  CharSpecial: 
+  SpritePath: MK/mkBasicStaff
 --- !u!114 &340815034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,7 +1223,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _playerController: {fileID: 5891670335105262140}
-  specialAttackCost: 30
+  specialAttackCost: 50
 --- !u!1 &5891670335115618963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1409,36 @@ MonoBehaviour:
       m_Calls: []
   _rechargeSPInterval: 0.2
   _specialAttackCDOnSwap: 5
+  OnDisplayCurrentWeapon:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, MyScripts
+        m_MethodName: DisplayCurrentWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDisplayCurrentCharacter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, MyScripts
+        m_MethodName: DisplayCharacterIcon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3119893997740663327
 PrefabInstance:
   m_ObjectHideFlags: 0

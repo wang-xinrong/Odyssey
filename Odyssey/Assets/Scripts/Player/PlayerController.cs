@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Damageable), typeof(Animator))]
 
@@ -39,8 +40,16 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public MainPlayerController _mainPlayerController;
     public SpecialAttack _specialAttack;
+    public int charNumber;
 
     public InputActionProperty m_MovementInput;
+
+    // new, for weapon pickup
+    public string charName;
+    public bool canPickUp { get; set; }
+    public WeaponPickup weaponOnFloor;
+
+    private float _originalMovementSpeed;
 
     public float CurrentMoveSpeed
     {
@@ -56,10 +65,16 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         Animator = GetComponent<Animator>();
         _damageable = GetComponent<Damageable>();
         _specialAttack = GetComponent<SpecialAttack>();
-
+        //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
+
+        // once set the original movement speed should not be changed
+        // to keep a record of the original movement speed in preparation
+        // for the need to reset movement speed
+        _originalMovementSpeed = MovementSpeed;
     }
+
 
     private void Update()
     {
@@ -112,7 +127,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             _currentState = State.Walk;
             Animator.SetFloat(AnimatorStrings.MoveXInput, _moveInput.x);
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
-            PlayAnimation(AnimationNames.CharWalk);
+            PlayAnimation(weapon.CharWalk);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
         }
 
@@ -120,7 +135,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             (_currentState == State.Idle || _currentState == State.Walk))
         {
             _currentState = State.Idle;
-            PlayAnimation(AnimationNames.CharIdle);
+            PlayAnimation(weapon.CharIdle);
         }
 
         // this if-else branch of code allows the direction of the character to be updated
@@ -136,6 +151,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        if (_currentState == State.Death) return;
+
         if (context.started)
         {
             Attack();
@@ -144,7 +161,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.started)
         {
             return;
         }
@@ -152,15 +169,31 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         {
             return;
         }
-        if (!_mainPlayerController.specialAttackOffSwapCD())
+        if (!_mainPlayerController.specialAttackOffCD(charNumber))
         {
-            Debug.Log("sp attack on CD");
+            Debug.Log("on cd");
             return;
         }
         CancelInvoke("StartIdling");
         _currentState = State.Special;
-        PlayAnimation(AnimationNames.CharSpecial);
-        _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost);
+        PlayAnimation(weapon.CharSpecial);
+        _mainPlayerController.decrementSPBy(_specialAttack.specialAttackCost, charNumber);
+    }
+
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+        if (!canPickUp)
+        {
+            return;
+        }
+        Weapon tmp = weaponOnFloor.droppedWeapon;
+        weaponOnFloor.UpdateSprite(weapon);
+        weapon = tmp;
+        _mainPlayerController.displaySwappedWeapon(weapon);
     }
 
 
@@ -236,13 +269,13 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         if (_damageable.IsAlive)
         {
             _currentState = State.Hurt;
-            PlayAnimation(AnimationNames.CharHurt);
+            PlayAnimation(weapon.CharHurt);
             _rb.velocity = new Vector2(knockback.x, knockback.y);
         }
         else
         {
             _currentState = State.Death;
-            PlayAnimation(AnimationNames.CharDeath);
+            PlayAnimation(weapon.CharDeath);
             // the player would not be able to move the character
             // if it is dead after taking the damage
             _rb.velocity = Vector2.zero;
@@ -263,24 +296,40 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public void Bewitched(float duration)
     {
         ReverseMovementSpeed();
-        Invoke("ReverseMovementSpeed", duration);
+        _mainPlayerController.CanSwap = false;
+        Invoke("ResetMovementSpeed", duration);
+        Invoke("SetCanSwapTrue", duration);
     }
 
     private void ReverseMovementSpeed()
     {
-        MovementSpeed = -1 * MovementSpeed;
+        // applying a absolute value function over the movement speed
+        // makes sure that the charm effect does not dwell upon each
+        // other and lead to confusing cases
+        MovementSpeed = -1 * Mathf.Abs(MovementSpeed);
     }
+
+    // to prevent exponential dwelling of slowdown effects,
+    // the _originalMovementSpeed variable should only be updated once.
+
+    // the current implementation of slowDown function would then allow
+    // adding up of slowdown effect durations. since once a slowdown effect
+    // is inflicted upon the enemy, the effect counter will be renewed, as
+    // intn
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)
     {
-        _originalMovementSpeed = MovementSpeed;
-        MovementSpeed = MovementSpeed * fractionOfOriginalSpeed;
+        MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
     }
-
-    private float _originalMovementSpeed;
+    
     private void ResetMovementSpeed()
     {
         MovementSpeed = _originalMovementSpeed;
+    }
+
+    private void SetCanSwapTrue()
+    {
+        _mainPlayerController.CanSwap = true;
     }
 }

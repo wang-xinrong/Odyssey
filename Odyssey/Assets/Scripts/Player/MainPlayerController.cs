@@ -25,9 +25,14 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float _rechargeSPInterval;
     [SerializeField]
-    private float _specialAttackCDOnSwap;
+    private float[] charSpecialAttackCD;
+    [SerializeField]
+    private float[] charLastSpAttack;
     private float lastRechargeSPTime; 
-    private float lastSwapTime;
+
+    // new, for weapon pickup
+    public UnityEvent<Weapon> OnDisplayCurrentWeapon;
+    public UnityEvent<string> OnDisplayCurrentCharacter;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -41,7 +46,14 @@ public class MainPlayerController : MonoBehaviour
         char1.SetActive(true);
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
-        Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
+        PlayerController script = char1.GetComponent<PlayerController>();
+        if (!script)
+        {
+            return;
+        }
+        Directions.SpriteDirectionSetUp(script, _lastMovement);
+        OnDisplayCurrentWeapon.Invoke(script.weapon);
+        OnDisplayCurrentCharacter.Invoke(script.charName);
     }
 
     // helper method that takes a reference time and checks if the interval between the current
@@ -51,9 +63,10 @@ public class MainPlayerController : MonoBehaviour
         return Time.time - referenceTime > intervalDuration; 
     }
 
-    public bool specialAttackOffSwapCD()
+    public bool specialAttackOffCD(int charNumber)
     {
-        return lastSwapTime == 0 || HasSufficientTimePassed(lastSwapTime, _specialAttackCDOnSwap);
+        float prevAttackTime = charLastSpAttack[charNumber];
+        return prevAttackTime == 0 || HasSufficientTimePassed(prevAttackTime, charSpecialAttackCD[charNumber]);
     }
 
     private void checkIncrementSP()
@@ -73,11 +86,20 @@ public class MainPlayerController : MonoBehaviour
         SPIncremented.Invoke(SP, MaxSP);
     }
 
-    public void decrementSPBy(int amount)
+    public void decrementSPBy(int amount, int charNumber)
     {
+        if (charNumber >= 0)
+        {
+            charLastSpAttack[charNumber] = Time.time;
+        }
         SP -= amount;
         // everything subscribing to SPIncremented event will be notified
         SPDecremented.Invoke(SP, MaxSP);
+    }
+
+    public void displaySwappedWeapon(Weapon weapon)
+    {
+        OnDisplayCurrentWeapon.Invoke(weapon);
     }
 
     public bool hasSufficientSP(int amount)
@@ -89,6 +111,7 @@ public class MainPlayerController : MonoBehaviour
     {
         // see if sufficient time has elapsed since previous SP regen
         checkIncrementSP();
+
         // new, to fix the bug that after death of one character,
         // the player can still swap back and forth between the character
         // that is alive and the character that is dead
@@ -132,15 +155,34 @@ public class MainPlayerController : MonoBehaviour
 
     public void OnSwap(InputAction.CallbackContext context) 
     {
+        if (!CanSwap) return;
+
+        if (!char1.GetComponent<PlayerController>().IsAlive()) return;
+        if (!char2.GetComponent<PlayerController>().IsAlive()) return;
+
         if (context.started && SP >= 20) {
             isChar1 = !isChar1;
             SwapCharacters();
-            decrementSPBy(20);
-            lastSwapTime = Time.time;
+            decrementSPBy(20, -1);
         }
     }
 
     private bool IsChar1Active = true;
+    private bool _canSwap = true;
+    public bool CanSwap
+    {
+        set
+        {
+            _canSwap = value;
+        }
+
+        get
+        {
+            return _canSwap;
+        }
+    }
+
+
     private void SwapCharacters()
     {
         if (IsChar1Active == isChar1) return;
@@ -151,19 +193,25 @@ public class MainPlayerController : MonoBehaviour
         {
             char1.SetActive(true);
             char2.SetActive(false);
-            Directions.SpriteDirectionSetUp(char1.GetComponent<PlayerController>(), _lastMovement);
+            PlayerController script = char1.GetComponent<PlayerController>();
+            Directions.SpriteDirectionSetUp(script, _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = true;
+            OnDisplayCurrentWeapon.Invoke(script.weapon);
+            OnDisplayCurrentCharacter.Invoke(script.charName);
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
             char1.SetActive(false);
             char2.SetActive(true);
-            Directions.SpriteDirectionSetUp(char2.GetComponent<PlayerController>(), _lastMovement);
+            PlayerController script = char2.GetComponent<PlayerController>();
+            Directions.SpriteDirectionSetUp(script, _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = false;
+            OnDisplayCurrentWeapon.Invoke(script.weapon);
+            OnDisplayCurrentCharacter.Invoke(script.charName);
         }
     }
 }

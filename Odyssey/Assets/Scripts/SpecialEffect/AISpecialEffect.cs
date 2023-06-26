@@ -12,17 +12,23 @@ public class AISpecialEffect : MonoBehaviour, EnemyUnderSpecialEffect
     void Start()
     {
         _aIPath = GetComponent<AIPath>();
+
+        // set once and never altered to keep the true
+        // original movement speed
+        _originalMovementSpeed = _aIPath.maxSpeed;
     }
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)
     {
-        _originalMovementSpeed = _aIPath.maxSpeed;
         _aIPath.maxSpeed = _aIPath.maxSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
     }
 
     private void ResetMovementSpeed()
     {
+        // resetting the mnovement speed to the true
+        // original movement speed to avoid compounding
+        // slowdown effect
         _aIPath.maxSpeed = _originalMovementSpeed;
     }
 }

@@ -183,7 +183,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1447548587
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 199279957, guid: 3683f12135d0f40be90cc51684b290e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefabs:
-  - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
-  - {fileID: 3957113067568804074, guid: e3a99e32a72d146fbbde50a972cdcc8d, type: 3}
+  - {fileID: 3957113067568804074, guid: 79d9167c0bb41441089da6dd3ea282ee, type: 3}
+  - {fileID: 3957113067568804074, guid: 79d9167c0bb41441089da6dd3ea282ee, type: 3}
   LaunchPoint: {fileID: 1805828293127362038}
   EnemyGFX: {fileID: 1805828293309906612}
   FiveDirectionLaunchPoints: []
@@ -306,6 +306,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 100
   _health: 10
   InvincibleTime: 1.5
@@ -322,3 +323,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: {fileID: 1805828293309906622}
+  BottomLeftCorner: {fileID: 0}
+  TopRightCorner: {fileID: 0}

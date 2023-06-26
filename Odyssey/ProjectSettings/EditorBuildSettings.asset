@@ -11,35 +11,44 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OldScenes/Sprint2Scene.unity
     guid: 23e85b542228741738f98cc778ebe00a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldScenes/BackUpDungeonGeneration.unity
     guid: a93dda64d8a4a4fadb3efeb4b6a9f5b3
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Start.unity
+    path: Assets/Scenes/StartMenu.unity
+    guid: 559ef66a13b4844f085614761c8ec9b8
+  - enabled: 1
+    path: Assets/Scenes/Keybinds.unity
+    guid: c513405e380e44bb59bd3c29aca2c5c7
+  - enabled: 1
+    path: Assets/Scenes/MS2Chapter1.unity
+    guid: dcd2f29dab50c4d44a093fb4f5868278
+  - enabled: 1
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Start.unity
     guid: a53392c6ada784ada9735c4804eb2357
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate.unity
     guid: 71780435c79f042829f7e1b30c61e1c2
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate2.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate2.unity
     guid: b9152d7c5f47a4bae8d6e7a384644211
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate3.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate3.unity
     guid: c71d181134cfd4b0c896cee70b8bd4e0
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate4.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate4.unity
     guid: 359b2aa35b0d74f21933ec0059f93c00
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate5.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate5.unity
     guid: fc866756424a844fcafcb11c0be4850f
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate6.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate6.unity
     guid: 9a08260569e0847ee871a202f44e964a
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1Intermediate7.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1Intermediate7.unity
     guid: 6ca43bb1021ba4cab8b93051dcef77ff
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1HPPickup.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1HPPickup.unity
     guid: df160f81c90324d1b9cfccbfc01d8a9b
   - enabled: 1
     path: Assets/Scenes/Chapter1Rooms/TestRoom.unity
@@ -75,7 +84,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter1Rooms/NewRooms/Chapter1StationaryShooter.unity
     guid: 3b214dc437c784ad99f5c788d4ba9a1b
   - enabled: 1
-    path: Assets/Scenes/Chapter1Rooms/Chapter1End.unity
+    path: Assets/Scenes/Chapter1Rooms/OldRooms/Chapter1End.unity
     guid: 29b340d45f9be4c5b8392cf6449f1c36
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6c6bd687513ac44c8ba8378fe31da33c, type: 2}

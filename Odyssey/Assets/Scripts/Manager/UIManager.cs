@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(string scene)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene);
     }
     private void Awake()

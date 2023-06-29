@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class UIManager : MonoBehaviour
 
     public Canvas GameCanvas;
 
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
     private void Awake()
     {
         // should work as long as there is only one

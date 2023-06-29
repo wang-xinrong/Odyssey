@@ -15,7 +15,10 @@ public class WeaponPickup : MonoBehaviour
 
     public Weapon droppedWeapon;
 
-    void Awake()
+    // start is only called after all existing objects' awake have been called,
+    // thus start is used here to ensure the Weapon data has been set up before
+    // WeaponPickup retrieve those data from Weapon
+    void Start()
     {
         droppedWeapon = GetComponent<Weapon>();
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(droppedWeapon.SpritePath);

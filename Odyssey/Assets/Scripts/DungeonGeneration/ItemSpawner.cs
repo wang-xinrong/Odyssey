@@ -12,6 +12,8 @@ using UnityEngine;
 // the enemy died.
 public class ItemSpawner : MonoBehaviour
 {
+
+    /*
     [System.Serializable]
     public struct Spawnable
     {
@@ -20,14 +22,21 @@ public class ItemSpawner : MonoBehaviour
     }
 
     public List<Spawnable> Items = new List<Spawnable>();
+    */
+
+    public MixedSpawner MS;
 
     float _totalWeight;
+
+    float _pick;
+    int _chosenIndex;
+    float _cumulativeWeight;
 
     private void Awake()
     {
         _totalWeight = 0;
 
-        foreach(Spawnable spawnable in Items)
+        foreach (MixedSpawner.Spawnable spawnable in MS.Items)
         {
             _totalWeight += spawnable.weight;
         }
@@ -35,18 +44,29 @@ public class ItemSpawner : MonoBehaviour
 
     private void Start()
     {
-        float _pick = Random.value * _totalWeight;
-        int _chosenIndex = 0;
-        float _cumulativeWeight = Items[0].weight;
+        _pick = Random.value * _totalWeight;
+        _chosenIndex = 0;
+        _cumulativeWeight = MS.Items[0].weight;
 
-        while (_pick > _cumulativeWeight && _chosenIndex < Items.Count - 1)
+        while (_pick > _cumulativeWeight && _chosenIndex < MS.Items.Count - 1)
         {
             _chosenIndex++;
-            _cumulativeWeight += Items[_chosenIndex].weight;
+            _cumulativeWeight += MS.Items[_chosenIndex].weight;
         }
+    }
 
-        GameObject ItemSpawned = Instantiate(Items[_chosenIndex].gameObject
+    public void SpawnObject()
+    {
+        // to allow the possibility of nothing being spawned
+        if (MS.Items[_chosenIndex].gameObject == null) return;
+
+        GameObject ItemSpawned = Instantiate(MS.Items[_chosenIndex].gameObject
             , transform.position
-            , Quaternion.identity) as GameObject;
+            , Quaternion.identity
+            , gameObject.transform.parent) as GameObject;
+
+        // after spawning the object, this script should
+        // be deactivated to avoid a second round of spawning
+        this.enabled = false;
     }
 }

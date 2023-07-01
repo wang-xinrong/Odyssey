@@ -6,8 +6,10 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] InventorySlots;
     public GameObject DraggableItemPrefab;
+    //public ItemConsumption ItemConsumption;
 
-    public void AddItem(Item item)
+    // returns if item is successfully added to an available space
+    public bool AddItem(Item item)
     {
         InventorySlot slot;
         DraggableItem existingItem;
@@ -23,9 +25,11 @@ public class InventoryManager : MonoBehaviour
                 // spawn the item in the first available slot
                 // from top-down, left-right order
                 SpawnNewItem(item, slot);
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
     private void SpawnNewItem(Item item, InventorySlot slot)
@@ -35,18 +39,23 @@ public class InventoryManager : MonoBehaviour
         draggableItem.InitialiseItem(item);
     }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void UseItem(int slotIndex)
     {
-        
-    }
+        // the slotIndex should be smaller or equal to
+        // # usage row slots - 1
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        InventorySlot slot;
+        DraggableItem item;
+
+        slot = InventorySlots[slotIndex];
+        item = slot.GetComponentInChildren<DraggableItem>();
+
+        // if there is no item
+        if (!item)
+        {
+            Debug.Log("no item in the called usage row slot");
+        }
+
+        //ItemConsumption.ConsumeItem(item.ThisItem);
     }
 }

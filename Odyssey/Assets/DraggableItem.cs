@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -10,13 +11,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Item ThisItem;
 
     private Image image;
-    [HideInInspector] public Transform parentAfterDrag;
+    public TMP_Text countText;
 
-    private void Start()
+    [HideInInspector] public Transform parentAfterDrag;
+    [HideInInspector] public int Count = 1;
+
+    private void Awake()
     {
         image = GetComponent<Image>();
+        countText = GetComponentInChildren<TMP_Text>();
+
         //RemoveImage();
-        InitialiseItem(ThisItem);
     }
 
     public void InitialiseItem(Item newItem)
@@ -25,7 +30,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         image.sprite = newItem.Image;
 
+        RefreshCount();
         //SetUpImage(newItem.Image);
+    }
+
+    public void RefreshCount()
+    {
+        countText.text = Count.ToString();
+
+        // the countText would only be needed if there is
+        // more than one item of the same kind
+        //countText.gameObject.SetActive(Count > 1);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

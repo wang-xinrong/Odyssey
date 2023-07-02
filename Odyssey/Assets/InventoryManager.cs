@@ -9,6 +9,20 @@ public class InventoryManager : MonoBehaviour
     public int MaxItemCount = 5;
     //public ItemConsumption ItemConsumption;
 
+    public static InventoryManager Instance;
+    public MainPlayerController MainPlayerController;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // returns if item is successfully added to an available space
     public void AddItem(Item item)
     {
@@ -51,10 +65,17 @@ public class InventoryManager : MonoBehaviour
         draggableItem.InitialiseItem(item);
     }
 
+    public int NumSlotsInUsageRow = 6;
+
     public void UseItem(int slotIndex)
     {
         // the slotIndex should be smaller or equal to
         // # usage row slots - 1
+        if (slotIndex >= NumSlotsInUsageRow)
+        {
+            Debug.Log("UseItem index exceeds # UsageRow slots");
+            return;
+        }
 
         InventorySlot slot;
         DraggableItem item;
@@ -66,8 +87,14 @@ public class InventoryManager : MonoBehaviour
         if (!item)
         {
             Debug.Log("no item in the called usage row slot");
+            return;
         }
 
-        //ItemConsumption.ConsumeItem(item.ThisItem);
+        ConsumeItem(item.ThisItem);
+    }
+
+    private bool ConsumeItem(Item i)
+    {
+        return true;
     }
 }

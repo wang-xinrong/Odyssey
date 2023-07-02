@@ -6,10 +6,11 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     [Header("Only Gameplay")]
-    public float HealthIncrease;
-    public float SPIncrease;
+    public int HealthIncrease;
+    public int SPIncrease;
+    public int DamageIncrease;
     public float MovementIncrease;
-    public float DamageIncrease;
+    public float Duration;
 
     [Header("Only UI")]
     public bool Stackable = false;

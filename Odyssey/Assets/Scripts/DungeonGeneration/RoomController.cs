@@ -160,6 +160,7 @@ public class RoomController : MonoBehaviour
         } else {
             // set the new room's position to be x widths from start room, y heights from start room
             Vector3 pos = new Vector3(currentLoadedRoomData.x * room.width, currentLoadedRoomData.y * room.height, 0);
+            Debug.Log(pos);
             room.UpdatePosition(pos);
             room.x = currentLoadedRoomData.x;
             room.y = currentLoadedRoomData.y;

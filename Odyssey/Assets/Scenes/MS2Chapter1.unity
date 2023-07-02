@@ -263,14 +263,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
+    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7231086659132060869, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
+    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 797472038, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
+    - target: {fileID: 1450533087, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1464142897, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
+    - target: {fileID: 1009891764409738638, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4305219654071573500, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -705,7 +733,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 36
+  orthographic size: 28
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -760,6 +788,10 @@ PrefabInstance:
     - target: {fileID: 5877286956655759449, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877286956655759449, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5877286956655759450, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: m_RootOrder

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -21,6 +22,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         image = GetComponent<Image>();
         countText = GetComponentInChildren<TMP_Text>();
 
+        // such that the empty item prefab
+        // does not show the count
+        countText.gameObject.SetActive(Count > 1);
         //RemoveImage();
     }
 
@@ -40,7 +44,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         // the countText would only be needed if there is
         // more than one item of the same kind
-        //countText.gameObject.SetActive(Count > 1);
+        countText.gameObject.SetActive(Count > 1);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -62,6 +66,39 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+    }
+
+    public void Consumed()
+    {
+        if (Count < 1)
+        {
+            Debug.Log("Item count less than 1");
+            return;
+        }
+
+        Count--;
+
+        // last item used
+        if (Count <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // at least one item left
+        RefreshCount();
+    }
+
+    public bool ShareTheSameItemType(DraggableItem i2)
+    {
+        // any of the item is null
+        if (!ThisItem || !i2.ThisItem)
+        {
+            Debug.Log("Item carried is null");
+            return false;
+        }
+
+        return ThisItem == i2.ThisItem;
     }
 
     /*

@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     //public ItemConsumption ItemConsumption;
 
     public static InventoryManager Instance;
-    public MainPlayerController MainPlayerController;
+    public ItemConsumption ItemConsumption;
 
     private void Awake()
     {
@@ -90,11 +90,16 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        ConsumeItem(item.ThisItem);
+        ConsumeItem(item);
     }
 
-    private bool ConsumeItem(Item i)
+    private void ConsumeItem(DraggableItem item)
     {
-        return true;
+        bool success = ItemConsumption.ConsumeItem(item.ThisItem);
+
+        // failed to use the item
+        if (!success) return;
+
+        item.Consumed();
     }
 }

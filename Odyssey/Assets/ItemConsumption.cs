@@ -7,6 +7,11 @@ public class ItemConsumption : MonoBehaviour
     public MainPlayerController MainPlayerController;
     private PlayerController activeCharController;
 
+    public void Awake()
+    {
+        MainPlayerController = GetComponent<MainPlayerController>();
+    }
+
     public bool ConsumeItem(Item i)
     {
         activeCharController = MainPlayerController.GetComponentInChildren<PlayerController>();
@@ -21,6 +26,10 @@ public class ItemConsumption : MonoBehaviour
         // the item can be used if any of its functions can take effect
         // in this case since the SpeedUp will always work, the item can
         // always be used
+
+        Debug.Log("Item Usage Success: "
+            + (spReplenished || hpReplenished || movementSpeedUp));
+
         return spReplenished || hpReplenished || movementSpeedUp;
     }
 }

@@ -214,4 +214,18 @@ public class MainPlayerController : MonoBehaviour
             OnDisplayCurrentCharacter.Invoke(script.charName);
         }
     }
+
+    public bool ReplenishSP(int amount)
+    {
+        // cant use the item if both characters are dead
+        if (!char1.GetComponent<PlayerController>().IsAlive() &&
+            !char2.GetComponent<PlayerController>().IsAlive()) return false;
+
+        // cant use the item if the SP is currently full
+        if (SP == MaxSP) return false;
+
+        SP = Mathf.Min(MaxSP, SP + amount);
+
+        return true;
+    }
 }

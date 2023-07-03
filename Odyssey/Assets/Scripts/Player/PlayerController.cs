@@ -78,8 +78,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private void Update()
     {
-        //Debug.Log(PauseMenu.instance);
-        if (PauseMenu.instance.isPaused)
+        if (GameStatus.Instance.IsGamePaused)
         {
             return;
         }
@@ -331,5 +330,21 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     private void SetCanSwapTrue()
     {
         _mainPlayerController.CanSwap = true;
+    }
+
+    public bool ReplenishHealth(int amount)
+    {
+        if (_damageable.Health >= _damageable.MaxHealth) return false;
+        // for now just implement the health increase to be instant
+        return _damageable.OnHeal(amount);
+    }
+
+    public bool SpeedUp(float fractionOfOriginalSpeed, float duration)
+    {
+        if (!_damageable.IsAlive) return false;
+
+        SlowedDown(fractionOfOriginalSpeed, duration);
+        // for now always able to speed up unless dead
+        return true;
     }
 }

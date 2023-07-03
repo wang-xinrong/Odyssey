@@ -178,34 +178,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: PubRoom
       objectReference: {fileID: 0}
-    - target: {fileID: 6439141448415923007, guid: e2c369cfaafb64e07a4cc8f9ceb83f31, type: 3}
-      propertyPath: SpawnerData.Array.data[0].name
-      value: DancingGirl
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439141448415923007, guid: e2c369cfaafb64e07a4cc8f9ceb83f31, type: 3}
-      propertyPath: SpawnerData.Array.data[0].SpawnerData
-      value: 
-      objectReference: {fileID: 11400000, guid: 93bc5b96811794b8c96afc468335e278, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2c369cfaafb64e07a4cc8f9ceb83f31, type: 3}
---- !u!1 &697169730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6439141448415922947, guid: e2c369cfaafb64e07a4cc8f9ceb83f31, type: 3}
-  m_PrefabInstance: {fileID: 697169729}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &697169731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697169730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a583ea62d58b4e8c9691025695d7d41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: {fileID: 0}
-  dialogues:
-  - {fileID: 11400000, guid: 29d65e39fdd6643bfbe7293e9e54f02e, type: 2}
-  - {fileID: 11400000, guid: 556f37d1fc2ae47aebbe6d9bad316a04, type: 2}

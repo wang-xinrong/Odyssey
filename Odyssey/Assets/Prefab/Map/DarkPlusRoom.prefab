@@ -2324,6 +2324,7 @@ GameObject:
   - component: {fileID: 1460372964459754197}
   - component: {fileID: 1013047417}
   - component: {fileID: 1612844028}
+  - component: {fileID: 1612844027}
   m_Layer: 12
   m_Name: DarkPlusRoom
   m_TagString: Untagged
@@ -2441,7 +2442,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Room: {fileID: 0}
   Boss: {fileID: 3865801401477335396}
+  _noOfEnemiesAlive: 0
 --- !u!114 &1612844028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6439141448415922947}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c570c1bae5134a5b8a344480c2e0029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Room: {fileID: 0}
+  Boss: {fileID: 3865801401477335396}
+  _noOfEnemiesAlive: 0
+--- !u!114 &1612844027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2450,11 +2467,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6439141448415922947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c570c1bae5134a5b8a344480c2e0029, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a06ab4ea525421197b4de633a12bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Room: {fileID: 0}
-  Boss: {fileID: 3865801401477335396}
+  room: {fileID: 0}
+  StageOneDialogues:
+  - {fileID: 11400000, guid: 244ad59e83b3d4b7d899c3913be31247, type: 2}
+  StageTwoDialogues:
+  - {fileID: 11400000, guid: 4822bef25ec5548de9a34ac1f172e968, type: 2}
+  StageThreeDialogues:
+  - {fileID: 11400000, guid: b3da69e57ade44a669e2424d1da3bdbf, type: 2}
+  Boss: {fileID: 0}
+  hasDisplayed: 000000
 --- !u!1 &6439141448576032610
 GameObject:
   m_ObjectHideFlags: 0

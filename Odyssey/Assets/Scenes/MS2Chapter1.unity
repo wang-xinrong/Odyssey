@@ -263,42 +263,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_fontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_fontAsset
+    - target: {fileID: 320679873, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
-    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 7231086659132060869, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
-    - target: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_TextStyleHashCode
-      value: -1183493901
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1792697249}
     - target: {fileID: 797472038, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
-    - target: {fileID: 1450533087, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1464142897, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
-    - target: {fileID: 1009891764409738638, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4305219654071573500, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -582,6 +558,11 @@ MonoBehaviour:
   startX: 0
   startY: 0
   delayBeforeAstarScan: 1
+--- !u!1 &934720106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 221521651, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1042746023 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6191675410507631885, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
@@ -754,6 +735,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 9040393564895896847, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
   m_PrefabInstance: {fileID: 339948460}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1719510814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 48162824, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1792697248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -762,9 +748,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: DialogueUI
+      value: 
+      objectReference: {fileID: 2073148040}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: GameCanvas
       value: 
       objectReference: {fileID: 1637499962}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: DialogueText
+      value: 
+      objectReference: {fileID: 2020798059}
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: SwapInterface
       value: 
@@ -781,6 +775,14 @@ PrefabInstance:
       propertyPath: currentWeaponIcon
       value: 
       objectReference: {fileID: 268313300}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: otherDialogueIcon
+      value: 
+      objectReference: {fileID: 1719510814}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: playerDialogueIcon
+      value: 
+      objectReference: {fileID: 934720106}
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: SwapCharacterPrompt
       value: 
@@ -973,3 +975,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020798059 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 748792507, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2073148040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1009891764409738638, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}

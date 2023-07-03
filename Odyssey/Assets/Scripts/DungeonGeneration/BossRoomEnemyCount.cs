@@ -6,7 +6,7 @@ public class BossRoomEnemyCount : MonoBehaviour
 {
     public Room Room;
     public GameObject Boss;
-    private int _noOfEnemiesAlive;
+    public int _noOfEnemiesAlive;
 
     // Start is called before the first frame update
     void Start()

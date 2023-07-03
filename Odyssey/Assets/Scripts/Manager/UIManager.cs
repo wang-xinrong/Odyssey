@@ -15,8 +15,15 @@ public class UIManager : MonoBehaviour
     public GameObject SwapCharacterPrompt;
     public GameObject DamageTextPrefab;
     public GameObject HealthTextPrefab;
+    public GameObject DialogueUI;
+    public TMP_Text DialogueText;
+    public GameObject playerDialogueIcon;
+    public GameObject otherDialogueIcon;
 
     public Canvas GameCanvas;
+
+    public List<Dialogue> currDialogues; 
+    private int currDialogueIndex = -1;
 
     public void LoadScene(string scene)
     {
@@ -51,6 +58,9 @@ public class UIManager : MonoBehaviour
         WeaponPickup.OnDisplayDroppedWeapon += DisplayDroppedWeapon;
         WeaponPickup.OnRemoveDisplay += StopDisplayingDroppedWeapon;
         WeaponPickup.OnDisplaySwapCharacterPrompt += DisplaySwapCharacterPrompt;
+
+        DialogueLauncher.OnDisplayDialogue += InitiateCutScene;
+        BossDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
     }
 
     private void OnDisable()
@@ -62,6 +72,45 @@ public class UIManager : MonoBehaviour
         WeaponPickup.OnDisplayDroppedWeapon -= DisplayDroppedWeapon;
         WeaponPickup.OnRemoveDisplay -= StopDisplayingDroppedWeapon;
         WeaponPickup.OnDisplaySwapCharacterPrompt -= DisplaySwapCharacterPrompt;
+
+        DialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
+        BossDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
+    }
+
+    public void InitiateCutScene(List<Dialogue> dialogues)
+    {
+        DialogueUI.SetActive(true);
+        currDialogues = dialogues;
+        Time.timeScale = 0;
+        DisplayNextDialogue();
+    }
+
+    public void DisplayNextDialogue()
+    {
+        // playerDialogueIcon.SetActive(false);
+        // otherDialogueIcon.SetActive(false);
+        if (currDialogueIndex == currDialogues.Count - 1)
+        {
+            EndCutScene();
+            return;
+        } 
+        Dialogue curr = currDialogues[++currDialogueIndex];
+        DialogueText.text = curr.dialogue;
+        if (curr.character == "player")
+        {
+            playerDialogueIcon.GetComponent<Image>().sprite = characterIcon.sprite;
+            playerDialogueIcon.SetActive(true);
+        } else {
+            otherDialogueIcon.GetComponent<Image>().sprite = Resources.Load<Sprite>(curr.character);
+            otherDialogueIcon.SetActive(true);
+        }
+    }
+
+    public void EndCutScene()
+    {
+        DialogueUI.SetActive(false);
+        currDialogueIndex = -1;
+        Time.timeScale = 1;
     }
 
     public void DisplayCharacterIcon(string charName)

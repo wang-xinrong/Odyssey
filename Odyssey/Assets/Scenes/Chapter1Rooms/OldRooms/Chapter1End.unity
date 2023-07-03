@@ -216,6 +216,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1612844028, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6439141448415922945, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -266,6 +270,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
+--- !u!1 &1612844026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6439141448415922947, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
+  m_PrefabInstance: {fileID: 1612844025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612844027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612844026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a06ab4ea525421197b4de633a12bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  StageOneDialogues:
+  - {fileID: 11400000, guid: 244ad59e83b3d4b7d899c3913be31247, type: 2}
+  StageTwoDialogues:
+  - {fileID: 11400000, guid: 4822bef25ec5548de9a34ac1f172e968, type: 2}
+  StageThreeDialogues:
+  - {fileID: 11400000, guid: b3da69e57ade44a669e2424d1da3bdbf, type: 2}
+  Boss: {fileID: 1682490214}
+  hasDisplayed: 000000
 --- !u!1001 &1682490213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -362,3 +392,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Room: {fileID: 1714824848}
   Boss: {fileID: 1682490214}
+  _noOfEnemiesAlive: 0

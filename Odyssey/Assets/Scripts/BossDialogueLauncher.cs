@@ -34,14 +34,14 @@ public class BossDialogueLauncher : MonoBehaviour
             OnDisplayDialogue.Invoke(StageOneDialogues);
             hasDisplayed[0] = true;
         }
+        Boss = GameObject.Find("Level1Boss");
         BossStageManager.BossStage currStage = Boss.GetComponent<BossStageManager>()._currentBossStage;
-        Debug.LogWarning(currStage);
         if (currStage == BossStageManager.BossStage.Two && !hasDisplayed[1])
         {
             OnDisplayDialogue.Invoke(StageTwoDialogues);
             hasDisplayed[1] = true;
         }
-        if (currStage == BossStageManager.BossStage.Three && !hasDisplayed[1])
+        if (currStage == BossStageManager.BossStage.Three && !hasDisplayed[2])
         {
             OnDisplayDialogue.Invoke(StageThreeDialogues);
             hasDisplayed[2] = true;

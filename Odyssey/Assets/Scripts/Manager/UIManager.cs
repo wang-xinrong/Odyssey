@@ -87,8 +87,8 @@ public class UIManager : MonoBehaviour
 
     public void DisplayNextDialogue()
     {
-        // playerDialogueIcon.SetActive(false);
-        // otherDialogueIcon.SetActive(false);
+        playerDialogueIcon.SetActive(false);
+        otherDialogueIcon.SetActive(false);
         if (currDialogueIndex == currDialogues.Count - 1)
         {
             EndCutScene();

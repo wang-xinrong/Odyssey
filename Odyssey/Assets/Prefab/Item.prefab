@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisItem: {fileID: 0}
-  countText: {fileID: 0}
+  image: {fileID: 3339632953377863309}
+  countText: {fileID: 1405526355124954106}
   parentAfterDrag: {fileID: 0}
   Count: 1
 --- !u!1001 &6149023040254578425
@@ -242,6 +243,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5103943033368161565, guid: 87f0783845a4d4b11a4ba63b6ef7cad2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87f0783845a4d4b11a4ba63b6ef7cad2, type: 3}
+--- !u!114 &1405526355124954106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5103943033368161539, guid: 87f0783845a4d4b11a4ba63b6ef7cad2, type: 3}
+  m_PrefabInstance: {fileID: 6149023040254578425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1405526355124954107 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5103943033368161538, guid: 87f0783845a4d4b11a4ba63b6ef7cad2, type: 3}

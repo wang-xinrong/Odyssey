@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -69,6 +70,8 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(int slotIndex)
     {
+        if (GameStatus.Instance.IsGamePaused) return;
+
         // the slotIndex should be smaller or equal to
         // # usage row slots - 1
         if (slotIndex >= NumSlotsInUsageRow)
@@ -101,5 +104,53 @@ public class InventoryManager : MonoBehaviour
         if (!success) return;
 
         item.Consumed();
+    }
+
+    public void OnUseItem1(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseItem(0);
+        }
+    }
+
+    public void OnUseItem2(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseItem(1);
+        }
+    }
+
+    public void OnUseItem3(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseItem(2);
+        }
+    }
+
+    public void OnUseItem4(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseItem(3);
+        }
+    }
+
+    public void OnUseItem5(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseItem(4);
+        }
+    }
+
+    public void OnUseItem6(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UseItem(5);
+        }
     }
 }

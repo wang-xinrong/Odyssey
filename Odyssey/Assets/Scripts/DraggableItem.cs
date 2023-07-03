@@ -11,7 +11,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //[HideInInspector]
     public Item ThisItem;
 
-    private Image image;
+    public Image image;
     public TMP_Text countText;
 
     [HideInInspector] public Transform parentAfterDrag;
@@ -19,8 +19,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void Awake()
     {
-        image = GetComponent<Image>();
-        countText = GetComponentInChildren<TMP_Text>();
+        //image = GetComponent<Image>();
+        //countText = GetComponentInChildren<TMP_Text>();
 
         // such that the empty item prefab
         // does not show the count

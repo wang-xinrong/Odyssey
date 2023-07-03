@@ -10,10 +10,11 @@ public class PauseMenu : MonoBehaviour
     public bool isPaused = false;
     public void OnPause(InputAction.CallbackContext context)
     {
+        if (GameStatus.Instance.IsGamePaused && !isPaused) return;
+
         if (context.started)
         {
-            isPaused = !isPaused;
-            Time.timeScale = isPaused ? 0 : 1;
+            Pause();
             pauseMenu.SetActive(isPaused);
         }
     }
@@ -25,5 +26,10 @@ public class PauseMenu : MonoBehaviour
         // newly added to fix the appearance of the pause
         // menu when the game is started
         pauseMenu.SetActive(isPaused);
+    }
+
+    public void Pause()
+    {
+        isPaused = !isPaused;
     }
 }

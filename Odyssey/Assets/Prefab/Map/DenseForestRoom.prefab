@@ -2931,7 +2931,7 @@ MonoBehaviour:
   x: 0
   y: 0
   grid: {fileID: 6439141449690184199}
-  door: {fileID: 0}
+  door: {fileID: 7010721872658176861}
   NoOfEnemiesAlive: 0
   doors: []
   Reached: 0
@@ -3217,6 +3217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
+--- !u!1 &7010721872658176861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6372848008189302586, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
+  m_PrefabInstance: {fileID: 4124154976441715815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7010721872658176862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6372848008189302585, guid: 66abaf540007a4c249fedbab05fda053, type: 3}

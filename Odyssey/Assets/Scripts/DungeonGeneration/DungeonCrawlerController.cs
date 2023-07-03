@@ -32,6 +32,7 @@ public class DungeonCrawlerController : MonoBehaviour
         // depth first crawling
         foreach (DungeonCrawler dungeonCrawler in dungeonCrawlers)
         {
+            Debug.Log(dungeonCrawler + " is crawling");
             // get random steps
             int iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
             for (int i = 0; i < iterations; i++)

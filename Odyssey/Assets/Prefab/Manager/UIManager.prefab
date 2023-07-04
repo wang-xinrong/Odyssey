@@ -46,9 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeaponIcon: {fileID: 0}
   newWeaponIcon: {fileID: 0}
-  characterIcon: {fileID: 0}
+  primaryCharacterIcon: {fileID: 0}
+  secondaryCharacterIcon: {fileID: 0}
+  currentCharacterIcon: {fileID: 0}
   SwapInterface: {fileID: 0}
   SwapCharacterPrompt: {fileID: 0}
   DamageTextPrefab: {fileID: 5103943033368161537, guid: 87f0783845a4d4b11a4ba63b6ef7cad2, type: 3}
   HealthTextPrefab: {fileID: 5103943033368161537, guid: e0afbcacd49e843ec97782f07aeb893a, type: 3}
+  DialogueUI: {fileID: 0}
+  DialogueText: {fileID: 0}
+  playerDialogueIcon: {fileID: 0}
+  otherDialogueIcon: {fileID: 0}
   GameCanvas: {fileID: 0}
+  currDialogues: []

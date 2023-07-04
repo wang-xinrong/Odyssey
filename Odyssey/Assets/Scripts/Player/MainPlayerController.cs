@@ -32,7 +32,8 @@ public class MainPlayerController : MonoBehaviour
 
     // new, for weapon pickup
     public UnityEvent<Weapon> OnDisplayCurrentWeapon;
-    public UnityEvent<string> OnDisplayCurrentCharacter;
+    public UnityEvent<string, bool> OnDisplayPrimaryCharacter;
+    public UnityEvent<string, bool> OnDisplaySecondaryCharacter;
 
     // new for direction setup after swapping bug,
     // the _lastMovement vector is a non-zero directional
@@ -46,14 +47,20 @@ public class MainPlayerController : MonoBehaviour
         char1.SetActive(true);
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
-        PlayerController script = char1.GetComponent<PlayerController>();
-        if (!script)
+        PlayerController primary = char1.GetComponent<PlayerController>();
+        PlayerController secondary = char2.GetComponent<PlayerController>();
+        if (!primary)
         {
             return;
         }
-        Directions.SpriteDirectionSetUp(script, _lastMovement);
-        OnDisplayCurrentWeapon.Invoke(script.weapon);
-        OnDisplayCurrentCharacter.Invoke(script.charName);
+        if (!secondary)
+        {
+            return;
+        }
+        Directions.SpriteDirectionSetUp(primary, _lastMovement);
+        OnDisplayCurrentWeapon.Invoke(primary.weapon);
+        OnDisplayPrimaryCharacter.Invoke(primary.charName, true);
+        OnDisplaySecondaryCharacter.Invoke(secondary.charName, false);
     }
 
     // helper method that takes a reference time and checks if the interval between the current
@@ -186,6 +193,8 @@ public class MainPlayerController : MonoBehaviour
     private void SwapCharacters()
     {
         if (IsChar1Active == isChar1) return;
+        PlayerController primary = char1.GetComponent<PlayerController>();
+        PlayerController secondary = char2.GetComponent<PlayerController>();
 
         // the IsAlive condition is added to ensure the player can only
         // be swapped into if he is alive
@@ -193,25 +202,25 @@ public class MainPlayerController : MonoBehaviour
         {
             char1.SetActive(true);
             char2.SetActive(false);
-            PlayerController script = char1.GetComponent<PlayerController>();
-            Directions.SpriteDirectionSetUp(script, _lastMovement);
+            Directions.SpriteDirectionSetUp(primary, _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = true;
-            OnDisplayCurrentWeapon.Invoke(script.weapon);
-            OnDisplayCurrentCharacter.Invoke(script.charName);
+            OnDisplayCurrentWeapon.Invoke(primary.weapon);
+            OnDisplayPrimaryCharacter.Invoke(primary.charName, true);
+            OnDisplaySecondaryCharacter.Invoke(secondary.charName, false);
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
             char1.SetActive(false);
             char2.SetActive(true);
-            PlayerController script = char2.GetComponent<PlayerController>();
-            Directions.SpriteDirectionSetUp(script, _lastMovement);
+            Directions.SpriteDirectionSetUp(secondary, _lastMovement);
             _healthBar.GetComponent<HealthBarScript>().Swap();
 
             IsChar1Active = false;
-            OnDisplayCurrentWeapon.Invoke(script.weapon);
-            OnDisplayCurrentCharacter.Invoke(script.charName);
+            OnDisplayCurrentWeapon.Invoke(secondary.weapon);
+            OnDisplayPrimaryCharacter.Invoke(primary.charName, false);
+            OnDisplaySecondaryCharacter.Invoke(secondary.charName, true);
         }
     }
 

@@ -206,10 +206,22 @@ public class RoomController : MonoBehaviour
 
     public void OnPlayerEnterRoom(Room room)
     {
+        StartCoroutine(EnterRoomCoroutine(room));
+        // CameraController.instance.currRoom = room;
+        // currRoom = room;
+        // room.Reached = true;
+        // room.ActivateAllEnemies(true);
+    }
+
+    IEnumerator EnterRoomCoroutine(Room room)
+    {
         CameraController.instance.currRoom = room;
+        room.ActivateAllEnemies(true);
+        yield return new WaitForSeconds(.5f);
+        Debug.Log("triggered");
         currRoom = room;
         room.Reached = true;
-        room.ActivateAllEnemies(true);
+
     }
 
     public void OnPlayerLeaveRoom(Room room)

@@ -9,7 +9,7 @@ public class Item : ScriptableObject
     public bool Stackable = false;
 
     [Header("Both")]
-    public string Name;
+    public string NameString;
     public Sprite Image;
     public int HealthIncrease;
     public int SPIncrease;

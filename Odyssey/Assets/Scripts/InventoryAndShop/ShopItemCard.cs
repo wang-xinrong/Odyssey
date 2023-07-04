@@ -81,7 +81,7 @@ public class ShopItemCard : MonoBehaviour
 
     private void SetUpText()
     {
-        NameText.text = item.name;
+        NameText.text = item.NameString;
         RefreshQuantityText();
         HPText.text = item.HealthIncrease.ToString();
         SPText.text = item.SPIncrease.ToString();

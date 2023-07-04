@@ -97,7 +97,6 @@ public class UIManager : MonoBehaviour
             return;
         } 
         Dialogue curr = currDialogues[++currDialogueIndex];
-        Debug.LogWarning(curr.dialogue);
         DialogueText.text = curr.dialogue;
         if (curr.character == "player")
         {

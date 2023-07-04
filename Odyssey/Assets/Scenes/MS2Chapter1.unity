@@ -288,8 +288,16 @@ PrefabInstance:
       value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 1797947590, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7231086659132060869, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
+    - target: {fileID: 1797947590, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009891764409738638, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1028077874810313609, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_LocalScale.y
@@ -424,39 +432,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: charLastSpAttack.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: charSpecialAttackCD.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: charSpecialAttackCD.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: charSpecialAttackCD.Array.data[1]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayPrimaryCharacter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: OnDisplayCurrentWeapon.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1792697249}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayPrimaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayCurrentCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
     - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
@@ -464,53 +440,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1792697249}
     - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayPrimaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayPrimaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplayPrimaryCharacterIcon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplaySecondaryCharacterIcon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayPrimaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, MyScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIManager, MyScripts
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplayPrimaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: OnDisplaySecondaryCharacter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5891670334096589289, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: charNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5891670335105262139, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
-      propertyPath: charNumber
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5891670335115618963, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: m_Name
       value: Player

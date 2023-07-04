@@ -80,8 +80,9 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     {
         if (GameStatus.Instance.IsGamePaused)
         {
-            return;
+             return;
         }
+
         OnMove(m_MovementInput);
 
         // if hurt, movement update by input should be disabled

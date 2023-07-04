@@ -10,7 +10,9 @@ public class UIManager : MonoBehaviour
 {
     public Image currentWeaponIcon;
     public Image newWeaponIcon;
-    public Image characterIcon;
+    public Image primaryCharacterIcon;
+    public Image secondaryCharacterIcon;
+    public Image currentCharacterIcon;
     public GameObject SwapInterface;
     public GameObject SwapCharacterPrompt;
     public GameObject DamageTextPrefab;
@@ -95,10 +97,11 @@ public class UIManager : MonoBehaviour
             return;
         } 
         Dialogue curr = currDialogues[++currDialogueIndex];
+        Debug.LogWarning(curr.dialogue);
         DialogueText.text = curr.dialogue;
         if (curr.character == "player")
         {
-            playerDialogueIcon.GetComponent<Image>().sprite = characterIcon.sprite;
+            playerDialogueIcon.GetComponent<Image>().sprite = currentCharacterIcon.sprite;
             playerDialogueIcon.SetActive(true);
         } else {
             otherDialogueIcon.GetComponent<Image>().sprite = Resources.Load<Sprite>(curr.character);
@@ -113,9 +116,22 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void DisplayCharacterIcon(string charName)
+    public void DisplayPrimaryCharacterIcon(string charName, bool isActive)
     {
-        characterIcon.sprite = Resources.Load<Sprite>(charName);
+        if (isActive)
+        {
+            currentCharacterIcon = primaryCharacterIcon;
+        }
+        primaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
+    }
+
+    public void DisplaySecondaryCharacterIcon(string charName, bool isActive)
+    {
+        if (isActive)
+        {
+            currentCharacterIcon = secondaryCharacterIcon;
+        }
+        secondaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
     }
 
     public void DisplaySwapCharacterPrompt()

@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     public GameObject playerDialogueIcon;
     public GameObject otherDialogueIcon;
 
+    public bool IsCutSceneOn = false;
+
     public Canvas GameCanvas;
 
     public List<Dialogue> currDialogues; 
@@ -82,8 +84,9 @@ public class UIManager : MonoBehaviour
     public void InitiateCutScene(List<Dialogue> dialogues)
     {
         DialogueUI.SetActive(true);
+        IsCutSceneOn = true;
         currDialogues = dialogues;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         DisplayNextDialogue();
     }
 
@@ -111,8 +114,9 @@ public class UIManager : MonoBehaviour
     public void EndCutScene()
     {
         DialogueUI.SetActive(false);
+        IsCutSceneOn = false;
         currDialogueIndex = -1;
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
     public void DisplayPrimaryCharacterIcon(string charName, bool isActive)

@@ -20,12 +20,13 @@ public class GameStatus : MonoBehaviour
 
     public Inventory Inventory;
     public PauseMenu PauseMenu;
+    public UIManager CutScene;
     public bool IsGamePaused = false;
 
     // Update is called once per frame
     void Update()
     {
-        IsGamePaused = Inventory.IsInventoryOpen || PauseMenu.isPaused;
+        IsGamePaused = Inventory.IsInventoryOpen || PauseMenu.isPaused || CutScene.IsCutSceneOn;
         Time.timeScale = IsGamePaused ? 0 : 1;
     }
 }

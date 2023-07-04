@@ -1237,6 +1237,7 @@ GameObject:
   - component: {fileID: 5891670335115618972}
   - component: {fileID: 5891670335115618973}
   - component: {fileID: 5616900526452707571}
+  - component: {fileID: 421929773}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1369,7 +1370,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: PauseMenu, MyScripts
         m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
@@ -1383,7 +1384,19 @@ MonoBehaviour:
     m_ActionId: 7e61df10-8fa3-4840-b3da-4df249c76327
     m_ActionName: Player/Pause[/Keyboard/p]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Inventory, MyScripts
+        m_MethodName: OnOpen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 51e261cb-4d71-490c-9604-05c17244a1ce
     m_ActionName: Player/OpenInventory[/Keyboard/i]
   - m_PersistentCalls:
@@ -1489,6 +1502,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &421929773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670335115618963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdbc355a559749868e0ad128ab25abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainPlayerController: {fileID: 5616900526452707571}
 --- !u!1001 &3119893997740663327
 PrefabInstance:
   m_ObjectHideFlags: 0

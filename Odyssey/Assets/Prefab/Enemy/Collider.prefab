@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2915727209036085074}
-  - component: {fileID: 2915727209036085072}
   - component: {fileID: 2915727209036085075}
+  - component: {fileID: 7251793399055165286}
   m_Layer: 11
   m_Name: AttackCircle
   m_TagString: Untagged
@@ -33,22 +33,6 @@ Transform:
   m_Father: {fileID: 2915727209126707143}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2915727209036085072
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2915727209036085069}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.89525837
 --- !u!114 &2915727209036085075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +47,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDamage: 10
   KnockBack: {x: 5, y: 5}
+--- !u!70 &7251793399055165286
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2915727209036085069}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.051447004, y: -0.0042873216}
+  m_Size: {x: 0.3113607, y: 0.90568006}
+  m_Direction: 0
 --- !u!1 &2915727209126707197
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,9 +235,9 @@ MonoBehaviour:
       m_Calls: []
   _isInvincible: 0
   _isAlive: 1
-  _maxHealth: 20
-  _health: 20
-  InvincibleTime: 1.5
+  _maxHealth: 450
+  _health: 450
+  InvincibleTime: 0.5
 --- !u!70 &2915727209126707150
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -251,8 +251,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000035762787, y: -0.033337533}
-  m_Size: {x: 0.50132704, y: 1.35737}
+  m_Offset: {x: 0.033459067, y: -0.033337533}
+  m_Size: {x: 0.778558, y: 1.35737}
   m_Direction: 0
 --- !u!114 &-6735923026534119233
 MonoBehaviour:

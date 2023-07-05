@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossStageManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BossStageManager : MonoBehaviour
     public int StageOneHealth;
     public int StageTwoHealth;
     public int StageThreeHealth;
-
+    //public static event EnterStage;
 
     // Start is called before the first frame update
     protected void Start()
@@ -45,6 +46,7 @@ public class BossStageManager : MonoBehaviour
         _damageable.Health = StageOneHealth;
         _damageable.MaxHealth = StageOneHealth;
         _currentBossStage = BossStage.One;
+        //EnterStage.Invoke(_currentBossStage);
     }
 
     public void SetBossStageToTwo()
@@ -53,6 +55,7 @@ public class BossStageManager : MonoBehaviour
         _damageable.Health = StageTwoHealth;
         _damageable.MaxHealth = StageTwoHealth;
         _currentBossStage = BossStage.Two;
+        //EnterStage.Invoke(_currentBossStage);
     }
 
     public void SetBossStageToThree()
@@ -61,5 +64,6 @@ public class BossStageManager : MonoBehaviour
         _damageable.Health = StageThreeHealth;
         _damageable.MaxHealth = StageThreeHealth;
         _currentBossStage = BossStage.Three;
+        //EnterStage.Invoke(_currentBossStage);
     }
 }

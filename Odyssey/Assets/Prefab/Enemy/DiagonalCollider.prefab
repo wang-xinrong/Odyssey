@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 7746787883402961563}
   - component: {fileID: 2179098838203480420}
   - component: {fileID: -4253212204125250106}
+  - component: {fileID: 8336341966101481695}
   m_Layer: 9
   m_Name: DiagonalCollider
   m_TagString: Untagged
@@ -455,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168f0a33818a54f4cad9bd0f8ebeca27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _originalMovementSpeed: 0
 --- !u!114 &-4253212204125250106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,3 +470,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MS: {fileID: 11400000, guid: 128a2721035c8473cb5190b894c9d8bf, type: 2}
+--- !u!114 &8336341966101481695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102945451126165672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e38fc95923a34751a19c5f46ccafd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameString: DiagonalCollider
+  Damageable: {fileID: 0}
+  AIPath: {fileID: 0}
+  AISpecialEffect: {fileID: 0}
+  EnemyGFX: {fileID: 7746787883402961563}
+  BodyCollider: {fileID: 0}
+  AttackCollider: {fileID: 2060769932}

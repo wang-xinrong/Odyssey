@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 393135016121270919}
   - component: {fileID: 8683353156532084047}
   - component: {fileID: 1801823714132863651}
+  - component: {fileID: 8412938316062499148}
   m_Layer: 9
   m_Name: ChasingShooter
   m_TagString: Untagged
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168f0a33818a54f4cad9bd0f8ebeca27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _originalMovementSpeed: 0
 --- !u!114 &1801823714132863651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +317,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MS: {fileID: 11400000, guid: 128a2721035c8473cb5190b894c9d8bf, type: 2}
+--- !u!114 &8412938316062499148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159010259040325043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e38fc95923a34751a19c5f46ccafd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameString: ChasingShooter
+  Damageable: {fileID: 0}
+  AIPath: {fileID: 0}
+  AISpecialEffect: {fileID: 0}
+  EnemyGFX: {fileID: 3540092332507577524}
+  BodyCollider: {fileID: 3540092331817308839}
+  AttackCollider: {fileID: 0}
 --- !u!1 &3540092331236903402
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3540092332487574138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.11, y: -0.34, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

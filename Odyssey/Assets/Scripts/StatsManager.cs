@@ -5,6 +5,8 @@ using UnityEngine;
 public class StatsManager : MonoBehaviour
 {
     public static StatsManager Instance;
+    public enum Difficulty { Easy, Normal, Hard, Extreme };
+    public Difficulty CurrentDifficulty = Difficulty.Normal;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class StatsManager : MonoBehaviour
     }
 
     // int[]; 0: hp; 1: damage;
+    public Dictionary<Difficulty, float[]> DifficultyLevel;
     public Dictionary<string, int[]> HPDamageAndColliderDamage;
     public Dictionary<string, float[]> MovementSpeedAndAttackDelay;
     
@@ -39,6 +42,15 @@ public class StatsManager : MonoBehaviour
 
     private void SetUpStatsArrays()
     {
+        DifficultyLevel = new Dictionary<Difficulty, float[]>
+        {
+            {Difficulty.Easy, new float[3] { 1, 1, 1 } },
+            {Difficulty.Normal, new float[3] { 1, 1, 1 } },
+            {Difficulty.Hard, new float[3] { 1, 1, 1 } },
+            {Difficulty.Extreme, new float[3] { 2, 2, 0.5f} },
+        };
+
+        //HP/AttackDamage/BodyCollisionDamage
         HPDamageAndColliderDamage = new Dictionary<string, int[]>()
         {
             { "DiagonalCollider", new int[3] {150, 10, 0 } },
@@ -50,6 +62,28 @@ public class StatsManager : MonoBehaviour
             { "ChasingMelee", new int[3] {400, 20, 3 } },
         };
 
+        //MovementSpeed/AttackDelay
+        MovementSpeedAndAttackDelay = new Dictionary<string, float[]>()
+        {
+            { "DiagonalCollider", new float[2] {3, 0.4f} },
+            { "PopUpShooter", new float[2] {0, 2f } },
+            { "Collider", new float[2] {10, 0} },
+            { "StationaryShooter", new float[2] {0, 1f} },
+            { "Charmer", new float[2] {2, 0.4f} },
+            { "ChasingShooter", new float[2] {2, 0.4f} },
+            { "ChasingMelee", new float[2] {2, 0.4f} },
+        };
+    }
 
+    public int GetHPAndDamage(string nameString, int index)
+    {
+        return HPDamageAndColliderDamage[nameString][index]
+            * (int) DifficultyLevel[CurrentDifficulty][0];
+    }
+
+    public float GetMovementSpeedAndAttackDelay(string nameString, int index)
+    {
+        return MovementSpeedAndAttackDelay[nameString][index]
+            * DifficultyLevel[CurrentDifficulty][index + 1];
     }
 }

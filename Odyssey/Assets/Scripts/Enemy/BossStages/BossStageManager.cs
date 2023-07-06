@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class BossStageManager : MonoBehaviour
 {
-    public string BossName;
-    public enum BossStage { Zero, One, Two, Three }
+    public string[] BossNames;
+    public enum BossStage { Zero, One, Two, Three, End }
     public int NoOfBossLives;
     public BossStage _currentBossStage = BossStage.Zero;
     protected Damageable _damageable;
@@ -14,7 +14,7 @@ public class BossStageManager : MonoBehaviour
     public int StageTwoHealth;
     public int StageThreeHealth;
 
-    public delegate void EnterBossStage(string BossName, BossStage stage);
+    public delegate void EnterBossStage(string bossName, BossStage stage);
     public static event EnterBossStage OnEnterBossStage;
 
     public delegate void PassBossDamageable(Damageable damageable);
@@ -52,7 +52,7 @@ public class BossStageManager : MonoBehaviour
         _damageable.Health = StageOneHealth;
         _damageable.MaxHealth = StageOneHealth;
         _currentBossStage = BossStage.One;
-        OnEnterBossStage.Invoke(BossName, _currentBossStage);
+        OnEnterBossStage.Invoke(BossNames[0], _currentBossStage);
         OnPassBossDamageable.Invoke(_damageable);
     }
 
@@ -62,7 +62,7 @@ public class BossStageManager : MonoBehaviour
         _damageable.Health = StageTwoHealth;
         _damageable.MaxHealth = StageTwoHealth;
         _currentBossStage = BossStage.Two;
-        OnEnterBossStage.Invoke(BossName, _currentBossStage);
+        OnEnterBossStage.Invoke(BossNames[1], _currentBossStage);
     }
 
     public void SetBossStageToThree()
@@ -71,6 +71,12 @@ public class BossStageManager : MonoBehaviour
         _damageable.Health = StageThreeHealth;
         _damageable.MaxHealth = StageThreeHealth;
         _currentBossStage = BossStage.Three;
-        OnEnterBossStage.Invoke(BossName, _currentBossStage);
+        OnEnterBossStage.Invoke(BossNames[2], _currentBossStage);
+    }
+
+    public void SetBossStageToEnd()
+    {
+        _currentBossStage = BossStage.End;
+        OnEnterBossStage.Invoke(null, _currentBossStage);
     }
 }

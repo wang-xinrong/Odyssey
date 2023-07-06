@@ -9,8 +9,10 @@ public class BossHealthBarManager : MonoBehaviour
     public GameObject[] HealthBars;
     public Image[] Stamps;
     public TMP_Text BossName;
-    public Canvas GameCanvas;
+    private Canvas GameCanvas;
     private Damageable bossDamageable;
+    private bool activated = false;
+    public GameObject BossHealthUI;
 
     private void Awake()
     {
@@ -18,24 +20,39 @@ public class BossHealthBarManager : MonoBehaviour
         // canvas that is currently active
         GameCanvas = FindObjectOfType<Canvas>();
         ActivateHealthBars(-1);
+        ActivateStamps(-1);
+        BossHealthUI.SetActive(false);
     }
 
     
     private void OnEnable()
     {
-        BossStageManager.OnEnterBossStage += SetUpBars;
-        BossStageManager.OnEnterBossStage += SetUpStamps;
+        BossStageManager.OnEnterBossStage += SetUpBossHealthUI;
         BossStageManager.OnPassBossDamageable += StoreReferenceToBossDamageable;
     }
 
     private void OnDisable()
     {
-        BossStageManager.OnEnterBossStage -= SetUpBars;
-        BossStageManager.OnEnterBossStage -= SetUpStamps;
+        BossStageManager.OnEnterBossStage -= SetUpBossHealthUI;
         BossStageManager.OnPassBossDamageable -= StoreReferenceToBossDamageable;
     }
 
-    private void SetUpBars(string BossName, BossStageManager.BossStage stage)
+    private void SetUpBossHealthUI(string bossName, BossStageManager.BossStage stage)
+    {
+        if (stage == BossStageManager.BossStage.End)
+        {
+            Debug.Log("here");
+            ActivateBossHealthUI(false);
+            return;
+        }
+
+        BossName.text = bossName;
+        ActivateBossHealthUI(true);
+        SetUpBars(stage);
+        SetUpStamps(stage);
+    }
+
+    private void SetUpBars(BossStageManager.BossStage stage)
     {
         if (stage == BossStageManager.BossStage.One)
         {
@@ -53,21 +70,21 @@ public class BossHealthBarManager : MonoBehaviour
         }
     }
 
-    private void SetUpStamps(string BossName, BossStageManager.BossStage stage)
+    private void SetUpStamps(BossStageManager.BossStage stage)
     {
         if (stage == BossStageManager.BossStage.One)
         {
-
+            ActivateStamps(0);
         }
 
         if (stage == BossStageManager.BossStage.Two)
         {
-
+            ActivateStamps(1);
         }
 
         if (stage == BossStageManager.BossStage.Three)
         {
-
+            ActivateStamps(2);
         }
     }
 
@@ -90,5 +107,23 @@ public class BossHealthBarManager : MonoBehaviour
 
         if (index < 0 || index >= HealthBars.Length) return;
         HealthBars[index].SetActive(true);
+    }
+
+    private void ActivateStamps(int index)
+    {
+        foreach (Image image in Stamps)
+        {
+            image.enabled = false;
+        }
+
+        if (index < 0 || index >= Stamps.Length) return;
+        Stamps[index].enabled = true;
+    }
+
+    private void ActivateBossHealthUI(bool value)
+    {
+        if (activated == value) return;
+        BossHealthUI.SetActive(value);
+        activated = value;
     }
 }

@@ -21,17 +21,19 @@ public class EnemyHealthBarScript : MonoBehaviour
         enemyDamageable.HealthUpdated.AddListener(OnPlayerHealthUpdated);
     }
 
-    /*
+    
     private void OnEnable()
     {
         enemyDamageable.HealthUpdated.AddListener(OnPlayerHealthUpdated);
+        _healthSlider.value = CalculateSliderPercentage(enemyDamageable.Health
+            , enemyDamageable.MaxHealth);
     }
 
     private void OnDisable()
     {
         enemyDamageable.HealthUpdated.RemoveListener(OnPlayerHealthUpdated);
     }
-    */
+    
 
     // if the percentage is 90%, returns 0.90
     private float CalculateSliderPercentage(int currentHealth, int maxHealth)
@@ -55,6 +57,11 @@ public class EnemyHealthBarScript : MonoBehaviour
         } else
         {
             transform.parent.localScale = right;
+        }
+
+        if (_healthSlider.value <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
     

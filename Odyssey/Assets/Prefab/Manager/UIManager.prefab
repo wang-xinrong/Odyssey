@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5877286956655759450}
   - component: {fileID: 1315708039873630276}
+  - component: {fileID: 1792697251}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -57,5 +58,28 @@ MonoBehaviour:
   DialogueText: {fileID: 0}
   playerDialogueIcon: {fileID: 0}
   otherDialogueIcon: {fileID: 0}
+  IsCutSceneOn: 0
   GameCanvas: {fileID: 0}
   currDialogues: []
+--- !u!114 &1792697251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877286956655759449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0958b2a58124c49e2a65d31211ca098e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthBars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Stamps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BossName: {fileID: 0}
+  BossHealthUI: {fileID: 0}

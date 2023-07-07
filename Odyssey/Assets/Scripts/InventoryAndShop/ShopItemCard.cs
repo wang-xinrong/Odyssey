@@ -52,7 +52,7 @@ public class ShopItemCard : MonoBehaviour
 
     private void OnEnable()
     {
-        quantity = 1;
+        quantity = MinPurchaseQuantity;
         RefreshQuantityText();
     }
 
@@ -94,6 +94,6 @@ public class ShopItemCard : MonoBehaviour
 
     public void Purchase()
     {
-
+        InventoryManager.Instance.Purchase(item, quantity);
     }
 }

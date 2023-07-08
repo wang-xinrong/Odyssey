@@ -340,3 +340,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MS: {fileID: 11400000, guid: 128a2721035c8473cb5190b894c9d8bf, type: 2}
+--- !u!114 &2309323728460359953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805828293309906614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e38fc95923a34751a19c5f46ccafd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameString: StationaryShooter
+  Damageable: {fileID: 0}
+  AIPath: {fileID: 0}
+  AISpecialEffect: {fileID: 0}
+  EnemyGFX: {fileID: 1805828293309906612}
+  BodyCollider: {fileID: 0}
+  AttackCollider: {fileID: 0}

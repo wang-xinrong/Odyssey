@@ -8,6 +8,9 @@ public class Portal : MonoBehaviour
     public string destination;
     void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene(destination);
+        if (other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(destination);
+        }
     }
 }

@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &975883768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7441134435592360297, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+  m_PrefabInstance: {fileID: 4474420033286013883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb89facfd131e4857a5718ca55e4cd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &975883769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7441134435406828397, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+  m_PrefabInstance: {fileID: 4474420033286013883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb89facfd131e4857a5718ca55e4cd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &975883770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7441134436283242836, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+  m_PrefabInstance: {fileID: 4474420033286013883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb89facfd131e4857a5718ca55e4cd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &975883771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7441134436868515160, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+  m_PrefabInstance: {fileID: 4474420033286013883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb89facfd131e4857a5718ca55e4cd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4474420033286013883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1578,6 +1622,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: NoOfEnemiesAlive
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: doors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 975883771}
+    - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: doors.Array.data[1]
+      value: 
+      objectReference: {fileID: 975883770}
+    - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: doors.Array.data[2]
+      value: 
+      objectReference: {fileID: 975883769}
+    - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: doors.Array.data[3]
+      value: 
+      objectReference: {fileID: 975883768}
     - target: {fileID: 7441134437076549875, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
       propertyPath: m_Name
       value: TutorialSP

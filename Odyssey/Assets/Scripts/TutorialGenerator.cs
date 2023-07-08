@@ -18,7 +18,7 @@ public class TutorialGenerator : MonoBehaviour
         Vector2Int pos = new Vector2Int(startX, startY);
         for (int i = 0; i < rooms.Length; i++)
         {
-            RoomController.instance.LoadRoom(rooms[i], pos.x, pos.y, Direction.unset);
+            RoomController.instance.LoadRoom(rooms[i], pos.x, pos.y, Direction.right);
             pos += Vector2Int.right;
         }
         // RoomController.instance.LoadRoom("Start", pos.x, pos.y, Direction.unset);

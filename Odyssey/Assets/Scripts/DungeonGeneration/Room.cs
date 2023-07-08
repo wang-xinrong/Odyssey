@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
     public GameObject door;
     public Dictionary<Direction, bool> hasDoors;
     private EnemyActivation[] _enemyActivation;
-    public int NoOfEnemiesAlive;
+    public int NoOfEnemiesAlive = 0;
 
     public List<Door> doors = new List<Door>();
 
@@ -52,6 +52,7 @@ public class Room : MonoBehaviour
         {
             foreach (Door d in doors)
             {
+                Debug.Log("here");
                 d.LockDoor(true);
             }
         }

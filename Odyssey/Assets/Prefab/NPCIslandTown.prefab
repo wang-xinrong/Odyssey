@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7556146993639983043}
-  - component: {fileID: 6777391568633385714}
   - component: {fileID: 3949946915634920652}
-  - component: {fileID: 7727418427022416073}
+  - component: {fileID: 4836184775535440097}
   m_Layer: 0
   m_Name: ShopSet
   m_TagString: Untagged
@@ -35,21 +34,6 @@ Transform:
   m_Father: {fileID: 4836184775218740193}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6777391568633385714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853681449336221188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c0fc0d132a843218cf59505727e5f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Shop: {fileID: 0}
-  IsNearShop: 0
-  IsShopOpen: 0
 --- !u!61 &3949946915634920652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9274063, y: 1.8366632}
   m_EdgeRadius: 0
---- !u!114 &7727418427022416073
+--- !u!114 &4836184775535440097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,12 +69,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 853681449336221188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c0fc0d132a843218cf59505727e5f9, type: 3}
+  m_Script: {fileID: 11500000, guid: f1071af4b22d94eae822480f7158eab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shop: {fileID: 0}
-  IsNearShop: 0
-  IsShopOpen: 0
+  BuildingPanel: {fileID: 0}
+  IsNearBuilding: 0
+  IsBuildingPanelOpen: 0
 --- !u!1 &1993727921874078878
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,8 +316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4836184775335985187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.25, y: 19.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.38810176}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4836184776823523711}
@@ -400,6 +384,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4836184776823523711}
+  - component: {fileID: 7929621580678551620}
+  - component: {fileID: 2083103239163142992}
   m_Layer: 0
   m_Name: CastleSet
   m_TagString: Untagged
@@ -415,7 +401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4836184776823523648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.68, y: -24.26, z: 0}
+  m_LocalPosition: {x: 15.52, y: -5.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -423,6 +409,47 @@ Transform:
   m_Father: {fileID: 4836184775218740193}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7929621580678551620
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836184776823523648}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.024950504, y: -3.9587455}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.21875, y: 8.59375}
+    newSize: {x: 4.625, y: 9}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.2}
+  m_EdgeRadius: 0
+--- !u!114 &2083103239163142992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836184776823523648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1071af4b22d94eae822480f7158eab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingPanel: {fileID: 0}
+  IsNearBuilding: 0
+  IsBuildingPanelOpen: 0
 --- !u!1 &4836184777007215567
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item")]
 public class Item : ScriptableObject
 {
-    [Header("Only Gameplay")]
+    [Header("Only UI")]
+    public bool Stackable = false;
+
+    [Header("Both")]
+    public string NameString;
+    public Sprite Image;
     public int HealthIncrease;
     public int SPIncrease;
     public int DamageIncrease;
     public float MovementIncrease;
     public float Duration;
-
-    [Header("Only UI")]
-    public bool Stackable = false;
-
-    [Header("Both")]
-    public string Name;
-    public Sprite Image; 
+    public string Description;
+    public int price;
 }

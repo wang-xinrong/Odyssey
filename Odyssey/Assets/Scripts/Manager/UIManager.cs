@@ -10,13 +10,24 @@ public class UIManager : MonoBehaviour
 {
     public Image currentWeaponIcon;
     public Image newWeaponIcon;
-    public Image characterIcon;
+    public Image primaryCharacterIcon;
+    public Image secondaryCharacterIcon;
+    public Image currentCharacterIcon;
     public GameObject SwapInterface;
     public GameObject SwapCharacterPrompt;
     public GameObject DamageTextPrefab;
     public GameObject HealthTextPrefab;
+    public GameObject DialogueUI;
+    public TMP_Text DialogueText;
+    public GameObject playerDialogueIcon;
+    public GameObject otherDialogueIcon;
+
+    public bool IsCutSceneOn = false;
 
     public Canvas GameCanvas;
+
+    public List<Dialogue> currDialogues; 
+    private int currDialogueIndex = -1;
 
     public void LoadScene(string scene)
     {
@@ -51,6 +62,9 @@ public class UIManager : MonoBehaviour
         WeaponPickup.OnDisplayDroppedWeapon += DisplayDroppedWeapon;
         WeaponPickup.OnRemoveDisplay += StopDisplayingDroppedWeapon;
         WeaponPickup.OnDisplaySwapCharacterPrompt += DisplaySwapCharacterPrompt;
+
+        DialogueLauncher.OnDisplayDialogue += InitiateCutScene;
+        BossDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
     }
 
     private void OnDisable()
@@ -62,11 +76,65 @@ public class UIManager : MonoBehaviour
         WeaponPickup.OnDisplayDroppedWeapon -= DisplayDroppedWeapon;
         WeaponPickup.OnRemoveDisplay -= StopDisplayingDroppedWeapon;
         WeaponPickup.OnDisplaySwapCharacterPrompt -= DisplaySwapCharacterPrompt;
+
+        DialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
+        BossDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
     }
 
-    public void DisplayCharacterIcon(string charName)
+    public void InitiateCutScene(List<Dialogue> dialogues)
     {
-        characterIcon.sprite = Resources.Load<Sprite>(charName);
+        DialogueUI.SetActive(true);
+        IsCutSceneOn = true;
+        currDialogues = dialogues;
+        //Time.timeScale = 0;
+        DisplayNextDialogue();
+    }
+
+    public void DisplayNextDialogue()
+    {
+        playerDialogueIcon.SetActive(false);
+        otherDialogueIcon.SetActive(false);
+        if (currDialogueIndex == currDialogues.Count - 1)
+        {
+            EndCutScene();
+            return;
+        } 
+        Dialogue curr = currDialogues[++currDialogueIndex];
+        DialogueText.text = curr.dialogue;
+        if (curr.character == "player")
+        {
+            playerDialogueIcon.GetComponent<Image>().sprite = currentCharacterIcon.sprite;
+            playerDialogueIcon.SetActive(true);
+        } else {
+            otherDialogueIcon.GetComponent<Image>().sprite = Resources.Load<Sprite>(curr.character);
+            otherDialogueIcon.SetActive(true);
+        }
+    }
+
+    public void EndCutScene()
+    {
+        DialogueUI.SetActive(false);
+        IsCutSceneOn = false;
+        currDialogueIndex = -1;
+        //Time.timeScale = 1;
+    }
+
+    public void DisplayPrimaryCharacterIcon(string charName, bool isActive)
+    {
+        if (isActive)
+        {
+            currentCharacterIcon = primaryCharacterIcon;
+        }
+        primaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
+    }
+
+    public void DisplaySecondaryCharacterIcon(string charName, bool isActive)
+    {
+        if (isActive)
+        {
+            currentCharacterIcon = secondaryCharacterIcon;
+        }
+        secondaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
     }
 
     public void DisplaySwapCharacterPrompt()
@@ -88,6 +156,7 @@ public class UIManager : MonoBehaviour
     }
     public void DisplayCurrentWeapon(Weapon weapon)
     {
+        Debug.LogWarning("received weapon");
         currentWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
     }
 

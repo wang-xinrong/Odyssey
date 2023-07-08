@@ -31,8 +31,4 @@ public class DialogueLauncher : MonoBehaviour
         hasDisplayed = true;
         OnDisplayDialogue.Invoke(dialogues);
     }
-    public void LaunchDialogue()
-    {
-        OnDisplayDialogue.Invoke(dialogues);
-    }
 }

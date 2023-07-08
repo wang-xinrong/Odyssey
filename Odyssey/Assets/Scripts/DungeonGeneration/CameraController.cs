@@ -8,6 +8,13 @@ public class CameraController : MonoBehaviour
     public Room currRoom;
     public float cameraShiftSpeed;
 
+    // new
+    public Transform Player;
+    public enum Scene { NPCTown, Chapter}
+    public Scene CurrentScene = Scene.NPCTown;
+
+
+
     void Awake()
     {
         instance = this;
@@ -26,6 +33,13 @@ public class CameraController : MonoBehaviour
 
     void UpdatePosition()
     {
+        // new for npc town integration
+        if (CurrentScene == Scene.NPCTown)
+        {
+            InNPCTown();
+            return;
+        }
+
         if (currRoom == null)
         {
             return;
@@ -52,5 +66,13 @@ public class CameraController : MonoBehaviour
     public bool IsSwitchingScene()
     {
         return !transform.position.Equals(GetCameraTargetPosition());
+    }
+
+    public void InNPCTown()
+    {
+        transform.position = new Vector3(
+            Player.transform.position.x
+            , Player.transform.position.y// + 2.5f
+            , -10);
     }
 }

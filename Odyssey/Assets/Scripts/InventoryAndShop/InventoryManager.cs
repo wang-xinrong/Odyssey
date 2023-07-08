@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // returns if item is successfully added to an available space
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
         InventorySlot slot;
         DraggableItem existingItem;
@@ -41,8 +41,8 @@ public class InventoryManager : MonoBehaviour
                 // spawn the item in the first available slot
                 // from top-down, left-right order
                 SpawnNewItem(item, slot);
-                return;
-                //return true;
+                //return;
+                return true;
             }
 
             if (existingItem.ThisItem == item
@@ -51,12 +51,12 @@ public class InventoryManager : MonoBehaviour
             {
                 existingItem.Count++;
                 existingItem.RefreshCount();
-                return;
+                return true;
             }
             
         }
 
-        //return false;
+        return false;
     }
 
     private void SpawnNewItem(Item item, InventorySlot slot)
@@ -152,5 +152,28 @@ public class InventoryManager : MonoBehaviour
         {
             UseItem(5);
         }
+    }
+
+    // wallet
+    public int Money = 0;
+
+    public bool Purchase(Item item, int Quantity)
+    {
+        int expense = item.price * Quantity;
+        if (expense > Money) return false;
+
+        for (int i = 0; i < Quantity; i++)
+        {
+            if (!AddItem(item))
+            {
+                Debug.Log("Only " +
+                    i + " items purchased due to " +
+                    "limited inventory space");
+                Money -= i * item.price;
+                return false;
+            }
+        }
+        Money -= expense;
+        return true;
     }
 }

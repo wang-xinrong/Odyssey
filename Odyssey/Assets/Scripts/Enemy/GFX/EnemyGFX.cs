@@ -21,7 +21,7 @@ public class EnemyGFX : MonoBehaviour
     // attack implementation
     public DetectionZone AttackZone;
     [SerializeField]
-    public float _attackDelay = 0.4f;
+    protected float _attackDelay = 0.4f;
     protected float _attackTimer = 0f;
     private Transform _targetTransform;
     public Transform TargetTransform

@@ -19,6 +19,10 @@ public class TutorialGenerator : MonoBehaviour
         for (int i = 0; i < rooms.Length; i++)
         {
             RoomController.instance.LoadRoom(rooms[i], pos.x, pos.y, Direction.right);
+            if (i != 0)
+            {
+                RoomController.instance.FindPreviouslyEncounteredRoom(pos.x, pos.y).addDoor(Direction.left);
+            }
             pos += Vector2Int.right;
         }
         // RoomController.instance.LoadRoom("Start", pos.x, pos.y, Direction.unset);

@@ -59,7 +59,7 @@ MonoBehaviour:
   UpdateOnStateMachine: 0
   ValueOnEnter: 1
   ValueOnExit: 0
---- !u!1101 &-7512249014952227415
+--- !u!1101 &-7778370122371651110
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,8 +67,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions: []
-  m_DstStateMachine: {fileID: 2738800373548405131}
-  m_DstState: {fileID: 0}
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -7657357330628748985}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -81,6 +81,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &-7657357330628748985
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: KnightIdle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: ce05c17529d71479698c65d44163441f, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7308867012262662639
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -200,7 +226,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: -7512249014952227415}
+  - {fileID: -7778370122371651110}
   m_StateMachineBehaviours:
   - {fileID: -3953644259754079204}
   - {fileID: -7941142520496956782}
@@ -413,8 +439,8 @@ AnimatorStateMachine:
     m_State: {fileID: 4833748935402679246}
     m_Position: {x: 240, y: -20, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2606401222152669572}
-    m_Position: {x: 32.707092, y: 262.46326, z: 0}
+    m_State: {fileID: -7657357330628748985}
+    m_Position: {x: -9.263489, y: 334.41284, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 2738800373548405131}
@@ -438,7 +464,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -30, y: 110, z: 0}
   m_ExitPosition: {x: 540, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -2606401222152669572}
+  m_DefaultState: {fileID: -7657357330628748985}
 --- !u!1102 &4833748935402679246
 AnimatorState:
   serializedVersion: 6

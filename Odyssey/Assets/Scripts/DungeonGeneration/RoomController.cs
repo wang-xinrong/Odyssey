@@ -23,7 +23,7 @@ public class RoomInfo
 public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
-    public string currentChapterName = "Chapter1";
+    public string currentChapterName;
 
     RoomInfo currentLoadedRoomData;
 

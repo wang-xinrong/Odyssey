@@ -167,7 +167,13 @@ public class TutorialEnemy : MonoBehaviour
 
     public void OnDeath()
     {
-        GetComponent<DeathSequence>().Initiate();
+        Room room = GetComponentInParent<Room>();
+        room.EnemyKilled();
+        DeathSequence seq = GetComponent<DeathSequence>();
+        if (seq)
+        {
+            seq.Initiate();
+        }
     }
     // public Vector2 GetDirections()
     // {

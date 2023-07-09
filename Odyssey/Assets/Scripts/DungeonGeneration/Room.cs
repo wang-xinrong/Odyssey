@@ -52,7 +52,6 @@ public class Room : MonoBehaviour
         {
             foreach (Door d in doors)
             {
-                Debug.Log("here");
                 d.LockDoor(true);
             }
         }

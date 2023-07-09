@@ -30,10 +30,6 @@ public class PopUpMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _enemyGFX = GetComponent<PopUpShooterGFX>();
         _ea = GetComponent<EnemyActivation>();
-
-        // special, done separately from Statistics component
-        PopUpDelay = StatsManager.Instance
-            .GetMovementSpeedAndAttackDelay("PopUpShooter", 1);
     }
 
     private void Update()

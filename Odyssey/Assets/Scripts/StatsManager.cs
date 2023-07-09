@@ -10,6 +10,7 @@ public class StatsManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         //singleton pattern
         if (Instance == null)
         {
@@ -85,5 +86,25 @@ public class StatsManager : MonoBehaviour
     {
         return MovementSpeedAndAttackDelay[nameString][index]
             * DifficultyLevel[CurrentDifficulty][index + 1];
+    }
+
+    public void SetDifficultyLevelToEasy()
+    {
+        CurrentDifficulty = Difficulty.Easy;
+    }
+
+    public void SetDifficultyLevelToNormal()
+    {
+        CurrentDifficulty = Difficulty.Normal;
+    }
+
+    public void SetDifficultyLevelToHard()
+    {
+        CurrentDifficulty = Difficulty.Hard;
+    }
+
+    public void SetDifficultyLevelToExtreme()
+    {
+        CurrentDifficulty = Difficulty.Extreme;
     }
 }

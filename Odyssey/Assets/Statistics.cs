@@ -45,6 +45,7 @@ public class Statistics : MonoBehaviour
 
     private void SetUpHPAndDamage()
     {
+        Debug.Log("here");
         //HP setup
         Damageable.MaxHealth = StatsManager.Instance
             .GetHPAndDamage(NameString, 0);

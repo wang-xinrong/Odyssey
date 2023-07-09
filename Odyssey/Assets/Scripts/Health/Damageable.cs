@@ -71,14 +71,8 @@ public class Damageable : MonoBehaviour
                     GetComponentInParent<BossRoomEnemyCount>()
                         .OneEnemyKilled();
                 }
-                else if (GetComponent<TutorialEnemy>())
-                {
-                    Debug.Log("in tutorial");
-                    GetComponent<TutorialEnemy>().OnDeath();
-                }
                 else // if in intermediate room
                 {
-                    Debug.Log(GetComponentInParent<Room>());
                     if (GetComponentInParent<Room>()) GetComponentInParent<Room>()
                             .EnemyKilled();
                 }

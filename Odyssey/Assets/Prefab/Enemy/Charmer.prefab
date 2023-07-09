@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: -3745851780909580761}
   - component: {fileID: -4888482606949321561}
   - component: {fileID: 2394233367461404136}
+  - component: {fileID: -1206150281034453651}
   m_Layer: 9
   m_Name: Charmer
   m_TagString: Untagged
@@ -157,9 +158,9 @@ MonoBehaviour:
       m_Calls: []
   _isInvincible: 0
   _isAlive: 1
-  _maxHealth: 40
-  _health: 10
-  InvincibleTime: 1.5
+  _maxHealth: 200
+  _health: 200
+  InvincibleTime: 0.5
 --- !u!114 &4081983467824339223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168f0a33818a54f4cad9bd0f8ebeca27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _originalMovementSpeed: 0
 --- !u!114 &2394233367461404136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +346,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MS: {fileID: 11400000, guid: 128a2721035c8473cb5190b894c9d8bf, type: 2}
+--- !u!114 &-1206150281034453651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842905589625732597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e38fc95923a34751a19c5f46ccafd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameString: Charmer
+  Damageable: {fileID: 0}
+  AIPath: {fileID: 0}
+  AISpecialEffect: {fileID: 0}
+  EnemyGFX: {fileID: -3745851780909580761}
+  BodyCollider: {fileID: 0}
+  AttackCollider: {fileID: 0}
 --- !u!1 &4081983467752864172
 GameObject:
   m_ObjectHideFlags: 0

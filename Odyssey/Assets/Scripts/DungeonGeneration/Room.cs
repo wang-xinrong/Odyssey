@@ -12,7 +12,7 @@ public class Room : MonoBehaviour
     public GameObject door;
     public Dictionary<Direction, bool> hasDoors;
     private EnemyActivation[] _enemyActivation;
-    public int NoOfEnemiesAlive = 0;
+    public int NoOfEnemiesAlive;
 
     public List<Door> doors = new List<Door>();
 
@@ -195,7 +195,6 @@ public class Room : MonoBehaviour
 
     public void ActivateAllEnemies(bool value)
     {
-        if (Reached) return;
         // no enemies
         if (_enemyActivation == null) return;
 

@@ -6,16 +6,12 @@ using Pathfinding;
 public class AISpecialEffect : MonoBehaviour, EnemyUnderSpecialEffect
 {
     private AIPath _aIPath;
-    private float _originalMovementSpeed;
+    public float _originalMovementSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         _aIPath = GetComponent<AIPath>();
-
-        // set once and never altered to keep the true
-        // original movement speed
-        _originalMovementSpeed = _aIPath.maxSpeed;
     }
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)

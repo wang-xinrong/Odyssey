@@ -195,6 +195,7 @@ public class Room : MonoBehaviour
 
     public void ActivateAllEnemies(bool value)
     {
+        if (Reached) return;
         // no enemies
         if (_enemyActivation == null) return;
 

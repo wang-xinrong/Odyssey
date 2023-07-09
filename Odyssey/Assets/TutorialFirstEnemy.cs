@@ -8,6 +8,12 @@ public class TutorialFirstEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("DeactivateSecondEnemy", 0.5f);
+        //SecondEnemy.SetActive(false);
+    }
+
+    private void DeactivateSecondEnemy()
+    {
         SecondEnemy.SetActive(false);
     }
 }

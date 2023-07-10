@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviour
 
         DialogueLauncher.OnDisplayDialogue += InitiateCutScene;
         BossDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
+        EnemyDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
     }
 
     private void OnDisable()
@@ -79,6 +80,7 @@ public class UIManager : MonoBehaviour
 
         DialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
         BossDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
+        EnemyDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
     }
 
     public void InitiateCutScene(List<Dialogue> dialogues)

@@ -174,6 +174,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 762972092866524750, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: _health
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2012944420125408803, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1598,6 +1602,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7290344676995977037, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: _health
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7441134435406828304, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1652,7 +1660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
       propertyPath: NoOfEnemiesAlive
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441134437076549874, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
       propertyPath: doors.Array.size
@@ -1698,6 +1706,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8296041073870086762, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+      propertyPath: _damageable
+      value: 
+      objectReference: {fileID: 4474420033286013884}
     - target: {fileID: 8450175131532266462, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -2504,3 +2516,14 @@ PrefabInstance:
     - {fileID: 2279244427609436228, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
     - {fileID: 7260219878245740436, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+--- !u!114 &4474420033286013884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7290344676995977037, guid: 5037de80115df4b06a793d77ee379d08, type: 3}
+  m_PrefabInstance: {fileID: 4474420033286013883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c1bc38722c1451e947f4092cd295f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

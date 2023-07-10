@@ -7,6 +7,7 @@ public class StartMenu : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
+        DataCarrier.Instance.UpdateInventoryData();
         SceneManager.LoadScene(sceneName);
     }
     public void QuitGame()

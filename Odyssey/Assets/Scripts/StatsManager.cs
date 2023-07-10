@@ -7,7 +7,7 @@ public class StatsManager : MonoBehaviour
     public static StatsManager Instance;
     public enum Difficulty { Easy, Normal, Hard, Extreme };
     public Difficulty CurrentDifficulty = Difficulty.Normal;
-
+    
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

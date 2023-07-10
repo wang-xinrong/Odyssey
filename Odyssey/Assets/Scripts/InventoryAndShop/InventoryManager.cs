@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +22,10 @@ public class InventoryManager : MonoBehaviour
         } else
         {
             Destroy(gameObject);
+            return;
         }
+
+        DataCarrier.Instance.WriteInventoryData();
     }
 
     // returns if item is successfully added to an available space
@@ -175,5 +179,21 @@ public class InventoryManager : MonoBehaviour
         }
         Money -= expense;
         return true;
+    }
+
+    public void OverwriteSlotItem(Item item, int quantity, int index)
+    {
+        Debug.Log("here " + index);
+        DraggableItem child = InventorySlots[index].GetComponentInChildren<DraggableItem>();
+
+        if (child) Destroy(child.gameObject);
+
+        SpawnNewItem(item, InventorySlots[index]);
+
+        DraggableItem draggableItem = InventorySlots[index]
+            .GetComponentInChildren<DraggableItem>();
+
+        draggableItem.Count = quantity;
+        draggableItem.RefreshCount();
     }
 }

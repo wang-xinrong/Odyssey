@@ -49,4 +49,24 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             return;
         }
     }
+
+    public Item GetItemStored()
+    {
+        if (GetComponentInChildren<DraggableItem>())
+        {
+            return GetComponentInChildren<DraggableItem>().ThisItem;
+        }
+
+        return null;
+    }
+
+    public int GetQuantityStored()
+    {
+        if (GetComponentInChildren<DraggableItem>())
+        {
+            return GetComponentInChildren<DraggableItem>().Count;
+        }
+
+        return 1;
+    }
 }

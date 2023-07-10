@@ -167,6 +167,7 @@ public class TutorialEnemy : MonoBehaviour
 
     public void OnDeath()
     {
+        Debug.Log("here");
         Room room = GetComponentInParent<Room>();
         room.EnemyKilled();
         DeathSequence seq = GetComponent<DeathSequence>();

@@ -73,7 +73,7 @@ public class Damageable : MonoBehaviour
                 }
                 else if (GetComponent<TutorialEnemy>())
                 {
-                    GetComponent<TutorialEnemy>().OnDeath();
+                    //GetComponent<TutorialEnemy>().OnDeath();
                 }
                 else // if in intermediate room
                 {

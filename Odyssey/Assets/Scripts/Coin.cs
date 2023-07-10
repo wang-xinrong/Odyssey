@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public int MaxQuantity;
-    public float range = 0.9f;
+    private float range = 0.7f;
     public int Quantity;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Quantity = (int) Random.Range(MaxQuantity * range, MaxQuantity);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,5 +18,10 @@ public class Coin : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void SetQuantity(int MaxQuantity)
+    {
+        Quantity = (int)Random.Range(MaxQuantity * range, MaxQuantity);
     }
 }

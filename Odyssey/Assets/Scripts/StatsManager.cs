@@ -26,6 +26,7 @@ public class StatsManager : MonoBehaviour
     public Dictionary<Difficulty, float[]> DifficultyLevel;
     public Dictionary<string, int[]> HPDamageAndColliderDamage;
     public Dictionary<string, float[]> MovementSpeedAndAttackDelay;
+    public Dictionary<Difficulty, float> CoinToHPRatio;
     
 
 
@@ -74,6 +75,14 @@ public class StatsManager : MonoBehaviour
             { "ChasingShooter", new float[2] {2, 0.4f} },
             { "ChasingMelee", new float[2] {2, 0.4f} },
         };
+
+        CoinToHPRatio = new Dictionary<Difficulty, float>()
+        {
+            { Difficulty.Easy, 0.1f },
+            { Difficulty.Normal, 0.2f },
+            { Difficulty.Hard, 0.3f },
+            { Difficulty.Extreme, 0.5f }
+        };
     }
 
     public int GetHPAndDamage(string nameString, int index)
@@ -86,6 +95,11 @@ public class StatsManager : MonoBehaviour
     {
         return MovementSpeedAndAttackDelay[nameString][index]
             * DifficultyLevel[CurrentDifficulty][index + 1];
+    }
+
+    public float GetCoinToHPRatio()
+    {
+        return CoinToHPRatio[CurrentDifficulty];
     }
 
     public void SetDifficultyLevelToEasy()

@@ -24,6 +24,7 @@ public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
     public string currentChapterName = "Chapter1";
+    public string EndRoomNameString;
 
     RoomInfo currentLoadedRoomData;
 
@@ -117,7 +118,7 @@ public class RoomController : MonoBehaviour
             {
                 allRooms.Remove(roomInfo);
             }
-            LoadRoom("End", chosenPosition.x, chosenPosition.y, directionForDoor);
+            LoadRoom(EndRoomNameString, chosenPosition.x, chosenPosition.y, directionForDoor);
         }
     }
 

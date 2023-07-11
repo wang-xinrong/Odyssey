@@ -19,6 +19,7 @@ public class CharacterStatsDisplay : MonoBehaviour
     private void Start()
     {
         RefreshPage();
+
     }
 
     public void RefreshPage()
@@ -41,6 +42,16 @@ public class CharacterStatsDisplay : MonoBehaviour
             MovementSpeedValue.text = StatsManager
                 .Instance.MKSPRegenAndMovementSpeed[MKLevel][1].ToString();
 
+            if (MKLevel == StatsManager.MKLevel.Four)
+            {
+                CurrentLevelText.text = "Max";
+
+                UpgradeCostText.text = "";
+
+                return;
+            }
+
+
             CurrentLevelText.text = MKLevel.ToString();
 
             UpgradeCostText.text = StatsManager.Instance
@@ -61,6 +72,15 @@ public class CharacterStatsDisplay : MonoBehaviour
 
             MovementSpeedValue.text = StatsManager
                 .Instance.ZBJSPRegenAndMovementSpeed[ZBJLevel][1].ToString();
+
+            if (ZBJLevel == StatsManager.ZBJLevel.Four)
+            {
+                CurrentLevelText.text = "Max";
+
+                UpgradeCostText.text = "";
+
+                return;
+            }
 
             CurrentLevelText.text = ZBJLevel.ToString();
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpgradeButton : MonoBehaviour
 {
-    public CharacterStatsDisplay display;
+    private CharacterStatsDisplay display;
     private StatsManager.MKLevel nextMKLevel;
     private StatsManager.ZBJLevel nextZBJLevel;
 

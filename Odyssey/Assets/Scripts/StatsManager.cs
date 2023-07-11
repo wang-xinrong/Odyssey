@@ -179,7 +179,7 @@ public class StatsManager : MonoBehaviour
             {MKLevel.One, 1000 },
             {MKLevel.Two, 1500 },
             {MKLevel.Three, 2000 },
-            {MKLevel.Four, 3000 }
+            {MKLevel.Four, 0 }
         };
 
         ZBJUpgradeCost = new Dictionary<ZBJLevel, int>()

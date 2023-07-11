@@ -84,6 +84,14 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    public void UpdateMaxHPAndHP()
+    {
+        MaxHealth = StatsManager.Instance.GetCharacterHP(
+                GetComponent<PlayerController>()
+                .Character);
+        Health = MaxHealth;
+    }
+
     [SerializeField]
     // the time after a hit, during which the player would not receive
     // more damage (invincible) but also loses control over its movement

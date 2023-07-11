@@ -79,6 +79,11 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         _originalMovementSpeed = MovementSpeed;
     }
 
+    public void UpdateMovementSpeed()
+    {
+        MovementSpeed = StatsManager.Instance.GetCharacterMovementSpeed(Character);
+        _originalMovementSpeed = MovementSpeed;
+    }
 
     private void Update()
     {

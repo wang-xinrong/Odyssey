@@ -44,11 +44,12 @@ public class StatsManager : MonoBehaviour
 
     private void SetUpStatsArrays()
     {
+        //HP/MovementSpeed/AttackDelay
         DifficultyLevel = new Dictionary<Difficulty, float[]>
         {
-            {Difficulty.Easy, new float[3] { 1, 1, 1 } },
-            {Difficulty.Normal, new float[3] { 1, 1, 1 } },
-            {Difficulty.Hard, new float[3] { 1, 1, 1 } },
+            {Difficulty.Easy, new float[3] { 0.5f, 0.5f, 2 } },
+            {Difficulty.Normal, new float[3] { 0.8f, 1, 1 } },
+            {Difficulty.Hard, new float[3] { 1.2f, 1.2f, 0.8f } },
             {Difficulty.Extreme, new float[3] { 2, 2, 0.5f} },
         };
 
@@ -76,6 +77,7 @@ public class StatsManager : MonoBehaviour
             { "ChasingMelee", new float[2] {2, 0.4f} },
         };
 
+        //RatioOfMaxAmountOfCoinsDroppedToEnemyHP
         CoinToHPRatio = new Dictionary<Difficulty, float>()
         {
             { Difficulty.Easy, 0.1f },
@@ -87,8 +89,8 @@ public class StatsManager : MonoBehaviour
 
     public int GetHPAndDamage(string nameString, int index)
     {
-        return HPDamageAndColliderDamage[nameString][index]
-            * (int) DifficultyLevel[CurrentDifficulty][0];
+        return (int) (HPDamageAndColliderDamage[nameString][index]
+            * DifficultyLevel[CurrentDifficulty][0]);
     }
 
     public float GetMovementSpeedAndAttackDelay(string nameString, int index)

@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 5891670334096589282}
   - component: {fileID: 1174388777}
   - component: {fileID: 6056839}
+  - component: {fileID: 5774478503361124020}
   m_Layer: 8
   m_Name: zbj
   m_TagString: Player
@@ -632,6 +633,7 @@ MonoBehaviour:
     m_Reference: {fileID: -2597586925191240689, guid: 52c73ef8a239e4e2db71eda6c32be8ef, type: 3}
   charName: zbj
   weaponOnFloor: {fileID: 0}
+  SpeedBoostLimitFactor: 2
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -718,11 +720,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.45, y: 0.8}
+  m_Offset: {x: -0.0059843957, y: -0.023937821}
+  m_Size: {x: 0.3103627, y: 0.73616576}
   m_Direction: 0
 --- !u!114 &5891670334096589293
 MonoBehaviour:
@@ -818,6 +820,32 @@ MonoBehaviour:
   _playerController: {fileID: 5891670334096589280}
   specialAttackCost: 30
   knockBackMultiplier: 5
+--- !u!61 &5774478503361124020
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670334096589280}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000029802322, y: -0.4229019}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.32176113, y: 0.14601034}
+  m_EdgeRadius: 0
 --- !u!1 &5891670335105262140
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +861,7 @@ GameObject:
   - component: {fileID: 5891670335105262136}
   - component: {fileID: 5891670335105262137}
   - component: {fileID: 5891670335105262142}
+  - component: {fileID: 8051125168276649650}
   - component: {fileID: 5891670335105262143}
   - component: {fileID: 5891670334319995383}
   - component: {fileID: 340815034}
@@ -1042,6 +1071,7 @@ MonoBehaviour:
     m_Reference: {fileID: -2597586925191240689, guid: f6d50192fa0e84ee5ae63e0c1d5402d4, type: 3}
   charName: mk
   weaponOnFloor: {fileID: 0}
+  SpeedBoostLimitFactor: 2
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -1128,12 +1158,38 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.049795873, y: -0.015844107}
+  m_Size: {x: 0.20554833, y: 0.76831186}
+  m_Direction: 0
+--- !u!61 &8051125168276649650
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670335105262140}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.45, y: 0.8}
-  m_Direction: 0
+  m_Offset: {x: 0.045268714, y: -0.41421002}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2719131, y: 0.1502043}
+  m_EdgeRadius: 0
 --- !u!114 &5891670335105262143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,6 +1479,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ba210f78-8c36-4c20-b585-28e4a0a96508
     m_ActionName: Player/Useitem6[/Keyboard/6]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4bd2e739-bde9-422c-b529-d6f3ff9d413e
+    m_ActionName: Player/Enter[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

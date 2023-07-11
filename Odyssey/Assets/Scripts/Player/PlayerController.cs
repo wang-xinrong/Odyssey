@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public WeaponPickup weaponOnFloor;
 
     private float _originalMovementSpeed;
+    public float SpeedBoostLimitFactor = 2;
 
     public float CurrentMoveSpeed
     {
@@ -343,6 +344,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public bool SpeedUp(float fractionOfOriginalSpeed, float duration)
     {
         if (!_damageable.IsAlive) return false;
+        if (CurrentMoveSpeed >= _originalMovementSpeed * SpeedBoostLimitFactor) return false; 
 
         SlowedDown(fractionOfOriginalSpeed, duration);
         // for now always able to speed up unless dead

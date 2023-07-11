@@ -18,4 +18,6 @@ public class Item : ScriptableObject
     public float Duration;
     public string Description;
     public int price;
+    public enum Type { Speed, HP, SP, Damage}
+    public Type ItemType;
 }

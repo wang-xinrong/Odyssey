@@ -19,17 +19,10 @@ public class ItemConsumption : MonoBehaviour
         // both chars are dead
         if (!activeCharController) return false;
 
-        bool spReplenished = MainPlayerController.ReplenishSP(i.SPIncrease);
-        bool hpReplenished = activeCharController.ReplenishHealth(i.HealthIncrease);
-        bool movementSpeedUp = activeCharController.SpeedUp(i.MovementIncrease, i.Duration);
+        if (i.ItemType == Item.Type.SP) return MainPlayerController.ReplenishSP(i.SPIncrease);
+        if (i.ItemType == Item.Type.HP) return activeCharController.ReplenishHealth(i.HealthIncrease);
+        if (i.ItemType == Item.Type.Speed) return activeCharController.SpeedUp(i.MovementIncrease, i.Duration);
 
-        // the item can be used if any of its functions can take effect
-        // in this case since the SpeedUp will always work, the item can
-        // always be used
-
-        Debug.Log("Item Usage Success: "
-            + (spReplenished || hpReplenished || movementSpeedUp));
-
-        return spReplenished || hpReplenished || movementSpeedUp;
+        return false;
     }
 }

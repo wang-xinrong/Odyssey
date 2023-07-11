@@ -76,8 +76,21 @@ public class MainPlayerController : MonoBehaviour
         return prevAttackTime == 0 || HasSufficientTimePassed(prevAttackTime, charSpecialAttackCD[charNumber]);
     }
 
+    PlayerController temporaryController;
+
     private void checkIncrementSP()
     {
+        if (isChar1)
+        {
+            temporaryController = char1.GetComponent<PlayerController>();
+        } else
+        {
+            temporaryController = char2.GetComponent<PlayerController>();
+        }
+
+        _rechargeSPInterval = StatsManager.Instance
+            .GetCharacterSPRegenrate(temporaryController.Character);
+
         // check if sufficient time has passed since last SP increment
         if (!HasSufficientTimePassed(lastRechargeSPTime, _rechargeSPInterval))
         {

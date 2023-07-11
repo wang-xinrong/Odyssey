@@ -11,6 +11,7 @@ public class StatsManager : MonoBehaviour
     public Difficulty CurrentDifficulty = Difficulty.Normal;
     public MKLevel CurrentMKLevel = MKLevel.One;
     public ZBJLevel CurrentZBJLevel = ZBJLevel.Two;
+    public enum Character { MonkeyKing, Pigsy};
 
     private void Awake()
     {
@@ -152,10 +153,10 @@ public class StatsManager : MonoBehaviour
 
         MKSPRegenAndMovementSpeed = new Dictionary<MKLevel, float[]>()
         {
-            {MKLevel.One, new float[2] {0.2f, 5.0f} },
-            {MKLevel.Two, new float[2] { 0.25f, 5.5f} },
-            {MKLevel.Three, new float[2] { 0.3f, 6.0f} },
-            {MKLevel.Four, new float[2] { 0.35f, 6.5f} }
+            {MKLevel.One, new float[2] {0.8f, 5.0f} },
+            {MKLevel.Two, new float[2] { 0.6f, 5.5f} },
+            {MKLevel.Three, new float[2] { 0.5f, 6.0f} },
+            {MKLevel.Four, new float[2] { 0.4f, 6.5f} }
         };
 
         ZBJHPAndSA = new Dictionary<ZBJLevel, int[]>()
@@ -168,10 +169,10 @@ public class StatsManager : MonoBehaviour
 
         ZBJSPRegenAndMovementSpeed = new Dictionary<ZBJLevel, float[]>()
         {
-            {ZBJLevel.One, new float[2] {0.2f, 5.0f} },
-            {ZBJLevel.Two, new float[2] { 0.25f, 5.5f} },
-            {ZBJLevel.Three, new float[2] { 0.3f, 6.0f} },
-            {ZBJLevel.Four, new float[2] { 0.35f, 6.5f} }
+            {ZBJLevel.One, new float[2] {0.8f, 5.0f} },
+            {ZBJLevel.Two, new float[2] { 0.6f, 5.5f} },
+            {ZBJLevel.Three, new float[2] { 0.5f, 6.0f} },
+            {ZBJLevel.Four, new float[2] { 0.4f, 6.5f} }
         };
 
         MKUpgradeCost = new Dictionary<MKLevel, int>()
@@ -189,5 +190,49 @@ public class StatsManager : MonoBehaviour
             {ZBJLevel.Three, 3000 },
             {ZBJLevel.Four, 0 }
         };
+    }
+
+    public float GetCharacterMovementSpeed(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKSPRegenAndMovementSpeed[CurrentMKLevel][1];
+
+        if (character == Character.Pigsy)
+            return ZBJSPRegenAndMovementSpeed[CurrentZBJLevel][1];
+
+        return 0;
+    }
+
+    public float GetCharacterSPRegenrate(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKSPRegenAndMovementSpeed[CurrentMKLevel][0];
+
+        if (character == Character.Pigsy)
+            return ZBJSPRegenAndMovementSpeed[CurrentZBJLevel][0];
+
+        return 0;
+    }
+
+    public int GetCharacterHP(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKHPAndSA[CurrentMKLevel][0];
+
+        if (character == Character.Pigsy)
+            return ZBJHPAndSA[CurrentZBJLevel][0];
+
+        return 0;
+    }
+
+    public int GetCharacterSA(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKHPAndSA[CurrentMKLevel][1];
+
+        if (character == Character.Pigsy)
+            return ZBJHPAndSA[CurrentZBJLevel][1];
+
+        return 0;
     }
 }

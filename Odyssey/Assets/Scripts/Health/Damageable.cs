@@ -104,9 +104,17 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
+
+        if (GetComponent<PlayerController>())
+        {
+            MaxHealth = StatsManager.Instance.GetCharacterHP(
+                GetComponent<PlayerController>()
+                .Character);
+            Health = MaxHealth;
+        }
     }
 
     public void OnHurt(int damage, Vector2 knockback)
@@ -159,12 +167,6 @@ public class Damageable : MonoBehaviour
         }
         // dead
         return false;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

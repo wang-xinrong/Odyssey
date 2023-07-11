@@ -19,11 +19,13 @@ using UnityEngine.Events;
 // state from idle state.
 public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 {
+    public StatsManager.Character Character = StatsManager.Character.MonkeyKing;
     public Animator Animator;
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
     private Damageable _damageable;
     public Directions Direction = new Directions();
+
 
     // the player should only be able to call move
     // related functions if he is in the state of
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         // once set the original movement speed should not be changed
         // to keep a record of the original movement speed in preparation
         // for the need to reset movement speed
+        MovementSpeed = StatsManager.Instance.GetCharacterMovementSpeed(Character);
         _originalMovementSpeed = MovementSpeed;
     }
 

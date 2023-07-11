@@ -18,6 +18,11 @@ public class CharacterStatsDisplay : MonoBehaviour
 
     private void Start()
     {
+        RefreshPage();
+    }
+
+    public void RefreshPage()
+    {
         MKLevel = StatsManager.Instance.CurrentMKLevel;
         ZBJLevel = StatsManager.Instance.CurrentZBJLevel;
 
@@ -62,8 +67,6 @@ public class CharacterStatsDisplay : MonoBehaviour
             UpgradeCostText.text = StatsManager.Instance
                 .ZBJUpgradeCost[ZBJLevel].ToString();
         }
-
     }
-
 
 }

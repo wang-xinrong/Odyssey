@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
@@ -71,12 +71,11 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
+    }
 
-        // once set the original movement speed should not be changed
-        // to keep a record of the original movement speed in preparation
-        // for the need to reset movement speed
-        MovementSpeed = StatsManager.Instance.GetCharacterMovementSpeed(Character);
-        _originalMovementSpeed = MovementSpeed;
+    private void Start()
+    {
+        UpdateMovementSpeed();
     }
 
     public void UpdateMovementSpeed()

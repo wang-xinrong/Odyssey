@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 4284085926513751941}
   - component: {fileID: 8624947888051716483}
   - component: {fileID: 6871441878405517294}
-  - component: {fileID: 3989000163955095686}
-  - component: {fileID: 3332130477118856751}
+  - component: {fileID: 8848420310900479706}
   m_Layer: 10
-  m_Name: zbjArrow0
+  m_Name: ZBJSpecialAttackProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6797c8021e549dc95b60ab8b8e0c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileScript: {fileID: 3989000163955095686}
---- !u!114 &3989000163955095686
+  ProjectileScript: {fileID: 8848420310900479706}
+--- !u!114 &8848420310900479706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,28 +157,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3957113067568804074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60afb3b10bf6f426197c77a43fdf2483, type: 3}
+  m_Script: {fileID: 11500000, guid: 51859ba4588f84b9bb5cb22aee359cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileTargetType: 1
   Speed: 30
   Damage: 10
-  KnockBack: {x: 7, y: 0}
---- !u!114 &3332130477118856751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3957113067568804074}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d696b4f41c6442f9d337f8b9598b67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProjectileTargetType: 1
-  Speed: 30
-  Damage: 10
-  KnockBack: {x: 7, y: 0}
-  SlowingFraction: 0.1
-  Duration: 5
+  KnockBack: {x: 7, y: 7}

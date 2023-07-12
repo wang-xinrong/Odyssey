@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MKSpecialAttack : SpecialAttack
 {
+    private void Start()
+    {
+        UpdateSpecialAttackDamage(); 
+    }
+
     public int SpecialAttackDamage = 70;
 
     public override IEnumerator InitiateSpecialAttack()
@@ -20,5 +25,11 @@ public class MKSpecialAttack : SpecialAttack
         }
         yield return new WaitForSeconds(1.0f);
         Shockwave.SetActive(false);
+    }
+
+    public void UpdateSpecialAttackDamage()
+    {
+        SpecialAttackDamage = StatsManager.Instance.GetCharacterSA(
+            StatsManager.Character.MonkeyKing);
     }
 }

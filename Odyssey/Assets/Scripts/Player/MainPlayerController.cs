@@ -12,7 +12,7 @@ public class MainPlayerController : MonoBehaviour
     // search by name
     public GameObject char1, char2;
 
-    private bool isChar1 = true;
+    public bool isChar1 = true;
 
     // new, for health system bug
     private GameObject _healthBar;
@@ -182,6 +182,7 @@ public class MainPlayerController : MonoBehaviour
 
         if (context.started && SP >= 20) {
             isChar1 = !isChar1;
+            
             SwapCharacters();
             decrementSPBy(20, -1);
         }
@@ -208,6 +209,7 @@ public class MainPlayerController : MonoBehaviour
         if (IsChar1Active == isChar1) return;
         PlayerController primary = char1.GetComponent<PlayerController>();
         PlayerController secondary = char2.GetComponent<PlayerController>();
+
 
         // the IsAlive condition is added to ensure the player can only
         // be swapped into if he is alive

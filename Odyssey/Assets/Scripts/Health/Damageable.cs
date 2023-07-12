@@ -118,10 +118,7 @@ public class Damageable : MonoBehaviour
 
         if (GetComponent<PlayerController>())
         {
-            MaxHealth = StatsManager.Instance.GetCharacterHP(
-                GetComponent<PlayerController>()
-                .Character);
-            Health = MaxHealth;
+            UpdateMaxHPAndHP();
         }
     }
 

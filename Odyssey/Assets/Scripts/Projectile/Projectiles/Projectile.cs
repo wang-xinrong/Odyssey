@@ -21,14 +21,14 @@ public class Projectile : MonoBehaviour
     // direction the projectile would be moving in
     //private Vector2 _directionVector;
 
-    private void Awake()
+    protected void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         //_attack = GetComponent<Attack>();
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         _rb.velocity = Speed * Direction.DirectionVector;
     }

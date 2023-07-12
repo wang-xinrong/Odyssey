@@ -213,7 +213,7 @@ public class MainPlayerController : MonoBehaviour
 
         // the IsAlive condition is added to ensure the player can only
         // be swapped into if he is alive
-        if (isChar1 && char1.GetComponent<PlayerController>().IsAlive())
+        if (isChar1 && primary.IsAlive())
         {
             char1.SetActive(true);
             char2.SetActive(false);
@@ -223,7 +223,10 @@ public class MainPlayerController : MonoBehaviour
             IsChar1Active = true;
             OnDisplayCurrentWeapon.Invoke(primary.weapon);
             OnDisplayPrimaryCharacter.Invoke(primary.charName, true);
-            OnDisplaySecondaryCharacter.Invoke(secondary.charName, false);
+            if (secondary.IsAlive())
+            {
+                OnDisplaySecondaryCharacter.Invoke(secondary.charName, false);
+            }
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
@@ -234,8 +237,11 @@ public class MainPlayerController : MonoBehaviour
 
             IsChar1Active = false;
             OnDisplayCurrentWeapon.Invoke(secondary.weapon);
-            OnDisplayPrimaryCharacter.Invoke(primary.charName, false);
             OnDisplaySecondaryCharacter.Invoke(secondary.charName, true);
+            if (primary.IsAlive())
+            {
+                OnDisplayPrimaryCharacter.Invoke(primary.charName, false);
+            }
         }
     }
 

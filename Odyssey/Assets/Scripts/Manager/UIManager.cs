@@ -127,7 +127,7 @@ public class UIManager : MonoBehaviour
         {
             currentCharacterIcon = primaryCharacterIcon;
         }
-        primaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
+        primaryCharacterIcon.sprite = Resources.Load<Sprite>(charName + isActive);
     }
 
     public void DisplaySecondaryCharacterIcon(string charName, bool isActive)
@@ -136,7 +136,7 @@ public class UIManager : MonoBehaviour
         {
             currentCharacterIcon = secondaryCharacterIcon;
         }
-        secondaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
+        secondaryCharacterIcon.sprite = Resources.Load<Sprite>(charName + isActive);
     }
 
     public void DisplaySwapCharacterPrompt()

@@ -18,6 +18,7 @@ public class BossGFX : EnemyGFX
         base.Start();
         _bossStageManager = GetComponent<BossStageManager>();
         _availablePoints = GetComponent<EnemyActivation>().AvailableMovementPoints;
+        SetUpBossAS_SI();
     }
 
     // Update is called once per frame
@@ -228,4 +229,12 @@ public class BossGFX : EnemyGFX
         }
     }
 
+    public void SetUpBossAS_SI()
+    {
+        _attackDelay = StatsManager.Instance.GetBossMS_AD_SI(
+            _bossStageManager.BossCodeName, 1);
+
+        SummoningInterval = StatsManager.Instance.GetBossMS_AD_SI(
+            _bossStageManager.BossCodeName, 2);
+    }
 }

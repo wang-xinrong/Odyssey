@@ -17,26 +17,6 @@ public class LevelOneBossStageManager : BossStageManager
     void Update()
     {
         SetStageBehaviour(_currentBossStage);
-        /*
-        if (_damageable.Health >= _damageable.MaxHealth * 2 / 3)
-        {
-            _currentBossStage = BossStage.One;
-            _swapMovementBehaviour.Swap(SwapMovementBehaviour.CurrentState.Patrol);
-            _swapMovementBehaviour.ChangePatrolTargetSets(0);
-        }
-        else if (_damageable.Health >= _damageable.MaxHealth * 1 / 3)
-        {
-            _currentBossStage = BossStage.Two;
-            // maybe bring the boss to a certain position
-            _swapMovementBehaviour.Swap(SwapMovementBehaviour.CurrentState.Patrol);
-            _swapMovementBehaviour.ChangePatrolTargetSets(1);
-        }
-        else
-        {
-            _currentBossStage = BossStage.Three;
-            _swapMovementBehaviour.Swap(SwapMovementBehaviour.CurrentState.Chasing);
-        }
-        */
     }
 
     private void SetStageBehaviour(BossStage stage)

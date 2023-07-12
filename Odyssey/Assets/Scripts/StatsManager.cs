@@ -30,6 +30,7 @@ public class StatsManager : MonoBehaviour
 
     // int[]; 0: hp; 1: damage;
     public Dictionary<Difficulty, float[]> DifficultyLevel;
+    public Dictionary<Difficulty, float[]> BossDifficultyLevel;
     public Dictionary<string, int[]> HPDamageAndColliderDamage;
     public Dictionary<string, float[]> MovementSpeedAndAttackDelay;
     public Dictionary<Difficulty, float> CoinToHPRatio;
@@ -45,6 +46,10 @@ public class StatsManager : MonoBehaviour
 
     public Dictionary<MKLevel, int> MKUpgradeCost;
     public Dictionary<ZBJLevel, int> ZBJUpgradeCost;
+
+    //Boss arrays
+    public Dictionary<string, int[]> BossHealth;
+    public Dictionary<string, float[]> BossMS_AD_SI;
 
 
     // Start is called before the first frame update
@@ -101,6 +106,16 @@ public class StatsManager : MonoBehaviour
             { Difficulty.Normal, 0.2f },
             { Difficulty.Hard, 0.3f },
             { Difficulty.Extreme, 0.5f }
+        };
+
+        BossHealth = new Dictionary<string, int[]>()
+        {
+            { "LevelOneBoss", new int[] {1500, 1500, 1500 } }
+        };
+
+        BossMS_AD_SI = new Dictionary<string, float[]>()
+        {
+            {"LevelOneBoss", new float[] { 2, 0.25f, 10 } }
         };
     }
 
@@ -234,5 +249,27 @@ public class StatsManager : MonoBehaviour
             return ZBJHPAndSA[CurrentZBJLevel][1];
 
         return 0;
+    }
+
+    public int GetBossHealthByStage(string name, int stage)
+    {
+        return (int) (BossHealth[name][stage - 1] *
+            DifficultyLevel[CurrentDifficulty][0]);
+    }
+
+    public float GetBossMS_AD_SI(string name, int index)
+    {
+        float factor;
+
+        if (index == 0)
+        {
+            factor = DifficultyLevel[CurrentDifficulty][1];
+        }
+        else
+        {
+            factor = DifficultyLevel[CurrentDifficulty][2];
+        }
+
+        return BossMS_AD_SI[name][index] * factor;
     }
 }

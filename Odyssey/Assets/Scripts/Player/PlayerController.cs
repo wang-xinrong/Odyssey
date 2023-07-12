@@ -19,11 +19,13 @@ using UnityEngine.Events;
 // state from idle state.
 public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 {
+    public StatsManager.Character Character = StatsManager.Character.MonkeyKing;
     public Animator Animator;
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
     private Damageable _damageable;
     public Directions Direction = new Directions();
+
 
     // the player should only be able to call move
     // related functions if he is in the state of
@@ -69,13 +71,18 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite
         Direction.DirectionVector = Vector2.down;
-
-        // once set the original movement speed should not be changed
-        // to keep a record of the original movement speed in preparation
-        // for the need to reset movement speed
-        _originalMovementSpeed = MovementSpeed;
     }
 
+    private void Start()
+    {
+        UpdateMovementSpeed();
+    }
+
+    public void UpdateMovementSpeed()
+    {
+        MovementSpeed = StatsManager.Instance.GetCharacterMovementSpeed(Character);
+        _originalMovementSpeed = MovementSpeed;
+    }
 
     private void Update()
     {

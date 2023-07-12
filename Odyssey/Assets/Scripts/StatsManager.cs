@@ -6,8 +6,13 @@ public class StatsManager : MonoBehaviour
 {
     public static StatsManager Instance;
     public enum Difficulty { Easy, Normal, Hard, Extreme };
+    public enum MKLevel { One, Two, Three, Four};
+    public enum ZBJLevel { One, Two, Three, Four };
     public Difficulty CurrentDifficulty = Difficulty.Normal;
-    
+    public MKLevel CurrentMKLevel = MKLevel.One;
+    public ZBJLevel CurrentZBJLevel = ZBJLevel.Two;
+    public enum Character { MonkeyKing, Pigsy};
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -15,7 +20,8 @@ public class StatsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            SetUpStatsArrays();
+            SetUpEnemyStatsArrays();
+            SetUpPlayerStatsArrays();
         } else
         {
             Destroy(gameObject);
@@ -24,10 +30,26 @@ public class StatsManager : MonoBehaviour
 
     // int[]; 0: hp; 1: damage;
     public Dictionary<Difficulty, float[]> DifficultyLevel;
+    public Dictionary<Difficulty, float[]> BossDifficultyLevel;
     public Dictionary<string, int[]> HPDamageAndColliderDamage;
     public Dictionary<string, float[]> MovementSpeedAndAttackDelay;
     public Dictionary<Difficulty, float> CoinToHPRatio;
-    
+
+    // MK stats arrays
+    public Dictionary<MKLevel, int[]> MKHPAndSA;
+    public Dictionary<MKLevel, float[]> MKSPRegenAndMovementSpeed;
+
+
+    // ZBJ stats arrays
+    public Dictionary<ZBJLevel, int[]> ZBJHPAndSA;
+    public Dictionary<ZBJLevel, float[]> ZBJSPRegenAndMovementSpeed;
+
+    public Dictionary<MKLevel, int> MKUpgradeCost;
+    public Dictionary<ZBJLevel, int> ZBJUpgradeCost;
+
+    //Boss arrays
+    public Dictionary<string, int[]> BossHealth;
+    public Dictionary<string, float[]> BossMS_AD_SI;
 
 
     // Start is called before the first frame update
@@ -42,13 +64,14 @@ public class StatsManager : MonoBehaviour
 
     }
 
-    private void SetUpStatsArrays()
+    private void SetUpEnemyStatsArrays()
     {
+        //HP/MovementSpeed/AttackDelay
         DifficultyLevel = new Dictionary<Difficulty, float[]>
         {
-            {Difficulty.Easy, new float[3] { 1, 1, 1 } },
-            {Difficulty.Normal, new float[3] { 1, 1, 1 } },
-            {Difficulty.Hard, new float[3] { 1, 1, 1 } },
+            {Difficulty.Easy, new float[3] { 0.5f, 0.5f, 2 } },
+            {Difficulty.Normal, new float[3] { 0.8f, 1, 1 } },
+            {Difficulty.Hard, new float[3] { 1.2f, 1.2f, 0.8f } },
             {Difficulty.Extreme, new float[3] { 2, 2, 0.5f} },
         };
 
@@ -76,6 +99,7 @@ public class StatsManager : MonoBehaviour
             { "ChasingMelee", new float[2] {2, 0.4f} },
         };
 
+        //RatioOfMaxAmountOfCoinsDroppedToEnemyHP
         CoinToHPRatio = new Dictionary<Difficulty, float>()
         {
             { Difficulty.Easy, 0.1f },
@@ -83,12 +107,22 @@ public class StatsManager : MonoBehaviour
             { Difficulty.Hard, 0.3f },
             { Difficulty.Extreme, 0.5f }
         };
+
+        BossHealth = new Dictionary<string, int[]>()
+        {
+            { "LevelOneBoss", new int[] {1500, 1500, 1500 } }
+        };
+
+        BossMS_AD_SI = new Dictionary<string, float[]>()
+        {
+            {"LevelOneBoss", new float[] { 2, 0.25f, 10 } }
+        };
     }
 
     public int GetHPAndDamage(string nameString, int index)
     {
-        return HPDamageAndColliderDamage[nameString][index]
-            * (int) DifficultyLevel[CurrentDifficulty][0];
+        return (int) (HPDamageAndColliderDamage[nameString][index]
+            * DifficultyLevel[CurrentDifficulty][0]);
     }
 
     public float GetMovementSpeedAndAttackDelay(string nameString, int index)
@@ -120,5 +154,122 @@ public class StatsManager : MonoBehaviour
     public void SetDifficultyLevelToExtreme()
     {
         CurrentDifficulty = Difficulty.Extreme;
+    }
+
+    public void SetUpPlayerStatsArrays()
+    {
+        MKHPAndSA = new Dictionary<MKLevel, int[]>()
+        {
+            {MKLevel.One, new int[2] {100, 70} },
+            {MKLevel.Two, new int[2] {120, 80} },
+            {MKLevel.Three, new int[2] {140, 90} },
+            {MKLevel.Four, new int[2] {160, 100} }
+        };
+
+        MKSPRegenAndMovementSpeed = new Dictionary<MKLevel, float[]>()
+        {
+            {MKLevel.One, new float[2] {0.8f, 5.0f} },
+            {MKLevel.Two, new float[2] { 0.6f, 5.5f} },
+            {MKLevel.Three, new float[2] { 0.5f, 6.0f} },
+            {MKLevel.Four, new float[2] { 0.4f, 6.5f} }
+        };
+
+        ZBJHPAndSA = new Dictionary<ZBJLevel, int[]>()
+        {
+            {ZBJLevel.One, new int[2] {100, 35} },
+            {ZBJLevel.Two, new int[2] {120, 40} },
+            {ZBJLevel.Three, new int[2] {140, 45} },
+            {ZBJLevel.Four, new int[2] {160, 50} }
+        };
+
+        ZBJSPRegenAndMovementSpeed = new Dictionary<ZBJLevel, float[]>()
+        {
+            {ZBJLevel.One, new float[2] {0.8f, 5.0f} },
+            {ZBJLevel.Two, new float[2] { 0.6f, 5.5f} },
+            {ZBJLevel.Three, new float[2] { 0.5f, 6.0f} },
+            {ZBJLevel.Four, new float[2] { 0.4f, 6.5f} }
+        };
+
+        MKUpgradeCost = new Dictionary<MKLevel, int>()
+        {
+            {MKLevel.One, 1000 },
+            {MKLevel.Two, 1500 },
+            {MKLevel.Three, 2000 },
+            {MKLevel.Four, 0 }
+        };
+
+        ZBJUpgradeCost = new Dictionary<ZBJLevel, int>()
+        {
+            {ZBJLevel.One, 1000 },
+            {ZBJLevel.Two, 2000 },
+            {ZBJLevel.Three, 3000 },
+            {ZBJLevel.Four, 0 }
+        };
+    }
+
+    public float GetCharacterMovementSpeed(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKSPRegenAndMovementSpeed[CurrentMKLevel][1];
+
+        if (character == Character.Pigsy)
+            return ZBJSPRegenAndMovementSpeed[CurrentZBJLevel][1];
+
+        return 0;
+    }
+
+    public float GetCharacterSPRegenrate(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKSPRegenAndMovementSpeed[CurrentMKLevel][0];
+
+        if (character == Character.Pigsy)
+            return ZBJSPRegenAndMovementSpeed[CurrentZBJLevel][0];
+
+        return 0;
+    }
+
+    public int GetCharacterHP(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKHPAndSA[CurrentMKLevel][0];
+
+        if (character == Character.Pigsy)
+            return ZBJHPAndSA[CurrentZBJLevel][0];
+
+        return 0;
+    }
+
+    public int GetCharacterSA(Character character)
+    {
+        if (character == Character.MonkeyKing)
+            return MKHPAndSA[CurrentMKLevel][1];
+
+        if (character == Character.Pigsy)
+            return ZBJHPAndSA[CurrentZBJLevel][1];
+
+        return 0;
+    }
+
+    public int GetBossHealthByStage(string name, int stage)
+    {
+        return (int) (BossHealth[name][stage - 1] *
+            DifficultyLevel[CurrentDifficulty][0]);
+    }
+
+    public float GetBossMS_AD_SI(string name, int index)
+    {
+        float factor;
+
+        if (index == 0)
+        {
+            factor = DifficultyLevel[CurrentDifficulty][1];
+        }
+        else
+        {
+            factor = DifficultyLevel[CurrentDifficulty][2];
+        }
+
+        return BossMS_AD_SI[name][index] * factor;
     }
 }

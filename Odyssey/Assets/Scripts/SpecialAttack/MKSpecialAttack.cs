@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MKSpecialAttack : SpecialAttack
 {
+    private void Start()
+    {
+        UpdateSpecialAttackDamage(); 
+    }
+
+    public int SpecialAttackDamage = 70;
+
     public override IEnumerator InitiateSpecialAttack()
     {
         GameObject Shockwave = this.transform.Find("Shockwave").gameObject;
@@ -13,9 +20,16 @@ public class MKSpecialAttack : SpecialAttack
         foreach (Collider2D collider in colliders)
         {
             Debug.Log(collider);
-            collider.GetComponent<Damageable>().OnHurt(70, Vector2.zero);
+            collider.GetComponent<Damageable>().OnHurt(SpecialAttackDamage
+                , Vector2.zero);
         }
         yield return new WaitForSeconds(1.0f);
         Shockwave.SetActive(false);
+    }
+
+    public void UpdateSpecialAttackDamage()
+    {
+        SpecialAttackDamage = StatsManager.Instance.GetCharacterSA(
+            StatsManager.Character.MonkeyKing);
     }
 }

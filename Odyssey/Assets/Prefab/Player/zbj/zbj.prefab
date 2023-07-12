@@ -325,6 +325,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8ff27f41-0e9f-4e58-b34e-8f4f504ca0a1
     m_ActionName: Player/Special[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9175b391-2d29-4932-8949-117a09d566c1
+    m_ActionName: Player/PickUp[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -342,10 +346,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e322ccd9f1d54cf1a9394caed909e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: 0
   Animator: {fileID: 8609630010380266183}
   _currentState: 0
+  MovementSpeed: 5
   weapon: {fileID: 0}
   _mainPlayerController: {fileID: 0}
+  _specialAttack: {fileID: 0}
+  charNumber: 0
   m_MovementInput:
     m_UseReference: 0
     m_Action:
@@ -358,6 +366,9 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
+  charName: 
+  weaponOnFloor: {fileID: 0}
+  SpeedBoostLimitFactor: 2
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -421,7 +432,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1447548587
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 586188349, guid: 42694d2a85e8f494abad1dbe09e8fd72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -481,6 +492,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _isInvincible: 0
+  _isAlive: 1
   _maxHealth: 100
   _health: 100
   InvincibleTime: 0.1
@@ -497,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefabs:
-  - {fileID: 3957113067568804074, guid: fe27306306fcc4310966252e0cd9b543, type: 3}
+  - {fileID: 3957113067568804074, guid: c0f4ce42d418948b2b06d6502166b777, type: 3}
   - {fileID: 3957113067568804074, guid: 80b3b2c832af44b198512af3fc8ab3a7, type: 3}
   UpLaunchPoint: {fileID: 690217375}
   DownLaunchPoint: {fileID: 1746337816}

@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3865801402687859316}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482629222022964670
 GameObject:
@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.934701, y: 3.3466363}
+  m_Size: {x: 50, y: 50}
   m_EdgeRadius: 0
 --- !u!114 &1482629222022964671
 MonoBehaviour:
@@ -97,78 +97,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482629222022964670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e24393c29aa4a829997259322e19c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DetectedColliders: []
---- !u!1 &2497132434120965921
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1703033098171209775}
-  - component: {fileID: 8594582912910161313}
-  - component: {fileID: 620539497873687422}
-  m_Layer: 11
-  m_Name: MeleeAttackDetectionZone (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1703033098171209775
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2497132434120965921}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3865801402687859316}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &8594582912910161313
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2497132434120965921}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.020124674, y: 0.29716372}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.934701, y: 3.3466363}
-  m_EdgeRadius: 0
---- !u!114 &620539497873687422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2497132434120965921}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42e24393c29aa4a829997259322e19c4, type: 3}
@@ -198,8 +126,9 @@ GameObject:
   - component: {fileID: 1984965483}
   - component: {fileID: -1610807044380193259}
   - component: {fileID: 1632076916}
+  - component: {fileID: 6277330394666152790}
   m_Layer: 9
-  m_Name: Level1Boss
+  m_Name: OutdatedLevel1Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +149,6 @@ Transform:
   - {fileID: 1482629222022964665}
   - {fileID: 6252356011736050523}
   - {fileID: 6252356012492266916}
-  - {fileID: 1703033098171209775}
   - {fileID: 1689070319}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -457,8 +385,8 @@ MonoBehaviour:
   AttackZone: {fileID: 1482629222022964671}
   _attackDelay: 0.4
   SummoningInterval: 10
-  StageOneSummonedMinionPrefab: {fileID: 9102945451126165672, guid: 08e41c950b54c455da3345f370cfbbb8, type: 3}
-  StageTwoSummonedMinionPrefab: {fileID: 1805828293309906614, guid: 4ddf642be850649bea692123b245f252, type: 3}
+  StageOneSummonedMinionPrefab: {fileID: 9102945451126165672, guid: ab97417bdbcde4409897af0ef8312144, type: 3}
+  StageTwoSummonedMinionPrefab: {fileID: 1805828293309906614, guid: 0e0b04878fdba4bffb508128d7459017, type: 3}
 --- !u!114 &6252356012096709572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,6 +433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55186a8910f514ee8a890ed35baef790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossCodeName: LevelOneBoss
+  BossNames: []
   NoOfBossLives: 3
   _currentBossStage: 0
   StageOneHealth: 20
@@ -544,6 +474,20 @@ MonoBehaviour:
   EnemyGFX: {fileID: 6252356012096709571}
   FiveDirectionLaunchPoints: []
   EightDirectionLaunchPoints: []
+--- !u!114 &6277330394666152790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865801402687859319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51776bf167b947c9982fa67703d54bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIPath: {fileID: 3865801402687859318}
+  BossStageManager: {fileID: 1984965483}
 --- !u!1 &6252356011736050522
 GameObject:
   m_ObjectHideFlags: 0

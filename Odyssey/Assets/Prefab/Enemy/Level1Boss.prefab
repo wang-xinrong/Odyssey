@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: -1610807044380193259}
   - component: {fileID: 1632076916}
   - component: {fileID: 1984965483}
+  - component: {fileID: 8586401112971013170}
   m_Layer: 9
   m_Name: Level1Boss
   m_TagString: Untagged
@@ -457,8 +458,8 @@ MonoBehaviour:
   AttackZone: {fileID: 1482629222022964671}
   _attackDelay: 0.4
   SummoningInterval: 10
-  StageOneSummonedMinionPrefab: {fileID: 9102945451126165672, guid: 08e41c950b54c455da3345f370cfbbb8, type: 3}
-  StageTwoSummonedMinionPrefab: {fileID: 1805828293309906614, guid: 4ddf642be850649bea692123b245f252, type: 3}
+  StageOneSummonedMinionPrefab: {fileID: 9102945451126165672, guid: ab97417bdbcde4409897af0ef8312144, type: 3}
+  StageTwoSummonedMinionPrefab: {fileID: 1805828293309906614, guid: 0e0b04878fdba4bffb508128d7459017, type: 3}
 --- !u!114 &6252356012096709572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55186a8910f514ee8a890ed35baef790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossCodeName: LevelOneBoss
   BossNames:
   - Queen of Womenland (Human Form)
   - Queen of Womenland (Ghost Form)
@@ -548,6 +550,20 @@ MonoBehaviour:
   StageOneHealth: 20
   StageTwoHealth: 20
   StageThreeHealth: 20
+--- !u!114 &8586401112971013170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865801402687859319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51776bf167b947c9982fa67703d54bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIPath: {fileID: 3865801402687859318}
+  BossStageManager: {fileID: 1984965483}
 --- !u!1 &6252356011736050522
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class BossStageManager : MonoBehaviour
 {
+    public string BossCodeName;
     public string[] BossNames;
     public enum BossStage { Zero, One, Two, Three, End }
     public int NoOfBossLives;
@@ -13,6 +14,7 @@ public class BossStageManager : MonoBehaviour
     public int StageOneHealth;
     public int StageTwoHealth;
     public int StageThreeHealth;
+
 
     public delegate void EnterBossStage(string bossName, BossStage stage);
     public static event EnterBossStage OnEnterBossStage;
@@ -24,6 +26,7 @@ public class BossStageManager : MonoBehaviour
     protected void Start()
     {
         _damageable = GetComponent<Damageable>();
+        SetUpBossHealth();
     }
 
     // Update is called once per frame
@@ -78,5 +81,17 @@ public class BossStageManager : MonoBehaviour
     {
         _currentBossStage = BossStage.End;
         OnEnterBossStage.Invoke(null, _currentBossStage);
+    }
+
+    public void SetUpBossHealth()
+    {
+        StageOneHealth = StatsManager.Instance
+            .GetBossHealthByStage(BossCodeName, 1);
+
+        StageTwoHealth = StatsManager.Instance
+            .GetBossHealthByStage(BossCodeName, 2);
+
+        StageThreeHealth = StatsManager.Instance
+            .GetBossHealthByStage(BossCodeName, 3);
     }
 }

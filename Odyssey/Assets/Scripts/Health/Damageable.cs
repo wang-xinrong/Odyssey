@@ -84,6 +84,14 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    public void UpdateMaxHPAndHP()
+    {
+        MaxHealth = StatsManager.Instance.GetCharacterHP(
+                GetComponent<PlayerController>()
+                .Character);
+        Health = MaxHealth;
+    }
+
     [SerializeField]
     // the time after a hit, during which the player would not receive
     // more damage (invincible) but also loses control over its movement
@@ -104,9 +112,14 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
+
+        if (GetComponent<PlayerController>())
+        {
+            UpdateMaxHPAndHP();
+        }
     }
 
     public void OnHurt(int damage, Vector2 knockback)
@@ -159,12 +172,6 @@ public class Damageable : MonoBehaviour
         }
         // dead
         return false;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

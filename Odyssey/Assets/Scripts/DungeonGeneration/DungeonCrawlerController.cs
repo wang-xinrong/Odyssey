@@ -16,7 +16,7 @@ public class DungeonCrawlerController : MonoBehaviour
         {Direction.right, Vector2Int.right}
     };
 
-    public static void GenerateDungeon(DungeonGenerationData dungeonData, int startX, int startY)
+    public static void GenerateDungeon(string StartRoomNameString, DungeonGenerationData dungeonData, int startX, int startY)
     {
         List<DungeonCrawler> dungeonCrawlers = new List<DungeonCrawler>();
 
@@ -27,7 +27,7 @@ public class DungeonCrawlerController : MonoBehaviour
         }
 
         // Create the Start room that all crawlers will start from
-        RoomController.instance.LoadRoom("Start", startX, startY, Direction.unset);
+        RoomController.instance.LoadRoom(StartRoomNameString, startX, startY, Direction.unset);
 
         // depth first crawling
         foreach (DungeonCrawler dungeonCrawler in dungeonCrawlers)

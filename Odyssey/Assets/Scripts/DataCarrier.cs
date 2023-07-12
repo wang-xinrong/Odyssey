@@ -9,6 +9,7 @@ public class DataCarrier : MonoBehaviour
     public Item[] Items;
     public int[] Quantities;
     private InventoryManager inventoryManager;
+    public int Money;
 
     private void Awake()
     {
@@ -43,6 +44,8 @@ public class DataCarrier : MonoBehaviour
             Quantities[i] = inventoryManager.InventorySlots[i]
                 .GetQuantityStored();
         }
+
+        Money = inventoryManager.Money;
     }
 
     public void WriteInventoryData()
@@ -62,5 +65,7 @@ public class DataCarrier : MonoBehaviour
                     , i);
             }
         }
+
+        inventoryManager.Money = Money;
     }
 }

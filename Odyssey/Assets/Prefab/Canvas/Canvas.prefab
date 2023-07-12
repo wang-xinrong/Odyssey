@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec46a46997baa4db39192c21ee8458be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 3769508267460520788}
+  Inventory: {fileID: 0}
   PauseMenu: {fileID: 3472163579154837957}
   CutScene: {fileID: 0}
   IsGamePaused: 0
@@ -3567,19 +3567,6 @@ GameObject:
   m_PrefabInstance: {fileID: 3015375309020364764}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &339948463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911896752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f405003beee7449f3828084ad147f797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsInventoryOpen: 0
---- !u!114 &3769508267460520788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

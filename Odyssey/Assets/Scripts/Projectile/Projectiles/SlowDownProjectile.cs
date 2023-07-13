@@ -27,10 +27,12 @@ public class SlowDownProjectile : Projectile
     {
         // see if it can be hit
         PlayerController controller = collision.GetComponent<PlayerController>();
+        Damageable damageable = collision.GetComponent<Damageable>();
 
         if (controller != null)
         {
             controller.SlowedDown(SlowingFraction, Duration);
+            damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
         }
     }
@@ -40,18 +42,21 @@ public class SlowDownProjectile : Projectile
         // see if it can be hit
         EnemyMovement EM = collision.GetComponent<EnemyMovement>();
         AISpecialEffect AIS = collision.GetComponent<AISpecialEffect>();
+        Damageable damageable = collision.GetComponent<Damageable>();
 
         // check which type of movement control the
         // enemy is using
         if (EM != null && AIS == null)
         {
             EM.SlowedDown(SlowingFraction, Duration);
+            damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
         }
 
         if (EM == null && AIS != null)
         {
             AIS.SlowedDown(SlowingFraction, Duration);
+            damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
         }
     }

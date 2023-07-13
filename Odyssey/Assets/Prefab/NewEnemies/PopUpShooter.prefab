@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: -7583078852303216938}
   - component: {fileID: 1135891095314628224}
   - component: {fileID: -8242783290835839620}
+  - component: {fileID: 9074865618709812604}
   m_Layer: 9
   m_Name: PopUpShooter
   m_TagString: Untagged
@@ -405,6 +406,19 @@ MonoBehaviour:
   EnemyGFX: {fileID: 3288284120177072944}
   BodyCollider: {fileID: 0}
   AttackCollider: {fileID: 0}
+--- !u!114 &9074865618709812604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392905126770334787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4db6ce54e8f4d80a79257d3a7c89b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinPrefab: {fileID: 2812790724153507800, guid: caf45f450575d4bd0af3f58ae427d436, type: 3}
 --- !u!1 &3764202157308024261
 GameObject:
   m_ObjectHideFlags: 0

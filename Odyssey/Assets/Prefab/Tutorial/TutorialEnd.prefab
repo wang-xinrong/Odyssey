@@ -2287,6 +2287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 6372848009179262025, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6874140744876664331, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -2321,7 +2325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: Town
---- !u!61 &1367789662476407661
+--- !u!61 &1662144589585014204
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

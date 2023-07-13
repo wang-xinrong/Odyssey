@@ -21,12 +21,23 @@ public class GameStatus : MonoBehaviour
     public Inventory Inventory;
     public PauseMenu PauseMenu;
     public UIManager CutScene;
+    public BuildingActivator Shop;
+    public BuildingActivator Castle;
+    public BuildingActivator Statue;
+
     public bool IsGamePaused = false;
 
     // Update is called once per frame
     void Update()
     {
-        IsGamePaused = Inventory.IsInventoryOpen || PauseMenu.isPaused || CutScene.IsCutSceneOn;
+        IsGamePaused = Inventory.IsInventoryOpen
+            || PauseMenu.isPaused
+            || CutScene.IsCutSceneOn;
+        /*
+        || Shop.IsBuildingPanelOpen
+            || Castle.IsBuildingPanelOpen
+            || Statue.IsBuildingPanelOpen;
+        */
         Time.timeScale = IsGamePaused ? 0 : 1;
     }
 }

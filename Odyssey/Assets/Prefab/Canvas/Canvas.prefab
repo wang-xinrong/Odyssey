@@ -1421,9 +1421,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec46a46997baa4db39192c21ee8458be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 339948463}
   PauseMenu: {fileID: 7353996208185024318}
   CutScene: {fileID: 0}
+  Shop: {fileID: 0}
+  Castle: {fileID: 0}
+  Statue: {fileID: 0}
   IsGamePaused: 0
 --- !u!114 &1637499965
 MonoBehaviour:
@@ -5623,6 +5626,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9040393564895896846}
     m_Modifications:
+    - target: {fileID: 1381350135115338523, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381350135115338523, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1637499965}
+    - target: {fileID: 1381350135115338523, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381350135115338523, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Town1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381350135745044176, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1637499965}
+    - target: {fileID: 1381350135745044176, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1381350136191498232, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

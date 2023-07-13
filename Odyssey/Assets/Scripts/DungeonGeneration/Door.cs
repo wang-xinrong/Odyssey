@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Door : MonoBehaviour
 {
+    public GameObject Arrow;
+
     public enum DoorType
     {
         left, right, top, bottom
@@ -31,6 +33,7 @@ public class Door : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponentInChildren<TilemapRenderer>().enabled = false;
+            Arrow.SetActive(true);
             _isLocked = false;
         }
 
@@ -38,6 +41,7 @@ public class Door : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
             gameObject.GetComponentInChildren<TilemapRenderer>().enabled = true;
+            Arrow.SetActive(false);
             _isLocked = true;
         }
     }

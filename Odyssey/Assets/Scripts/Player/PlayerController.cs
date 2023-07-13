@@ -279,15 +279,22 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             _currentState = State.Hurt;
             PlayAnimation(weapon.CharHurt);
             _rb.velocity = new Vector2(knockback.x, knockback.y);
+            return;
+        }
+        // this character is dead
+        if (charNumber == 0)
+        {
+            _mainPlayerController.OnDisplayPrimaryCharacter.Invoke("dead", true);
         }
         else
         {
-            _currentState = State.Death;
-            PlayAnimation(weapon.CharDeath);
-            // the player would not be able to move the character
-            // if it is dead after taking the damage
-            _rb.velocity = Vector2.zero;
+            _mainPlayerController.OnDisplaySecondaryCharacter.Invoke("dead", true);
         }
+        _currentState = State.Death;
+        PlayAnimation(weapon.CharDeath);
+        // the player would not be able to move the character
+        // if it is dead after taking the damage
+        _rb.velocity = Vector2.zero;
     }
 
     public Vector2 GetDirectionFacing()

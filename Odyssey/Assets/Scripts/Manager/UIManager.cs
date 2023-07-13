@@ -123,20 +123,22 @@ public class UIManager : MonoBehaviour
 
     public void DisplayPrimaryCharacterIcon(string charName, bool isActive)
     {
+        string resource = charName == "dead" ? charName : charName + isActive;
         if (isActive)
         {
             currentCharacterIcon = primaryCharacterIcon;
         }
-        primaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
+        primaryCharacterIcon.sprite = Resources.Load<Sprite>(resource);
     }
 
     public void DisplaySecondaryCharacterIcon(string charName, bool isActive)
     {
+        string resource = charName == "dead" ? charName : charName + isActive;
         if (isActive)
         {
             currentCharacterIcon = secondaryCharacterIcon;
         }
-        secondaryCharacterIcon.sprite = Resources.Load<Sprite>(charName);
+        secondaryCharacterIcon.sprite = Resources.Load<Sprite>(resource);
     }
 
     public void DisplaySwapCharacterPrompt()

@@ -6,7 +6,7 @@ public class BossDialogueLauncher : MonoBehaviour
 {
     public delegate void DisplayDialogue(List<Dialogue> dialogues);
     public static event DisplayDialogue OnDisplayDialogue;
-    public Room room; 
+    private Room room; 
     public List<Dialogue> StageOneDialogues = new List<Dialogue>();
     public List<Dialogue> StageTwoDialogues = new List<Dialogue>();
     public List<Dialogue> StageThreeDialogues = new List<Dialogue>();

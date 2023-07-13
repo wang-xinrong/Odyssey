@@ -19,6 +19,7 @@ public class Portal : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            DataCarrier.Instance.UpdateInventoryData();
             SceneManager.LoadScene(destination);
         }
     }

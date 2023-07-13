@@ -15,7 +15,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public TMP_Text countText;
 
     [HideInInspector] public Transform parentAfterDrag;
-    [HideInInspector] public int Count = 1;
+    public int Count = 1;
 
     private void Awake()
     {

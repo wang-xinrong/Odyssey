@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossRoomEnemyCount : MonoBehaviour
 {
-    public Room Room;
+    private Room Room;
     public GameObject Boss;
     private int _noOfEnemiesAlive;
 

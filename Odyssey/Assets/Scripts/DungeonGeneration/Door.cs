@@ -13,9 +13,17 @@ public class Door : MonoBehaviour
         left, right, top, bottom
     }
     public DoorType doorType;
+    private BoxCollider2D boxCollider2D;
+    private TilemapRenderer tilemapRenderer;
 
     private bool _exist = true;
     private bool _isLocked = false;
+
+    private void Start()
+    {
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        tilemapRenderer = GetComponentInChildren<TilemapRenderer>();
+    }
 
     public void HasDoor(bool value)
     {
@@ -26,21 +34,24 @@ public class Door : MonoBehaviour
 
     public void LockDoor(bool value)
     {
+
         if (!_exist) return;
-        if (value == _isLocked) return;
+        // the line below is affecting the behaviour of arrow
+        // activation code, thus commented it out.
+        //if (value == _isLocked) return;
 
         if (value == false)
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponentInChildren<TilemapRenderer>().enabled = false;
+            boxCollider2D.enabled = false;
+            tilemapRenderer.enabled = false;
             Arrow.SetActive(true);
             _isLocked = false;
         }
 
         if (value == true)
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            gameObject.GetComponentInChildren<TilemapRenderer>().enabled = true;
+            boxCollider2D.enabled = true;
+            tilemapRenderer.enabled = true;
             Arrow.SetActive(false);
             _isLocked = true;
         }

@@ -710,8 +710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -35}
-  m_SizeDelta: {x: 170, y: 60}
+  m_AnchoredPosition: {x: 90, y: -35}
+  m_SizeDelta: {x: 180, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6418898807908336017
 CanvasRenderer:
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5372549, g: 0.3019608, b: 0.08235294, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -939,7 +939,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 170, y: 60}
+  m_SizeDelta: {x: 175, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5905060914951512846
 CanvasRenderer:
@@ -2716,7 +2716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863744050809420023, guid: 239d87ee22c1b423082d9f35dbef5718, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7650260039892191806, guid: 239d87ee22c1b423082d9f35dbef5718, type: 3}
       propertyPath: m_Pivot.x
@@ -2918,7 +2918,7 @@ PrefabInstance:
     - target: {fileID: 2121418079535627387, guid: 5289923b93ff14639828a4867bf746fe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1637499965}
+      objectReference: {fileID: 0}
     - target: {fileID: 2121418079535627387, guid: 5289923b93ff14639828a4867bf746fe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadScene
@@ -2943,7 +2943,7 @@ PrefabInstance:
     - target: {fileID: 7343344703839323460, guid: a5bf47e967064424e806d1f782752d30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1637499965}
+      objectReference: {fileID: 0}
     - target: {fileID: 7343344703839323460, guid: a5bf47e967064424e806d1f782752d30, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StartMenu, MyScripts
@@ -5290,20 +5290,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1459288703}
+      objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClick
+      value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5311,11 +5315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnterButtonScript, Assembly-CSharp
+      value: StartMenu, MyScripts
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: DataCarrier, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MS2Chapter1
       objectReference: {fileID: 0}
     - target: {fileID: 306991868708279208, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5628,7 +5636,7 @@ PrefabInstance:
     - target: {fileID: 2239682206183441210, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 8400000, guid: ad7c19f9cd22445f096b84e822e6084f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2624680088465788367, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_Name
       value: Minimap
@@ -5667,11 +5675,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088223661872011126, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 190
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 5088223661872011126, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 5088223661872011126, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5703,11 +5711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088223661872011126, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 85
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5088223661872011126, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 5088223661872011126, guid: 3c0662f58e77543bda8bf6d150cfe773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

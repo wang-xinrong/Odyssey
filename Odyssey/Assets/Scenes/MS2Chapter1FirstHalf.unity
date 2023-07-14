@@ -1637,6 +1637,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 232a559a3fa6041fca9208217d635978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1482846072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5147733459911188351, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1482846073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2157329610057491769, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1482846074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5190715595417349731, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1482846075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4280431913327781967, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1482846076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6135651597802121681, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1482846077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1207004789977036695, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1492934842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1982,30 @@ PrefabInstance:
       propertyPath: HealthDamageTextManager
       value: 
       objectReference: {fileID: 1069614168}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: newWeaponValues.Array.data[0]
+      value: 
+      objectReference: {fileID: 1482846077}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: newWeaponValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 1482846076}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: newWeaponValues.Array.data[2]
+      value: 
+      objectReference: {fileID: 1482846075}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: oldWeaponValues.Array.data[0]
+      value: 
+      objectReference: {fileID: 1482846074}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: oldWeaponValues.Array.data[1]
+      value: 
+      objectReference: {fileID: 1482846073}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: oldWeaponValues.Array.data[2]
+      value: 
+      objectReference: {fileID: 1482846072}
     - target: {fileID: 5877286956655759449, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: m_Name
       value: UIManager

@@ -58,8 +58,17 @@ MonoBehaviour:
   DialogueText: {fileID: 0}
   playerDialogueIcon: {fileID: 0}
   otherDialogueIcon: {fileID: 0}
+  newWeaponValues:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  oldWeaponValues:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsCutSceneOn: 0
   GameCanvas: {fileID: 0}
+  HealthDamageTextManager: {fileID: 0}
   currDialogues: []
 --- !u!114 &1792697251
 MonoBehaviour:

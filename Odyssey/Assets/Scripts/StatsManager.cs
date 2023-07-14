@@ -110,7 +110,7 @@ public class StatsManager : MonoBehaviour
 
         BossHealth = new Dictionary<string, int[]>()
         {
-            { "LevelOneBoss", new int[] {1500, 1500, 1500 } }
+            { "LevelOneBoss", new int[] {1, 1, 1 } }
         };
 
         BossMS_AD_SI = new Dictionary<string, float[]>()

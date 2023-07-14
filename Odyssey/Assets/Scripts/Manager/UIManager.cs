@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text[] newWeaponValues;
     public TMP_Text[] oldWeaponValues;
     public GameObject gameOverPanel;
+    public GameObject clearChapterPanel;
 
     //private Weapon currWeapon;
 
@@ -182,6 +183,11 @@ public class UIManager : MonoBehaviour
     public void DisplayGameOverPanel()
     {
         gameOverPanel.SetActive(true);
+    }
+
+    public void DisplayChapterClearPanel()
+    {
+        clearChapterPanel.SetActive(true);
     }
 
     public void CharacterHurt(GameObject character, int damageReceived)

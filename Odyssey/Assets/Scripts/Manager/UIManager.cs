@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     public bool IsCutSceneOn = false;
 
     public Canvas GameCanvas;
+    public GameObject HealthDamageTextManager;
 
     public List<Dialogue> currDialogues; 
     private int currDialogueIndex = -1;
@@ -170,8 +171,10 @@ public class UIManager : MonoBehaviour
         // the character was hit
         Vector3 _spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
 
-        TMP_Text _tmpText = Instantiate(DamageTextPrefab, _spawnPosition
-                                , Quaternion.identity, GameCanvas.transform)
+        TMP_Text _tmpText = Instantiate(DamageTextPrefab
+                                , _spawnPosition
+                                , Quaternion.identity
+                                , HealthDamageTextManager.transform)
                                 .GetComponent<TMP_Text>();
 
         /*
@@ -195,8 +198,10 @@ public class UIManager : MonoBehaviour
     {
         Vector3 _spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
 
-        TMP_Text _tmpText = Instantiate(HealthTextPrefab, _spawnPosition
-                                , Quaternion.identity, GameCanvas.transform)
+        TMP_Text _tmpText = Instantiate(HealthTextPrefab
+                                , _spawnPosition
+                                , Quaternion.identity
+                                , HealthDamageTextManager.transform)
                                 .GetComponent<TMP_Text>();
 
         _tmpText.text = healthRestored.ToString();

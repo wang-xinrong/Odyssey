@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     [Header("Only UI")]
-    public bool Stackable = false;
+    public bool Stackable = true;
 
     [Header("Both")]
     public string NameString;

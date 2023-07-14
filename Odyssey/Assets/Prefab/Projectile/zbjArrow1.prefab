@@ -177,9 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d696b4f41c6442f9d337f8b9598b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileTargetType: 0
+  ProjectileTargetType: 1
   Speed: 30
-  Damage: 10
-  KnockBack: {x: 7, y: 0}
+  Damage: 25
+  KnockBack: {x: 0.5, y: 0.5}
   SlowingFraction: 0.1
   Duration: 5

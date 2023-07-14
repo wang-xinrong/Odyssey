@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1447548587
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2072784735, guid: 295ee6f5da2524eee859e25b022268f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,4 +163,4 @@ MonoBehaviour:
   ProjectileTargetType: 0
   Speed: 3
   Damage: 10
-  KnockBack: {x: 7, y: 0}
+  KnockBack: {x: 0.5, y: 0.5}

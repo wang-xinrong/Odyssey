@@ -264,6 +264,8 @@ public class MainPlayerController : MonoBehaviour
 
         SP = Mathf.Min(MaxSP, SP + amount);
 
+        SPIncremented.Invoke(SP, MaxSP);
+
         return true;
     }
 

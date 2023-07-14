@@ -5,20 +5,16 @@ using UnityEngine.Events;
 
 public class ClearBossRoom : MonoBehaviour
 {
-    private Room room;
+    public Room room;
     private bool hasClearedChapter = false;
     public UnityEvent OnDisplayClearChapterPanel;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        room = GetComponent<Room>();
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (room.Cleared && !hasClearedChapter)
         {
+            Debug.LogWarning("cleared chapter");
             hasClearedChapter = true;
             OnDisplayClearChapterPanel.Invoke();
         }

@@ -246,3 +246,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6439141448415922945, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
   m_PrefabInstance: {fileID: 1612844025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1612844027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6439141448415922947, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
+  m_PrefabInstance: {fileID: 1612844025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612844028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612844027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41444451dbb9249a8ade260cc6f16738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 1612844029}
+  OnDisplayClearChapterPanel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+        m_TargetAssemblyTypeName: UIManager, MyScripts
+        m_MethodName: DisplayChapterClearPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1612844029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6439141448415922946, guid: ec82c557ec5684da8862cdb73bffa1b7, type: 3}
+  m_PrefabInstance: {fileID: 1612844025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612844027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd0241ef3edc40d6b53eb1604be96c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

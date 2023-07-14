@@ -21,6 +21,10 @@ public class UIManager : MonoBehaviour
     public TMP_Text DialogueText;
     public GameObject playerDialogueIcon;
     public GameObject otherDialogueIcon;
+    public TMP_Text[] newWeaponValues;
+    public TMP_Text[] oldWeaponValues;
+
+    //private Weapon currWeapon;
 
     public bool IsCutSceneOn = false;
 
@@ -156,11 +160,20 @@ public class UIManager : MonoBehaviour
     {
         SwapCharacterPrompt.SetActive(false);
         SwapInterface.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            newWeaponValues[i].text = weapon.combos[i].damage.ToString();
+        }
         newWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
     }
     public void DisplayCurrentWeapon(Weapon weapon)
     {
-        Debug.LogWarning("received weapon");
+        //currWeapon = weapon;
+        for (int i = 0; i < 3; i++)
+        {
+            oldWeaponValues[i].text = weapon.combos[i].damage.ToString();
+        }
+        //Debug.LogWarning("received weapon");
         currentWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
     }
 

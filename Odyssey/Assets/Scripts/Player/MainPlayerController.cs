@@ -40,15 +40,23 @@ public class MainPlayerController : MonoBehaviour
     // vector (in up-down-left-right directions)
     private Vector2 _lastMovement = Vector2.down;
 
+    PlayerController primary;
+    PlayerController secondary;
+    Damageable primaryDamageable;
+    Damageable secondaryDamageable;
+
     // Start is called before the first frame update
     void Start()
     {
         _healthBar = GameObject.Find("HealthBar");
+        primary = char1.GetComponent<PlayerController>();
+        secondary = char2.GetComponent<PlayerController>();
+        primaryDamageable = char1.GetComponent<Damageable>();
+        secondaryDamageable = char2.GetComponent<Damageable>();
         char1.SetActive(true);
         char2.SetActive(false);
         // set up the initial direction faced by the sprite
-        PlayerController primary = char1.GetComponent<PlayerController>();
-        PlayerController secondary = char2.GetComponent<PlayerController>();
+        
         if (!primary)
         {
             return;
@@ -177,8 +185,8 @@ public class MainPlayerController : MonoBehaviour
     {
         if (!CanSwap) return;
 
-        if (!char1.GetComponent<PlayerController>().IsAlive()) return;
-        if (!char2.GetComponent<PlayerController>().IsAlive()) return;
+        if (!primary.IsAlive()) return;
+        if (!secondary.IsAlive()) return;
 
         if (context.started && SP >= 20) {
             isChar1 = !isChar1;
@@ -257,5 +265,10 @@ public class MainPlayerController : MonoBehaviour
         SP = Mathf.Min(MaxSP, SP + amount);
 
         return true;
+    }
+
+    public Vector3 GetCharPosition()
+    {
+        return char1.transform.position;
     }
 }

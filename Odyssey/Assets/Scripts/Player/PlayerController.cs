@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public Animator Animator;
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
-    private Damageable _damageable;
+    public Damageable _damageable;
     public Directions Direction = new Directions();
 
 
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     {
         _rb = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
-        _damageable = GetComponent<Damageable>();
+        //_damageable = GetComponent<Damageable>();
         _specialAttack = GetComponent<SpecialAttack>();
         //weapon = GetComponent<Weapon>();
         // the default direction setup for the sprite

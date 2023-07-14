@@ -1088,6 +1088,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: OnDisplayGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1792697249}
+    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: OnDisplayGameOver.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayGameOverPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616900526452707571, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: OnDisplayCurrentWeapon.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1792697249}
@@ -1593,6 +1601,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 698285808, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
   m_PrefabInstance: {fileID: 339948460}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1046961596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2889978016112706854, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1069614168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2941952305943879992, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
@@ -1946,6 +1959,10 @@ PrefabInstance:
       propertyPath: SwapInterface
       value: 
       objectReference: {fileID: 1509828784}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1046961596}
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: newWeaponIcon
       value: 

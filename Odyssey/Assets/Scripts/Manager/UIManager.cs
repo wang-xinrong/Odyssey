@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     public GameObject otherDialogueIcon;
     public TMP_Text[] newWeaponValues;
     public TMP_Text[] oldWeaponValues;
+    public GameObject gameOverPanel;
 
     //private Weapon currWeapon;
 
@@ -176,6 +177,11 @@ public class UIManager : MonoBehaviour
         }
         //Debug.LogWarning("received weapon");
         currentWeaponIcon.sprite = Resources.Load<Sprite>(weapon.SpritePath);
+    }
+
+    public void DisplayGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
     }
 
     public void CharacterHurt(GameObject character, int damageReceived)

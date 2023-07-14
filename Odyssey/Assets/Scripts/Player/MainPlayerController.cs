@@ -40,6 +40,9 @@ public class MainPlayerController : MonoBehaviour
     // vector (in up-down-left-right directions)
     private Vector2 _lastMovement = Vector2.down;
 
+    private bool isGameOver = false;
+    public UnityEvent OnDisplayGameOver;
+
     PlayerController primary;
     PlayerController secondary;
     Damageable primaryDamageable;
@@ -146,6 +149,11 @@ public class MainPlayerController : MonoBehaviour
         if (!char1.GetComponent<PlayerController>().IsAlive() &&
             !char2.GetComponent<PlayerController>().IsAlive())
         {
+            if (!isGameOver)
+            {
+                isGameOver = true;
+                OnDisplayGameOver.Invoke();
+            }
             return;
         } else
         {

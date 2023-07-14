@@ -19,7 +19,7 @@ public class Door : MonoBehaviour
     private bool _exist = true;
     private bool _isLocked = false;
 
-    private void Start()
+    private void Awake()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
         tilemapRenderer = GetComponentInChildren<TilemapRenderer>();
@@ -40,20 +40,9 @@ public class Door : MonoBehaviour
         // activation code, thus commented it out.
         //if (value == _isLocked) return;
 
-        if (value == false)
-        {
-            boxCollider2D.enabled = false;
-            tilemapRenderer.enabled = false;
-            Arrow.SetActive(true);
-            _isLocked = false;
-        }
-
-        if (value == true)
-        {
-            boxCollider2D.enabled = true;
-            tilemapRenderer.enabled = true;
-            Arrow.SetActive(false);
-            _isLocked = true;
-        }
+        boxCollider2D.enabled = value;
+        tilemapRenderer.enabled = value;
+        Arrow.SetActive(!value);
+        _isLocked = value;
     }
 }

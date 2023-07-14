@@ -19,6 +19,10 @@ public class BuildingActivator : MonoBehaviour
         if (!collision.CompareTag("Player")) return;
 
         IsNearBuilding = true;
+
+        collision.transform.parent
+            .GetComponentInChildren<KeyPressPromptPositionUpdate>()
+            .PlayEAnimation(null);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -26,6 +30,10 @@ public class BuildingActivator : MonoBehaviour
         if (!collision.CompareTag("Player")) return;
 
         IsNearBuilding = false;
+
+        collision.transform.parent
+            .GetComponentInChildren<KeyPressPromptPositionUpdate>()
+            .StopPlayingAnimation();
     }
 
     public void OnOpenBuildingPanel(InputAction.CallbackContext context)

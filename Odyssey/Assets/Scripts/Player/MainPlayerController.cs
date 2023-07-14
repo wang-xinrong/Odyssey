@@ -271,4 +271,10 @@ public class MainPlayerController : MonoBehaviour
     {
         return char1.transform.position;
     }
+
+    public PlayerController GetCurrentCharacterPlayerController()
+    {
+        return isChar1 ? primary
+                       : secondary;
+    }
 }

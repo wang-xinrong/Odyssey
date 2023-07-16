@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 795543630, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 795543630, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9775563cc8b2446e6a43770c25dfeb72, type: 2}
+    - target: {fileID: 795543630, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 12ed123dcc2a94aaf8122086ff95c80c, type: 2}
+    - target: {fileID: 795543630, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5394d4af1888d4cbe8aedac69cced4c5, type: 2}
+    - target: {fileID: 795543630, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e9028199a49d4729adf39955807428a, type: 2}
     - target: {fileID: 2735724673221359070, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
       propertyPath: m_TileColorArray.Array.size
       value: 2

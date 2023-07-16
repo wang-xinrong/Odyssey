@@ -1099,8 +1099,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Name\nHP Increase\nSP Increase\nSpeed Increase\nDamage Increase\nDuration
-    (secs)\nPrice\n        Description"
+  m_text: 'Name
+
+    HP Increase
+
+    SP Increase
+
+    Speed Increase
+
+    Damage
+    Increase
+
+    Duration (secs)
+
+    Price
+
+    Description'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
   m_sharedMaterial: {fileID: 7231086659132060869, guid: e9f5974c1e229443e88c678bc17878ec, type: 2}
@@ -1133,7 +1147,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535

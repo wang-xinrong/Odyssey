@@ -196,11 +196,11 @@ public class MainPlayerController : MonoBehaviour
         if (!primary.IsAlive()) return;
         if (!secondary.IsAlive()) return;
 
-        if (context.started && SP >= 20) {
+        if (context.started && SP >= 10) {
             isChar1 = !isChar1;
             
             SwapCharacters();
-            decrementSPBy(20, -1);
+            decrementSPBy(10, -1);
         }
     }
 

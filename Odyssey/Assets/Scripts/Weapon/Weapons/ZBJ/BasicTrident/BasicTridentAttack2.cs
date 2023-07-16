@@ -7,6 +7,6 @@ public class BasicTridentAttack2 : WeaponAttack
     public BasicTridentAttack2()
     {
         animationName = "BasicAttack2";
-        damage = 5;
+        damage = 20;
     }
 }

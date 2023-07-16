@@ -29,18 +29,14 @@ public class ShopItemCard : MonoBehaviour
     public GameObject Texts;
     public GameObject Icon;
 
+    //for "enlargement" when clicked
+    public delegate void ClickItemCard(ShopItemCard shopItemCard);
+    public static event ClickItemCard OnClickItemCard;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!item)
-        {
-            setEveryUIInactive();
-            return;
-        }
-
-        Image.sprite = item.Image;
-        SetUpText();
+        SetUp();
     }
 
     private void setEveryUIInactive()
@@ -95,5 +91,22 @@ public class ShopItemCard : MonoBehaviour
     public void Purchase()
     {
         InventoryManager.Instance.Purchase(item, quantity);
+    }
+
+    public void OnEnlarge()
+    {
+        OnClickItemCard.Invoke(this);
+    }
+
+    public void SetUp()
+    {
+        if (!item)
+        {
+            setEveryUIInactive();
+            return;
+        }
+
+        Image.sprite = item.Image;
+        SetUpText();
     }
 }

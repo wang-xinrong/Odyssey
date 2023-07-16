@@ -218,10 +218,11 @@ public class RoomController : MonoBehaviour
     {
         CameraController.instance.currRoom = room;
         room.ActivateAllEnemies(true);
+        room.Reached = true;
         yield return new WaitForSeconds(.5f);
         Debug.Log("triggered");
         currRoom = room;
-        room.Reached = true;
+        //room.Reached = true;
 
     }
 

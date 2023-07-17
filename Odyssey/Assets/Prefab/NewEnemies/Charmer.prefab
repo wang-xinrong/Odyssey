@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 2394233367461404136}
   - component: {fileID: -1206150281034453651}
   - component: {fileID: 6174981945187907581}
+  - component: {fileID: 3552627116920002084}
   m_Layer: 9
   m_Name: Charmer
   m_TagString: Untagged
@@ -379,6 +380,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinPrefab: {fileID: 2812790724153507800, guid: caf45f450575d4bd0af3f58ae427d436, type: 3}
+--- !u!114 &3552627116920002084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842905589625732597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd11ff2677cf44168012709cefb17a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 981730f6250db4c099c9bd3edc74f7dc, type: 2}
+  duration: 0.1
 --- !u!1 &4081983467752864172
 GameObject:
   m_ObjectHideFlags: 0

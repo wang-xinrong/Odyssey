@@ -36,6 +36,7 @@ public class ZBJSpecialAttackProjectile : Projectile
             EM.SlowedDown(SlowingFraction, Duration);
             damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
+            return;
         }
 
         if (EM == null && AIS != null)
@@ -43,6 +44,11 @@ public class ZBJSpecialAttackProjectile : Projectile
             AIS.SlowedDown(SlowingFraction, Duration);
             damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
+            return;
         }
+
+        damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
+        Destroy(gameObject);
+        return;
     }
 }

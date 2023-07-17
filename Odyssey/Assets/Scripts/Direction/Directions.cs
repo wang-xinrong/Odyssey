@@ -6,6 +6,28 @@ using UnityEngine;
 // directions a given gameObject is facing
 public class Directions
 {
+    public static Vector2[] RightFiveDirections = new Vector2[] { Vector2.up
+        , new Vector2(1, 1).normalized
+        , Vector2.right
+        , new Vector2(1, -1).normalized
+        , Vector2.down};
+
+    public static Vector2[] LeftFiveDirections = new Vector2[] { Vector2.up
+        , new Vector2(-1, 1).normalized
+        , Vector2.left
+        , new Vector2(-1, -1).normalized
+        , Vector2.down};
+
+    public static Vector2[] EightDirections = new Vector2[] {
+        Vector2.left
+        , new Vector2(-1, 1).normalized
+        , Vector2.up
+        , new Vector2(1, 1).normalized
+        , Vector2.right
+        , new Vector2(1, -1).normalized
+        , Vector2.down
+        , new Vector2(-1, -1).normalized};
+
     // use to convert float movement input into
     // direction vectors (the 4 unit direction vector)
     public static Vector2 StandardiseDirection(Vector2 moveInput)
@@ -29,14 +51,56 @@ public class Directions
 
     // function to flip objects' sprite around to 3 other directions
     // except the default right direction
+
+    public static Vector2 topLeft = EightDirections[1];
+    public static Vector2 topRight = EightDirections[3];
+    public static Vector2 bottomRight = EightDirections[5];
+    public static Vector2 bottomLeft = EightDirections[7];
+
+
+
     public static void FlipSprite(GameObject obj, Vector2 directionVector)
     {
+        Debug.Log("here");
         if (directionVector.magnitude != 1)
         {
             Debug.LogError("direction vector provided is not a unit vector");
         }
         else
         {
+            if (directionVector == topRight)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 45);
+            }
+            if (directionVector == Vector2.up)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
+            if (directionVector == topLeft)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 135);
+            }
+            if (directionVector == Vector2.left)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 180);
+                /*
+                Vector3 v = obj.transform.localScale;
+                obj.transform.localScale = new Vector3(-1 * v.x, v.y, v.z);
+                */
+            }
+            if (directionVector == bottomLeft)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 225);
+            }
+            if (directionVector == Vector2.down)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 270);
+            }
+            if (directionVector == bottomRight)
+            {
+                obj.transform.rotation = Quaternion.Euler(0, 0, 315);
+            }
+            /*
             // the if-else conditionals set up the direction of the sprite
             if (directionVector == Vector2.up)
             {
@@ -51,13 +115,19 @@ public class Directions
                 Vector3 v = obj.transform.localScale;
                 obj.transform.localScale = new Vector3(-1 * v.x, v.y, v.z);
             }
-            /*
+            
             if (directionVector == Vector2.right)
             {
                 obj.transform.localScale = new Vector3(1, 1, 1);
             }
             */
         }
+    }
+
+    public static void FlipSpriteWithIndex(GameObject obj, int index)
+    {
+        Debug.Log("here");
+        obj.transform.rotation = Quaternion.Euler(0, 0, 180 - index * 45);
     }
 
     // function to rotate objects' sprite with an angle in [0, 360]
@@ -144,27 +214,7 @@ public class Directions
         go.transform.position = parentPosition;
     }
 
-    public static Vector2[] RightFiveDirections = new Vector2[] { Vector2.up
-        , new Vector2(1, 1).normalized
-        , Vector2.right
-        , new Vector2(1, -1).normalized
-        , Vector2.down};
-
-    public static Vector2[] LeftFiveDirections = new Vector2[] { Vector2.up
-        , new Vector2(-1, 1).normalized
-        , Vector2.left
-        , new Vector2(-1, -1).normalized
-        , Vector2.down};
-
-    public static Vector2[] EightDirections = new Vector2[] {
-        Vector2.left
-        , new Vector2(-1, 1).normalized
-        , Vector2.up
-        , new Vector2(1, 1).normalized
-        , Vector2.right
-        , new Vector2(1, -1).normalized
-        , Vector2.down
-        , new Vector2(-1, -1).normalized};
+    
 
     // this is used for generation of movement points, thus the point
     // needs not to be removed from the list

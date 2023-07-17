@@ -114,7 +114,7 @@ public class EnemyProjectileLauncher : MonoBehaviour
             , _projectileManager.transform);
 
             projectile.GetComponent<ProjectileDirection>().
-                          SetDirectionForEnemyProjectile(Directions.EightDirections[i]);
+                          SetDirectionForEightDirectionalProjectiles(i);
         }
     }
 
@@ -128,7 +128,7 @@ public class EnemyProjectileLauncher : MonoBehaviour
             , _projectileManager.transform);
 
             projectile.GetComponent<ProjectileDirection>().
-                          SetDirectionForEnemyProjectile(Directions.EightDirections[i]);
+                          SetDirectionForEightDirectionalProjectiles(i);
         }
     }
 }

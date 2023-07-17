@@ -76,7 +76,10 @@ public class Damageable : MonoBehaviour
                 }
                 else if (GetComponent<TutorialEnemy>())
                 {
-                    GetComponent<TutorialEnemy>().OnDeath();
+                    //this statement is replaced by calling OnDeath during death animation,
+                    // but the condition is necessary to avoid falling into next
+                    // conditional bracket
+                    //GetComponent<TutorialEnemy>().OnDeath();
                 }
                 else // if in intermediate room
                 {

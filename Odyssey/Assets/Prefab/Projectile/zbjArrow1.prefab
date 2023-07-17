@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4403430882151410497}
   - component: {fileID: 3946919205185167562}
   - component: {fileID: 5763664109611732729}
+  - component: {fileID: 6391407764234914835}
   m_Layer: 10
   m_Name: zbjArrow1
   m_TagString: Untagged
@@ -205,3 +206,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6391407764234914835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957113067568804074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f896a196948e04026a135effd6033b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 54504f110b03a4febad31fcbf81651f0, type: 3}
+  IsBGM: 0
+  Location: 

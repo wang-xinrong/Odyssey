@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6871441878405517294}
   - component: {fileID: 8848420310900479706}
   - component: {fileID: 2304445551908333555}
+  - component: {fileID: 6547220741479270460}
   m_Layer: 10
   m_Name: ZBJSpecialAttackProjectile
   m_TagString: Untagged
@@ -188,3 +189,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6547220741479270460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957113067568804074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f896a196948e04026a135effd6033b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 54504f110b03a4febad31fcbf81651f0, type: 3}
+  IsBGM: 0
+  Location: 

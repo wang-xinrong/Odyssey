@@ -6,7 +6,9 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [SerializeField] private AudioSource _musicSource;
+    [SerializeField]
+    private AudioSource _startMenuBGMSource, _effectSource
+        , _townBGMSource, _chapterBGMSource, _tutorialBGMSource;
 
     private void Awake()
     {
@@ -23,19 +25,37 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(AudioClip audioClip)
     {
-
+        _effectSource.PlayOneShot(audioClip);
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void PlayBGM(string location)
     {
+        SilentAllBGMSources();
+        switch (location)
+        {
+            case "StartMenu":
+                _startMenuBGMSource.Play();
+                break;
 
+            case "Town":
+                _townBGMSource.Play();
+                break;
+
+            case "Chapter":
+                _chapterBGMSource.Play();
+                break;
+
+            case "Tutorial":
+                _tutorialBGMSource.Play();
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SilentAllBGMSources()
     {
-
+        _startMenuBGMSource.Stop();
+        _townBGMSource.Stop();
+        _chapterBGMSource.Stop();
+        _tutorialBGMSource.Stop();
     }
 }

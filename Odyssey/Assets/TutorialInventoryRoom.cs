@@ -10,20 +10,19 @@ public class TutorialInventoryRoom : Room
     private bool hasDamaged = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (hasDamaged)
+        if (other.tag != "Player" || !other.isActiveAndEnabled)
         {
             return;
         }
-        if (other.tag == "Player" && other.isActiveAndEnabled)
+        if (!hasDamaged)
         {
             hasDamaged = true;
-            Debug.LogWarning(other.GetComponent<Collider>());
             dmg = other.GetComponent<Damageable>();
             dmg.OnHurt(20, Vector2.zero);
             InventoryManager.Instance.OverwriteSlotItem(potion, 1, 6);
             NoOfEnemiesAlive++;
-            RoomController.instance.OnPlayerEnterRoom(this);
         }
+        RoomController.instance.OnPlayerEnterRoom(this);
     }
     void Update()
     {

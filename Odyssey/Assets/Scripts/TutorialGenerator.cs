@@ -6,7 +6,7 @@ public class TutorialGenerator : MonoBehaviour
 {
     public int startX;
     public int startY;
-    public string[] rooms = new string[]{"Start", "Attack", "SP", "End"};
+    public string[] rooms = new string[]{"Start", "Attack", "SP", "Inventory", "End"};
     // Start is called before the first frame update
     void Start()
     {

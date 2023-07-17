@@ -28,7 +28,18 @@ public class DialogueLauncher : MonoBehaviour
         {
             return;
         }
+
         hasDisplayed = true;
+        StartCoroutine(StartDisplayDialogue(dialogues));
+        /*
+        hasDisplayed = true;
+        OnDisplayDialogue.Invoke(dialogues);
+        */
+    }
+
+    private IEnumerator StartDisplayDialogue(List<Dialogue> dialogues)
+    {
+        yield return new WaitForSeconds(.2f);
         OnDisplayDialogue.Invoke(dialogues);
     }
 }

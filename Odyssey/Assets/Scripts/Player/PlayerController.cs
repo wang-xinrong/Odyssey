@@ -148,6 +148,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
         // this if-else branch of code allows the direction of the character to be updated
         // even when he is in the attack state
+        // commented out to disable the above stated feature
+        /*
         if (_moveInput != Vector2.zero &&
             (_currentState == State.Attack))
         {
@@ -155,6 +157,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             Animator.SetFloat(AnimatorStrings.MoveYInput, _moveInput.y);
             Direction.DirectionVector = Directions.StandardiseDirection(_moveInput);
         }
+        */
     }
 
     public void OnAttack(InputAction.CallbackContext context)

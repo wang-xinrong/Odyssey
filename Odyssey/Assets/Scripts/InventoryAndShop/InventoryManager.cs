@@ -196,4 +196,14 @@ public class InventoryManager : MonoBehaviour
         draggableItem.Count = quantity;
         draggableItem.RefreshCount();
     }
+
+    public bool AnyItemInUsageRow()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (InventorySlots[i].transform.childCount > 0) return true;
+        }
+
+        return false;
+    }
 }

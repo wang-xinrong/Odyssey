@@ -5781,19 +5781,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 397755246752130099, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 397755246752130099, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 410
+      value: 297
+      objectReference: {fileID: 0}
+    - target: {fileID: 905058143283712440, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.85490197
+      objectReference: {fileID: 0}
+    - target: {fileID: 905058143283712440, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 905058143283712440, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.99607843
       objectReference: {fileID: 0}
     - target: {fileID: 1440500690787756661, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1110
+      value: 810
       objectReference: {fileID: 0}
     - target: {fileID: 1440500690787756661, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 420
+      value: 307
       objectReference: {fileID: 0}
     - target: {fileID: 3406956344813375919, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_Name
@@ -5801,12 +5813,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291470036999999838, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1100
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 5291470036999999838, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 410
+      value: 297
       objectReference: {fileID: 0}
+    - target: {fileID: 6833732871917112017, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 670eeaa5c98b842da994f19dfe7a1e55, type: 2}
     - target: {fileID: 6935762779697157243, guid: 6b2c74b1cd57d48498233126a84c907b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

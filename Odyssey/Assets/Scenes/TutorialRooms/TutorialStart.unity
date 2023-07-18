@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 82746351297522277, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_Collider
       value: 
-      objectReference: {fileID: 2086423587030010066}
+      objectReference: {fileID: 0}
     - target: {fileID: 82746351297522277, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.size
       value: 4
@@ -354,6 +354,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2086423587030010068, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086423587030010068, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: a9fba3f71b4e443fe93b3dba84e4f25d, type: 2}
+    - target: {fileID: 2086423587030010068, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dc57f058704614d6d91a95333c522033, type: 2}
     - target: {fileID: 5019290623796300696, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
       propertyPath: doors.Array.size
       value: 0
@@ -428,11 +440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
---- !u!19719996 &2086423587030010066 stripped
-TilemapCollider2D:
-  m_CorrespondingSourceObject: {fileID: 82746351297522274, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
-  m_PrefabInstance: {fileID: 2086423587030010065}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2086423587030010067 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5019290624460118531, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}

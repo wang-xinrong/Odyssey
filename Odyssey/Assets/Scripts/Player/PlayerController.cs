@@ -26,9 +26,11 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public Damageable _damageable;
     public Directions Direction = new Directions();
 
+    /*
     private float bewitchedTimer = 0f;
     private float slowDownTimer = 0f;
     private float speedUpTimer = 0f;
+    */
 
 
     // the player should only be able to call move
@@ -57,6 +59,12 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private float _originalMovementSpeed;
     public float SpeedBoostLimitFactor = 2;
+
+    // for special effect status
+    private bool isBewitched = false;
+    private bool isSlowedDown = false;
+    private bool isSpedUp = false;
+    public UnityEvent<string, int> OnStatusEffect;
 
     public float CurrentMoveSpeed
     {
@@ -116,7 +124,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             _rb.velocity = Vector2.zero;
         }
 
-        UpdateEffectTimers();
+        //UpdateEffectTimers();
     }
 
     public void PlayAnimation(string animationName)
@@ -319,11 +327,16 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     // implementation of methods in UnderSpecialEffect
     public void Bewitched(float duration)
     {
-        setTimer(bewitchedTimer, duration);
+        if (isBewitched) return;
+
+        isBewitched = true;
+        //setTimer(bewitchedTimer, duration);
         ReverseMovementSpeed();
         _mainPlayerController.CanSwap = false;
         Invoke("ResetMovementSpeed", duration);
         Invoke("SetCanSwapTrue", duration);
+        Invoke("SetIsBewitchedFalse", duration);
+        OnStatusEffect.Invoke("bewitched", (int) duration);
     }
 
     private void ReverseMovementSpeed()
@@ -344,16 +357,14 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)
     {
-        setTimer(slowDownTimer, duration);
-        MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
-        Invoke("ResetMovementSpeed", duration);
-    }
+        if (isSlowedDown) return;
 
-    private void SpeedUpAndSetTimer(float fractionOfOriginalSpeed, float duration)
-    {
-        setTimer(speedUpTimer, duration);
+        isSlowedDown = true;
+        //setTimer(slowDownTimer, duration);
         MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
+        Invoke("SetIsSlowedDownFalse", duration);
+        OnStatusEffect.Invoke("slowed", (int) duration);
     }
     
     private void ResetMovementSpeed()
@@ -366,6 +377,21 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         _mainPlayerController.CanSwap = true;
     }
 
+    private void SetIsBewitchedFalse()
+    {
+        isBewitched = false;
+    }
+
+    private void SetIsSlowedDownFalse()
+    {
+        isSlowedDown = false;
+    }
+
+    private void SetIsSpedUpFalse()
+    {
+        isSpedUp = false;
+    }
+
     public bool ReplenishHealth(int amount)
     {
         if (_damageable.Health >= _damageable.MaxHealth) return false;
@@ -375,14 +401,21 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public bool SpeedUp(float fractionOfOriginalSpeed, float duration)
     {
+        if (isSpedUp) return false;
         if (!_damageable.IsAlive) return false;
-        if (CurrentMoveSpeed >= _originalMovementSpeed * SpeedBoostLimitFactor) return false; 
+        if (CurrentMoveSpeed >= _originalMovementSpeed * SpeedBoostLimitFactor) return false;
 
-        SpeedUpAndSetTimer(fractionOfOriginalSpeed, duration);
+        isSpedUp = true;
+        MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
+        Invoke("ResetMovementSpeed", duration);
+        Invoke("SetIsSpedUpFalse", duration);
         // for now always able to speed up unless dead
+        OnStatusEffect.Invoke("haste", (int) duration);
         return true;
     }
 
+
+    /*
     private void setTimer(float timer, float value)
     {
         timer = value;
@@ -438,4 +471,5 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     {
         // can possibly call invoke events here
     }
+    */
 }

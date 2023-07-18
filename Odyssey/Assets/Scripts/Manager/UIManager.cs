@@ -231,4 +231,9 @@ public class UIManager : MonoBehaviour
 
         _tmpText.text = healthRestored.ToString();
     }
+
+    public void DisplayStatusEffect(string status, int duration)
+    {
+        StatusEffectManager.instance.DelegateToGUI(status, duration);
+    }
 }

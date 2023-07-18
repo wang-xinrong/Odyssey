@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public Damageable _damageable;
     public Directions Direction = new Directions();
 
+    private float bewitchedTimer = 0f;
+    private float slowDownTimer = 0f;
+    private float speedUpTimer = 0f;
+
 
     // the player should only be able to call move
     // related functions if he is in the state of
@@ -111,6 +115,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         {
             _rb.velocity = Vector2.zero;
         }
+
+        UpdateEffectTimers();
     }
 
     public void PlayAnimation(string animationName)
@@ -313,6 +319,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     // implementation of methods in UnderSpecialEffect
     public void Bewitched(float duration)
     {
+        setTimer(bewitchedTimer, duration);
         ReverseMovementSpeed();
         _mainPlayerController.CanSwap = false;
         Invoke("ResetMovementSpeed", duration);
@@ -337,6 +344,14 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)
     {
+        setTimer(slowDownTimer, duration);
+        MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
+        Invoke("ResetMovementSpeed", duration);
+    }
+
+    private void SpeedUpAndSetTimer(float fractionOfOriginalSpeed, float duration)
+    {
+        setTimer(speedUpTimer, duration);
         MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
     }
@@ -363,8 +378,64 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         if (!_damageable.IsAlive) return false;
         if (CurrentMoveSpeed >= _originalMovementSpeed * SpeedBoostLimitFactor) return false; 
 
-        SlowedDown(fractionOfOriginalSpeed, duration);
+        SpeedUpAndSetTimer(fractionOfOriginalSpeed, duration);
         // for now always able to speed up unless dead
         return true;
+    }
+
+    private void setTimer(float timer, float value)
+    {
+        timer = value;
+    }
+
+
+    // functions for status icons
+
+    // this function returns timer count of different effects
+    public float GetTimer(string effectName)
+    {
+        switch (effectName)
+        {
+            case "Bewitched":
+                return bewitchedTimer;
+
+            case "SlowDown":
+                return bewitchedTimer;
+
+            case "SpeedUp":
+                return bewitchedTimer;
+
+            default:
+                return -1;
+        }
+    }
+
+    // this is called by PlayerScript in every Update() call
+    private void UpdateEffectTimers()
+    {
+        UpdateTimer(bewitchedTimer, "Bewitched");
+        UpdateTimer(slowDownTimer, "SlowDown");
+        UpdateTimer(speedUpTimer, "SpeedUp");
+    }
+
+    // this updates the timer, with the string timerName as
+    // the distinguisher between different timers
+    private void UpdateTimer(float timer, string timerName)
+    {
+        if (timer <= 0)
+        {
+            ActionAfterCountdown(timerName);
+            timer = 0;
+            return;
+        }
+
+        timer -= Time.deltaTime;
+    }
+
+    // this function is left blank, for possibly implementation
+    // of event invocation or others actions
+    private void ActionAfterCountdown(string timerName)
+    {
+        // can possibly call invoke events here
     }
 }

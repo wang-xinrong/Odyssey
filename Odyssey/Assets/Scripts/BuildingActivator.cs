@@ -40,10 +40,19 @@ public class BuildingActivator : MonoBehaviour
     {
         if (context.started)
         {
+            if (GameStatus.Instance.IsGamePaused && !IsBuildingPanelOpen) return;
+
+
             //temporary fix of the issue that if the player walks
             // away from the building while it is open, the building
             // would not be able to be closed. the better solution would
             // be to pause the game.
+
+            if (!IsNearBuilding) return;
+            BuildingPanel.SetActive(!IsBuildingPanelOpen);
+            IsBuildingPanelOpen = !IsBuildingPanelOpen;
+
+            /*
             if (!IsBuildingPanelOpen)
             {
                 if (!IsNearBuilding) return;
@@ -59,6 +68,7 @@ public class BuildingActivator : MonoBehaviour
                 IsBuildingPanelOpen = !IsBuildingPanelOpen;
                 return;
             }
+            */
         }
     }
 }

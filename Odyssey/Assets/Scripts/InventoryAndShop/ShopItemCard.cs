@@ -7,6 +7,8 @@ using System;
 
 public class ShopItemCard : MonoBehaviour
 {
+    public bool IsBigCard = false;
+
     public Item item;
     public Image Image;
     public TMP_Text DescriptionText;
@@ -79,13 +81,15 @@ public class ShopItemCard : MonoBehaviour
     {
         NameText.text = item.NameString;
         RefreshQuantityText();
+        DescriptionText.text = item.Description;
+        PriceText.text = item.price.ToString();
+        if (!IsBigCard) return;
+
         HPText.text = item.HealthIncrease.ToString();
         SPText.text = item.SPIncrease.ToString();
         SpeedText.text = item.MovementIncrease.ToString();
         DamageText.text = item.DamageIncrease.ToString();
         DurationText.text = item.Duration.ToString();
-        PriceText.text = item.price.ToString();
-        DescriptionText.text = item.Description;
     }
 
     public void Purchase()

@@ -7,12 +7,12 @@ public class OnDetectionSwapMovement : SwapMovementBehaviour
     public Collider2D DetectionZoneCollider;
     private DetectionZone _detectionZone;
 
-    private new void Awake()
+    private new void Start()
     {
-        base.Awake();
+        base.Start();
         _detectionZone = DetectionZoneCollider.GetComponent<DetectionZone>();
         // the default state should be patrolling
-        Swap(CurrentState.Patrol);
+        Invoke("SetBehaviourToSwap", 0.5f);
     }
 
     // Update is called once per frame
@@ -21,5 +21,10 @@ public class OnDetectionSwapMovement : SwapMovementBehaviour
         // chases the player if he is detected, else resume patrolling
         if (_detectionZone.PlayerDetected) Swap(CurrentState.Chasing);
         if (!_detectionZone.PlayerDetected) Swap(CurrentState.Patrol);
+    }
+
+    void SetBehaviourToSwap()
+    {
+        Swap(CurrentState.Patrol);
     }
 }

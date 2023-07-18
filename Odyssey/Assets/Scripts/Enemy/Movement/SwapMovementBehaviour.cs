@@ -13,7 +13,7 @@ public class SwapMovementBehaviour : MonoBehaviour
 
 
     // Start is called before the first frame update
-    protected void Awake()
+    protected void Start()
     {
         _patrol = GetComponent<Patrol>();
         _aIDestinationSetter = GetComponent<AIDestinationSetter>();
@@ -22,7 +22,7 @@ public class SwapMovementBehaviour : MonoBehaviour
         ////////////////////////////////////////////////
         // new, these three lines ought to be added into Patrol instead
         PPM = GetComponentInParent<PatrolPointManagerScript>();
-        Invoke("temp", 1f);
+        Invoke("temp", 0.5f);
         ////////////////////////////////////////////////
     }
 

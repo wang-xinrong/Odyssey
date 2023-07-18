@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1452700358065845712}
   - component: {fileID: 2430208680341280227}
   - component: {fileID: 6546315017337424435}
+  - component: {fileID: 1964062707409417166}
   m_Layer: 9
   m_Name: TutorialEnemy
   m_TagString: Untagged
@@ -181,6 +182,7 @@ MonoBehaviour:
   HealthUpdated:
     m_PersistentCalls:
       m_Calls: []
+  IsChar: 0
   _isInvincible: 0
   _isAlive: 1
   _maxHealth: 30
@@ -236,6 +238,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues: []
+--- !u!114 &1964062707409417166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313851348786873479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd11ff2677cf44168012709cefb17a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 981730f6250db4c099c9bd3edc74f7dc, type: 2}
+  duration: 0.1
 --- !u!1001 &4045606625978188121
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -69,10 +69,18 @@ public class StatsManager : MonoBehaviour
         //HP/MovementSpeed/AttackDelay
         DifficultyLevel = new Dictionary<Difficulty, float[]>
         {
+            {Difficulty.Easy, new float[3] { 0.5f, 0.9f, 2 } },
+            {Difficulty.Normal, new float[3] { 0.7f, 1, 1.2f } },
+            {Difficulty.Hard, new float[3] { 1.2f, 1.2f, 0.8f } },
+            {Difficulty.Extreme, new float[3] { 2, 2, 0.5f} },
+
+            /*
+             * Play Test 2 Stats
             {Difficulty.Easy, new float[3] { 0.5f, 0.5f, 2 } },
             {Difficulty.Normal, new float[3] { 0.8f, 1, 1 } },
             {Difficulty.Hard, new float[3] { 1.2f, 1.2f, 0.8f } },
             {Difficulty.Extreme, new float[3] { 2, 2, 0.5f} },
+            */
         };
 
         //HP/AttackDamage/BodyCollisionDamage
@@ -110,7 +118,8 @@ public class StatsManager : MonoBehaviour
 
         BossHealth = new Dictionary<string, int[]>()
         {
-            { "LevelOneBoss", new int[] {1000, 1000, 1000 } }
+            { "LevelOneBoss", new int[] {600, 600, 600 } }
+            //{ "LevelOneBoss", new int[] {1000, 1000, 1000 } }
         };
 
         BossMS_AD_SI = new Dictionary<string, float[]>()
@@ -192,17 +201,17 @@ public class StatsManager : MonoBehaviour
 
         MKUpgradeCost = new Dictionary<MKLevel, int>()
         {
-            {MKLevel.One, 1000 },
-            {MKLevel.Two, 1500 },
-            {MKLevel.Three, 2000 },
+            {MKLevel.One, 600 },
+            {MKLevel.Two, 800 },
+            {MKLevel.Three, 1000 },
             {MKLevel.Four, 0 }
         };
 
         ZBJUpgradeCost = new Dictionary<ZBJLevel, int>()
         {
-            {ZBJLevel.One, 1000 },
-            {ZBJLevel.Two, 2000 },
-            {ZBJLevel.Three, 3000 },
+            {ZBJLevel.One, 600 },
+            {ZBJLevel.Two, 800 },
+            {ZBJLevel.Three, 1000 },
             {ZBJLevel.Four, 0 }
         };
     }
@@ -271,5 +280,35 @@ public class StatsManager : MonoBehaviour
         }
 
         return BossMS_AD_SI[name][index] * factor;
+    }
+
+    public MKLevel NextMKLevel()
+    {
+        switch (CurrentMKLevel)
+        {
+            case MKLevel.One:
+                return MKLevel.Two;
+            case MKLevel.Two:
+                return MKLevel.Three;
+            case MKLevel.Three:
+                return MKLevel.Four;
+            default:
+                return MKLevel.Four;
+        }           
+    }
+
+    public ZBJLevel NextZBJLevel()
+    {
+        switch (CurrentZBJLevel)
+        {
+            case ZBJLevel.One:
+                return ZBJLevel.Two;
+            case ZBJLevel.Two:
+                return ZBJLevel.Three;
+            case ZBJLevel.Three:
+                return ZBJLevel.Four;
+            default:
+                return ZBJLevel.Four;
+        }
     }
 }

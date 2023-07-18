@@ -5,11 +5,14 @@ using UnityEngine.Events;
 
 // a component that manages the health of the object
 // attached to. Sets and decrements its health.
+[RequireComponent(typeof(DamageFlash))]
 public class Damageable : MonoBehaviour
 {
     private Animator _animator;
     public UnityEvent<int, Vector2> DamageableHit;
     public UnityEvent<int, int> HealthUpdated;
+    private DamageFlash damageFlash;
+    public bool IsChar = false;
 
     [SerializeField]
     private bool _isInvincible = false;
@@ -73,6 +76,9 @@ public class Damageable : MonoBehaviour
                 }
                 else if (GetComponent<TutorialEnemy>())
                 {
+                    //this statement is replaced by calling OnDeath during death animation,
+                    // but the condition is necessary to avoid falling into next
+                    // conditional bracket
                     //GetComponent<TutorialEnemy>().OnDeath();
                 }
                 else // if in intermediate room
@@ -120,6 +126,8 @@ public class Damageable : MonoBehaviour
         {
             UpdateMaxHPAndHP();
         }
+
+        damageFlash = GetComponent<DamageFlash>();
     }
 
     public void OnHurt(int damage, Vector2 knockback)
@@ -145,6 +153,7 @@ public class Damageable : MonoBehaviour
             // will be notified with the information of gameObject
             // and damage
             CharacterEvents.CharacterHurt.Invoke(gameObject, damage);
+            if (!IsChar) damageFlash.Flash();
         }
     }
 

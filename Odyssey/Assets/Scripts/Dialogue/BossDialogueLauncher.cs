@@ -30,20 +30,29 @@ public class BossDialogueLauncher : MonoBehaviour
         }
         if (!hasDisplayed[0])
         {
-            OnDisplayDialogue.Invoke(StageOneDialogues);
+            //OnDisplayDialogue.Invoke(StageOneDialogues);
             hasDisplayed[0] = true;
+            StartCoroutine(StartDisplayDialogue(StageOneDialogues));
         }
         Boss = GameObject.Find("Level1Boss");
         BossStageManager.BossStage currStage = Boss.GetComponent<BossStageManager>()._currentBossStage;
         if (currStage == BossStageManager.BossStage.Two && !hasDisplayed[1])
         {
-            OnDisplayDialogue.Invoke(StageTwoDialogues);
+            //OnDisplayDialogue.Invoke(StageTwoDialogues);
             hasDisplayed[1] = true;
+            StartCoroutine(StartDisplayDialogue(StageTwoDialogues));
         }
         if (currStage == BossStageManager.BossStage.Three && !hasDisplayed[2])
         {
-            OnDisplayDialogue.Invoke(StageThreeDialogues);
+            //OnDisplayDialogue.Invoke(StageThreeDialogues);
             hasDisplayed[2] = true;
+            StartCoroutine(StartDisplayDialogue(StageThreeDialogues));
         }
+    }
+
+    private IEnumerator StartDisplayDialogue(List<Dialogue> dialogues)
+    {
+        yield return new WaitForSeconds(.2f);
+        OnDisplayDialogue.Invoke(dialogues);
     }
 }

@@ -10,6 +10,13 @@ public class EnemyDialogueLauncher : MonoBehaviour
 
     public void LaunchDialogue()
     {
+        //OnDisplayDialogue.Invoke(dialogues);
+        StartCoroutine(StartDisplayDialogue(dialogues));
+    }
+
+    private IEnumerator StartDisplayDialogue(List<Dialogue> dialogues)
+    {
+        yield return new WaitForSeconds(.2f);
         OnDisplayDialogue.Invoke(dialogues);
     }
 }

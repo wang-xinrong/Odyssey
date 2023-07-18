@@ -8,13 +8,12 @@ public class StatusEffect : MonoBehaviour
 {
     public string s;
     private TMP_Text timer;
-    private Image icon;
+    public Image icon;
     private int remainingStatusEffectDuration;
     private float prevDecrementTime;
     void Start()
     {
         timer = GetComponentInChildren<TMP_Text>();
-        icon = GetComponentInChildren<Image>();
         gameObject.SetActive(false);
     }
     // Update is called once per frame
@@ -47,6 +46,7 @@ public class StatusEffect : MonoBehaviour
     public void DisplayStatusEffect(string status, int duration)
     {
         gameObject.SetActive(true);
+        icon.sprite = Resources.Load<Sprite>(status);
         remainingStatusEffectDuration = duration + 1;
         updateDuration();
     }

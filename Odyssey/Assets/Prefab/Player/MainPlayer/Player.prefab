@@ -652,12 +652,12 @@ SpriteRenderer:
   m_SortingLayerID: -1447548587
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 204874c7c501248f6855555ea1efa7b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79a19fb6e8a544546ab3e83e35a7006b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.96, y: 0.96}
+  m_Size: {x: 3.45, y: 3.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1010,6 +1010,21 @@ MonoBehaviour:
   charName: zbj
   weaponOnFloor: {fileID: 0}
   SpeedBoostLimitFactor: 2
+  OnStatusEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+        m_TargetAssemblyTypeName: UIManager, MyScripts
+        m_MethodName: DisplayStatusEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -1468,6 +1483,21 @@ MonoBehaviour:
   charName: mk
   weaponOnFloor: {fileID: 0}
   SpeedBoostLimitFactor: 2
+  OnStatusEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+        m_TargetAssemblyTypeName: UIManager, MyScripts
+        m_MethodName: DisplayStatusEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _attackDelay: 1.5
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2

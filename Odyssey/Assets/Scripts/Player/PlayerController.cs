@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     private bool isBewitched = false;
     private bool isSlowedDown = false;
     private bool isSpedUp = false;
+    public UnityEvent<string, int> OnStatusEffect;
 
     public float CurrentMoveSpeed
     {
@@ -335,6 +336,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         Invoke("ResetMovementSpeed", duration);
         Invoke("SetCanSwapTrue", duration);
         Invoke("SetIsBewitchedFalse", duration);
+        OnStatusEffect.Invoke("bewitched", (int) duration);
     }
 
     private void ReverseMovementSpeed()
@@ -362,6 +364,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
         Invoke("SetIsSlowedDownFalse", duration);
+        OnStatusEffect.Invoke("slowed", (int) duration);
     }
     
     private void ResetMovementSpeed()
@@ -407,6 +410,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         Invoke("ResetMovementSpeed", duration);
         Invoke("SetIsSpedUpFalse", duration);
         // for now always able to speed up unless dead
+        OnStatusEffect.Invoke("haste", (int) duration);
         return true;
     }
 

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MeleeHitBoxes : MonoBehaviour
 {
-    public GameObject[] ProjectilePrefabs = new GameObject[2];
-
     public Transform UpHitBox;
     public Transform DownHitBox;
     public Transform LeftHitBox;

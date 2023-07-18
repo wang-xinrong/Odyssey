@@ -484,7 +484,7 @@ SpriteRenderer:
   m_SortingLayerID: -1447548587
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d671bdda9c4dc464b80eebfcbe5958d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 204874c7c501248f6855555ea1efa7b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1382,10 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f00e4a8298a45748ea44b23ec42b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  UpHitBox: {fileID: 5891670334159106245}
+  UpHitBox: {fileID: 5452026569247747121}
   DownHitBox: {fileID: 5891670334159106245}
   LeftHitBox: {fileID: 6374021993994167159}
   RightHitBox: {fileID: 5549330961336441781}
@@ -1929,6 +1926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 702331159de76404bb7a3e520b7c2bcb, type: 3}
+--- !u!4 &5452026569247747121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3258895688157945466, guid: 702331159de76404bb7a3e520b7c2bcb, type: 3}
+  m_PrefabInstance: {fileID: 7390566537871241803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5549330961336441781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3140062274182261246, guid: 702331159de76404bb7a3e520b7c2bcb, type: 3}

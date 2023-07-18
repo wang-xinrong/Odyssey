@@ -6317,19 +6317,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2013439482657012934, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2013439482657012934, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2175736744567629014, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 65
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2175736744567629014, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2244756254905769542, guid: fc1fbaaaa22d84efab8e549a90b6ec55, type: 3}
       propertyPath: m_IsActive
@@ -8044,7 +8044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5099008812580809090, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5099008812580809090, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8076,11 +8076,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5099008812580809090, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -224.5708
+      value: -216.5708
       objectReference: {fileID: 0}
     - target: {fileID: 5099008812580809090, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 36
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5099008812580809090, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8097,6 +8097,22 @@ PrefabInstance:
     - target: {fileID: 5099008812580809091, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: m_Name
       value: UsageRow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099008812580809101, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
+      propertyPath: m_Spacing.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099008812580809101, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
+      propertyPath: m_Spacing.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099008812580809101, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
+      propertyPath: m_CellSize.x
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099008812580809101, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
+      propertyPath: m_CellSize.y
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 5099008812998087049, guid: 16913b0ce466c4e4d80e32bcad96520e, type: 3}
       propertyPath: InventorySlot

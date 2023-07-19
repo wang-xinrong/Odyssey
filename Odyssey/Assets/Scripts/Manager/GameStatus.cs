@@ -33,11 +33,13 @@ public class GameStatus : MonoBehaviour
         IsGamePaused = Inventory.IsInventoryOpen
             || PauseMenu.isPaused
             || CutScene.IsCutSceneOn;
-        /*
-        || Shop.IsBuildingPanelOpen
+
+        if (Shop && Castle && Statue)
+        {
+            IsGamePaused = IsGamePaused || Shop.IsBuildingPanelOpen
             || Castle.IsBuildingPanelOpen
             || Statue.IsBuildingPanelOpen;
-        */
+        }
         Time.timeScale = IsGamePaused ? 0 : 1;
     }
 }

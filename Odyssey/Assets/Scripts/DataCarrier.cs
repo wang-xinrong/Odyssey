@@ -9,7 +9,9 @@ public class DataCarrier : MonoBehaviour
     public Item[] Items;
     public int[] Quantities;
     private InventoryManager inventoryManager;
-    public int Money;
+    public int InitialMoney;
+    public int LastUpdatedMoney;
+    
 
     private void Awake()
     {
@@ -45,7 +47,7 @@ public class DataCarrier : MonoBehaviour
                 .GetQuantityStored();
         }
 
-        Money = inventoryManager.Money;
+        LastUpdatedMoney = inventoryManager.Money;
     }
 
     public void WriteInventoryData()
@@ -53,19 +55,36 @@ public class DataCarrier : MonoBehaviour
         
         inventoryManager = GameObject.Find("InventoryManager")
             .GetComponent<InventoryManager>();
-        Debug.Log("array length is " + Items.Length);
+
         for (int i = 0; i < Items.Length; i++)
         {
-            Debug.Log(Items[i]);
             if (Items[i])
             {
-                Debug.Log("write " + i);
                 inventoryManager.OverwriteSlotItem(Items[i]
                     , Quantities[i]
                     , i);
             }
         }
 
-        inventoryManager.Money = Money;
+        inventoryManager.Money = LastUpdatedMoney;
+    }
+
+    public void ClearInventoryData()
+    {
+        inventoryManager = GameObject.Find("InventoryManager")
+            .GetComponent<InventoryManager>();
+
+        for (int i = 0; i < Items.Length; i++)
+        {
+            if (Items[i])
+            {
+                inventoryManager.OverwriteSlotItem(null
+                    , 1
+                    , i);
+            }
+        }
+
+        inventoryManager.Money = InitialMoney;
+        LastUpdatedMoney = InitialMoney;
     }
 }

@@ -24,6 +24,6 @@ public class EnterButtonScript : MonoBehaviour
     {
         if (!buttonsManager.anyButtonPressed) return;
 
-        startMenu.LoadScene(SceneToLoad);
+        startMenu.LoadSceneWithDataUpdate(SceneToLoad);
     }
 }

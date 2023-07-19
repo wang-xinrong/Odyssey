@@ -13,4 +13,9 @@ public class IPromptTrigger : KeyPromptTrigger
     {
         return OnCondition();
     }
+
+    private void Update()
+    {
+        if (OnCondition()) gameObject.SetActive(false);
+    }
 }

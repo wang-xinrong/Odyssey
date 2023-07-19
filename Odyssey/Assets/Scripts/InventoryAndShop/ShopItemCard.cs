@@ -99,7 +99,9 @@ public class ShopItemCard : MonoBehaviour
 
     public void OnEnlarge()
     {
-        OnClickItemCard.Invoke(this);
+        Debug.Log(GameObject.Find("ShopPanel").GetComponent<BigCardPatch>());
+        GameObject.Find("ShopPanel").GetComponent<BigCardPatch>().OnEnlarge(this);
+        //OnClickItemCard.Invoke(this);
     }
 
     public void SetUp()

@@ -6,8 +6,8 @@ using Pathfinding;
 
 public class SwapMovementBehaviour : MonoBehaviour
 {
-    private Patrol _patrol;
-    private AIDestinationSetter _aIDestinationSetter;
+    public Patrol _patrol;
+    public AIDestinationSetter _aIDestinationSetter;
     public enum CurrentState { Patrol, Chasing , Idle}
     public CurrentState _currentState = CurrentState.Idle;
     public bool IsBoss = false;

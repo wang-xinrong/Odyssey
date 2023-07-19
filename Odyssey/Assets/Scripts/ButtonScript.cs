@@ -40,4 +40,24 @@ public class ButtonScript : MonoBehaviour
             buttonManager.anyButtonPressed = true;
         }
     }
+
+    public void SetDifficultyEasy()
+    {
+        StatsManager.Instance.SetDifficulty(StatsManager.Difficulty.Easy);
+    }
+
+    public void SetDifficultyNormal()
+    {
+        StatsManager.Instance.SetDifficulty(StatsManager.Difficulty.Normal);
+    }
+
+    public void SetDifficultyHard()
+    {
+        StatsManager.Instance.SetDifficulty(StatsManager.Difficulty.Hard);
+    }
+
+    public void SetDifficultyExtreme()
+    {
+        StatsManager.Instance.SetDifficulty(StatsManager.Difficulty.Extreme);
+    }
 }

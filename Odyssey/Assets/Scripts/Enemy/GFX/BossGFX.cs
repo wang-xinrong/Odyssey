@@ -192,11 +192,13 @@ public class BossGFX : EnemyGFX
         Directions.SetPositionToCentre(gameObject
             , transform.parent.transform.position);
 
+        /*
         if (!hasEnlarged)
         {
             transform.localScale = Scaling(transform.localScale, 2);
             hasEnlarged = true;
         }
+        */
     }
 
     public void TimedSummoning(GameObject minion, int numberOfMinionsToSummon, float interval)

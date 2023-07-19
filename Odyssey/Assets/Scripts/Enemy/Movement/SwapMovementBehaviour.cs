@@ -10,6 +10,7 @@ public class SwapMovementBehaviour : MonoBehaviour
     private AIDestinationSetter _aIDestinationSetter;
     public enum CurrentState { Patrol, Chasing , Idle}
     public CurrentState _currentState = CurrentState.Idle;
+    public bool IsBoss = false;
 
 
     // Start is called before the first frame update
@@ -22,14 +23,14 @@ public class SwapMovementBehaviour : MonoBehaviour
         ////////////////////////////////////////////////
         // new, these three lines ought to be added into Patrol instead
         PPM = GetComponentInParent<PatrolPointManagerScript>();
-        Invoke("temp", 0.5f);
+        if (!IsBoss) Invoke("temp", 0.5f);
         ////////////////////////////////////////////////
     }
 
     PatrolPointManagerScript PPM;
     private void temp()
     {
-        Debug.Log(PPM.GetPatrolPointSet("First"));
+        //Debug.Log(PPM.GetPatrolPointSet("First"));
         _patrol.targets = PPM.GetPatrolPointSet("First");
         _patrol.targets1 = PPM.GetPatrolPointSet("Second");
     }

@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
         // canvas that is currently active
         GameCanvas = FindObjectOfType<Canvas>();
 
+
         // new, for weapon display
         // GameObject player = GameObject.Find("Player");
         // MainPlayerController script = player.GetComponent<MainPlayerController>();
@@ -188,6 +189,7 @@ public class UIManager : MonoBehaviour
     public void DisplayChapterClearPanel()
     {
         clearChapterPanel.SetActive(true);
+        //clearChapterPanel.SetActive(true);
     }
 
     public void CharacterHurt(GameObject character, int damageReceived)

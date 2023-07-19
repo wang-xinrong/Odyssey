@@ -13,7 +13,9 @@ public class MapArrowPatch : MonoBehaviour
     // Update is called once per frame
     private void WallCheck()
     {
-        if (Physics2D.OverlapBox(transform.position, Vector2.one, 0).tag == "Door")
+        Collider2D collider = Physics2D.OverlapBox(transform.position, Vector2.one, 0);
+
+        if (collider && collider.tag == "Door")
         {
             transform.parent.gameObject.SetActive(false);
         }

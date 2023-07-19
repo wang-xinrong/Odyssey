@@ -71,9 +71,6 @@ public class GridController : MonoBehaviour
                 {
                     availableSpawningPoints.Add(go.transform.position);
                     availableMovementPoints.Add(go.transform.position);
-                } else
-                {
-                    Debug.Log(CollidingTerrain[0].gameObject);
                 }
 
                 // temperary fix to corner issue

@@ -38,7 +38,7 @@ public class ObjectRoomSpawner : MonoBehaviour
 
             // make sure no two enemies are spawned at the same spot
             Grid.availableSpawningPoints.RemoveAt(_randomPos);
-            Debug.Log("Spawned Object Named " + data.name);
+            //Debug.Log("Spawned Object Named " + data.name);
         }
     }
 }

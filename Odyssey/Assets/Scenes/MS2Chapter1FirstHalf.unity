@@ -598,6 +598,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -200
       objectReference: {fileID: 0}
+    - target: {fileID: 2889978016112706854, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3277769496484217531, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1612,6 +1616,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7960852764325153144, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343429011722433388, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8468093510004967709, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
@@ -2885,11 +2893,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1593750673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8343429011722433388, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
-  m_PrefabInstance: {fileID: 339948460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!223 &1637499962 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 9040393564895896847, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
@@ -2977,7 +2980,7 @@ PrefabInstance:
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: clearChapterPanel
       value: 
-      objectReference: {fileID: 1593750673}
+      objectReference: {fileID: 1823075677}
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: currentWeaponIcon
       value: 
@@ -3095,6 +3098,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6040ffad81249e0aae6c896c9a8788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1823075677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8343429011722433388, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1941187603
 GameObject:
   m_ObjectHideFlags: 0

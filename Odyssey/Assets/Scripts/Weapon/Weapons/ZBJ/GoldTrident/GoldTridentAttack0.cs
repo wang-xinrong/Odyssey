@@ -7,6 +7,6 @@ public class GoldTridentAttack0 : WeaponAttack
     public GoldTridentAttack0()
     {
         animationName = "GoldAttack0";
-        damage = 15;
+        damage = 10;
     }
 }

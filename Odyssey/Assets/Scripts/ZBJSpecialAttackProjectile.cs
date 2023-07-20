@@ -24,6 +24,8 @@ public class ZBJSpecialAttackProjectile : Projectile
     // function copied from SlowDownProjectile
     private void AgainstEnemy(Collider2D collision)
     {
+        if (collision.tag == "Door" || collision.tag == "Wall") return;
+
         // see if it can be hit
         EnemyMovement EM = collision.GetComponent<EnemyMovement>();
         AISpecialEffect AIS = collision.GetComponent<AISpecialEffect>();
@@ -47,8 +49,11 @@ public class ZBJSpecialAttackProjectile : Projectile
             return;
         }
 
-        damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
-        Destroy(gameObject);
-        return;
+        if (damageable)
+        {
+            damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
+            Destroy(gameObject);
+            return;
+        }
     }
 }

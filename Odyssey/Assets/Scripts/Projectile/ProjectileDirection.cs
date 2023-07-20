@@ -8,7 +8,7 @@ public class ProjectileDirection : MonoBehaviour
 
     public void SetDirection(Vector2 directionVector)
     {
-        Directions.FlipSprite(gameObject, directionVector);
+        Directions.FlipSprite(gameObject, directionVector.normalized);
         ProjectileScript.Direction.DirectionVector = directionVector;
     }
 

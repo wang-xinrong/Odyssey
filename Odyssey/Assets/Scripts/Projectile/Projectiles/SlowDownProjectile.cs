@@ -51,6 +51,7 @@ public class SlowDownProjectile : Projectile
             EM.SlowedDown(SlowingFraction, Duration);
             damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
+            return;
         }
 
         if (EM == null && AIS != null)
@@ -58,6 +59,14 @@ public class SlowDownProjectile : Projectile
             AIS.SlowedDown(SlowingFraction, Duration);
             damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
             Destroy(gameObject);
+            return;
+        }
+
+        if (damageable)
+        {
+            damageable.OnHurt(Damage, Direction.ContextualiseDirection(KnockBack));
+            Destroy(gameObject);
+            return;
         }
     }
 }

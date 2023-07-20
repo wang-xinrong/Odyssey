@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
-    public GameObject[] ProjectilePrefabs = new GameObject[2];
+    public GameObject[] ProjectilePrefabs = new GameObject[3];
 
     public Transform UpLaunchPoint;
     public Transform DownLaunchPoint;
@@ -37,20 +37,29 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void FireProjectile0()
     {
-        FireProjectile(ProjectilePrefabs[0]);
+        FireProjectile(ProjectilePrefabs[0], 0);
     }
 
     public void FireProjectile1()
     {
-        FireProjectile(ProjectilePrefabs[1]);
+        FireProjectile(ProjectilePrefabs[1], 1);
     }
 
-    public void FireProjectile(GameObject projectileToFire)
+    public void FireProjectile2()
     {
+        FireProjectile(ProjectilePrefabs[2], 2);
+    }
+
+    public void FireProjectile(GameObject projectileToFire, int comboIndex)
+    {
+        WeaponAttack currAttack = _playerController.weapon.combos[comboIndex];
+
         GameObject projectile = Instantiate(projectileToFire
             , GetLaunchPoint(GetDirectionFacing())
             , projectileToFire.transform.rotation
             , ProjectileManager.transform);
+
+        projectile.GetComponent<Projectile>().Damage = currAttack.damage;
 
         projectile.GetComponent<ProjectileDirection>().
             SetDirection(GetDirectionFacing());

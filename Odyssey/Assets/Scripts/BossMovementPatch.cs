@@ -28,5 +28,7 @@ public class BossMovementPatch : MonoBehaviour
             swapMovementBehaviour._patrol.enabled = true;
             swapMovementBehaviour._aIDestinationSetter.enabled = false;
         }
+
+
     }
 }

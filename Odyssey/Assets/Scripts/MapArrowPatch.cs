@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapArrowPatch : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Update()
+    private void OnEnable()
     {
         WallCheck();
     }

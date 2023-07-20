@@ -12,6 +12,7 @@ public class AISpecialEffect : MonoBehaviour, EnemyUnderSpecialEffect
     void Start()
     {
         _aIPath = GetComponent<AIPath>();
+        _originalMovementSpeed = _aIPath.maxSpeed;
     }
 
     public void SlowedDown(float fractionOfOriginalSpeed, float duration)

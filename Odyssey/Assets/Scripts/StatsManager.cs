@@ -69,7 +69,7 @@ public class StatsManager : MonoBehaviour
         //HP/MovementSpeed/AttackDelay
         DifficultyLevel = new Dictionary<Difficulty, float[]>
         {
-            {Difficulty.Easy, new float[3] { 0.5f, 0.9f, 2 } },
+            {Difficulty.Easy, new float[3] { 0.05f, 0.9f, 2 } },
             {Difficulty.Normal, new float[3] { 0.7f, 1, 1.2f } },
             {Difficulty.Hard, new float[3] { 1.2f, 1.2f, 0.8f } },
             {Difficulty.Extreme, new float[3] { 2, 2, 0.5f} },

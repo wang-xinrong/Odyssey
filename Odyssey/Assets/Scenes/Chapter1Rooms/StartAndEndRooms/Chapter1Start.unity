@@ -178,5 +178,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1280545817992501782, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+--- !u!1 &795543628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3554284688665587813, guid: 69b91cee5521349e2b0a0ec12c342047, type: 3}
+  m_PrefabInstance: {fileID: 795543627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &795543629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795543628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4c1b24824e2494f8a53f55f47ebdab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboCount: 0
+  character: 
+  CharIdle: 
+  CharWalk: 
+  CharHurt: 
+  CharDeath: 
+  CharSpecial: 
+  SpritePath: 

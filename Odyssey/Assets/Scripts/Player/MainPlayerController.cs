@@ -192,6 +192,9 @@ public class MainPlayerController : MonoBehaviour
     public void OnSwap(InputAction.CallbackContext context) 
     {
         if (!CanSwap) return;
+        // characters not allowed to swap when performing special attack
+        if (primary._currentState == PlayerController.State.Special ||
+            secondary._currentState == PlayerController.State.Special) return;
 
         if (!primary.IsAlive()) return;
         if (!secondary.IsAlive()) return;

@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     private Vector2 _moveInput;
     public Damageable _damageable;
     public Directions Direction = new Directions();
+    public MKAttackSpritePatch MKAttackSpritePatch;
 
     /*
     private float bewitchedTimer = 0f;
@@ -117,6 +118,9 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         if (_currentState == State.Idle)
         {
             _rb.velocity = Vector2.zero;
+
+            // new, to fix attack sprite bug
+            //if (MKAttackSpritePatch) MKAttackSpritePatch.DeactivateSprites();
         }
 
         if (_currentState == State.Attack || _currentState == State.Special)
@@ -272,8 +276,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             + Animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
-    // called by animation events
-    private void StartIdling()
+    public void StartIdling()
     {
         _currentState = State.Idle;
     }

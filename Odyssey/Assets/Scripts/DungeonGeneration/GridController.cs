@@ -51,7 +51,7 @@ public class GridController : MonoBehaviour
         {
             for (int n = 0; n <= grid.columns; n++)
             {
-                float x = n - (grid.columns - grid.horizontalOffset + 0.5f);
+                float x = n - (grid.columns - grid.horizontalOffset - 0.5f);
                 float y = m - (grid.rows - grid.verticalOffset + 0.5f);
 
                 GameObject go = Instantiate(gridTile, transform);

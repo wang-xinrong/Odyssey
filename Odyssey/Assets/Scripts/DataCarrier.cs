@@ -11,6 +11,7 @@ public class DataCarrier : MonoBehaviour
     private InventoryManager inventoryManager;
     public int InitialMoney;
     public int LastUpdatedMoney;
+    public bool HasClearedTutorial = false;
     
 
     private void Awake()
@@ -86,5 +87,17 @@ public class DataCarrier : MonoBehaviour
 
         inventoryManager.Money = InitialMoney;
         LastUpdatedMoney = InitialMoney;
+    }
+
+    public void ClearDataCarrierData()
+    {
+        for (int i = 0; i < Items.Length; i++)
+        {
+            Items[i] = null;
+            Quantities[i] = 1;
+        }
+
+        LastUpdatedMoney = InitialMoney;
+        HasClearedTutorial = false;
     }
 }

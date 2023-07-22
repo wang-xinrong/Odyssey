@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour
 {
     public string destination;
     private Room room;
+    public bool IsTutorial = false;
 
     private void Start()
     {
@@ -16,6 +17,8 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!room.Cleared) return;
+
+        if (IsTutorial) DataCarrier.Instance.HasClearedTutorial = true;
 
         if (other.gameObject.tag == "Player")
         {

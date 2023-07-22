@@ -16,7 +16,7 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-
+    /*
     public void LoadSceneWithoutDataUpdate(string sceneName)
     {
         // this line might cause transition of scenes to invoke
@@ -27,8 +27,9 @@ public class StartMenu : MonoBehaviour
         DataCarrier.Instance.ClearInventoryData();
         SceneManager.LoadScene(sceneName);
     }
+    
 
-    public void LoadSceneFromStartMenu(string sceneName)
+    public void LoadSceneWithOldData(string sceneName)
     {
         // this line might cause transition of scenes to invoke
         // null reference exception under development / testing setting
@@ -36,6 +37,24 @@ public class StartMenu : MonoBehaviour
         // However, in actual game setting, the data carrier would be
         // present.
         SceneManager.LoadScene(sceneName);
+    }
+    */
+
+    public void StartNewGame()
+    {
+        DataCarrier.Instance.ClearDataCarrierData();
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void ContinueGame()
+    {
+        if (DataCarrier.Instance.HasClearedTutorial)
+        {
+            SceneManager.LoadScene("Town1");
+        } else
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
     }
 
     public void QuitGame()

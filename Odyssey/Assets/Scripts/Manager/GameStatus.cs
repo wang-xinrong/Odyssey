@@ -24,6 +24,7 @@ public class GameStatus : MonoBehaviour
     public BuildingActivator Shop;
     public BuildingActivator Castle;
     public BuildingActivator Statue;
+    public BuildingActivator DirectionBoard;
 
     public bool IsGamePaused = false;
 
@@ -38,7 +39,8 @@ public class GameStatus : MonoBehaviour
         {
             IsGamePaused = IsGamePaused || Shop.IsBuildingPanelOpen
             || Castle.IsBuildingPanelOpen
-            || Statue.IsBuildingPanelOpen;
+            || Statue.IsBuildingPanelOpen
+            || DirectionBoard.IsBuildingPanelOpen;
         }
         Time.timeScale = IsGamePaused ? 0 : 1;
     }

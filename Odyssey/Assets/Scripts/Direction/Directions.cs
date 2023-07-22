@@ -61,7 +61,6 @@ public class Directions
 
     public static void FlipSprite(GameObject obj, Vector2 directionVector)
     {
-        Debug.Log("here");
         if (directionVector.magnitude != 1)
         {
             Debug.LogError("direction vector provided is not a unit vector");

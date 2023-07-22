@@ -192,15 +192,28 @@ public class MainPlayerController : MonoBehaviour
     public void OnSwap(InputAction.CallbackContext context) 
     {
         if (!CanSwap) return;
+        // characters not allowed to swap when performing special attack
+        if (primary._currentState == PlayerController.State.Special ||
+            secondary._currentState == PlayerController.State.Special) return;
 
         if (!primary.IsAlive()) return;
         if (!secondary.IsAlive()) return;
 
         if (context.started && SP >= 10) {
+            // change the state of the character to be deactivated to idle
+            if (isChar1)
+            {
+                primary.StartIdling();
+                GetComponentInChildren<MKAttackSpritePatch>()
+                    .DeactivateSprites();
+            }
+
+            if (!isChar1) secondary.StartIdling();
+
             isChar1 = !isChar1;
-            
+
             SwapCharacters();
-            decrementSPBy(10, -1);
+            decrementSPBy(10, -1);   
         }
     }
 

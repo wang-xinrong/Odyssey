@@ -536,7 +536,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MS2Chapter1
+          m_StringArgument: MS2Chapter1FirstHalf
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &518948274292055167
@@ -4360,6 +4360,7 @@ GameObject:
   - component: {fileID: 7894173221423832694}
   - component: {fileID: 8846938649365361758}
   - component: {fileID: 8440489699824835002}
+  - component: {fileID: 8414089056969224461}
   m_Layer: 5
   m_Name: ChapterClearPanel
   m_TagString: Untagged
@@ -4438,6 +4439,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2595facd1901d425690ddc14d4f6bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8414089056969224461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343429011722433388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc13a7cac13a4c0c878f92571b4059d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8503321941575730198
@@ -4850,6 +4863,7 @@ MonoBehaviour:
   Shop: {fileID: 0}
   Castle: {fileID: 0}
   Statue: {fileID: 0}
+  DirectionBoard: {fileID: 0}
   IsGamePaused: 0
 --- !u!114 &1637499965
 MonoBehaviour:
@@ -9940,7 +9954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1381350136191498235, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b174a9f070845949d455d5cda00ea3, type: 3}

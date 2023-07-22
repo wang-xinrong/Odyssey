@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             _rb.velocity = Vector2.zero;
 
             // new, to fix attack sprite bug
-            if (MKAttackSpritePatch) MKAttackSpritePatch.DeactivateSprites();
+            //if (MKAttackSpritePatch) MKAttackSpritePatch.DeactivateSprites();
         }
 
         if (_currentState == State.Attack || _currentState == State.Special)
@@ -276,8 +276,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             + Animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
-    // called by animation events
-    private void StartIdling()
+    public void StartIdling()
     {
         _currentState = State.Idle;
     }

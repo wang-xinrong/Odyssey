@@ -200,10 +200,20 @@ public class MainPlayerController : MonoBehaviour
         if (!secondary.IsAlive()) return;
 
         if (context.started && SP >= 10) {
+            // change the state of the character to be deactivated to idle
+            if (isChar1)
+            {
+                primary.StartIdling();
+                GetComponentInChildren<MKAttackSpritePatch>()
+                    .DeactivateSprites();
+            }
+
+            if (!isChar1) secondary.StartIdling();
+
             isChar1 = !isChar1;
-            
+
             SwapCharacters();
-            decrementSPBy(10, -1);
+            decrementSPBy(10, -1);   
         }
     }
 

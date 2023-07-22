@@ -802,6 +802,7 @@ GameObject:
   - component: {fileID: 6056839}
   - component: {fileID: 5774478503361124020}
   - component: {fileID: 5376215685577059153}
+  - component: {fileID: 2148146020794092007}
   m_Layer: 8
   m_Name: zbj
   m_TagString: Player
@@ -1254,6 +1255,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   duration: 0
+--- !u!114 &2148146020794092007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670334096589280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232a559a3fa6041fca9208217d635978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5891670335105262140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1290,7 @@ GameObject:
   - component: {fileID: 8463191242415776504}
   - component: {fileID: 2055911307}
   - component: {fileID: 4370395023732983613}
+  - component: {fileID: 7897555901706722166}
   m_Layer: 8
   m_Name: mk
   m_TagString: Player
@@ -1750,6 +1764,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasicAttackClip: {fileID: 8300000, guid: 7042973253e414159bb3815393dedc75, type: 3}
   SpecialAttackClip: {fileID: 8300000, guid: 6b3ef91823ec440f69d6e75b874958b9, type: 3}
+--- !u!114 &7897555901706722166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670335105262140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d79cd69ab7a4b8c8e60d67282246e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 8231411961253220761}
+  - {fileID: 9200830096542070688}
+  - {fileID: 3330940666980769972}
+  - {fileID: 7654480874869523409}
 --- !u!1 &5891670335115618963
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MKAttackSpritePatch : MonoBehaviour
 {
-    public GameObject[] spriteRenderers;
+    public SpriteRenderer[] spriteRenderers;
 
     public void DeactivateSprites()
     {
         for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            spriteRenderers[i].SetActive(false);
+            spriteRenderers[i].enabled = false;
         }
     }
 }

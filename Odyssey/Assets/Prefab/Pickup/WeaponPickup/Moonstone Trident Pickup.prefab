@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3554284688629393708
+--- !u!1 &2670475266926227519
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3554284688629393711}
-  - component: {fileID: 3554284688629393710}
-  - component: {fileID: 3554284688629393696}
-  - component: {fileID: 6768894987055052260}
-  - component: {fileID: 1280545818039206751}
+  - component: {fileID: 2670475266926227516}
+  - component: {fileID: 2670475266926227517}
+  - component: {fileID: 2670475266926227507}
+  - component: {fileID: 5310806278477540599}
+  - component: {fileID: 6740315264443478606}
   m_Layer: 12
-  m_Name: Trident Pickup
+  m_Name: Moonstone Trident Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3554284688629393711
+--- !u!4 &2670475266926227516
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554284688629393708}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 2670475266926227519}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.22, y: 0.066, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35,13 +35,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3554284688629393710
+--- !u!212 &2670475266926227517
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554284688629393708}
+  m_GameObject: {fileID: 2670475266926227519}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1447548587
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2afc7dc5b304544fd8739bef7b5f03ba, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,16 +84,16 @@ SpriteRenderer:
   m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3554284688629393696
+--- !u!60 &2670475266926227507
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554284688629393708}
+  m_GameObject: {fileID: 2670475266926227519}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -123,29 +123,29 @@ PolygonCollider2D:
       - {x: -0.19, y: -0.31}
       - {x: 0.35, y: 0.24}
       - {x: 0.35, y: 0.29999998}
---- !u!114 &6768894987055052260
+--- !u!114 &5310806278477540599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554284688629393708}
+  m_GameObject: {fileID: 2670475266926227519}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f15396862f6f4fa684f3100ab310de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   droppedWeapon: {fileID: 0}
---- !u!114 &1280545818039206751
+--- !u!114 &6740315264443478606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554284688629393708}
+  m_GameObject: {fileID: 2670475266926227519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c5bc6a62ed14842b6a4093f4326776, type: 3}
+  m_Script: {fileID: 11500000, guid: bb3d00cd37ae94688a7cae3f1ef8643e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   comboCount: 0

@@ -7,6 +7,6 @@ public class MoonstoneTridentAttack0 : WeaponAttack
     public MoonstoneTridentAttack0()
     {
         animationName = "MoonstoneAttack0";
-        damage = 10;
+        damage = 20;
     }
 }

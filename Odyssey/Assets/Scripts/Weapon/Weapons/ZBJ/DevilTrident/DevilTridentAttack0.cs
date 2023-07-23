@@ -7,6 +7,6 @@ public class DevilTridentAttack0 : WeaponAttack
     public DevilTridentAttack0()
     {
         animationName = "DevilAttack0";
-        damage = 10;
+        damage = 15;
     }
 }

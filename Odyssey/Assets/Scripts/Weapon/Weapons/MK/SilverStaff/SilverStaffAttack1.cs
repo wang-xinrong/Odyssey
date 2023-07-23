@@ -7,6 +7,6 @@ public class SilverStaffAttack1 : WeaponAttack
     public SilverStaffAttack1()
     {
         animationName = "SilverAttack1";
-        damage = 20;
+        damage = 40;
     }
 }

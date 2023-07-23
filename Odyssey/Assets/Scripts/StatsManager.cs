@@ -110,9 +110,9 @@ public class StatsManager : MonoBehaviour
         //RatioOfMaxAmountOfCoinsDroppedToEnemyHP
         CoinToHPRatio = new Dictionary<Difficulty, float>()
         {
-            { Difficulty.Easy, 0.1f },
-            { Difficulty.Normal, 0.2f },
-            { Difficulty.Hard, 0.3f },
+            { Difficulty.Easy, 0.2f },
+            { Difficulty.Normal, 0.3f },
+            { Difficulty.Hard, 0.4f },
             { Difficulty.Extreme, 0.5f }
         };
 

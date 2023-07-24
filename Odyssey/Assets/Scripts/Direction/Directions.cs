@@ -125,7 +125,6 @@ public class Directions
 
     public static void FlipSpriteWithIndex(GameObject obj, int index)
     {
-        Debug.Log("here");
         obj.transform.rotation = Quaternion.Euler(0, 0, 180 - index * 45);
     }
 

@@ -72,6 +72,9 @@ public class MainPlayerController : MonoBehaviour
         OnDisplayCurrentWeapon.Invoke(primary.weapon);
         OnDisplayPrimaryCharacter.Invoke(primary.charName, true);
         OnDisplaySecondaryCharacter.Invoke(secondary.charName, false);
+
+        // fix mk healthbar not set up bug
+        _healthBar.GetComponent<HealthBarScript>().Swap();
     }
 
     // helper method that takes a reference time and checks if the interval between the current

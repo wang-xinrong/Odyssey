@@ -7,7 +7,7 @@ public class ArrowNavigation : MonoBehaviour
     public enum OS { Windows, MacOS}
     public OS CurrOS;
     private int windowsOffset = 1900;
-    private int MacOSOffset = 975; 
+    private int MacOSOffset = 547; 
     private int page = 1;
     public int NumberOfChar = 2;
 

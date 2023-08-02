@@ -1076,6 +1076,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnSkillCooldown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SkillCooldownManager, MyScripts
+        m_MethodName: ReflectCooldown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
@@ -1592,6 +1607,21 @@ MonoBehaviour:
       - m_Target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
         m_TargetAssemblyTypeName: UIManager, MyScripts
         m_MethodName: DisplayStatusEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSkillCooldown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SkillCooldownManager, MyScripts
+        m_MethodName: ReflectCooldown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -25,7 +25,7 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float _rechargeSPInterval;
     [SerializeField]
-    private float[] charSpecialAttackCD;
+    public float[] charSpecialAttackCD;
     [SerializeField]
     private float[] charLastSpAttack;
     private float lastRechargeSPTime; 

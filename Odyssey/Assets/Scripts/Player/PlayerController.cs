@@ -68,6 +68,9 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     private bool isSpedUp = false;
     public UnityEvent<string, int> OnStatusEffect;
 
+    // for sp attack / skills cd
+    public UnityEvent<int, int> OnSkillCooldown;
+
     public float CurrentMoveSpeed
     {
         get
@@ -204,6 +207,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             Debug.Log("on cd");
             return;
         }
+        OnSkillCooldown.Invoke(charNumber, (int) _mainPlayerController.charSpecialAttackCD[charNumber]);
         CancelInvoke("StartIdling");
         _currentState = State.Special;
         PlayAnimation(weapon.CharSpecial);
@@ -468,6 +472,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             Debug.Log("dash on cd");
             return;
         }
+        OnSkillCooldown.Invoke(2, (int) dashCD);
         StartCoroutine(Dash());
     }
 

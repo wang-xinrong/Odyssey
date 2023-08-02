@@ -2039,6 +2039,22 @@ PrefabInstance:
       propertyPath: ProjectilePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 3957113067568804074, guid: c0f4ce42d418948b2b06d6502166b777, type: 3}
+    - target: {fileID: 5891670334096589289, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: OnSkillCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 552983802}
+    - target: {fileID: 5891670334096589289, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: OnSkillCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReflectCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335105262139, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: OnSkillCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 552983802}
+    - target: {fileID: 5891670335105262139, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: OnSkillCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReflectCooldown
+      objectReference: {fileID: 0}
     - target: {fileID: 5891670335115618963, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2363,6 +2379,17 @@ MonoBehaviour:
   startY: 0
   delayBeforeAstarScan: 1
   StartRoomNameString: SecondHalfStart
+--- !u!114 &552983802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8119848083371200292, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec166b057908749ce8a41aeeef20b03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &553124631 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3294409913991336426, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}

@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject SwapCharacterPrompt;
     public GameObject DamageTextPrefab;
     public GameObject HealthTextPrefab;
+    public GameObject FeedbackTextPrefab;
     public GameObject DialogueUI;
     public TMP_Text DialogueText;
     public GameObject playerDialogueIcon;
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
 
     public Canvas GameCanvas;
     public GameObject HealthDamageTextManager;
+    public GameObject FeedbackTextManager;
 
     public List<Dialogue> currDialogues; 
     private int currDialogueIndex = -1;
@@ -74,6 +76,8 @@ public class UIManager : MonoBehaviour
         DialogueLauncher.OnDisplayDialogue += InitiateCutScene;
         BossDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
         EnemyDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
+
+        CharacterEvents.GenerateFeedback += GenerateTextFeedback;
     }
 
     private void OnDisable()
@@ -89,6 +93,8 @@ public class UIManager : MonoBehaviour
         DialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
         BossDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
         EnemyDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
+
+        CharacterEvents.GenerateFeedback -= GenerateTextFeedback;
     }
 
     public void InitiateCutScene(List<Dialogue> dialogues)
@@ -237,5 +243,21 @@ public class UIManager : MonoBehaviour
     public void DisplayStatusEffect(string status, int duration)
     {
         StatusEffectManager.instance.DelegateToGUI(status, duration);
+    }
+
+    public void GenerateTextFeedback(GameObject gameObject, string text)
+    {
+        Vector3 _spawnPosition = gameObject.transform.position;
+
+        TMP_Text _tmpText = Instantiate(FeedbackTextPrefab
+                                , _spawnPosition
+                                , Quaternion.identity
+                                , FeedbackTextManager.transform)
+                                .GetComponent<TMP_Text>();
+
+        _tmpText.transform.localPosition = Vector3.zero;
+            //Camera.main.WorldToScreenPoint(new Vector3(Screen.width / 2, Screen.height / 2, 1));
+
+        _tmpText.text = text;
     }
 }

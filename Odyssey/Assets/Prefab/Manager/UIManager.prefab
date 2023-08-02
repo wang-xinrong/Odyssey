@@ -54,6 +54,7 @@ MonoBehaviour:
   SwapCharacterPrompt: {fileID: 0}
   DamageTextPrefab: {fileID: 5103943033368161537, guid: 87f0783845a4d4b11a4ba63b6ef7cad2, type: 3}
   HealthTextPrefab: {fileID: 5103943033368161537, guid: e0afbcacd49e843ec97782f07aeb893a, type: 3}
+  FeedbackTextPrefab: {fileID: 5034744824623579539, guid: b9d2dc479af3948ef9dfbac82671492e, type: 3}
   DialogueUI: {fileID: 0}
   DialogueText: {fileID: 0}
   playerDialogueIcon: {fileID: 0}
@@ -66,6 +67,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  clearChapterPanel: {fileID: 0}
   IsCutSceneOn: 0
   GameCanvas: {fileID: 0}
   HealthDamageTextManager: {fileID: 0}

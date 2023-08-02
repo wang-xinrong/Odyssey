@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 5774478503361124020}
   - component: {fileID: 5376215685577059153}
   - component: {fileID: 2148146020794092007}
+  - component: {fileID: 4113148514799608043}
   m_Layer: 8
   m_Name: zbj
   m_TagString: Player
@@ -1046,8 +1047,6 @@ MonoBehaviour:
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
-  dashSpeedMultiplier: 2.5
-  dashDuration: 0.25
 --- !u!95 &5891670334096589294
 Animator:
   serializedVersion: 5
@@ -1283,6 +1282,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 232a559a3fa6041fca9208217d635978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4113148514799608043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670334096589280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad24de6aee750459ea62484124627992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5891670335105262140
@@ -1552,8 +1563,6 @@ MonoBehaviour:
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
-  dashSpeedMultiplier: 2.5
-  dashDuration: 0.25
 --- !u!95 &5891670335105262136
 Animator:
   serializedVersion: 5

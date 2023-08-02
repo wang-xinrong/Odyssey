@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public Damageable _damageable;
     public Directions Direction = new Directions();
     public MKAttackSpritePatch MKAttackSpritePatch;
+    public GhostEffect GhostEffect;
 
     /*
     private float bewitchedTimer = 0f;
@@ -279,6 +280,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public void StartIdling()
     {
         if (_currentState == State.Attack) TerminateDash();
+
         _currentState = State.Idle;
     }
 
@@ -420,7 +422,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
 
 
-    private float dashSpeedMultiplier = 3f;
+    private float dashSpeedMultiplier = 2f;
     private float dashDuration = 0.25f;
     private float priorDashSpeed;
     private float LastDashTime = 0f;
@@ -428,6 +430,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private IEnumerator Dash()
     {
+        GhostEffect.StartTrail(dashDuration);
         LastDashTime = Time.time;
         priorDashSpeed = MovementSpeed;
         MovementSpeed = priorDashSpeed * dashSpeedMultiplier;
@@ -439,6 +442,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private void TerminateDash()
     {
+        GhostEffect.TerminateTrail();
+
         if (isSlowedDown || isSpedUp || isBewitched)
         {
             MovementSpeed = priorDashSpeed;

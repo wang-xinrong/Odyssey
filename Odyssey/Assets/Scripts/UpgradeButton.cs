@@ -5,12 +5,14 @@ using UnityEngine;
 public class UpgradeButton : MonoBehaviour
 {
     private CharacterStatsDisplay display;
+    private UITextFeedbackGenerator uITextFeedbackGenerator;
     private StatsManager.MKLevel nextMKLevel;
     private StatsManager.ZBJLevel nextZBJLevel;
 
     private void Awake()
     {
         display = GetComponentInParent<CharacterStatsDisplay>();
+        uITextFeedbackGenerator = GetComponent<UITextFeedbackGenerator>();
     }
 
     public void Upgrade()
@@ -26,7 +28,12 @@ public class UpgradeButton : MonoBehaviour
             //not enough money
             if (InventoryManager.Instance.Money <
                 StatsManager.Instance.MKUpgradeCost[
-                    StatsManager.Instance.CurrentMKLevel]) return;
+                    StatsManager.Instance.CurrentMKLevel])
+            {
+                uITextFeedbackGenerator
+                    .GenerateTextFeedback("Insufficient Coins");
+                return;
+            }
 
             InventoryManager.Instance.Money -= StatsManager
                 .Instance.MKUpgradeCost[StatsManager.Instance
@@ -46,7 +53,12 @@ public class UpgradeButton : MonoBehaviour
             //not enough money
             if (InventoryManager.Instance.Money <
                 StatsManager.Instance.ZBJUpgradeCost[
-                    StatsManager.Instance.CurrentZBJLevel]) return;
+                    StatsManager.Instance.CurrentZBJLevel])
+            {
+                uITextFeedbackGenerator
+                    .GenerateTextFeedback("Insufficient Coins");//, transform);
+                return;
+            }
 
             InventoryManager.Instance.Money -= StatsManager
                 .Instance.ZBJUpgradeCost[StatsManager.Instance

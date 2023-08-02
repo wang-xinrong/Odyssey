@@ -35,7 +35,7 @@ public class HealthText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _textMeshPro.text = "test";
     }
 
     // Update is called once per frame

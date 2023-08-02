@@ -577,6 +577,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 4603273910549364832}
+--- !u!1 &4110839065635728683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9206615761048425861}
+  m_Layer: 0
+  m_Name: GhostManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9206615761048425861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110839065635728683}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5891670335115618972}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4603410495152257718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1039,7 @@ MonoBehaviour:
   Animator: {fileID: 5891670334096589294}
   _damageable: {fileID: 5891670334096589293}
   MKAttackSpritePatch: {fileID: 0}
+  GhostEffect: {fileID: 4113148514799608043}
   _currentState: 0
   MovementSpeed: 5
   weapon: {fileID: 1174388777}
@@ -1047,6 +1079,10 @@ MonoBehaviour:
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
+  dashSpeedMultiplier: 2
+  dashDuration: 0.25
+  LastDashTime: 0
+  dashCD: 2
 --- !u!95 &5891670334096589294
 Animator:
   serializedVersion: 5
@@ -1296,6 +1332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad24de6aee750459ea62484124627992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GhostPrefab: {fileID: 1118343486044717970, guid: b42ffa2578fef4fa999b35fa4538dc67, type: 3}
+  RefreshRate: 0.025
+  GhostFadeAwayTime: 0.25
 --- !u!1 &5891670335105262140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1359,7 @@ GameObject:
   - component: {fileID: 2055911307}
   - component: {fileID: 4370395023732983613}
   - component: {fileID: 7897555901706722166}
+  - component: {fileID: 7165464151200355993}
   m_Layer: 8
   m_Name: mk
   m_TagString: Player
@@ -1524,6 +1564,7 @@ MonoBehaviour:
   Animator: {fileID: 5891670335105262136}
   _damageable: {fileID: 5891670335105262143}
   MKAttackSpritePatch: {fileID: 0}
+  GhostEffect: {fileID: 7165464151200355993}
   _currentState: 0
   MovementSpeed: 5
   weapon: {fileID: 5891670334319995383}
@@ -1563,6 +1604,10 @@ MonoBehaviour:
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
+  dashSpeedMultiplier: 2
+  dashDuration: 0.25
+  LastDashTime: 0
+  dashCD: 2
 --- !u!95 &5891670335105262136
 Animator:
   serializedVersion: 5
@@ -1831,6 +1876,21 @@ MonoBehaviour:
   - {fileID: 2148382637088713273}
   - {fileID: 8404204372903225789}
   - {fileID: 4713058820390381296}
+--- !u!114 &7165464151200355993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891670335105262140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad24de6aee750459ea62484124627992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GhostPrefab: {fileID: 1118343486044717970, guid: b42ffa2578fef4fa999b35fa4538dc67, type: 3}
+  RefreshRate: 0.025
+  GhostFadeAwayTime: 0.25
 --- !u!1 &5891670335115618963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1925,7 @@ Transform:
   - {fileID: 855551279}
   - {fileID: 5891670335645621041}
   - {fileID: 5891670334096589283}
+  - {fileID: 9206615761048425861}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -421,11 +421,14 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     }
 
 
-
+    [SerializeField]
     private float dashSpeedMultiplier = 2f;
+    [SerializeField]
     private float dashDuration = 0.25f;
     private float priorDashSpeed;
+    [SerializeField]
     private float LastDashTime = 0f;
+    [SerializeField]
     private float dashCD = 2f;
 
     private IEnumerator Dash()

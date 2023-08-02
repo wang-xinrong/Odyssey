@@ -278,6 +278,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void StartIdling()
     {
+        if (_currentState == State.Attack) TerminateDash();
         _currentState = State.Idle;
     }
 
@@ -416,6 +417,57 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         OnStatusEffect.Invoke("haste", (int) duration);
         return true;
     }
+
+
+
+    private float dashSpeedMultiplier = 3f;
+    private float dashDuration = 0.25f;
+    private float priorDashSpeed;
+    private float LastDashTime = 0f;
+    private float dashCD = 2f;
+
+    private IEnumerator Dash()
+    {
+        LastDashTime = Time.time;
+        priorDashSpeed = MovementSpeed;
+        MovementSpeed = priorDashSpeed * dashSpeedMultiplier;
+        yield return new WaitForSeconds(dashDuration);
+
+        // check if any speed up / down effect is still around
+        TerminateDash();
+    }
+
+    private void TerminateDash()
+    {
+        if (isSlowedDown || isSpedUp || isBewitched)
+        {
+            MovementSpeed = priorDashSpeed;
+        }
+        else
+        {
+            ResetMovementSpeed();
+        }
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+        if (!_mainPlayerController.dashOffCD(LastDashTime, dashCD))
+        {
+            Debug.Log("dash on cd");
+            return;
+        }
+        StartCoroutine(Dash());
+    }
+
+
+
+
+
+
 
 
     /*

@@ -970,6 +970,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9175b391-2d29-4932-8949-117a09d566c1
     m_ActionName: Player/PickUp[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5891670334096589289}
+        m_TargetAssemblyTypeName: PlayerController, MyScripts
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c032f818-bcbe-40d9-96cf-05d4f9057a6c
+    m_ActionName: Player/Dash[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1030,6 +1046,8 @@ MonoBehaviour:
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
+  dashSpeedMultiplier: 2.5
+  dashDuration: 0.25
 --- !u!95 &5891670334096589294
 Animator:
   serializedVersion: 5
@@ -1458,6 +1476,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 504a3f9c-a0d0-4e92-bfb8-5532f116f100
     m_ActionName: Player/PickUp[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5891670335105262139}
+        m_TargetAssemblyTypeName: PlayerController, MyScripts
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a8b0755-f169-4da7-b87e-3334590a7be1
+    m_ActionName: Player/Dash[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1518,6 +1552,8 @@ MonoBehaviour:
   _attackDelay: 1
   _inComboBetweenAttackDelay: 0.5
   _timeBeforeComboCountCleared: 2
+  dashSpeedMultiplier: 2.5
+  dashDuration: 0.25
 --- !u!95 &5891670335105262136
 Animator:
   serializedVersion: 5

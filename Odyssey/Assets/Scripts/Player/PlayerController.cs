@@ -472,7 +472,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
             Debug.Log("dash on cd");
             return;
         }
-        OnSkillCooldown.Invoke(charNumber + 2, (int) dashCD);
+        OnSkillCooldown.Invoke(2, (int) dashCD);
         StartCoroutine(Dash());
     }
 

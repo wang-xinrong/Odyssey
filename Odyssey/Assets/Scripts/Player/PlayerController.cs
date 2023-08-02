@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public Damageable _damageable;
     public Directions Direction = new Directions();
     public MKAttackSpritePatch MKAttackSpritePatch;
+    public GhostEffect GhostEffect;
 
     /*
     private float bewitchedTimer = 0f;
@@ -278,6 +279,8 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     public void StartIdling()
     {
+        if (_currentState == State.Attack) TerminateDash();
+
         _currentState = State.Idle;
     }
 
@@ -416,6 +419,63 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         OnStatusEffect.Invoke("haste", (int) duration);
         return true;
     }
+
+
+    [SerializeField]
+    private float dashSpeedMultiplier = 2f;
+    [SerializeField]
+    private float dashDuration = 0.25f;
+    private float priorDashSpeed;
+    [SerializeField]
+    private float LastDashTime = 0f;
+    [SerializeField]
+    private float dashCD = 2f;
+
+    private IEnumerator Dash()
+    {
+        GhostEffect.StartTrail(dashDuration);
+        LastDashTime = Time.time;
+        priorDashSpeed = MovementSpeed;
+        MovementSpeed = priorDashSpeed * dashSpeedMultiplier;
+        yield return new WaitForSeconds(dashDuration);
+
+        // check if any speed up / down effect is still around
+        TerminateDash();
+    }
+
+    private void TerminateDash()
+    {
+        GhostEffect.TerminateTrail();
+
+        if (isSlowedDown || isSpedUp || isBewitched)
+        {
+            MovementSpeed = priorDashSpeed;
+        }
+        else
+        {
+            ResetMovementSpeed();
+        }
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+        {
+            return;
+        }
+        if (!_mainPlayerController.dashOffCD(LastDashTime, dashCD))
+        {
+            Debug.Log("dash on cd");
+            return;
+        }
+        StartCoroutine(Dash());
+    }
+
+
+
+
+
+
 
 
     /*

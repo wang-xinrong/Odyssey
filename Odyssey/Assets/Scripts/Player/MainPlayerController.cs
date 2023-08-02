@@ -90,6 +90,11 @@ public class MainPlayerController : MonoBehaviour
         return prevAttackTime == 0 || HasSufficientTimePassed(prevAttackTime, charSpecialAttackCD[charNumber]);
     }
 
+    public bool dashOffCD(float prevDashTime, float DashCD)
+    {
+        return prevDashTime == 0 || HasSufficientTimePassed(prevDashTime, DashCD);
+    }
+
     PlayerController temporaryController;
 
     private void checkIncrementSP()

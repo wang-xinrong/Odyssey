@@ -6,8 +6,12 @@ using TMPro;
 
 public class UITextFeedback : MonoBehaviour
 {
+    public delegate void GenerateFeedback(Transform transform, string text);
+    public static event GenerateFeedback OnGenerateFeedback;
+
     // the speed at which the text is moving upwards
-    public Vector3 moveSpeed = new Vector3(0, 75, 0);
+    private Vector3 moveSpeed = new Vector3(0, 0.75f, 0);
+    private float RefreshRate = 0.005f;
     public float TimeToFade = 1f;
 
     private float _timeElapsed = 0f;
@@ -41,10 +45,8 @@ public class UITextFeedback : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("this is being run");
-
-        _textTransform.position += moveSpeed * Time.deltaTime;
-        _timeElapsed += Time.deltaTime;
+        transform.localPosition += moveSpeed;
+        _timeElapsed += RefreshRate;
 
         if (_timeElapsed < TimeToFade)
         {

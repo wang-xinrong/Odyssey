@@ -8,6 +8,7 @@ public class BuildingActivator : MonoBehaviour
     public GameObject BuildingPanel;
     public bool IsNearBuilding = false;
     public bool IsBuildingPanelOpen = false;
+    public AudioClip EntryClip;
 
     private void Awake()
     {
@@ -51,6 +52,8 @@ public class BuildingActivator : MonoBehaviour
             if (!IsNearBuilding) return;
             BuildingPanel.SetActive(!IsBuildingPanelOpen);
             IsBuildingPanelOpen = !IsBuildingPanelOpen;
+
+            if (IsBuildingPanelOpen) AudioManager.Instance.PlaySound(EntryClip);
 
             /*
             if (!IsBuildingPanelOpen)

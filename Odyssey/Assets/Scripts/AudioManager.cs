@@ -28,6 +28,13 @@ public class AudioManager : MonoBehaviour
         _effectSource.PlayOneShot(audioClip);
     }
 
+    
+    public void StopPlaySound()
+    {
+        _effectSource.Stop();
+    }
+    
+
     public void PlayBGM(string location)
     {
         SilentAllBGMSources();
@@ -35,6 +42,7 @@ public class AudioManager : MonoBehaviour
         {
             case "StartMenu":
                 _startMenuBGMSource.Play();
+                Debug.Log("here");
                 break;
 
             case "Town":

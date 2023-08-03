@@ -253,9 +253,9 @@ public class UIManager : MonoBehaviour
                                 , _spawnPosition
                                 , Quaternion.identity
                                 , FeedbackTextManager.transform)
-                                .GetComponent<TMP_Text>();
+                                .GetComponentInChildren<TMP_Text>();
 
-        _tmpText.transform.localPosition = Vector3.zero;
+        _tmpText.transform.parent.transform.localPosition = Vector3.zero;
             //Camera.main.WorldToScreenPoint(new Vector3(Screen.width / 2, Screen.height / 2, 1));
 
         _tmpText.text = text;

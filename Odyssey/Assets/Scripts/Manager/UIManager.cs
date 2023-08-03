@@ -245,12 +245,10 @@ public class UIManager : MonoBehaviour
         StatusEffectManager.instance.DelegateToGUI(status, duration);
     }
 
-    public void GenerateTextFeedback(GameObject gameObject, string text)
+    public void GenerateTextFeedback(string text)
     {
-        Vector3 _spawnPosition = gameObject.transform.position;
-
         TMP_Text _tmpText = Instantiate(FeedbackTextPrefab
-                                , _spawnPosition
+                                , transform.position
                                 , Quaternion.identity
                                 , FeedbackTextManager.transform)
                                 .GetComponentInChildren<TMP_Text>();

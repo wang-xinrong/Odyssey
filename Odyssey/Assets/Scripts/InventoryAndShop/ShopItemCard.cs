@@ -94,12 +94,14 @@ public class ShopItemCard : MonoBehaviour
 
     public void Purchase()
     {
-        InventoryManager.Instance.Purchase(item, quantity);
+        bool result = InventoryManager.Instance.Purchase(item, quantity);
+        if (!result) CharacterEvents.GenerateFeedback.Invoke("insufficent coin");
+        if (result) UIInteractionSoundEffect.PlayPurchaseSound();
     }
 
     public void OnEnlarge()
     {
-        Debug.Log(GameObject.Find("ShopPanel").GetComponent<BigCardPatch>());
+        //Debug.Log(GameObject.Find("ShopPanel").GetComponent<BigCardPatch>());
         GameObject.Find("ShopPanel").GetComponent<BigCardPatch>().OnEnlarge(this);
         //OnClickItemCard.Invoke(this);
     }

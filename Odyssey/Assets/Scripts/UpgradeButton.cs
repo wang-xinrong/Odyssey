@@ -5,14 +5,12 @@ using UnityEngine;
 public class UpgradeButton : MonoBehaviour
 {
     private CharacterStatsDisplay display;
-    private UITextFeedbackGenerator uITextFeedbackGenerator;
     private StatsManager.MKLevel nextMKLevel;
     private StatsManager.ZBJLevel nextZBJLevel;
 
     private void Awake()
     {
         display = GetComponentInParent<CharacterStatsDisplay>();
-        uITextFeedbackGenerator = GetComponent<UITextFeedbackGenerator>();
     }
 
     public void Upgrade()
@@ -30,14 +28,15 @@ public class UpgradeButton : MonoBehaviour
                 StatsManager.Instance.MKUpgradeCost[
                     StatsManager.Instance.CurrentMKLevel])
             {
-                CharacterEvents.GenerateFeedback.Invoke(this.gameObject
-                    , "insufficent coin");
+                CharacterEvents.GenerateFeedback.Invoke("insufficent coin");
                 return;
             }
 
             InventoryManager.Instance.Money -= StatsManager
                 .Instance.MKUpgradeCost[StatsManager.Instance
                 .CurrentMKLevel];
+
+            UIInteractionSoundEffect.PlayPurchaseSound();
 
             StatsManager.Instance.CurrentMKLevel = nextMKLevel;
         }
@@ -58,14 +57,16 @@ public class UpgradeButton : MonoBehaviour
                 //uITextFeedbackGenerator
                 //  .GenerateTextFeedback("Insufficient Coins");//, transform);
 
-                CharacterEvents.GenerateFeedback.Invoke(this.gameObject
-                    , "insufficent coin");
+                CharacterEvents.GenerateFeedback.Invoke("insufficent coin");
                 return;
             }
 
             InventoryManager.Instance.Money -= StatsManager
                 .Instance.ZBJUpgradeCost[StatsManager.Instance
                 .CurrentZBJLevel];
+
+            UIInteractionSoundEffect.PlayPurchaseSound();
+
 
             StatsManager.Instance.CurrentZBJLevel = nextZBJLevel;
         }

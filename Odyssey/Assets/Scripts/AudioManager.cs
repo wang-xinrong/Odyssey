@@ -42,7 +42,6 @@ public class AudioManager : MonoBehaviour
         {
             case "StartMenu":
                 _startMenuBGMSource.Play();
-                Debug.Log("here");
                 break;
 
             case "Town":

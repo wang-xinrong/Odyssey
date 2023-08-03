@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5877286956655759450}
   - component: {fileID: 1315708039873630276}
   - component: {fileID: 1792697251}
+  - component: {fileID: 5767431931720504178}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -72,6 +73,7 @@ MonoBehaviour:
   IsCutSceneOn: 0
   GameCanvas: {fileID: 0}
   HealthDamageTextManager: {fileID: 0}
+  FeedbackTextManager: {fileID: 0}
   currDialogues: []
 --- !u!114 &1792697251
 MonoBehaviour:
@@ -95,3 +97,16 @@ MonoBehaviour:
   - {fileID: 0}
   BossName: {fileID: 0}
   BossHealthUI: {fileID: 0}
+--- !u!114 &5767431931720504178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877286956655759449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be8eacd507154cfdac8cbb223ecd151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PurchaseSound: {fileID: 8300000, guid: 84320538fa6164bceb0922b2ba3de470, type: 3}

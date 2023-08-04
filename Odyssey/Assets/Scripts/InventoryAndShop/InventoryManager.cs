@@ -183,7 +183,6 @@ public class InventoryManager : MonoBehaviour
 
     public void OverwriteSlotItem(Item item, int quantity, int index)
     {
-        Debug.Log("here " + index);
         DraggableItem child = InventorySlots[index].GetComponentInChildren<DraggableItem>();
 
         if (child) Destroy(child.gameObject);

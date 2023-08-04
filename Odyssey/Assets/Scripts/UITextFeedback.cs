@@ -10,7 +10,7 @@ public class UITextFeedback : MonoBehaviour
     // the speed at which the text is moving upwards
     //private Vector3 moveSpeed = new Vector3(0, 0.75f, 0);
     private float RefreshRate = 0.005f;
-    public float TimeToFade = 1f;
+    private float TimeToFade = 2f;
     private float _timeElapsed = 0f;
 
     /*

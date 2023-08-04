@@ -28,7 +28,7 @@ public class UpgradeButton : MonoBehaviour
                 StatsManager.Instance.MKUpgradeCost[
                     StatsManager.Instance.CurrentMKLevel])
             {
-                CharacterEvents.GenerateFeedback.Invoke("insufficent coin");
+                CharacterEvents.GenerateFeedbackInCentre.Invoke("insufficent coin");
                 return;
             }
 
@@ -57,7 +57,7 @@ public class UpgradeButton : MonoBehaviour
                 //uITextFeedbackGenerator
                 //  .GenerateTextFeedback("Insufficient Coins");//, transform);
 
-                CharacterEvents.GenerateFeedback.Invoke("insufficent coin");
+                CharacterEvents.GenerateFeedbackInCentre.Invoke("insufficent coin");
                 return;
             }
 

@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject DamageTextPrefab;
     public GameObject HealthTextPrefab;
     public GameObject FeedbackTextPrefab;
+    public GameObject SmallFeedbackTextPrefab;
     public GameObject DialogueUI;
     public TMP_Text DialogueText;
     public GameObject playerDialogueIcon;
@@ -77,7 +78,8 @@ public class UIManager : MonoBehaviour
         BossDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
         EnemyDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
 
-        CharacterEvents.GenerateFeedback += GenerateTextFeedback;
+        CharacterEvents.GenerateFeedbackInCentre += GenerateTextFeedbackInCentre;
+        CharacterEvents.GenerateFeedbackAtBottom += GenerateTextFeedbackAtBottom;
     }
 
     private void OnDisable()
@@ -94,7 +96,8 @@ public class UIManager : MonoBehaviour
         BossDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
         EnemyDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
 
-        CharacterEvents.GenerateFeedback -= GenerateTextFeedback;
+        CharacterEvents.GenerateFeedbackInCentre -= GenerateTextFeedbackInCentre;
+        CharacterEvents.GenerateFeedbackAtBottom -= GenerateTextFeedbackAtBottom;
     }
 
     public void InitiateCutScene(List<Dialogue> dialogues)
@@ -245,7 +248,7 @@ public class UIManager : MonoBehaviour
         StatusEffectManager.instance.DelegateToGUI(status, duration);
     }
 
-    public void GenerateTextFeedback(string text)
+    public void GenerateTextFeedbackInCentre(string text)
     {
         TMP_Text _tmpText = Instantiate(FeedbackTextPrefab
                                 , transform.position
@@ -255,6 +258,22 @@ public class UIManager : MonoBehaviour
 
         _tmpText.transform.parent.transform.localPosition = Vector3.zero;
             //Camera.main.WorldToScreenPoint(new Vector3(Screen.width / 2, Screen.height / 2, 1));
+
+        _tmpText.text = text;
+    }
+
+    public void GenerateTextFeedbackAtBottom(string text)
+    {
+        float offset = ScreenDimension.GetBottomTextFeedbackOffset();
+
+        TMP_Text _tmpText = Instantiate(SmallFeedbackTextPrefab
+                                , transform.position
+                                , Quaternion.identity
+                                , FeedbackTextManager.transform)
+                                .GetComponentInChildren<TMP_Text>();
+
+        _tmpText.transform.parent.transform.localPosition = new Vector3(0, offset, 0);
+        //Camera.main.WorldToScreenPoint(new Vector3(Screen.width / 2, Screen.height / 2, 1));
 
         _tmpText.text = text;
     }

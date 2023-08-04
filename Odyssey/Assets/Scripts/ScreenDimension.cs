@@ -6,7 +6,7 @@ public class ScreenDimension : MonoBehaviour
 {
     public enum OS { Windows, MacOS }
     //public OS CurrOS;
-    private static OS currOS = OS.MacOS;
+    private static OS currOS = OS.Windows;
 
     // new stats panel arrow navigation
     private static int statsPanelArrowWindowsOffset = 1900;

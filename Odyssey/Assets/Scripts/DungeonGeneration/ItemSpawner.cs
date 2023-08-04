@@ -26,13 +26,13 @@ public class ItemSpawner : MonoBehaviour
 
     public MixedSpawner MS;
 
-    float _totalWeight;
+    protected float _totalWeight;
 
     float _pick;
     int _chosenIndex;
     float _cumulativeWeight;
 
-    private void Awake()
+    protected void Awake()
     {
         _totalWeight = 0;
 
@@ -42,7 +42,7 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected void Start()
     {
         _pick = Random.value * _totalWeight;
         _chosenIndex = 0;

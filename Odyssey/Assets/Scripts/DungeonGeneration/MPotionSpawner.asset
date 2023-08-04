@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b91e0b970b9b4da58906165eaf47540, type: 3}
+  m_Name: MPotionSpawner
+  m_EditorClassIdentifier: 
+  Items:
+  - gameObject: {fileID: 608424885552407126, guid: 11a6db24a2e874ec58834a415870fa16, type: 3}
+    weight: 1
+  - gameObject: {fileID: 608424885552407126, guid: 5b5732da924f54b02809acedc7adf500, type: 3}
+    weight: 1
+  - gameObject: {fileID: 608424885552407126, guid: 0522e3b482218489e9cb7e13db97f50a, type: 3}
+    weight: 1

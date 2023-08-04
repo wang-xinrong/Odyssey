@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class ArrowNavigation : MonoBehaviour
 {
-    public enum OS { Windows, MacOS}
-    public OS CurrOS;
-    private int windowsOffset = 1900;
-    private int MacOSOffset = 547; 
     private int page = 1;
     public int NumberOfChar = 2;
 
-    private int GetOffset()
+    private float GetOffset()
     {
-        if (CurrOS == OS.Windows) return windowsOffset;
-        if (CurrOS == OS.MacOS) return MacOSOffset;
-        return -1;
+        return ScreenDimension.GetStatsPanelArrowOffset();
     }
 
     public void MoveLeft()

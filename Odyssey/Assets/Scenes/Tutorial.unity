@@ -2461,6 +2461,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 122994913}
     - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: FeedbackTextManager
+      value: 
+      objectReference: {fileID: 1542953186}
+    - target: {fileID: 1315708039873630276, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: SwapCharacterPrompt
       value: 
       objectReference: {fileID: 122994916}
@@ -2565,6 +2569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1542953186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5023867161720934644, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 122994911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1550632238 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4280431913327781967, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}

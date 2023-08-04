@@ -10,9 +10,11 @@ public class CharacterEvents : MonoBehaviour
     // character healed and amount healed
     public static UnityAction<GameObject, int> CharacterHeal;
 
-    public static UnityAction<GameObject, string> GenerateFeedback;
+    public static UnityAction<string> GenerateFeedbackInCentre;
 
+    public static UnityAction<string> GenerateFeedbackAtBottom;
 
+    public static UnityAction<string> GenerateFeedbackAtTop;
 
 
     // Start is called before the first frame update

@@ -28,6 +28,13 @@ public class AudioManager : MonoBehaviour
         _effectSource.PlayOneShot(audioClip);
     }
 
+    
+    public void StopPlaySound()
+    {
+        _effectSource.Stop();
+    }
+    
+
     public void PlayBGM(string location)
     {
         SilentAllBGMSources();

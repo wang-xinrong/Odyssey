@@ -42,6 +42,6 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         isPaused = !isPaused;
-        Debug.Log("Game status is " + isPaused);
+        //Debug.Log("Game status is " + isPaused);
     }
 }

@@ -74,7 +74,6 @@ public class ProjectileLauncher : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            Debug.Log(i);
             GameObject projectile = Instantiate(projectileToFire
             , GetLaunchPoint(GetDirectionFacing())
             , projectileToFire.transform.rotation

@@ -2008,6 +2008,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfa15973f969448b8a96b4237c22546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &347316260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1105624746, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &347316261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1144954530077386341, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &347316262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3053998591217645026, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &347316263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7898941015146349735, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &347316264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485957653519141429, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &347316265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8262595749678514773, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
+  m_PrefabInstance: {fileID: 339948460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &421929770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2384,7 +2414,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8119848083371200292, guid: 939e8e9a689be4d13885e0a9337361a9, type: 3}
   m_PrefabInstance: {fileID: 339948460}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 347316265}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec166b057908749ce8a41aeeef20b03b, type: 3}
@@ -3186,6 +3216,34 @@ PrefabInstance:
       propertyPath: oldWeaponValues.Array.data[2]
       value: 
       objectReference: {fileID: 339948464}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 347316265}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 347316264}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.data[2]
+      value: 
+      objectReference: {fileID: 347316263}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.data[3]
+      value: 
+      objectReference: {fileID: 347316262}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.data[4]
+      value: 
+      objectReference: {fileID: 347316261}
+    - target: {fileID: 3708785527809740213, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
+      propertyPath: UIComponents.Array.data[5]
+      value: 
+      objectReference: {fileID: 347316260}
     - target: {fileID: 5877286956655759449, guid: baf383ec62f414da1947548a1acf42b8, type: 3}
       propertyPath: m_Name
       value: UIManager

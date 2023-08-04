@@ -5,8 +5,8 @@ using UnityEngine;
 public class ScreenDimension : MonoBehaviour
 {
     public enum OS { Windows, MacOS }
-    public OS CurrOS;
-    private static OS currOS;
+    //public OS CurrOS;
+    private static OS currOS = OS.MacOS;
 
     // new stats panel arrow navigation
     private static int statsPanelArrowWindowsOffset = 1900;
@@ -16,10 +16,22 @@ public class ScreenDimension : MonoBehaviour
     private static float bottomTextFeedbackWindowsOffset = -270;
     private static float bottomTextFeedbackMacOSOffSet = -300;
 
+    // Window Dimension Scale Controls
+    public GameObject[] UIComponents;
 
     private void Awake()
     {
-        currOS = CurrOS;
+        //currOS = CurrOS;
+    }
+
+    private void Start()
+    {
+        Vector3 scale = GetScale();
+
+        foreach (GameObject go in UIComponents)
+        {
+            go.transform.localScale = scale;
+        }
     }
 
     public static float GetStatsPanelArrowOffset()
@@ -32,5 +44,10 @@ public class ScreenDimension : MonoBehaviour
     {
         return currOS == OS.MacOS ? bottomTextFeedbackMacOSOffSet
             : bottomTextFeedbackWindowsOffset;
+    }
+
+    private static Vector3 GetScale()
+    {
+        return currOS == OS.MacOS ? Vector3.one : new Vector3(0.9f, 0.9f, 1);
     }
 }

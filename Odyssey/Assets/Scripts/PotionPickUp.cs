@@ -31,7 +31,8 @@ public class PotionPickUp : MonoBehaviour
 
         if (collector.CollectPotions(Item))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
 
         Neared = false;

@@ -9,8 +9,8 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CoinCollector coinCollector = collision
-            .GetComponent<CoinCollector>();
+        ItemCollector coinCollector = collision
+            .GetComponent<ItemCollector>();
 
         if (coinCollector)
         {

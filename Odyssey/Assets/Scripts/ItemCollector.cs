@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinCollector : MonoBehaviour
+public class ItemCollector : MonoBehaviour
 {
     private InventoryManager inventoryManager;
 
@@ -16,5 +16,15 @@ public class CoinCollector : MonoBehaviour
     public void CollectCoins(int amount)
     {
         inventoryManager.Money += amount;
+    }
+
+    // returns whether the inventory successfully added the item
+    public bool CollectPotions(Item item)
+    {
+        bool result = inventoryManager.AddItem(item);
+        if (!result) CharacterEvents.GenerateFeedbackAtBottom(
+            "potion pickup failed - full inventory");
+
+        return result;
     }
 }

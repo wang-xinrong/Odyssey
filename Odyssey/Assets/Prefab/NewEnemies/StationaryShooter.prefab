@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 2309323728460359953}
   - component: {fileID: 8462823785778906268}
   - component: {fileID: 6721692666564158829}
+  - component: {fileID: 4024244662918074062}
   m_Layer: 9
   m_Name: StationaryShooter
   m_TagString: Untagged
@@ -310,6 +311,7 @@ MonoBehaviour:
   HealthUpdated:
     m_PersistentCalls:
       m_Calls: []
+  IsChar: 0
   _isInvincible: 0
   _isAlive: 1
   _maxHealth: 100
@@ -389,6 +391,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 981730f6250db4c099c9bd3edc74f7dc, type: 2}
   duration: 0.1
+--- !u!114 &4024244662918074062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805828293309906614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bd24fea23ad4d8ca399539c95f8fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MS: {fileID: 0}
+  GeneralPotionSpawner: {fileID: 11400000, guid: 147dcd03c9c934176afcacaed7632407, type: 2}
+  AnyPotionSpawnRate: 0.3
 --- !u!1 &2836929521846000490
 GameObject:
   m_ObjectHideFlags: 0

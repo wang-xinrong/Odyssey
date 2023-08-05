@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 7297189019914878176}
   - component: {fileID: 9199884180957953666}
   - component: {fileID: 374857627867521419}
+  - component: {fileID: 7394301320285662275}
   m_Layer: 9
   m_Name: ChasingMelee
   m_TagString: Untagged
@@ -600,7 +601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  NoOfPatrolPointSets: 0
   targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -685,7 +685,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5c6a7fc293e45d483146aedc7aa011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _patrol: {fileID: 0}
+  _aIDestinationSetter: {fileID: 0}
   _currentState: 2
+  IsBoss: 0
   DetectionZoneCollider: {fileID: 464289379}
 --- !u!114 &2100582539
 MonoBehaviour:
@@ -759,6 +762,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 981730f6250db4c099c9bd3edc74f7dc, type: 2}
   duration: 0.1
+--- !u!114 &7394301320285662275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161498900189661617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56bd24fea23ad4d8ca399539c95f8fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MS: {fileID: 0}
+  GeneralPotionSpawner: {fileID: 11400000, guid: 147dcd03c9c934176afcacaed7632407, type: 2}
+  AnyPotionSpawnRate: 0.3
 --- !u!1001 &5618179347493826488
 PrefabInstance:
   m_ObjectHideFlags: 0

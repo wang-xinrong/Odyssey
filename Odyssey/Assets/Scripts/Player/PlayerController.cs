@@ -437,6 +437,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private IEnumerator Dash()
     {
+        ActionSoundEffects.PlayDashSound();
         GhostEffect.StartTrail(dashDuration);
         LastDashTime = Time.time;
         priorDashSpeed = MovementSpeed;

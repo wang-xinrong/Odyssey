@@ -15,6 +15,7 @@ public class ItemCollector : MonoBehaviour
 
     public void CollectCoins(int amount)
     {
+        ActionSoundEffects.PlayCoinPickup();
         inventoryManager.Money += amount;
     }
 

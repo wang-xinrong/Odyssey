@@ -1,0 +1,76 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ActionSoundEffects : MonoBehaviour
+{
+    public AudioClip PurchaseSound;
+    public AudioClip CoinPickup;
+    public AudioClip WeaponPickup;
+    public AudioClip PotionPickup;
+    public AudioClip HPIncrease;
+    public AudioClip SPIncrease;
+    public AudioClip SpeedIncrease;
+    public AudioClip DashSound;
+
+    public static AudioClip SuccessfulPurchaseSound;
+    public static AudioClip CoinPickupSound;
+    public static AudioClip WeaponPickupSound;
+    public static AudioClip PotionPickupSound;
+    public static AudioClip HPIncreaseSound;
+    public static AudioClip SPIncreaseSound;
+    public static AudioClip SpeedIncreaseSound;
+    public static AudioClip DashSoundEffect;
+
+    private void Awake()
+    {
+        SuccessfulPurchaseSound = PurchaseSound;
+        CoinPickupSound = CoinPickup;
+        WeaponPickupSound = WeaponPickup;
+        PotionPickupSound = PotionPickup;
+        HPIncreaseSound = HPIncrease;
+        SPIncreaseSound = SPIncrease;
+        SpeedIncreaseSound = SpeedIncrease;
+        DashSoundEffect = DashSound;
+    }
+
+    public static void PlayPurchaseSound()
+    {
+        AudioManager.Instance.PlaySound(SuccessfulPurchaseSound);
+    }
+
+    public static void PlayCoinPickup()
+    {
+        AudioManager.Instance.PlaySound(CoinPickupSound);
+    }
+
+    public static void PlayWeaponPickup()
+    {
+        AudioManager.Instance.PlaySound(WeaponPickupSound);
+    }
+
+    public static void PlayHPIncrease()
+    {
+        AudioManager.Instance.PlaySound(HPIncreaseSound);
+    }
+
+    public static void PlaySPIncrease()
+    {
+        AudioManager.Instance.PlaySound(SPIncreaseSound);
+    }
+
+    public static void PlaySpeedIncrease()
+    {
+        AudioManager.Instance.PlaySound(SpeedIncreaseSound);
+    }
+
+    public static void PlayDashSound()
+    {
+        AudioManager.Instance.PlaySound(DashSoundEffect);
+    }
+
+    public static void PlayPotionPickup()
+    {
+        AudioManager.Instance.PlaySound(PotionPickupSound);
+    }
+}

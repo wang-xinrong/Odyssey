@@ -36,7 +36,7 @@ public class UpgradeButton : MonoBehaviour
                 .Instance.MKUpgradeCost[StatsManager.Instance
                 .CurrentMKLevel];
 
-            UIInteractionSoundEffect.PlayPurchaseSound();
+            ActionSoundEffects.PlayPurchaseSound();
 
             StatsManager.Instance.CurrentMKLevel = nextMKLevel;
         }
@@ -65,7 +65,7 @@ public class UpgradeButton : MonoBehaviour
                 .Instance.ZBJUpgradeCost[StatsManager.Instance
                 .CurrentZBJLevel];
 
-            UIInteractionSoundEffect.PlayPurchaseSound();
+            ActionSoundEffects.PlayPurchaseSound();
 
 
             StatsManager.Instance.CurrentZBJLevel = nextZBJLevel;

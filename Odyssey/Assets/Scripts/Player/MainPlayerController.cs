@@ -48,6 +48,8 @@ public class MainPlayerController : MonoBehaviour
     Damageable primaryDamageable;
     Damageable secondaryDamageable;
 
+    public SwapEffect SwapEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -252,6 +254,8 @@ public class MainPlayerController : MonoBehaviour
         // be swapped into if he is alive
         if (isChar1 && primary.IsAlive())
         {
+            SwapEffect.ActivateSwapSmoke(char1.transform.position);
+
             char1.SetActive(true);
             char2.SetActive(false);
             Directions.SpriteDirectionSetUp(primary, _lastMovement);
@@ -267,6 +271,8 @@ public class MainPlayerController : MonoBehaviour
         }
         else if (!isChar1 && char2.GetComponent<PlayerController>().IsAlive())
         {
+            SwapEffect.ActivateSwapSmoke(char2.transform.position);
+
             char1.SetActive(false);
             char2.SetActive(true);
             Directions.SpriteDirectionSetUp(secondary, _lastMovement);

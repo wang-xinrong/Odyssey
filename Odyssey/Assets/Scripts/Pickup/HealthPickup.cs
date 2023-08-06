@@ -25,6 +25,7 @@ public class HealthPickup : MonoBehaviour
             if (_damageable.OnHeal(HealingAmount))
             {
                 if (ItemType == Type.Solid) ActionSoundEffects.PlayFoodConsumption();
+                if (ItemType == Type.Liquid) ActionSoundEffects.PlayLiquidFoodConsumption();
                 Destroy(gameObject);
             }
         }

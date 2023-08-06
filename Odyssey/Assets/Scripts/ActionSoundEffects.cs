@@ -8,19 +8,25 @@ public class ActionSoundEffects : MonoBehaviour
     public AudioClip CoinPickup;
     public AudioClip WeaponPickup;
     public AudioClip PotionPickup;
-    public AudioClip HPIncrease;
-    public AudioClip SPIncrease;
-    public AudioClip SpeedIncrease;
+    public AudioClip PotionConsumption;
+    //public AudioClip HPIncrease;
+    //public AudioClip SPIncrease;
+    //public AudioClip SpeedIncrease;
     public AudioClip DashSound;
+    public AudioClip FoodConsumption;
+    public AudioClip LiquidFoodConsumption;
 
     public static AudioClip SuccessfulPurchaseSound;
     public static AudioClip CoinPickupSound;
     public static AudioClip WeaponPickupSound;
     public static AudioClip PotionPickupSound;
-    public static AudioClip HPIncreaseSound;
-    public static AudioClip SPIncreaseSound;
-    public static AudioClip SpeedIncreaseSound;
+    public static AudioClip PotionConsumptionSound;
+    //public static AudioClip HPIncreaseSound;
+    //public static AudioClip SPIncreaseSound;
+    //public static AudioClip SpeedIncreaseSound;
     public static AudioClip DashSoundEffect;
+    public static AudioClip FoodConsumptionSound;
+    public static AudioClip LiquidFoodConsumptionSound;
 
     private void Awake()
     {
@@ -28,10 +34,13 @@ public class ActionSoundEffects : MonoBehaviour
         CoinPickupSound = CoinPickup;
         WeaponPickupSound = WeaponPickup;
         PotionPickupSound = PotionPickup;
-        HPIncreaseSound = HPIncrease;
-        SPIncreaseSound = SPIncrease;
-        SpeedIncreaseSound = SpeedIncrease;
+        PotionConsumptionSound = PotionConsumption;
+        //HPIncreaseSound = HPIncrease;
+        //SPIncreaseSound = SPIncrease;
+        //SpeedIncreaseSound = SpeedIncrease;
         DashSoundEffect = DashSound;
+        FoodConsumptionSound = FoodConsumption;
+        LiquidFoodConsumptionSound = LiquidFoodConsumption;
     }
 
     public static void PlayPurchaseSound()
@@ -49,6 +58,17 @@ public class ActionSoundEffects : MonoBehaviour
         AudioManager.Instance.PlaySound(WeaponPickupSound);
     }
 
+    public static void PlayPotionPickup()
+    {
+        AudioManager.Instance.PlaySound(PotionPickupSound);
+    }
+
+    public static void PlayPotionConsumption()
+    {
+        AudioManager.Instance.PlaySound(PotionConsumptionSound);
+    }
+
+    /*
     public static void PlayHPIncrease()
     {
         AudioManager.Instance.PlaySound(HPIncreaseSound);
@@ -63,14 +83,20 @@ public class ActionSoundEffects : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(SpeedIncreaseSound);
     }
+    */
 
     public static void PlayDashSound()
     {
         AudioManager.Instance.PlaySound(DashSoundEffect);
     }
 
-    public static void PlayPotionPickup()
+    public static void PlayFoodConsumption()
     {
-        AudioManager.Instance.PlaySound(PotionPickupSound);
+        AudioManager.Instance.PlaySound(FoodConsumptionSound);
+    }
+
+    public static void PlayLiquidFoodConsumption()
+    {
+        AudioManager.Instance.PlaySound(LiquidFoodConsumptionSound);
     }
 }

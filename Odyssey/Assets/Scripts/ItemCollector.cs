@@ -23,6 +23,7 @@ public class ItemCollector : MonoBehaviour
     public bool CollectPotions(Item item)
     {
         bool result = inventoryManager.AddItem(item);
+        if (result) ActionSoundEffects.PlayPotionPickup();
         if (!result) CharacterEvents.GenerateFeedbackAtBottom(
             "potion pickup failed - full inventory");
 

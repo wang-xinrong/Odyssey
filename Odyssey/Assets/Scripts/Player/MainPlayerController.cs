@@ -295,6 +295,8 @@ public class MainPlayerController : MonoBehaviour
 
         SPIncremented.Invoke(SP, MaxSP);
 
+        //ActionSoundEffects.PlaySPIncrease();
+
         return true;
     }
 

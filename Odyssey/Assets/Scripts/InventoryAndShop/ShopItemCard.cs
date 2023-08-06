@@ -96,7 +96,7 @@ public class ShopItemCard : MonoBehaviour
     {
         bool result = InventoryManager.Instance.Purchase(item, quantity);
         if (!result) CharacterEvents.GenerateFeedbackInCentre.Invoke("insufficent coin");
-        if (result) UIInteractionSoundEffect.PlayPurchaseSound();
+        if (result) ActionSoundEffects.PlayPurchaseSound();
     }
 
     public void OnEnlarge()

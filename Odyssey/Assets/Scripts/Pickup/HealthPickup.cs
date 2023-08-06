@@ -5,7 +5,8 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour
 {
     public int HealingAmount = 20;
-
+    public enum Type { Solid, Liquid}
+    public Type ItemType;
 
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class HealthPickup : MonoBehaviour
             // if a healed successfully
             if (_damageable.OnHeal(HealingAmount))
             {
+                if (ItemType == Type.Solid) ActionSoundEffects.PlayFoodConsumption();
                 Destroy(gameObject);
             }
         }

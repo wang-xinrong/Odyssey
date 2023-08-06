@@ -227,6 +227,9 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         Weapon tmp = weaponOnFloor.droppedWeapon;
         weaponOnFloor.UpdateSprite(weapon);
         weapon = tmp;
+
+        ActionSoundEffects.PlayWeaponPickup();
+
         _mainPlayerController.displaySwappedWeapon(weapon);
     }
 
@@ -405,6 +408,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
     public bool ReplenishHealth(int amount)
     {
         if (_damageable.Health >= _damageable.MaxHealth) return false;
+        //ActionSoundEffects.PlayHPIncrease();
         // for now just implement the health increase to be instant
         return _damageable.OnHeal(amount);
     }
@@ -416,6 +420,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
         if (CurrentMoveSpeed >= _originalMovementSpeed * SpeedBoostLimitFactor) return false;
 
         isSpedUp = true;
+        //ActionSoundEffects.PlaySpeedIncrease();
         MovementSpeed = _originalMovementSpeed * fractionOfOriginalSpeed;
         Invoke("ResetMovementSpeed", duration);
         Invoke("SetIsSpedUpFalse", duration);
@@ -437,6 +442,7 @@ public class PlayerController : MonoBehaviour, PlayerUnderSpecialEffect
 
     private IEnumerator Dash()
     {
+        ActionSoundEffects.PlayDashSound();
         GhostEffect.StartTrail(dashDuration);
         LastDashTime = Time.time;
         priorDashSpeed = MovementSpeed;

@@ -39,6 +39,8 @@ public class ItemConsumption : MonoBehaviour
             if (!result) CharacterEvents.GenerateFeedbackAtBottom("failed speed potion usage - max speed");
         }
 
+        if (result) ActionSoundEffects.PlayPotionConsumption();
+
         return result;
     }
 }

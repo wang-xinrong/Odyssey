@@ -77,6 +77,7 @@ public class UIManager : MonoBehaviour
         DialogueLauncher.OnDisplayDialogue += InitiateCutScene;
         BossDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
         EnemyDialogueLauncher.OnDisplayDialogue += InitiateCutScene;
+        MonkActivator.OnDisplayDialogue += InitiateCutScene;
 
         CharacterEvents.GenerateFeedbackInCentre += GenerateTextFeedbackInCentre;
         CharacterEvents.GenerateFeedbackAtBottom += GenerateTextFeedbackAtBottom;
@@ -95,6 +96,7 @@ public class UIManager : MonoBehaviour
         DialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
         BossDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
         EnemyDialogueLauncher.OnDisplayDialogue -= InitiateCutScene;
+        MonkActivator.OnDisplayDialogue -= InitiateCutScene;
 
         CharacterEvents.GenerateFeedbackInCentre -= GenerateTextFeedbackInCentre;
         CharacterEvents.GenerateFeedbackAtBottom -= GenerateTextFeedbackAtBottom;

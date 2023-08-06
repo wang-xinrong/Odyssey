@@ -505,6 +505,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19e947571c2442b496b5c82b40449d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &267139195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8582754872149524412, guid: 934515383fb3c48aca192ed518b40858, type: 3}
+  m_PrefabInstance: {fileID: 4836184775535440095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &267139200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267139195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab64ddcba9a0e4e0dba25e886e793318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsNearMonk: 0
+  possibleTips:
+  - {fileID: 11400000, guid: e2b3617d749ed43d2a896f786944fefc, type: 2}
+  - {fileID: 11400000, guid: bef2d1286df014689b35c32ed1fd2022, type: 2}
+  tips:
+  - {fileID: 11400000, guid: e2b3617d749ed43d2a896f786944fefc, type: 2}
+--- !u!61 &267139201
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267139195}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &359609110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3001435319563049379, guid: b9ea7dfe7ce62400ebf9613ef90020b0, type: 3}
@@ -681,6 +730,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1114149773}
@@ -728,6 +785,26 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 744269739}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 267139200}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: OnTalkToMonk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: MonkActivator, MyScripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891670335115618973, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0eee5d9665334772a4f403ae05869cb, type: 3}
 --- !u!114 &421929773 stripped

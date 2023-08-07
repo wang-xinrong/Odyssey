@@ -54,17 +54,25 @@ public class MonkActivator : MonoBehaviour
         }
         tips[0] = possibleTips[Random.Range(0, possibleTips.Count)];
         OnDisplayDialogue.Invoke(tips);
-        ToggleKeyprompt();
     }
 
+    // to disable keyprompt when the dialogue box is active
+    // and enable it back when the dialogue is disabled
     public void ToggleKeyprompt()
     {
         bool DialogueOn = DialogueBox.activeSelf;
-        Debug.Log(DialogueOn);
         keyPrompt.GetComponent<SpriteRenderer>().enabled = !DialogueOn;
-        /*
-        bool IsActive = DialogueBox.activeSelf;
-        keyPrompt.gameObject.SetActive(!IsActive);
-        */
+    }
+
+    private bool IsPromptOn = true;
+    private void Update()
+    {
+        if (!IsNearMonk) return;
+
+        if (DialogueBox.activeSelf == IsPromptOn)
+        {
+            keyPrompt.GetComponent<SpriteRenderer>().enabled = !DialogueBox.activeSelf;
+            IsPromptOn = !DialogueBox.activeSelf;
+        }
     }
 }

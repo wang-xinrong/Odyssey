@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1650785175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5019290623536979960, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+  m_PrefabInstance: {fileID: 2086423587030010065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!156049354 &1681875588 stripped
+Grid:
+  m_CorrespondingSourceObject: {fileID: 5019290624667843229, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+  m_PrefabInstance: {fileID: 2086423587030010065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2086423587030010065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +377,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: dc57f058704614d6d91a95333c522033, type: 2}
     - target: {fileID: 5019290623796300696, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019290623796300696, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
       propertyPath: doors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -440,6 +454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+--- !u!1 &2086423587030010066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5019290623796300697, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
+  m_PrefabInstance: {fileID: 2086423587030010065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2086423587030010067 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5019290624460118531, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
@@ -484,3 +503,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb89facfd131e4857a5718ca55e4cd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2086423587030010071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086423587030010066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7af9dc9a09a42ebbed1711af79186f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 17
+  height: 9
+  x: 0
+  y: 0
+  grid: {fileID: 1681875588}
+  door: {fileID: 1650785175}
+  NoOfEnemiesAlive: 0
+  doors: []
+  Reached: 0
+  Cleared: 0

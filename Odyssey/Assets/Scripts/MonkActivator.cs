@@ -12,6 +12,11 @@ public class MonkActivator : MonoBehaviour
     private List<Dialogue> possibleTips = new List<Dialogue>();
     public List<Dialogue> tips = new List<Dialogue>();
 
+    // to disable keyprompt when the dialogue box is active
+    // and enable it back when the dialogue is disabled
+    public GameObject DialogueBox;
+    private KeyPressPromptPositionUpdate keyPrompt;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
@@ -19,9 +24,10 @@ public class MonkActivator : MonoBehaviour
         Debug.Log("in field");
         IsNearMonk = true;
 
-        collision.transform.parent
-            .GetComponentInChildren<KeyPressPromptPositionUpdate>()
-            .PlayEAnimation(null);
+        keyPrompt = collision.transform.parent
+            .GetComponentInChildren<KeyPressPromptPositionUpdate>();
+
+        keyPrompt.PlayEAnimation(null);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -30,10 +36,12 @@ public class MonkActivator : MonoBehaviour
 
         IsNearMonk = false;
 
-        collision.transform.parent
-            .GetComponentInChildren<KeyPressPromptPositionUpdate>()
-            .StopPlayingAnimation();
+        keyPrompt = collision.transform.parent
+            .GetComponentInChildren<KeyPressPromptPositionUpdate>();
+
+        keyPrompt.StopPlayingAnimation();
     }
+
     public void OnTalkToMonk(InputAction.CallbackContext context)
     {
         if (!context.started)
@@ -46,5 +54,17 @@ public class MonkActivator : MonoBehaviour
         }
         tips[0] = possibleTips[Random.Range(0, possibleTips.Count)];
         OnDisplayDialogue.Invoke(tips);
+        ToggleKeyprompt();
+    }
+
+    public void ToggleKeyprompt()
+    {
+        bool DialogueOn = DialogueBox.activeSelf;
+        Debug.Log(DialogueOn);
+        keyPrompt.GetComponent<SpriteRenderer>().enabled = !DialogueOn;
+        /*
+        bool IsActive = DialogueBox.activeSelf;
+        keyPrompt.gameObject.SetActive(!IsActive);
+        */
     }
 }

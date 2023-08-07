@@ -18,7 +18,7 @@ public class TutorialInventoryRoom : Room
         {
             hasDamaged = true;
             dmg = other.GetComponent<Damageable>();
-            dmg.OnHurt(20, Vector2.zero);
+            dmg.OnHurt(40, Vector2.zero);
             InventoryManager.Instance.OverwriteSlotItem(potion, 1, 6);
             NoOfEnemiesAlive++;
         }

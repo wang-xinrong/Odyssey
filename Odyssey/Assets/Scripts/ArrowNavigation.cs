@@ -15,7 +15,11 @@ public class ArrowNavigation : MonoBehaviour
     public void MoveLeft()
     {
         Vector3 position = transform.position;
-        if (page == 1) return;
+        if (page == 1)
+        {
+            MoveRight();
+            return;
+        }
 
         page--;
         gameObject.transform.position = new Vector2(
@@ -29,7 +33,11 @@ public class ArrowNavigation : MonoBehaviour
     public void MoveRight()
     {
         Vector3 position = transform.position;
-        if (page == NumberOfChar) return;
+        if (page == NumberOfChar)
+        {
+            MoveLeft();
+            return;
+        }
 
         page++;
         gameObject.transform.position = new Vector2(
@@ -38,5 +46,10 @@ public class ArrowNavigation : MonoBehaviour
         
 
         //GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, -1 * Offset.x, 2560);
+    }
+
+    public void OnEnable()
+    {
+        if (page == 2) MoveLeft();
     }
 }

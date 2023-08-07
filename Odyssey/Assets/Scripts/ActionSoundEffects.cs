@@ -15,6 +15,7 @@ public class ActionSoundEffects : MonoBehaviour
     public AudioClip DashSound;
     public AudioClip FoodConsumption;
     public AudioClip LiquidFoodConsumption;
+    public AudioClip Swap;
 
     public static AudioClip SuccessfulPurchaseSound;
     public static AudioClip CoinPickupSound;
@@ -27,6 +28,8 @@ public class ActionSoundEffects : MonoBehaviour
     public static AudioClip DashSoundEffect;
     public static AudioClip FoodConsumptionSound;
     public static AudioClip LiquidFoodConsumptionSound;
+    public static AudioClip SwapSound;
+
 
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class ActionSoundEffects : MonoBehaviour
         DashSoundEffect = DashSound;
         FoodConsumptionSound = FoodConsumption;
         LiquidFoodConsumptionSound = LiquidFoodConsumption;
+        SwapSound = Swap;
     }
 
     public static void PlayPurchaseSound()
@@ -98,5 +102,10 @@ public class ActionSoundEffects : MonoBehaviour
     public static void PlayLiquidFoodConsumption()
     {
         AudioManager.Instance.PlaySound(LiquidFoodConsumptionSound);
+    }
+
+    public static void PlaySwap()
+    {
+        AudioManager.Instance.PlaySound(SwapSound);
     }
 }

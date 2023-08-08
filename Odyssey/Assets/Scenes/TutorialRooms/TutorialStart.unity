@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 1808217441}
   - component: {fileID: 1808217444}
   - component: {fileID: 1808217442}
+  - component: {fileID: 1808217445}
   m_Layer: 11
   m_Name: KeyPromptTrigger
   m_TagString: Untagged
@@ -198,7 +199,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.033748627, y: -0.011249304}
+  m_Offset: {x: 2.5821261, y: -0.011249542}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -209,8 +210,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.05718, y: 8.047436}
+  m_Size: {x: 10.825431, y: 8.047436}
   m_EdgeRadius: 0
+--- !u!114 &1808217445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808217440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3e2e21b40e94abb93e13449ebb081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: 676b17b8e34ee4a889089c6a4405450d, type: 2}
+  - {fileID: 11400000, guid: 50238f0e15cb24afb9bb0439e8a500d9, type: 2}
+  - {fileID: 11400000, guid: dde38a3f121da46969e1e8d0b489cfef, type: 2}
 --- !u!1001 &2086423587030010065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2086423587030010068, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
       propertyPath: dialogues.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2086423587030010068, guid: fe8b14c97761b4013b59249d49bb3648, type: 3}
       propertyPath: dialogues.Array.data[1]

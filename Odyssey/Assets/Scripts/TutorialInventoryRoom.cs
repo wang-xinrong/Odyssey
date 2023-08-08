@@ -8,6 +8,11 @@ public class TutorialInventoryRoom : Room
     public Damageable dmg;
     private bool hasRestored = false;
     private bool hasDamaged = false;
+    public delegate void DisplayDialogue(List<Dialogue> dialogues);
+    public static event DisplayDialogue OnDisplayDialogue;
+    public List<Dialogue> dialogues = new List<Dialogue>();
+    private bool hasDisplayed = false;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag != "Player" || !other.isActiveAndEnabled)
@@ -36,6 +41,11 @@ public class TutorialInventoryRoom : Room
             {
                 d.LockDoor(true);
             }
+        }
+        if (dmg.Health == 80 && !hasDisplayed)
+        {
+            OnDisplayDialogue.Invoke(dialogues);
+            hasDisplayed = true;
         }
 
         if (dmg.Health == dmg.MaxHealth)

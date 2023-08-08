@@ -5,12 +5,15 @@ using UnityEngine;
 public class TutorialDashRoom : Room
 {
     private Dashed dashed;
+    private ShiftPromptTrigger KeyPromptTrigger;
 
     private new void Start()
     {
         base.Start();
         NoOfEnemiesAlive++;
         dashed = GameObject.Find("Player").GetComponent<Dashed>();
+        KeyPromptTrigger = GameObject.Find("KeyPromptTrigger").GetComponent<ShiftPromptTrigger>();
+        KeyPromptTrigger.player = dashed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

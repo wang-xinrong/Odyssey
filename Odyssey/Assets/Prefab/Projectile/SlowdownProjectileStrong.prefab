@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 40268653114587178}
   - component: {fileID: 5905261779552159409}
   m_Layer: 11
-  m_Name: EnemyArrowSample4
+  m_Name: SlowdownProjectileStrong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,8 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d696b4f41c6442f9d337f8b9598b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NameString: SlowDownProjectileStrong
+  IsSpecialAttackProjectile: 0
   ProjectileTargetType: 0
-  Speed: 3
+  Speed: 7
   Damage: 5
   KnockBack: {x: 0.5, y: 0.5}
   SlowingFraction: 0.5

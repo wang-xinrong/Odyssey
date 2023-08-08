@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 40268653114587178}
   - component: {fileID: 162573084637314167}
   m_Layer: 11
-  m_Name: EnemyArrowSample2
+  m_Name: BossBasicAttackProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60afb3b10bf6f426197c77a43fdf2483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NameString: BossBasicAttackProjectile
+  IsSpecialAttackProjectile: 0
   ProjectileTargetType: 0
   Speed: 3
   Damage: 10

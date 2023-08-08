@@ -22,6 +22,7 @@ public class StatsManager : MonoBehaviour
             Instance = this;
             SetUpEnemyStatsArrays();
             SetUpPlayerStatsArrays();
+            SetUpProjectileArrays();
         } else
         {
             Destroy(gameObject);
@@ -29,11 +30,13 @@ public class StatsManager : MonoBehaviour
     }
 
     // int[]; 0: hp; 1: damage;
-    public Dictionary<Difficulty, float[]> DifficultyLevel;
-    public Dictionary<Difficulty, float[]> BossDifficultyLevel;
-    public Dictionary<string, int[]> HPDamageAndColliderDamage;
-    public Dictionary<string, float[]> MovementSpeedAndAttackDelay;
-    public Dictionary<Difficulty, float> CoinToHPRatio;
+    private Dictionary<Difficulty, float[]> DifficultyLevel;
+    private Dictionary<Difficulty, float[]> ProjectileDifficultyFactors;
+    private Dictionary<Difficulty, float[]> BossDifficultyLevel;
+    private Dictionary<string, int[]> HPDamageAndColliderDamage;
+    private Dictionary<string, float[]> MovementSpeedAndAttackDelay;
+    private Dictionary<string, float[]> ProjectileStats;
+    private Dictionary<Difficulty, float> CoinToHPRatio;
 
     // MK stats arrays
     public Dictionary<MKLevel, int[]> MKHPAndSA;
@@ -48,8 +51,8 @@ public class StatsManager : MonoBehaviour
     public Dictionary<ZBJLevel, int> ZBJUpgradeCost;
 
     //Boss arrays
-    public Dictionary<string, int[]> BossHealth;
-    public Dictionary<string, float[]> BossMS_AD_SI;
+    private Dictionary<string, int[]> BossHealth;
+    private Dictionary<string, float[]> BossMS_AD_SI;
 
 
     // Start is called before the first frame update
@@ -87,7 +90,7 @@ public class StatsManager : MonoBehaviour
         HPDamageAndColliderDamage = new Dictionary<string, int[]>()
         {
             { "DiagonalCollider", new int[3] {150, 10, 0 } },
-            { "PopUpShooter", new int[3] {100, 10, 0 } },
+            { "PopUpShooter", new int[3] {100, 0, 0 } },
             { "Collider", new int[3] {450, 0, 10 } },
             { "StationaryShooter", new int[3] {100, 0, 0 } },
             { "Charmer", new int[3] {200, 0, 0 } },
@@ -118,7 +121,7 @@ public class StatsManager : MonoBehaviour
 
         BossHealth = new Dictionary<string, int[]>()
         {
-            { "LevelOneBoss", new int[] {600, 600, 600 } }
+            { "LevelOneBoss", new int[] {500, 500, 500 } }
             //{ "LevelOneBoss", new int[] {1000, 1000, 1000 } }
         };
 
@@ -208,17 +211,17 @@ public class StatsManager : MonoBehaviour
 
         MKUpgradeCost = new Dictionary<MKLevel, int>()
         {
-            {MKLevel.One, 600 },
-            {MKLevel.Two, 800 },
-            {MKLevel.Three, 1000 },
+            {MKLevel.One, 300 },
+            {MKLevel.Two, 400 },
+            {MKLevel.Three, 500 },
             {MKLevel.Four, 0 }
         };
 
         ZBJUpgradeCost = new Dictionary<ZBJLevel, int>()
         {
-            {ZBJLevel.One, 600 },
-            {ZBJLevel.Two, 800 },
-            {ZBJLevel.Three, 1000 },
+            {ZBJLevel.One, 300 },
+            {ZBJLevel.Two, 400 },
+            {ZBJLevel.Three, 500 },
             {ZBJLevel.Four, 0 }
         };
     }
@@ -317,5 +320,45 @@ public class StatsManager : MonoBehaviour
             default:
                 return ZBJLevel.Four;
         }
+    }
+
+    private void SetUpProjectileArrays()
+    {
+        // factor for damage, speed and duration of special effects
+        ProjectileDifficultyFactors = new Dictionary<Difficulty, float[]>
+        {
+            {Difficulty.Easy, new float[3] { 1, 1, 1 } },
+            {Difficulty.Normal, new float[3] { 1.4f, 1.1f, 1.2f } },
+            {Difficulty.Hard, new float[3] { 1.7f, 1.2f, 1.4f } },
+            {Difficulty.Extreme, new float[3] { 2, 1.4f, 1.6f} },
+        };
+
+        // damage / speed / duration for special effects
+        ProjectileStats = new Dictionary<string, float[]>
+        {
+            { "BewitchingProjectileWeak", new float[3] {3, 7, 3 } },
+            { "BewitchingProjectileStrong", new float[3] {10, 10, 5 } },
+            { "SlowDownProjectileStrong", new float[3] {5, 10, 3 } },
+            { "SlowDownProjectileWeak", new float[3] {5, 7, 1 } },
+            { "BossBasicAttackProjectile", new float[3] {10, 3, 0 } }
+        };
+    }
+
+    public int GetProjectileDamage(string nameString)
+    {
+        return (int) Mathf.Ceil(ProjectileDifficultyFactors[CurrentDifficulty][0] *
+            ProjectileStats[nameString][0]);
+    }
+
+    public float GetProjectileSpeed(string nameString)
+    {
+        return ProjectileDifficultyFactors[CurrentDifficulty][1] *
+            ProjectileStats[nameString][1];
+    }
+
+    public float GetProjectileDuration(string nameString)
+    {
+        return ProjectileDifficultyFactors[CurrentDifficulty][2] *
+            ProjectileStats[nameString][2];
     }
 }

@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 4284085926513751941}
   - component: {fileID: 8624947888051716483}
   - component: {fileID: 6871441878405517294}
-  - component: {fileID: 8848420310900479706}
-  - component: {fileID: 2304445551908333555}
-  - component: {fileID: 6547220741479270460}
+  - component: {fileID: 3989000163955095686}
+  - component: {fileID: 4015355663377049263}
+  - component: {fileID: 5697568982385681118}
   m_Layer: 10
-  m_Name: ZBJSpecialAttackProjectile
+  m_Name: PigsyBasicAttackProjectileWeak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -1447548587
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1272834173, guid: ef3098cc813cc43b4a42d89055f987e8, type: 3}
+  m_Sprite: {fileID: 1109921426, guid: d2e5af8905db44c4385162bf99761c24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,18 +103,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0012822151, y: -0.0049341917}
+  m_Offset: {x: -0.088166475, y: 0.015793279}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 0.9375}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47504425, y: 0.46332723}
+  m_Size: {x: 0.31851006, y: 0.28088492}
   m_EdgeRadius: 0
 --- !u!50 &8624947888051716483
 Rigidbody2D:
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6797c8021e549dc95b60ab8b8e0c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileScript: {fileID: 8848420310900479706}
---- !u!114 &8848420310900479706
+  ProjectileScript: {fileID: 3989000163955095686}
+--- !u!114 &3989000163955095686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,16 +159,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3957113067568804074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51859ba4588f84b9bb5cb22aee359cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 60afb3b10bf6f426197c77a43fdf2483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NameString: 
+  StatsSystemBased: 0
   ProjectileTargetType: 1
   Speed: 30
-  Damage: 10
+  Damage: 15
   KnockBack: {x: 0.5, y: 0.5}
-  SlowingFraction: 0
-  Duration: 3
---- !u!95 &2304445551908333555
+--- !u!95 &4015355663377049263
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 3957113067568804074}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 74949b3074b244d7c8d6d099689db1b8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02feecb3be5854ec4997276d162d5925, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -189,7 +189,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6547220741479270460
+--- !u!114 &5697568982385681118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

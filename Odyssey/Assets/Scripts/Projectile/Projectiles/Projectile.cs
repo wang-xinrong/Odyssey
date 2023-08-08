@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(ProjectileDirection))]
 public class Projectile : MonoBehaviour
 {
+    public string NameString;
+    public bool StatsSystemBased = true;
     public enum TargetType { Player, Enemy };
     public TargetType ProjectileTargetType;
     public Directions Direction = new Directions();
@@ -30,7 +32,11 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        _rb.velocity = Speed * Direction.DirectionVector;
+        if (StatsSystemBased)
+        {
+            SetUpDamageAndSpeed();
+        }
+        _rb.velocity = Speed * Direction.DirectionVector.normalized;
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
@@ -39,5 +45,12 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void SetUpDamageAndSpeed()
+    {
+        Damage = StatsManager.Instance.GetProjectileDamage(NameString);
+        Speed = StatsManager.Instance.GetProjectileSpeed(NameString);
+        Debug.Log(Speed);
     }
 }

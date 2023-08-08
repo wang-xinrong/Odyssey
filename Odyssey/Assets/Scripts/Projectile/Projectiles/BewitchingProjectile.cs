@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BewitchingProjectile : Projectile
+public class BewitchingProjectile : SpecialEffectProjecilte
 {
-    public float Duration;
+    //public float Duration;
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {

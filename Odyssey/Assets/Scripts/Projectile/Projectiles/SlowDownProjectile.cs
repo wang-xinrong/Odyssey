@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowDownProjectile : Projectile
+public class SlowDownProjectile : SpecialEffectProjecilte
 {
     public float SlowingFraction;
-    public float Duration;
+    //public float Duration;
     
 
     private new void OnTriggerEnter2D(Collider2D collision)

@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1120292389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6844105248759783469}
+    m_Modifications:
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669036, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913507894978669039, guid: b3149741a78504969adee16a101b6a72, type: 3}
+      propertyPath: m_Name
+      value: ChickenLeg (Health Pickup)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3149741a78504969adee16a101b6a72, type: 3}
 --- !u!1001 &6844105248759783466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,6 +243,18 @@ PrefabInstance:
       propertyPath: potion
       value: 
       objectReference: {fileID: 11400000, guid: dd94ea0e46b2f43c39edcd1960ae339d, type: 2}
+    - target: {fileID: 801250551143578756, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 801250551143578756, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a26867636bf8243d49f6d301ddefbe8b, type: 2}
+    - target: {fileID: 801250551143578756, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 55608cf7097334a1995aee30b2003113, type: 2}
     - target: {fileID: 2008116956099521765, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -196,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6844105248759783471, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: dialogues.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6844105248759783471, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: dialogues.Array.data[0]
@@ -205,18 +274,26 @@ PrefabInstance:
     - target: {fileID: 6844105248759783471, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: dialogues.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: a26867636bf8243d49f6d301ddefbe8b, type: 2}
+      objectReference: {fileID: 11400000, guid: b2ae5bceb90f84fe59457db861f81b01, type: 2}
     - target: {fileID: 6844105248759783471, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: dialogues.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 55608cf7097334a1995aee30b2003113, type: 2}
+      objectReference: {fileID: 11400000, guid: b2ae5bceb90f84fe59457db861f81b01, type: 2}
+    - target: {fileID: 6844105248759783471, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: b2ae5bceb90f84fe59457db861f81b01, type: 2}
     - target: {fileID: 8101224050625180270, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: m_Size.x
-      value: 16
+      value: 8.171265
       objectReference: {fileID: 0}
     - target: {fileID: 8101224050625180270, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
       propertyPath: m_Size.y
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101224050625180270, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
+      propertyPath: m_Offset.x
+      value: 3.9143677
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 551489187016008547, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
@@ -240,3 +317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyAnimationToPlay: Q
+--- !u!4 &6844105248759783469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 551489187016008544, guid: 565acda608ace45d590e583e51ab0b22, type: 3}
+  m_PrefabInstance: {fileID: 6844105248759783466}
+  m_PrefabAsset: {fileID: 0}

@@ -24,7 +24,7 @@ public class Room : MonoBehaviour
         // door.transform.position += newPos;
     }
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         // ensure starting in correct scene
         if (RoomController.instance == null)

@@ -21,7 +21,6 @@ public class MonkActivator : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
-        Debug.Log("in field");
         IsNearMonk = true;
 
         keyPrompt = collision.transform.parent

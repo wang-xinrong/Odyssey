@@ -8,6 +8,11 @@ public class TutorialInventoryRoom : Room
     public Damageable dmg;
     private bool hasRestored = false;
     private bool hasDamaged = false;
+    public delegate void DisplayDialogue(List<Dialogue> dialogues);
+    public static event DisplayDialogue OnDisplayDialogue;
+    public List<Dialogue> dialogues = new List<Dialogue>();
+    private bool hasDisplayed = false;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag != "Player" || !other.isActiveAndEnabled)
@@ -18,7 +23,7 @@ public class TutorialInventoryRoom : Room
         {
             hasDamaged = true;
             dmg = other.GetComponent<Damageable>();
-            dmg.OnHurt(20, Vector2.zero);
+            dmg.OnHurt(40, Vector2.zero);
             InventoryManager.Instance.OverwriteSlotItem(potion, 1, 6);
             NoOfEnemiesAlive++;
         }
@@ -36,6 +41,11 @@ public class TutorialInventoryRoom : Room
             {
                 d.LockDoor(true);
             }
+        }
+        if (dmg.Health == 80 && !hasDisplayed)
+        {
+            OnDisplayDialogue.Invoke(dialogues);
+            hasDisplayed = true;
         }
 
         if (dmg.Health == dmg.MaxHealth)

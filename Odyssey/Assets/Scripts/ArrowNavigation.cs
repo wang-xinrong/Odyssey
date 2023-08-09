@@ -6,10 +6,13 @@ public class ArrowNavigation : MonoBehaviour
 {
     private int page = 1;
     public int NumberOfChar = 2;
+    public GameObject Card1;
+    public GameObject Card2;
 
     private float GetOffset()
     {
-        return ScreenDimension.GetStatsPanelArrowOffset();
+        return Card2.transform.position.x - Card1.transform.position.x;
+        //return ScreenDimension.GetStatsPanelArrowOffset();
     }
 
     public void MoveLeft()

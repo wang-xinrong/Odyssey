@@ -6,11 +6,11 @@ public class ScreenDimension : MonoBehaviour
 {
     public enum OS { Windows, MacOS }
     //public OS CurrOS;
-    private static OS currOS = OS.Windows;
+    private static OS currOS = OS.MacOS;
 
     // new stats panel arrow navigation
     private static int statsPanelArrowWindowsOffset = 1900;
-    private static int statsPanelArrowMacOSOffset = 755;
+    private static int statsPanelArrowMacOSOffset = 1017;//755;
 
     // bottom text feedback offset
     private static float bottomTextFeedbackWindowsOffset = -270;

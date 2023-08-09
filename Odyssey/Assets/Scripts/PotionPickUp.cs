@@ -29,10 +29,13 @@ public class PotionPickUp : MonoBehaviour
             return;
         }
 
+        //bool result = collector.CollectPotions(Item);
+
         if (collector.CollectPotions(Item))
         {
-            gameObject.SetActive(false);
-            //Destroy(gameObject);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
+            return;
         }
 
         Neared = false;

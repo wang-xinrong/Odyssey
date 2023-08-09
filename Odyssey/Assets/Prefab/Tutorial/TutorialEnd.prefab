@@ -2239,6 +2239,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5663875780761647474}
     m_Modifications:
+    - target: {fileID: 6104369087648617496, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6372848008189302585, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2312,19 +2316,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6372848008792821944, guid: 66abaf540007a4c249fedbab05fda053, type: 3}
   m_PrefabInstance: {fileID: 3302844151163056222}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2756977158129068950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8477718702918869222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d93f4fb2268448693a01d7e0131594, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: Town
 --- !u!61 &1662144589585014204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2351,6 +2342,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2756977158129068950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8477718702918869222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d93f4fb2268448693a01d7e0131594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: Town
+  IsTutorial: 0
 --- !u!1001 &6001627623489154422
 PrefabInstance:
   m_ObjectHideFlags: 0

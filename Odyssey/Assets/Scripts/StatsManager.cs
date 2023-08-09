@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,7 @@ public class StatsManager : MonoBehaviour
     //Boss arrays
     private Dictionary<string, int[]> BossHealth;
     private Dictionary<string, float[]> BossMS_AD_SI;
+    private Dictionary<string, int[]> BossMeleeDamage;
 
 
     // Start is called before the first frame update
@@ -128,6 +130,11 @@ public class StatsManager : MonoBehaviour
         BossMS_AD_SI = new Dictionary<string, float[]>()
         {
             {"LevelOneBoss", new float[] { 2, 0.25f, 10 } }
+        };
+
+        BossMeleeDamage = new Dictionary<string, int[]>()
+        {
+            {"LevelOneBoss", new int[] { 20 } }
         };
     }
 
@@ -328,9 +335,9 @@ public class StatsManager : MonoBehaviour
         ProjectileDifficultyFactors = new Dictionary<Difficulty, float[]>
         {
             {Difficulty.Easy, new float[3] { 1, 1, 1 } },
-            {Difficulty.Normal, new float[3] { 1.4f, 1.1f, 1.2f } },
-            {Difficulty.Hard, new float[3] { 1.7f, 1.2f, 1.4f } },
-            {Difficulty.Extreme, new float[3] { 2, 1.4f, 1.6f} },
+            {Difficulty.Normal, new float[3] { 1.3f, 1.05f, 1.1f } },
+            {Difficulty.Hard, new float[3] { 1.6f, 1.1f, 1.2f } },
+            {Difficulty.Extreme, new float[3] { 2, 1.15f, 1.3f} },
         };
 
         // damage / speed / duration for special effects
@@ -360,5 +367,11 @@ public class StatsManager : MonoBehaviour
     {
         return ProjectileDifficultyFactors[CurrentDifficulty][2] *
             ProjectileStats[nameString][2];
+    }
+
+    public int GetBossMeleeDamage(string nameString)
+    {
+        return (int) (BossMeleeDamage[nameString][0]
+            * DifficultyLevel[CurrentDifficulty][0]);
     }
 }

@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AIPath: {fileID: 3865801402687859318}
   BossStageManager: {fileID: 1984965483}
+  BossMeleeAttack: {fileID: 2099470323521185868}
 --- !u!114 &980483337505408960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +569,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MS: {fileID: 0}
   GeneralPotionSpawner: {fileID: 11400000, guid: 147dcd03c9c934176afcacaed7632407, type: 2}
-  AnyPotionSpawnRate: 1
   IsBoss: 1
 --- !u!1 &4058984160805525409
 GameObject:

@@ -166,6 +166,7 @@ public class Damageable : MonoBehaviour
             int healthLost = MaxHealth - Health;
             if (healthLost > 0)
             {
+                Debug.Log(healingAmount);
                 // not allowed to heal beyond max health
                 Health = Mathf.Min(MaxHealth, Health + healingAmount);
 
